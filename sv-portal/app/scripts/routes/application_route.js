@@ -1,7 +1,20 @@
-EmberDemo.ApplicationRoute = Ember.Route.extend({
-    // admittedly, this should be in IndexRoute and not in the
-    // top level ApplicationRoute; we're in transition... :-)
-    model: function () {
-        return ['red', 'yellow', 'blue'];
+//create a route
+App.ApplicationRoute = Ember.Route.extend({
+    model: function() {
+        return this.store.find('datasource');
+    }
+    ,
+    renderTemplate: function() {
+        this.render();
+        this.render('dsManager', {// template
+            into: 'application', // template
+            outlet: 'dsManager', // outlet name 
+        });
+    }
+});
+
+App.VisualizationRoute=Ember.Route.extend({ 
+     model: function() {
+        return this.store.find('tool');
     }
 });

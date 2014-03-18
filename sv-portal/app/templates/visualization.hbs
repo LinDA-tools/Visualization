@@ -1,0 +1,10 @@
+<div>
+    <h5>Select visualization tool</h5> 
+    <div> 
+        <ul>   
+            {{#each tool in controller}}   
+            <li> {{#link-to 'toolframe' tool.uri }} {{tool.name}} {{/link-to}} </li> 
+            {{/each}}
+        </ul>     
+    </div>
+</div>

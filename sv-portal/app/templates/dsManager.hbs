@@ -1,0 +1,36 @@
+<div class="datasource">
+      <div>
+          <h5 class="left">Data Source Manager</h5> 
+      </div>
+    <div>
+        {{#if addSource}}    
+        <h6 class="left">Add data source</h6> <a {{action 'hide'}} class="right">Hide</a>             
+            <div>
+                {{input type="text" value=name placeholder='name'}}
+            </div>    
+            <div>
+                {{input type="text" value=uri placeholder='uri'}}
+            </div> 
+            <div>
+                {{input type="text" value=graph placeholder='graph'}}
+            </div>       
+            <div>
+                <a class="right" {{action 'add'}}>Ok</a>
+            </div>                
+        {{else}}       
+        <h6 class="left">Add data source</h6> <a {{action 'show'}} class="right">Add</a>          
+        {{/if}}      
+    </div>
+
+    <div class="clear"> 
+        <h6>Select data source</h6> 
+        <ul>        
+            {{#each datasource in controller}}   
+                <li> {{input type="checkbox" checked=isChecked}} {{datasource.name}} </li> 
+            {{/each}}
+        </ul> 
+        <div>
+            <a class="right" {{action 'visualize'}}>Visualize</a>
+        </div> 
+    </div>
+</div>

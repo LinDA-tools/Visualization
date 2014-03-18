@@ -1,6 +1,10 @@
-var EmberDemo = window.EmberDemo = Ember.Application.create();
+App = Ember.Application.create({
+    //LOG_TRANSITIONS_INTERNAL: true
+});
 
-/* Order and include as you please. */
+
+
+
 require('scripts/controllers/*');
 require('scripts/store');
 require('scripts/models/*');

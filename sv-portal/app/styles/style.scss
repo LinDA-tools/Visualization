@@ -1,6 +1,32 @@
 @import "bootstrap-sass/lib/bootstrap";
 
+@import "../bower_components/foundation/scss/foundation.scss";
+
 /* Put your CSS here */
 html, body {
-    margin: 30px 0;
 }
+
+.clear{
+    clear:both;
+}
+
+.datasource{
+    ul {
+        li label {display:inline-block; vertical-align:top}
+        list-style-type: none;
+    }  
+}
+
+.custom-panel {   
+    margin-top:20px;  
+    @include panel(
+    // Sets the panel background color. Default: $panel-pg
+        $bg:#FFFFFF,
+        // Sets the panel padding amount. Default: $panel-padding
+        $padding:10px,
+        // Sets the font color based on the darkness of the bg & resets header line-heights for panels. Default: $panel-header-adjust
+        $adjust:true    
+        );             
+}
+
+

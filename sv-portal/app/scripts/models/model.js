@@ -29,6 +29,6 @@ App.Tool.FIXTURES = [
     {
         id: 1
         , name: "bar"
-        , uri: encodeURIComponent("http://bar.org/tool")
+        , uri: "http://www.heise.de"
     }
 ];

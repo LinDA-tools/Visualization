@@ -58,13 +58,26 @@ App.DatasourceController = Ember.ObjectController.extend({
     isChecked: false
 });
 
-App.VisualizationController = Ember.ArrayController.extend({
+App.ToolController = Ember.ObjectController.extend({
+    isChecked: false
 });
 
-App.ToolframeController = Ember.ObjectController.extend({
-    model: function(params) {
-        this.uri = params.uri
-        return "";
-    },
-    uri: ""
+App.VisualizationController = Ember.ArrayController.extend({
+    itemController: 'tool',
+    selected: false,
+    uri:"",
+    actions: {
+        select: function() { 
+            var c = this;
+            this.forEach(function(item) {
+                var checked = item.get('isChecked');
+                if (checked) {
+                    c.set('selected', true);
+                    c.set('uri', item.get('uri'));               
+                    console.log(item.get('uri'));
+                    return;
+                }
+            });
+        }
+    }
 });

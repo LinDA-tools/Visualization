@@ -26,11 +26,8 @@
         <h6>Select data source</h6> 
         <ul>        
             {{#each datasource in controller}}   
-                <li> {{input type="checkbox" checked=isChecked}} {{datasource.name}} </li> 
+                <li> {{#link-to 'visualization' datasource.id}} {{datasource.name}} {{/link-to}}</li> 
             {{/each}}
-        </ul> 
-        <div>
-            <a class="right" {{action 'visualize'}}>Visualize</a>
-        </div> 
+        </ul>      
     </div>
 </div>

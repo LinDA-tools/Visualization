@@ -1,7 +1,10 @@
 //create a route
 App.ApplicationRoute = Ember.Route.extend({
     model: function() {
-        return this.store.find('datasource');
+        var ds = this.store.find('datasource');
+        console.log('application route');
+        console.log(ds);
+        return ds;
     }
     ,
     renderTemplate: function() {
@@ -13,8 +16,11 @@ App.ApplicationRoute = Ember.Route.extend({
     }
 });
 
-App.VisualizationRoute=Ember.Route.extend({ 
-     model: function() {
-        return this.store.find('tool');
+App.VisualizationRoute = Ember.Route.extend({
+    model: function(params) {
+        var response = Ember.$.getJSON('http://localhost:3000/suggest/' + params.datasource_id);
+        console.log('visualization route');
+        console.log(response);
+        return response;
     }
 });

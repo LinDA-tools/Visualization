@@ -1,0 +1,21 @@
+{
+    "name": "VisBackend",
+    "description": "",
+    "version": "0.0.1",
+    "main": "./VisBackend.js",
+    "author": {
+        "name": "Klaudia Thellmann",
+        "email": "klaudia.thellmann@gmx.de"
+    },
+    "keywords": [],
+    "licenses": {
+        "type": "none"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/YOUR_LOGIN/VisBackend.git"
+    },
+    "bugs": {
+        "url": "http://github.com/YOUR_LOGIN/VisBackend/issues"
+    }
+}

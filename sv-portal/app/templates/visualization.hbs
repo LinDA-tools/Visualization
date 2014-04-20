@@ -1,5 +1,5 @@
 <div>
-    {{#if selected}} 
+    {{#if isSelected}} 
     <div> 
         <iframe {{bind-attr src=uri }} style="width:100%; height: 700px;"></iframe> 
     </div>
@@ -7,14 +7,10 @@
     <div class="datasource">
         <h5>Select visualization tool</h5> 
         <ul>             
-            {{#each tool in controller}}   
-            <li> {{input type="checkbox" checked=isChecked}} {{tool.name}} </li> 
-            {{/each}}      
-        </ul>     
-        <div>
-            <a {{action 'select'}}>Select</a>
-        </div> 
+     {{#each tool in controller}}   
+        <li>  <a {{action 'select' tool}}>{{tool.name}}</a> </li> 
+     {{/each}}      
+        </ul>          
     </div>
     {{/if}}
 </div>
-

@@ -2,6 +2,7 @@
 App.ApplicationController = Ember.ArrayController.extend({
     itemController: 'datasource',
     addSource: false,
+    selectedSource: null,
     actions: {
         show: function() {
             this.set('addSource', true);
@@ -25,23 +26,45 @@ App.ApplicationController = Ember.ArrayController.extend({
             this.set('graph', '');
 
             datasource.save();
+        },
+        select: function(ds) {
+            console.log("SELECTFUNCT");
+            console.dir(ds);
+            this.set('selectedSource', ds);
+            this.transitionToRoute('visualization', ds.id);
         }
     }
 });
 
 App.DatasourceController = Ember.ObjectController.extend({
-    isChecked: false
 });
 
 
 App.VisualizationController = Ember.ArrayController.extend({
     isSelected: false,
-    uri:"",
+    uri: "",
+    needs: "application",
+    applicationController: Ember.computed.alias("controllers.application"),
     actions: {
-        select: function(tool) { 
-         this.set('isSelected', true);
-         //TODO placeholder = graph from ds 
-         this.set('uri', tool.tooluri);               
+        select: function(tool) {
+            console.log("SELECT");
+            this.set('isSelected', true);
+            var applicationController = this.get('applicationController');
+            var ds = applicationController.get('selectedSource');
+            console.dir(ds);
+            console.dir(tool);
+
+            console.log("vis controller ds: " + ds.id + " tool id: " + tool._id);
+
+            var c = this;
+            Ember.$.getJSON('http://localhost:3000/bind/' + ds.id + "/" + tool._id).then(function(uri, err) {
+                console.log("BIND")
+
+                c.set('uri', uri.uri);
+            });
+
+
+
         }
     }
 });

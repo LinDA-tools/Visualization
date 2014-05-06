@@ -1,11 +1,11 @@
 <div>
     {{#if isSelected}} 
     <div> 
-        <iframe {{bind-attr src=uri }} style="width:100%; height: 700px;"></iframe> 
+        <iframe {{bind-attr src=uri }} class="toolframe"></iframe> 
     </div>
     {{else}}  
     <div class="datasource">
-        <h5>Select visualization tool</h5> 
+        <h6>Select visualization tool</h6> 
         <ul>             
      {{#each tool in controller}}   
         <li>  <a {{action 'select' tool}}>{{tool.name}}</a> </li> 

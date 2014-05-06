@@ -21,7 +21,7 @@ html, body {
     margin-top:20px;  
     @include panel(
     // Sets the panel background color. Default: $panel-pg
-        $bg:#FFFFFF,
+    $bg:#FFFFFF,
         // Sets the panel padding amount. Default: $panel-padding
         $padding:10px,
         // Sets the font color based on the darkness of the bg & resets header line-heights for panels. Default: $panel-header-adjust
@@ -29,4 +29,56 @@ html, body {
         );             
 }
 
+.logo {   
+    height: 40px;
+    padding-left: 5px;
+}
 
+
+.sidebar {
+    background-color: #FAFAFA;
+    padding: 6px;
+}
+
+.stage {
+    padding: 6px;
+}
+
+@media only screen { .columns {
+    padding-left: 0;
+    padding-right: $column-gutter;
+}}
+
+.row {
+    margin: 0px;
+    width: 100%;
+    max-width: none;
+}
+
+// div after a div inside a .row
+.row div + div { 
+    padding-left: 20px;
+}
+
+.heading {
+    font-weight: bold;
+}
+
+h6 {
+    font-weight: bold;
+     font-size: 10pt;
+}
+
+.toolframe {
+    width: 100%; 
+    height: 800px;
+    border: white 1px;
+    overflow: visible;
+}
+.title{
+     font-weight: bold;
+     color: white;
+     padding-top: 10px;
+     padding-left:5px;
+     font-size: 10pt;
+}

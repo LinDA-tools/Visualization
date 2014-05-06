@@ -5,8 +5,7 @@ App.ApplicationRoute = Ember.Route.extend({
         console.log('application route');
         console.log(ds);
         return ds;
-    }
-    ,
+    },
     renderTemplate: function() {
         this.render();
         this.render('dsManager', {// template
@@ -18,9 +17,14 @@ App.ApplicationRoute = Ember.Route.extend({
 
 App.VisualizationRoute = Ember.Route.extend({
     model: function(params) {
-        var response = Ember.$.getJSON('http://localhost:3000/suggest/' + params.datasource_id);
+        var tools = Ember.$.getJSON('http://localhost:3000/suggest/' + params.datasource_id);
         console.log('visualization route');
-        console.log(response);
-        return response;
+        console.log(tools);
+        return tools;
+    },
+    setupController: function(controller, model) {
+        controller.set('model', model);
+        controller.set('isSelected', false);
+        controller.set('uri', '');
     }
 });

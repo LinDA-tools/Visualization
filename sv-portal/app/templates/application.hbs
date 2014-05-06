@@ -1,10 +1,8 @@
 <div class="container">    
     <div id="header">  
-        <nav class="top-bar" data-topbar  > 
-            <ul class="title-area" >
-                <li>
-                   
-                </li>
+        <nav class="top-bar" data-topbar>  
+            <ul class="title-area">
+                <li class="title">  LinDA Project </li>
             </ul>
             <section class="top-bar-section">
                 <ul class="right">                    
@@ -16,11 +14,11 @@
         </nav>
     </div> 
 
-    <div class="row" style="max-width:100%">
-        <div class="large-3 columns custom-panel">
+    <div class="row left-collapse">
+        <div class="large-3 medium-4 columns">
             {{outlet dsManager}}  
         </div>    
-        <div id="stage" class="large-9 columns custom-panel">
+        <div class="stage large-9 medium-8 columns">
             {{outlet}}
         </div>  
     </div>       

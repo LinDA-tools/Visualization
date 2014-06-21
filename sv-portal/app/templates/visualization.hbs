@@ -1,16 +1,27 @@
-<div>
-    {{#if isSelected}} 
-    <div> 
-        <iframe {{bind-attr src=uri }} class="toolframe"></iframe> 
-    </div>
-    {{else}}  
-    <div class="datasource">
-        <h6>Select visualization tool</h6> 
-        <ul>             
-     {{#each tool in controller}}   
-        <li>  <a {{action 'select' tool}}>{{tool.name}}</a> </li> 
-     {{/each}}      
-        </ul>          
-    </div>
-    {{/if}}
-</div>
+<dl>
+    <dd class="datasource">
+        <h6>Select visualization</h6>
+        <ul>
+                {{#each tool in controller}}
+                <li>
+                    <a {{action 'configure' tool}}>
+                        {{tool.name}}
+                </a>
+            </li>
+            {{/each}}
+        </ul>
+    </dd>
+
+    <dd>
+        <h6>Configure visualization</h6>
+        <div>
+            {{view App.ContainerView elementId="optionsView"}}
+            {{#if isSelected}}
+                <a {{action 'draw'}}>draw</a>
+            {{/if}}
+        </div>
+    </dd>
+</dl>
+    
+<div id="visualization" style="width: 600px; height: 400px;"></div>
+

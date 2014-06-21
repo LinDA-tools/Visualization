@@ -1,26 +1,31 @@
 <!doctype html>
 <html>
-<head>
+    <head>
         <meta charset="utf-8">
         <title>Visualisation Prototype</title>
-        
+
         <link rel="stylesheet" href="styles/style.css">
-       
+        
+        <!-- leaflet -->
+        <link rel="stylesheet" href="bower_components/leaflet/dist/leaflet.css">      
+        <script src="bower_components/leaflet/dist/leaflet.js"></script>    
+
+    
         <script src="bower_components/foundation/js/foundation.js"></script>           
         <script src="bower_components/foundation/js/vendor/modernizr.js"></script>
-        
+
         <script src="bower_components/jquery/jquery.js"></script>  
         <script src="bower_components/handlebars/handlebars.js"></script>
         <!--<script src="bower_components/vendor/localstorage_adapter.js"></script> -->
-        
-        <script src="@@ember"></script>
+
+        <script src="@@ember" ></script>
         <script src="@@ember_data"></script>
 
         <script src="scripts/compiled-templates.js"></script> <!-- .hbs files -->
         <script src="scripts/combined-scripts.js"></script> <!-- app.js -->
-        
+
         <!-- <script src="scripts/app.js"></script> <!-- app.js -->
-        
+
         <!-- 
         <script src="bower_components/bootstrap-sass/js/affix.js"></script>
         <script src="bower_components/bootstrap-sass/js/alert.js"></script>
@@ -34,9 +39,18 @@
         <script src="bower_components/bootstrap-sass/js/scrollspy.js"></script>
         <script src="bower_components/bootstrap-sass/js/collapse.js"></script>
         <script src="bower_components/bootstrap-sass/js/tab.js"></script>
-        -->           
+        -->       
         
-</head>
-<body>            
-</body>
+    <script src="library/maps/map.js"></script>
+        
+    <script type="text/javascript" src="//www.google.com/jsapi"></script>
+    <script src="library/charts/barchart.js"></script>
+    <script src="library/charts/columnchart.js"></script>
+    
+    
+    <script src="bower_components/jquery-csv/src/jquery.csv.js"></script>
+
+    </head>
+    <body>            
+    </body>
 </html>

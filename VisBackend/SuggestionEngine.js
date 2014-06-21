@@ -4,7 +4,48 @@ var endpoint = 'http://localhost:8890/sparql';
 var client = new GraphStoreClient(endpoint, null);
 var Q = require('q'); // promis library for the graph-store-client SPARQL client
 
-function suggest(dsUri, vocUri) {
+
+function suggest(datasource_id) {
+
+    var query = modules.DatasourceModel.findById(datasource_id);
+
+    return query.exec().then(function(datasource, err) {
+        if (err) {
+            console.log('SE: Could not retrieve datasource:' + err);
+            return;
+        }
+
+        console.log('SE: Retrieved datasource: ');
+        console.dir(datasource);
+
+        if (datasource.format !== 'rdf') {
+            // Get CSV based visualizations
+            return getCSVVisualizations().then(function(visualizations, err) {
+                if (err) {
+                    console.log('SE: Could not retrieve visualizations: ' + err);
+                    return;
+                }
+               return visualizations;
+            });
+            
+        } else { // RDF
+            console.log('SE: RDF-based visualization');
+            console.log('SE: Retrieved Void from datasource');
+            console.dir(datasource.lodstats);
+
+            return getVocabularies().then(function(vocabularies, err) {
+                if (err) {
+                    console.log('SE: Could not retrieve vocabulary graphs: ' + err);
+                    return;
+                }
+               return suggestRDF(datasource.lodstats, vocabularies);
+            });
+
+        }
+    });
+}
+
+function suggestRDF(dsUri, vocUri) {
     console.log("suggest " + dsUri);
     return getPropertiesAndClasses(dsUri, vocUri).then(function(results, err) {
         if (err) {
@@ -15,7 +56,7 @@ function suggest(dsUri, vocUri) {
 
         console.log('matching');
         var matching = match(dsList.list, results);
-        console.dir(matching);        
+        console.dir(matching);
 
         console.log('category');
         return getCategories(matching);
@@ -30,20 +71,19 @@ function suggest(dsUri, vocUri) {
         return getTools(categories);
     }).then(function(tools, err) {
         if (err) {
-            console.log('SE: Could not retrieve tools: ' + err);
+            console.log('SE: Could not retrieve visualizations: ' + err);
             return;
         }
         console.dir(tools);
         return tools;
     });
-    return suggestions;
 }
 
 function match(dsList, vocLists) {
     var matching = {};
     console.log('MATCHING');
-console.dir(dsList);
-console.dir(vocLists);
+    console.dir(dsList);
+    console.dir(vocLists);
     for (var g in vocLists) {
         var match = 0;
         var rmap = vocLists[g];
@@ -52,7 +92,7 @@ console.dir(vocLists);
             for (var v in vocList) {
                 if (dsList[d] === vocList[v]) {
                     console.dir(dsList[d])
-                    
+
                     match = match + 1;
                 }
             }
@@ -68,6 +108,14 @@ function rank(matching) {
         return matching[b] - matching[a]
     });
     return {matching: matching, ranking: ranking};
+}
+
+function getVocabularies() {
+    // graph uri of each vocabulary
+    var query = modules.VocabularyModel.find();
+    query.select('graph');
+
+    return query.exec();
 }
 
 function getCategories(matching) {
@@ -115,6 +163,10 @@ function getTools(category) {
     });
 
     return tools;
+}
+
+function getCSVVisualizations() {
+    return modules.CSVVisualizationModel.find({}).exec();
 }
 
 function getPropertiesAndClasses(dsUri, vocUri) {

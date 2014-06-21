@@ -1,6 +1,6 @@
 {
-  "name": "ember-demo",
-  "version": "0.0.0",
+  "name": "linda-visualization",
+  "version": "0.0.1",
   "dependencies": {},
   "devDependencies": {
     "grunt": "~0.4.1",

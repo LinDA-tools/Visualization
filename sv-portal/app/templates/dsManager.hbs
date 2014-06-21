@@ -1,34 +1,11 @@
 <div class="datasource sidebar">
-    <h6>Manage Data Sources</h6> 
+    <h6>Datasources</h6> 
     <nav>
         <ul class='side-nav'>
-            <li class="divider"></li>  
-            <li class="heading"> Select data source </li>  
+            <li class="divider"></li>   
             {{#each datasource in controller}}   
             <li>  <a {{action 'select' datasource}}>{{datasource.name}}</a></li> 
-            {{/each}}
-            <li class="divider"></li>  
-
-            <li class="heading"> Add data source 
-                {{#if addSource}}    
-                <a {{action 'hide'}} class="right">Hide</a>
-                {{else}}       
-                <a {{action 'show'}} class="right">Add</a>
-                {{/if}}  
-            </li> 
-            <li>
-                {{#if addSource}}    
-                {{input type="text" value=name placeholder='name'}}
-                {{input type="text" value=uri placeholder='uri'}}
-                {{input type="text" value=graph placeholder='graph'}}
-                <div class="right">
-                    <ul class="list-inline">
-                        <li><a class="left" {{action 'add'}}>Ok</a></li>
-                    </ul>
-
-                </div>
-                {{/if}}
-            </li>
+            {{/each}}                   
         </ul>
     </nav>
 </div>

@@ -1,0 +1,8 @@
+
+{{view Ember.Select viewName="multiselect"
+                    multiple ="true"
+                    content=controller.dimensions
+                    optionLabelPath="content.name"
+                    optionValuePath="content.id"
+                    prompt=view.name
+                    selection=view.content}}

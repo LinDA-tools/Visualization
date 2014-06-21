@@ -1,7 +1,6 @@
 // MONGOOSE with  express-restify-mongoose
 var http = require('http');
 var se = require('./SuggestionEngine');
-var lodstats = require('./Lodstats');
 var modules = require('./Modules');
 var express = require('express');
 var restify = require('express-restify-mongoose')
@@ -15,49 +14,25 @@ var allowCrossDomain = function(req, res, next) {
     next();
 }
 
-var dsm = modules.DatasourceModel;
-var app = express();
+var app = express(); // Web Server
 
 app.configure(function() {
     app.use(express.bodyParser());
     app.use(express.methodOverride());
     app.use(allowCrossDomain);
-    restify.serve(app, dsm, {prefix: '', version: '', plural: true, lowercase: true});
+    // Ein Verzeichnis auf dem Server zugänglich machen.
+    app.use('/library', express.static(__dirname+'/library')); 
+    restify.serve(app, modules.DatasourceModel, {prefix: '', version: '', plural: true, lowercase: true});
 });
 
 app.get('/suggest/:datasource_id', function(req, res) {
     console.log('/suggest/:datasource_id: ');
     console.dir(req.param("datasource_id"));
     var datasource_id = req.param("datasource_id");
-   
-    var query = dsm.findById(datasource_id);
-    query.select('lodstats');
-    query.exec().then(function(datasource, err) {
+     
+    se.suggest(datasource_id).then(function(tools, err) {
         if (err) {
-            console.log('VisBackend: Could not retrieve ds graph and endpoint uri:' + err);
-            return;
-        }
-
-        console.log('VisBackend: DS:');
-        var lodstatsUri = datasource.lodstats;
-        console.dir(datasource);
-        console.dir(datasource["lodstats"]);
-        
-
-        // graph uri of each vocabulary
-        var query = modules.VocabularyModel.find();
-        query.select('graph');
-        return query.exec().then(function(vocabulary, err) {
-            if (err) {
-                console.log('VisBackend: could not retrieve vocabulary graphs: ' + err);
-                return;
-            }
-            // suggest vis. tools for data source
-            return se.suggest(lodstatsUri, vocabulary);
-        });
-    }).then(function(tools, err) {
-        if (err) {
-            console.log('SE: Could not retrieve classes and properties from data source or vocabularies: ' + err);
+            console.log('VisBackend: Could not retrieve visualizations: ' + err);
             return;
         }
         res.send(tools);

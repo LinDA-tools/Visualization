@@ -1,0 +1,8 @@
+<!--<span>{{view.name}}</span> {{input type="text" value=view.content placeholder='title'}}-->
+
+{{view Ember.Select viewName="select"
+                    content=controller.dimensions
+                    optionLabelPath="content.name"
+                    optionValuePath="content.id"
+                    prompt=view.name
+                    selection=view.content}}

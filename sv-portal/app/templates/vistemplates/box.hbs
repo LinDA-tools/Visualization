@@ -1,0 +1,13 @@
+<!--<span>{{view.name}}</span> {{input type="text" value=view.content placeholder='title'}}-->
+
+<div>
+    <div class="boxTitle">
+        {{view.label}}
+    </div>
+
+    <div class="boxContent">
+        {{#each childView in view.childrenViews}}
+            {{view childView}}
+        {{/each}}
+    </div>
+</div>

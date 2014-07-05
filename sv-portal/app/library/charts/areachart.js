@@ -1,6 +1,6 @@
 google.load('visualization', '1', {packages: ['corechart']});
 
-var columnchart = function() { 
+var areachart = function() { 
 
     var structureOptions = [
         {name: 'xAxis', template: 'dimension'},
@@ -20,7 +20,7 @@ var columnchart = function() {
     function initialize(input,divId) {
         // Create and populate the data table.
         data = google.visualization.arrayToDataTable(input);
-        chart = new google.visualization.ColumnChart(document.getElementById(divId));
+        chart = new google.visualization.AreaChart(document.getElementById(divId));
     }
 
     function draw(config) {
@@ -44,7 +44,7 @@ var columnchart = function() {
         chart.draw(data,
                 {title: config["title"],
                     width: 600, height: 400,
-                    vAxis: {title: config["vAxisTitle"]},
+                    vAxis: {title: config["vAxisTitle"], minValue: 0},
                     hAxis: {title: config["hAxisTitle"]}}
         );
     }

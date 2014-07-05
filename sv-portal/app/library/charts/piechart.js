@@ -1,6 +1,6 @@
 google.load('visualization', '1', {packages: ['corechart']});
 
-var columnchart = function() { 
+var piechart = function() { 
 
     var structureOptions = [
         {name: 'xAxis', template: 'dimension'},
@@ -20,20 +20,13 @@ var columnchart = function() {
     function initialize(input,divId) {
         // Create and populate the data table.
         data = google.visualization.arrayToDataTable(input);
-        chart = new google.visualization.ColumnChart(document.getElementById(divId));
+        chart = new google.visualization.PieChart(document.getElementById(divId));
     }
 
     function draw(config) {
-        // Create and draw the skeleton of the visualization.
-        var view = new google.visualization.DataView(data);
-        var columns = [config.xAxis.id];
-        var yAxes = config.yAxis;
-        for (var i = 0; i < yAxes.length; i++) {
-            columns.push(yAxes[i].id);
-        }
-        view.setColumns(columns);
+        
 
-        chart.draw(view,
+        chart.draw(data,
                 {title: config["title"],
                     width: 600, height: 400}
         );

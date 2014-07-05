@@ -1,6 +1,6 @@
 google.load('visualization', '1', {packages: ['corechart']});
 
-var columnchart = function() { 
+var scatterchart = function() { 
 
     var structureOptions = [
         {name: 'xAxis', template: 'dimension'},
@@ -20,7 +20,7 @@ var columnchart = function() {
     function initialize(input,divId) {
         // Create and populate the data table.
         data = google.visualization.arrayToDataTable(input);
-        chart = new google.visualization.ColumnChart(document.getElementById(divId));
+        chart = new google.visualization.ScatterChart(document.getElementById(divId));
     }
 
     function draw(config) {

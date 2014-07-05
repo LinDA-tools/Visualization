@@ -1,9 +1,16 @@
+$form-spacing: 0.5rem; // to reduce input field height _forms.scss
+$fieldset-padding:  0.5rem; // see _forms.scss
+$list-side-margin: 0.5rem; // Remove margin from list _types.scss
+$list-nested-margin: 0.2rem;
+$column-gutter: 0.5rem; // Für Spaltenlayout
+
 @import "bootstrap-sass/lib/bootstrap";
 
 @import "../bower_components/foundation/scss/foundation.scss";
 
 /* Put your CSS here */
 html, body {
+    background-color: #ffffff;
 }
 
 .clear{
@@ -17,6 +24,11 @@ html, body {
     }  
 }
 
+.list {
+    li {display:inline-block; vertical-align:top}
+    list-style-type: none;
+} 
+
 .custom-panel {   
     margin-top:20px;  
     @include panel(
@@ -27,6 +39,25 @@ html, body {
         // Sets the font color based on the darkness of the bg & resets header line-heights for panels. Default: $panel-header-adjust
         $adjust:true    
         );             
+}
+
+.boxTitle {
+    font-size: 10pt;
+    background-color: #ffffff;
+}
+
+.boxContent {
+    font-size: 10pt;
+    background-color: #ffffff;
+}
+
+.optionContainer {
+    font-size: 10pt;
+    background-color: #ffffff;
+}
+
+.textfield{
+    height: 1px;
 }
 
 .logo {   
@@ -41,13 +72,16 @@ html, body {
 }
 
 .stage {
+    background-color: #FAFAFA;
     padding: 6px;
 }
 
-@media only screen { .columns {
-    padding-left: 0;
-    padding-right: $column-gutter;
-}}
+@media only screen { 
+    .columns {
+        padding-left: 0;
+        padding-right: $column-gutter;
+    }
+}
 
 .row {
     margin: 0px;
@@ -57,7 +91,7 @@ html, body {
 
 // div after a div inside a .row
 .row div + div { 
-    padding-left: 20px;
+    padding-left: 0.2em;
 }
 
 .heading {
@@ -66,7 +100,7 @@ html, body {
 
 h6 {
     font-weight: bold;
-     font-size: 10pt;
+    font-size: 10pt;
 }
 
 .toolframe {
@@ -76,14 +110,21 @@ h6 {
     overflow: visible;
 }
 .title{
-     font-weight: bold;
-     color: white;
-     padding-top: 10px;
-     padding-left:5px;
-     font-size: 10pt;
+    font-weight: bold;
+    color: white;
+    padding-top: 10px;
+    padding-left:5px;
+    font-size: 10pt;
 }
 
 .toolthumbnail {
     width:120px;
     margin: 10px;
+}
+
+
+.tuning{
+    ul {
+        list-style-type: none;
+    }
 }

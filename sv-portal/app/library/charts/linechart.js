@@ -1,6 +1,6 @@
 google.load('visualization', '1', {packages: ['corechart']});
 
-var columnchart = function() { 
+var linechart = function() {
 
     var structureOptions = [
         {name: 'xAxis', template: 'dimension'},
@@ -20,7 +20,7 @@ var columnchart = function() {
     function initialize(input,divId) {
         // Create and populate the data table.
         data = google.visualization.arrayToDataTable(input);
-        chart = new google.visualization.ColumnChart(document.getElementById(divId));
+        chart = new google.visualization.LineChart(document.getElementById(divId));
     }
 
     function draw(config) {
@@ -33,10 +33,10 @@ var columnchart = function() {
         }
         view.setColumns(columns);
 
-        chart.draw(view,
-                {title: config["title"],
-                    width: 600, height: 400}
-        );
+        draw(data, {curveType: "function",
+                  width: 500, height: 400,
+                  vAxis: {maxValue: 10}}
+          );
     }
 
     function tune(config) {

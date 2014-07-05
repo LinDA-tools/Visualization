@@ -1,23 +1,34 @@
 google.load('visualization', '1', {packages: ['corechart']});
 
-var barchart = function() { // barchart module (js module pattern)
+var barchart = function() {
 
-    var structureOptions = [
-        {name: 'xAxis', template: 'dimension'},
-        {name: 'yAxis', template: 'multidimension'},
-        {name: 'title', template: 'textField'}
-    ];
+    var structureOptions = {
+        xAxis: {label: "X Axis", template: 'dimension'},
+        yAxis: {label: "Y Axes", template: 'multidimension'}
+    };
 
-    var tuningOptions = [
-        {name: 'title', template: 'textField'},
-        {name: 'vAxisTitle', template: 'textField'},
-        {name: 'hAxisTitle', template: 'textField'}
-    ];
+    var tuningOptions = {
+        title: {label: "Title", template: 'textField'},
+        vAxis: {label: "Vertical axis", template: 'box', options: {
+                title: {label: "Label", template: 'textField'},
+                gridLineNumber: {label: "Grid lines Number", template: 'textField'},
+                gridLineColor: {label: "Grid lines Color", template: 'textField'}
+            },
+        },
+        hAxis: {label: "Horizontal axis", template: 'box', options: {
+                title: {label: "Label", template: 'textField'},
+                gridLineNumber: {label: "Grid lines Number", template: 'textField'},
+                gridLineColor: {label: "Grid lines Color", template: 'textField'}
+            }
+        },
+        style: {label: "Style", template: 'textField', values: ['normal', 'stacked']}
+
+    };
 
     var chart = null;
     var data = null;
 
-    function initialize(input,divId) {
+    function initialize(input, divId) {
         // Create and populate the data table.
         data = google.visualization.arrayToDataTable(input);
         chart = new google.visualization.BarChart(document.getElementById(divId));
@@ -34,7 +45,7 @@ var barchart = function() { // barchart module (js module pattern)
         view.setColumns(columns);
 
         chart.draw(view,
-                {title: config["title"],
+                {title: config.title,
                     width: 600, height: 400}
         );
     }
@@ -42,10 +53,12 @@ var barchart = function() { // barchart module (js module pattern)
     function tune(config) {
         // Tune the visualization.
         chart.draw(data,
-                {title: config["title"],
+                {title: config.title,
                     width: 600, height: 400,
-                    vAxis: {title: config["vAxisTitle"]},
-                    hAxis: {title: config["hAxisTitle"]}}
+                    vAxis: {title: config.vAxis.title},
+                    hAxis: {title: config.hAxis.title},
+                    isStacked: (config.style === 'stacked') ? true : false,
+                }
         );
     }
 

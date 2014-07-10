@@ -1,0 +1,14 @@
+
+
+{{#each column in view.parent.parent.childrenConfig.yAxis}}
+<ul class="list" style="font-size: 9pt; list-style-type: none; padding-bottom: 10px; ">
+    <li style="width:40%;">{{column.name}}</li>
+    <li style="width:30%; ">            
+        {{view App.ColorPicker 
+                    placeholder="Color" 
+                    name="color"                   
+        }}
+    </li>
+</ul>
+{{/each}}
+

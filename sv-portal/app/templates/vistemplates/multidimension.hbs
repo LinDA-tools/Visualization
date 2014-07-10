@@ -1,7 +1,12 @@
-{{view Ember.Select viewName="multiselect"
-                    multiple ="true"
-                    content=controller.dimensions
-                    optionLabelPath="content.name"
-                    optionValuePath="content.id"
-                    prompt=view.label
-                    selection=view.content}}
+<ul class="list" style="font-size: 9pt; list-style-type: none;">
+    <li style="width:30%; font-size:10pt; font-weight:bold;">{{view.label}}</li>
+    <li style="width:70%">
+        {{view App.Select viewName="multiselect"
+            size=controller.dimensions.length
+            multiple ="true"
+            content=controller.dimensions
+            optionLabelPath="content.name"
+            optionValuePath="content.id"
+            selection=view.content}}
+    </li>
+</ul>

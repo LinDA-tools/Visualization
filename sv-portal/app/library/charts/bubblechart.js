@@ -3,46 +3,24 @@ google.load('visualization', '1', {packages: ['corechart']});
 var bubblechart = function() { // bubble chart module (js module pattern)
 
     var structureOptions = {
+        label: {label: "Label", template: 'dimension'},
         xAxis: {label: "X Axis", template: 'dimension'},
-        vAxis: {label: "Vertical axis", template: 'box',
-            options: {
-                title: {label: "Title", template: 'textField'},
-                gridLines: {label: "Grid lines", template: 'box',
-                    options: {
-                        number: {label: "Number", template: 'intSlider'},
-                        color: {label: "Color", template: 'color'}
-                    }
-                }
-            }
-        },
         yAxis: {label: "Y Axis", template: 'dimension'},
+        color: {label: "Gradient/category", template: 'dimension'},
         radius: {label: "Radius", template: 'dimension'}
     };
 
     var tuningOptions = {
         title: {label: "Chart title", template: 'textField'},
-        vAxis: {label: "Vertical axis", template: 'box',
+        axes: {label: "Axes", template: 'box',
             options: {
-                title: {label: "Title", template: 'textField'},
-                gridLines: {label: "Grid lines", template: 'box',
-                    options: {
-                        number: {label: "Number", template: 'intSlider'},
-                        color: {label: "Color", template: 'color'}
-                    }
-                }
+                vLabel: {label: "Title (V)", template: 'textField'},
+                hLabel: {label: "Title (H)", template: 'textField'},
+                vGrid: {label: "Grid (V)", template: 'textField'},
+                hGrid: {label: "Grid (H)", template: 'textField'}
+                /*, color: {label: "Color", template: 'textField'}*/
             }
-        },
-        hAxis: {label: "Horizontal axis", template: 'box',
-            options: {
-                title: {label: "Title", template: 'textField'},
-                gridLines: {label: "Grid lines", template: 'box',
-                    options: {
-                        number: {label: "Number", template: 'intSlider'},
-                        color: {label: "Color", template: 'color'}
-                    }
-                }
-            }
-        },
+        }
     };
 
     var chart = null;
@@ -58,7 +36,7 @@ var bubblechart = function() { // bubble chart module (js module pattern)
     function draw(config) {
         // Create and draw the skeleton of the visualization.
         var view = new google.visualization.DataView(data);
-        var columns = [config.xAxis.id, config.yAxis.id, config.radius.id];
+        var columns = [config.label.id, config.xAxis.id, config.yAxis.id, config.color.id, config.radius.id];
         view.setColumns(columns);
 
         chart.draw(view,
@@ -72,8 +50,16 @@ var bubblechart = function() { // bubble chart module (js module pattern)
         chart.draw(data,
                 {title: config["title"],
                     width: 600, height: 400,
-                    vAxis: {title: config.vAxis.title},
-                    hAxis: {title: config.hAxis.title},
+                    vAxis: {title: config.axes.vLabel, 
+                        gridlines: {
+                            count: config.axes.vGrid
+                        }
+                    },
+                    hAxis: {title: config.axes.hLabel,
+                        gridlines: {
+                            count: config.axes.hGrid
+                        }
+                    },
                     bubble: {textStyle: {fontSize: 11}}
                 }
 

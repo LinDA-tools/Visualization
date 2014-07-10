@@ -9,20 +9,25 @@ var barchart = function() {
 
     var tuningOptions = {
         title: {label: "Title", template: 'textField'},
-        vAxis: {label: "Vertical axis", template: 'box', options: {
-                title: {label: "Label", template: 'textField'},
-                gridLineNumber: {label: "Grid lines Number", template: 'textField'},
-                gridLineColor: {label: "Grid lines Color", template: 'textField'}
-            },
+        
+        style: {label: "Style", template: 'selectField', 
+            values: [{label: "Normal", id: "normal"}, {label: "Stacked", id: "stacked"}]
         },
-        hAxis: {label: "Horizontal axis", template: 'box', options: {
-                title: {label: "Label", template: 'textField'},
-                gridLineNumber: {label: "Grid lines Number", template: 'textField'},
-                gridLineColor: {label: "Grid lines Color", template: 'textField'}
-            }
-        },
-        style: {label: "Style", template: 'textField', values: ['normal', 'stacked']}
 
+        axis: {label: "Axes", template: 'box', options: {
+                vLabel: {label: "Label (V)", template: 'textField'},
+                hLabel: {label: "Label (H)", template: 'textField'},
+                grid: {label: "Grid", template: 'textField'},
+                scale: {label: "Scale", template: 'selectField', 
+                    values: [{label: "Linear", id: "linear"}, {label: "Logarithmic", id: "logarithmic"}],
+                    defaults:{id:"linear"}
+                }
+            }
+        }, 
+        color: {label: "Horizontal axes colors", template: 'box', options: {
+                yAxisColors: {template: 'multiAxisColors', axis: 'yAxis'} // TODO
+            }
+        }
     };
 
     var chart = null;
@@ -55,9 +60,14 @@ var barchart = function() {
         chart.draw(data,
                 {title: config.title,
                     width: 600, height: 400,
-                    vAxis: {title: config.vAxis.title},
-                    hAxis: {title: config.hAxis.title},
-                    isStacked: (config.style === 'stacked') ? true : false,
+                    vAxis: {title: config.axis.vLabel},
+                    hAxis: {title: config.axis.hLabel,
+                        logScale: (config.axis.scale.id === 'logarithmic') ? true : false,
+                        gridlines: {
+                            count: config.axis.grid
+                        }
+                    },
+                    isStacked: (config.style.id === 'stacked') ? true : false,
                 }
         );
     }

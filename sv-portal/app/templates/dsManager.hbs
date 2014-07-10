@@ -1,8 +1,8 @@
 <div class="datasource sidebar">
-    <h6>Datasources</h6> 
+    <h6 class="workflowStepTitle">Select Dataset</h6> 
     <nav>
         <ul class='side-nav'>
-            <li class="divider"></li>   
+            <!--<li class="divider"></li> -->
             {{#each datasource in controller}}   
             <li>  <a {{action 'select' datasource}}>{{datasource.name}}</a></li> 
             {{/each}}                   

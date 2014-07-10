@@ -1,12 +1,12 @@
 <dl>
-    <dd class="datasource">
-        <h6>Select visualization</h6>                   
+    <dd class="datasource" id="wf-select-vis">
+        <h6 class="workflowStepTitle">Select visualization</h6>                   
         <ul>                       
             <li> 
                 <ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-3"> 
                     {{#each tool in controller}} 
                     <li> <a {{action 'configure' tool}}> {{tool.name}} </a>
-                        <img {{bind-attr src="tool.thumbnail"}} />
+                        <img {{bind-attr src="tool.thumbnail"}} " />
                     </li>
                     {{/each}}  
                 </ul>
@@ -14,34 +14,46 @@
         </ul>
     </dd>
 
-    <dd>
-        <h6>Configure visualization</h6>
+    <dd {{bind-attr class="initialize:showElement:hideElement"}} id="wf-init-vis">
+        <h6 class="workflowStepTitle">Initialize visualization</h6>   
         <div>
             {{view App.ContainerView classNames="small-block-grid-2 medium-block-grid-3 large-block-grid-4" tagName="ul" elementId="structureOptionsView"}}
-        </div>
-        {{#if isSelected}}
+        </div>       
         <a {{action 'draw'}}>draw</a>
-        {{/if}}
     </dd>
 
-    <dd>
-        <h6>Customize visualization</h6>
+    <dd  {{bind-attr class="customize:showElement:hideElement"}} id="wf-customize-vis">      
+        <h6 class="workflowStepTitle">Customize visualization</h6>
         <div  class="row">
             <div class="large-3 medium-4 columns tuning">
                 {{view App.ContainerView classNames="optionContainer" tagName="ul" elementId="tuningOptionsView"}}
             </div>
             <div class="large-9 medium-8 columns">
-                <div id="visualization" style="width: 600px; height: 400px;"></div>
+                <div id="visualization" style="width: 600px; height: 400px;margin-left: auto; margin-right: auto;"></div>
             </div>
         </div>
     </dd>
 
-    <dd>
-        <h6>Export or publish visualization</h6>
-        <div>
-            <a href="#">Export</a>
+    <dd {{bind-attr class="customize:showElement:hideElement"}} id="wf-export-vis">
+        <h6 class="workflowStepTitle">Export or publish visualization</h6>
+        <div  class="row">
+            <div class="large-3 medium-4 columns export">
+                {{view App.Select viewName="selectFormat"
+                                   content=controller.formats   
+                                   prompt="Select format"
+                                   classNames="export"
+                                   selection=controller.selectedFormat}}
+            </div>
+            <div class="large-9 medium-8 columns">
+                <div>               
+                      {{view Ember.TextArea value=controller.exportedCode rows="5" cols="50"}}
+                </div>
+                <span style="font-style: italic">Copy this code into your web site to embed the visualization</span>
+            </div>
         </div>
+         <a {{action 'export'}}>export</a>
     </dd>
+
 </dl>
 
 

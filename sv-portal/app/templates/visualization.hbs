@@ -16,8 +16,8 @@
 
     <dd {{bind-attr class="initialize:showElement:hideElement"}} id="wf-init-vis">
         <h6 class="workflowStepTitle">Initialize visualization</h6>   
-        <div>
-            {{view App.ContainerView classNames="small-block-grid-2 medium-block-grid-3 large-block-grid-4" tagName="ul" elementId="structureOptionsView"}}
+        <div style="background-color: #ffffff">
+            {{view App.ContainerView classNames="list" tagName="ul" elementId="structureOptionsView"}}
         </div>       
         <a {{action 'draw'}}>draw</a>
     </dd>

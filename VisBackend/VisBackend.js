@@ -1,6 +1,7 @@
 // MONGOOSE with  express-restify-mongoose
 var http = require('http');
 var se = require('./SuggestionEngine');
+var qm = require('./SPARQL_Query_Module');
 var modules = require('./Modules');
 var express = require('express');
 var restify = require('express-restify-mongoose')
@@ -37,6 +38,23 @@ app.get('/suggest/:datasource_id', function(req, res) {
         }
         res.send(tools);
     });
+});
+
+
+
+app.get('/sparql-proxy/:endpoint/:query', function(req, res) {
+    var query = req.param("query");    
+    var endpoint = req.param("endpoint");    
+    
+    qm.execQuery(query, endpoint).then(function(result, err) {
+         if (err) {
+            console.log('VisBackend: Could not execute query: ' + err);
+            return;
+        }
+        console.log("SPARQL_RESULT");
+        console.dir(result);
+    res.send(result);
+     });   
 });
 
 app.get('/bind/:datasource_id/:tool_id', function(req, res) {

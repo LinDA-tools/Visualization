@@ -2,9 +2,12 @@
 var map = function() { // map/openstreetmap module (js module pattern)
 
     var structureOptions = {
-        label: {label: 'Label', template: 'dimension'},
-        lat: {label: 'Latitude', template: 'dimension'},
-        long: {label: 'Longitude', template: 'dimension'}
+        axis: {label: "Axes", template: 'box', options: {
+                label: {label: 'Label', template: 'dimension'},
+                lat: {label: 'Latitude', template: 'dimension'},
+                long: {label: 'Longitude', template: 'dimension'}
+            }
+        }
     };
 
     var tuningOptions = {};
@@ -28,9 +31,9 @@ var map = function() { // map/openstreetmap module (js module pattern)
 
         console.dir(data);
 
-        var labelColumn = config.label.id;
-        var latColumn = config.lat.id;
-        var longColumn = config.long.id;
+        var labelColumn = config.axis.label.id;
+        var latColumn = config.axis.lat.id;
+        var longColumn = config.axis.long.id;
 
         var minLat = null;
         var maxLat = null;

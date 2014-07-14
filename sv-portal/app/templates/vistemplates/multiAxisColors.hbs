@@ -1,8 +1,8 @@
 
 
-{{#each column in view.parent.parent.childrenConfig.yAxis}}
+{{#each column in controller.groupInstances}}
 <ul class="list" style="font-size: 9pt; list-style-type: none; padding-bottom: 10px; ">
-    <li style="width:40%;">{{column.name}}</li>
+    <li style="width:40%;">{{column.label}}</li>
     <li style="width:30%; ">            
         {{view App.ColorPicker 
                     placeholder="Color" 
@@ -10,5 +10,6 @@
         }}
     </li>
 </ul>
+
 {{/each}}
 

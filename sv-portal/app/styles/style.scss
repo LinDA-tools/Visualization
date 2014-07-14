@@ -4,7 +4,9 @@ $list-side-margin: 0.5rem; // Remove margin from list _types.scss
 $list-nested-margin: 0.2rem;
 $column-gutter: 0.5rem; // Für Spaltenlayout
 
-@import "bootstrap-sass/lib/bootstrap";
+select {
+    height: auto !important;
+}
 
 @import "../bower_components/foundation/scss/foundation.scss";
 
@@ -24,11 +26,68 @@ html, body {
     }  
 }
 
-.list {
+.list, #structureOptionsView ul {
     li {display:inline-block; vertical-align:top}
     list-style-type: none;
 } 
+#structureOptionsView {
+    > li {
+        width: 100%;
+        >.box {
+            width: 100%;
+            > .boxContent  {
+                width: 100%;
+                > li {
+                    width: 24%;
+                }
+            }
+        }
+    }
+}
 
+.blanklist {
+    list-style-type: none;
+}
+
+
+
+.verticalTabButtonUnselected {
+    padding: 0.5rem;
+    margin-bottom: 0.1rem;
+    width: 100%;
+    background-color: #eeeeee;
+    color: #555555;
+    font-size: 10pt;
+    text-align: left;
+
+    &:hover { 
+        background-color: #dddddd;
+        color: #555555; 
+    }
+    &:focus { 
+        background-color: #eeeeee;
+        color: #555555; 
+    }
+}
+
+.verticalTabButtonSelected  {
+    padding: 0.5rem;
+    margin-bottom: 0.1rem;
+    width: 100%;
+    background-color: #ffffff;
+    color: #555555;
+    font-size: 10pt;
+    text-align: left;
+
+    &:hover { 
+        background-color: #dddddd;
+        color: #555555; 
+    }
+    &:focus { 
+        background-color: #ffffff;
+        color: #555555; 
+    }
+}
 
 .custom-panel {   
     margin-top:20px;  
@@ -42,7 +101,7 @@ html, body {
         );             
 }
 .box{
-    background-color: #eeeeee;
+    //background-color: #eeeeee;
 
 }
 
@@ -161,5 +220,17 @@ h6 {
 
 select {
     // override setting from _forms.scss
-    padding: 0rem !important;
+    padding: 0.5px !important;
 }
+
+select[size], select[multiple] {
+    background-image: none;
+}
+
+// Vertical tabgroup
+.ui-tabs-vertical { width: 55em; }
+.ui-tabs-vertical .ui-tabs-nav { padding: .2em .1em .2em .2em; float: left; width: 12em; }
+.ui-tabs-vertical .ui-tabs-nav li { clear: left; width: 100%; border-bottom-width: 1px !important; border-right-width: 0 !important; margin: 0 -1px .2em 0; }
+.ui-tabs-vertical .ui-tabs-nav li a { display:block; }
+.ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active { padding-bottom: 0; padding-right: .1em; border-right-width: 1px; border-right-width: 1px; }
+.ui-tabs-vertical .ui-tabs-panel { padding: 1em; float: right; width: 40em;}

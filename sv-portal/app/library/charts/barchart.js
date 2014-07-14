@@ -2,9 +2,20 @@ google.load('visualization', '1', {packages: ['corechart']});
 
 var barchart = function() {
 
-    var structureOptions = {
-        xAxis: {label: "X Axis", template: 'dimension'},
-        yAxis: {label: "Y Axes", template: 'multidimension'}
+    var structureOptionsCSV = {
+        axis: {label: "Axes", template: 'box', options: {
+                xAxis: {label: "Horizontal axis", template: 'dimension'},
+                yAxis: {label: "Vertical axis", template: 'multidimension'}
+            }
+        }
+    };
+    
+    var structureOptionsRDF= {
+        axis: {label: "Axes", template: 'tabgroup', options: {
+                xAxis: {label: "Horizontal axis", template: 'dimension'},
+                yAxis: {label: "Vertical axis", template: 'multidimensionGrouped'}
+            }
+        }
     };
 
     var tuningOptions = {
@@ -36,22 +47,35 @@ var barchart = function() {
     function initialize(input, divId) {
         // Create and populate the data table.
         data = google.visualization.arrayToDataTable(input);
+        console.log('INITIALIZE');
+        console.dir(input);
         chart = new google.visualization.BarChart(document.getElementById(divId));
     }
 
     function draw(config) {
         // Create and draw the skeleton of the visualization.
         var view = new google.visualization.DataView(data);
-        var columns = [config.xAxis.id];
-        var yAxes = config.yAxis;
+        var columns = [config.axis.xAxis.id];
+        console.log('DRAW - config.axis.xAxis.id'+ config.axis.xAxis.id);
+        var yAxes = config.axis.yAxis.multiAxis;
+                console.dir(yAxes);
+
         for (var i = 0; i < yAxes.length; i++) {
+            console.log('yAxis: '+yAxes[i].id);
             columns.push(yAxes[i].id);
         }
+        
         view.setColumns(columns);
 
         chart.draw(view,
                 {title: config.title,
                     width: 600, height: 400}
+        );
+    }
+
+  function drawRDF() {
+        chart.draw(data,
+                { width: 600, height: 400 }
         );
     }
 
@@ -73,10 +97,13 @@ var barchart = function() {
     }
 
     return {
-        structureOptions: structureOptions,
+        structureOptionsCSV: structureOptionsCSV,
+        structureOptionsRDF: structureOptionsRDF,
+
         tuningOptions: tuningOptions,
         initialize: initialize,
         draw: draw,
+        drawRDF: drawRDF,
         tune: tune
     };
 }();

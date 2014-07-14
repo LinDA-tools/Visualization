@@ -5,7 +5,7 @@ mongoose.connect('mongodb://localhost/visualization/');
 
 var Datasource = mongoose.Schema({
     name: String,
-    location: String,
+    location: Schema.Types.Mixed,
     format: String
 },
 {collection: 'dataset'}

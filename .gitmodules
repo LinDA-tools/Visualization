@@ -1,0 +1,3 @@
+[submodule "sv-portal/app/external-libraries/leaflet-dvf"]
+	path = sv-portal/app/external-libraries/leaflet-dvf
+	url = https://github.com/humangeo/leaflet-dvf.git

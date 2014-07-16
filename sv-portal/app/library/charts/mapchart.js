@@ -27,7 +27,7 @@ var mapchart = function() { // bubble chart module (js module pattern)
     function draw(config) {
         // Create and draw the skeleton of the visualization.
         var view = new google.visualization.DataView(data);
-        var columns = [config.region.id, config.value.id]
+        var columns = [config.axis.region.id, config.axis.value.id]
         view.setColumns(columns);
 
         chart.draw(view, {
@@ -39,7 +39,10 @@ var mapchart = function() { // bubble chart module (js module pattern)
 
     function tune(config) {
         // Tune the visualization.
-        chart.draw(data, {
+        var view = new google.visualization.DataView(data);
+        var columns = [config.axis.region.id, config.axis.value.id]
+        view.setColumns(columns);
+        chart.draw(view, {
             title: config.title,
             width: 600,
             height: 400,

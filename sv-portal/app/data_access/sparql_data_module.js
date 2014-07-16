@@ -92,15 +92,22 @@ var sparql_data_module = function() {
 
     function parse(location, selectedClass, queryOptions) {
         // retrun input für widgets d.h. genereriere tabellarische daten 
-        // berücksichtige dabei die dimensions belegung
+        // berücksichtige dabei die dimensions belegung      
 
         var dimensions = queryOptions.dimension;
-        var multidimension = queryOptions.multidimension.property;
-        var group = queryOptions.group.property;
+        var multidimensionGrouped = (queryOptions.multidimensionGrouped || {}).property;
+        var group = (queryOptions.group || {}).property;
+        var multidimension = (queryOptions.multidimension || {}).property;
 
         console.log("PARSE");
+        console.log("DIMENSION");
         console.dir(dimensions);
+        console.log("MULTIDIMENSION");
         console.dir(multidimension);
+        console.log("GROUPED MULTIDIM");
+        console.dir(multidimensionGrouped);
+         console.dir(queryOptions.multidimension)
+        console.log("GROUP");
         console.dir(group);
 
         var graph = location.graph;
@@ -108,7 +115,10 @@ var sparql_data_module = function() {
 
         var selectVariablesArray = [];
 
-        var groupValuesQuery = '\n\
+
+        if (multidimensionGrouped) {
+
+            var groupValuesQuery = '\n\
             PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n\
             PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\
             SELECT DISTINCT ?instance WHERE {\n\
@@ -118,59 +128,59 @@ var sparql_data_module = function() {
                 }\n\
             }';
 
-        return sparqlProxyQuery(endpoint, groupValuesQuery).then(function(result) {
-            var groupInstances = [];
+            return sparqlProxyQuery(endpoint, groupValuesQuery).then(function(result) {
+                var groupInstances = [];
 
-            for (var i = 0; i < result.length; i++) {
-                groupInstances.push(result[i].instance.value);
-            }
-
-            console.dir(groupInstances);
-
-            return groupInstances;
-        }).then(function(groupInstances) {
-
-            var optionals = "";
-            var selectVariables = "";
-
-            var simplifiedDimURIs = [];
-            for (var j = 0; j < dimensions.length; j++) {
-                simplifiedDimURIs[j] = simplifyURI(dimensions[j].property.id);
-                selectVariables += " ?" + simplifiedDimURIs[j];
-                selectVariablesArray.push(simplifiedDimURIs[j]);
-            }
-            for (var i = 0; i < groupInstances.length; i++) {
-                var simplifiedGroupInstURI = simplifyURI(groupInstances[i]);
-                selectVariables += " ?" + simplifiedGroupInstURI;
-                selectVariablesArray.push(simplifiedGroupInstURI);
-
-                optionals += ' OPTIONAL \n';
-                optionals += '\n\
-                    {';
-
-                optionals += '\n\
-                    ?x' + i + ' rdf:type <' + selectedClass.id + '> .\n';
-
-                for (var j = 0; j < dimensions.length; j++) {
-                    optionals += '\n\
-                       ?x' + i + ' <' + dimensions[j].property.id + '> ?y' + i + '.\n'
-
-                    optionals += '\n\
-                        ?y' + i + ' <http://www.w3.org/2000/01/rdf-schema#label>  ?' + simplifiedDimURIs[j] + '.\n'
-
-                    optionals += '\n\
-                        OPTIONAL {?x' + i + ' <' + dimensions[j].property.id + '> ?' + simplifiedDimURIs[j] + '.}\n';
+                for (var i = 0; i < result.length; i++) {
+                    groupInstances.push(result[i].instance.value);
                 }
 
-                optionals += '\n\
-                        ?x' + i + ' <' + multidimension.id + '> ?' + simplifiedGroupInstURI + '.\n';
-                optionals += '\n\
+                console.dir(groupInstances);
+
+                return groupInstances;
+            }).then(function(groupInstances) {
+
+                var optionals = "";
+                var selectVariables = "";
+
+                var simplifiedDimURIs = [];
+                for (var j = 0; j < dimensions.length; j++) {
+                    simplifiedDimURIs[j] = simplifyURI(dimensions[j].property.id);
+                    selectVariables += " ?" + simplifiedDimURIs[j];
+                    selectVariablesArray.push(simplifiedDimURIs[j]);
+                }
+                for (var i = 0; i < groupInstances.length; i++) {
+                    var simplifiedGroupInstURI = simplifyURI(groupInstances[i]);
+                    selectVariables += " ?" + simplifiedGroupInstURI;
+                    selectVariablesArray.push(simplifiedGroupInstURI);
+
+                    optionals += ' OPTIONAL \n';
+                    optionals += '\n\
+                    {';
+
+                    optionals += '\n\
+                    ?x' + i + ' rdf:type <' + selectedClass.id + '> .\n';
+
+                    for (var j = 0; j < dimensions.length; j++) {
+                        optionals += '\n\
+                       ?x' + i + ' <' + dimensions[j].property.id + '> ?y' + i + '.\n'
+
+                        optionals += '\n\
+                        ?y' + i + ' <http://www.w3.org/2000/01/rdf-schema#label>  ?' + simplifiedDimURIs[j] + '.\n'
+
+                        optionals += '\n\
+                        OPTIONAL {?x' + i + ' <' + dimensions[j].property.id + '> ?' + simplifiedDimURIs[j] + '.}\n';
+                    }
+
+                    optionals += '\n\
+                        ?x' + i + ' <' + multidimensionGrouped.id + '> ?' + simplifiedGroupInstURI + '.\n';
+                    optionals += '\n\
                         ?x' + i + ' <' + group.id + '> <' + groupInstances[i] + '>. \n\
              }\n';
 
-            }
+                }
 
-            var query = '\n\
+                var query = '\n\
             PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n\
             PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\
             SELECT DISTINCT ' + selectVariables + '\n\
@@ -180,51 +190,142 @@ var sparql_data_module = function() {
                 }\n\
             }';
 
-            return sparqlProxyQuery(endpoint, query);
-        }).then(function(queryResult) {
-            console.log('QUERY RESULT FOR WIDGET');
-            console.dir(queryResult);
-            var result = [];
-            result.push(selectVariablesArray);
-            for (var i = 0; i < queryResult.length; i++) {
-                var object = queryResult[i];
-                console.log(selectVariablesArray.length);
-                var record = []
-                for (var j = 0; j < selectVariablesArray.length; j++) {
-                    var p = selectVariablesArray[j];
-                    console.log('ITEM ' + j + ': ' + p + '=' + object[p].value);
+                return sparqlProxyQuery(endpoint, query);
+            }).then(function(queryResult) {
+                console.log('QUERY RESULT FOR GROUPDE DIMENSION WIDGET');
+                console.dir(queryResult);
+                var result = [];
+                result.push(selectVariablesArray);
+                for (var i = 0; i < queryResult.length; i++) {
+                    var object = queryResult[i];
+                    console.log(selectVariablesArray.length);
+                    var record = []
+                    for (var j = 0; j < selectVariablesArray.length; j++) {
+                        var p = selectVariablesArray[j];
+                        console.log('ITEM ' + j + ': ' + p + '=' + object[p].value);
 
-                    var value = object[p].value;
-                    var parsedValue;
-                    if (object[p].type === "typed-literal" && object[p].datatype === "http://www.w3.org/2001/XMLSchema#string") {
-                        // Don't try to parse strings
-                        parsedValue = value;
-                    } else {
-                        var parsedValue = parseInt(value);
-                        if (parsedValue === 'NaN') {
-                            parsedValue = parseFloat(value.replace(',', ''));
-                        }
-                        if (parsedValue === 'NaN') {
+                       var value = object[p].value;
+                   
+                        var parsedValue = parseFloat(value.replace(',', ''));
+                        if (_.isNaN(parsedValue) _.isUndefined(parsedValue)) {
                             parsedValue = value;
                         }
+                        record.push(parsedValue);
                     }
-                    record.push(parsedValue);
+                    result.push(record);
+
+                    for (var property in object) {
+                        console.log('item ' + i + ': ' + property + '=' + object[property].value);
+                    }
+
                 }
-                result.push(record);
+                console.log("RESULT");
+                console.dir(result);
 
-                for (var property in object) {
-                    console.log('item ' + i + ': ' + property + '=' + object[property].value);
+                return result;
+
+            });
+
+            // end multidimension grouped
+        } else if (multidimension) {
+           
+                var optionals = "";
+                var selectVariables = "";
+
+                var simplifiedDimURIs = [];
+                for (var j = 0; j < dimensions.length; j++) {
+                    simplifiedDimURIs[j] = simplifyURI(dimensions[j].property.id);
+                    console.log("simplifiedDimURIs: "+dimensions[j].property.id);
+                    selectVariables += " ?" + simplifiedDimURIs[j];
+                    selectVariablesArray.push(simplifiedDimURIs[j]);
+                }
+                
+                var simplifiedMDimURI = "";
+                for (var i = 0; i < multidimension.length; i++) {
+                    console.log("ID multidim:");
+                    console.dir(multidimension[i]);
+                    simplifiedMDimURI = simplifyURI(multidimension[i].id);
+                    console.log("simplifiedMultiDimURIs: "+multidimension[i].id);
+                    selectVariables += " ?" + simplifiedMDimURI;
+                    selectVariablesArray.push(simplifiedMDimURI);
+                    
+                    optionals += ' OPTIONAL {';
+
+                    optionals += '\n\
+                    ?x' + i + ' rdf:type <' + selectedClass.id + '> .\n';
+            
+                    optionals += '\n\
+                    ?x' + i + ' <' + multidimension[i].id + '> ?' + simplifiedMDimURI + '.\n'   
+
+                    for (var j = 0; j < dimensions.length; j++) {
+                      console.log("ID dim:");
+                      console.dir(dimensions[j]);                                       
+                    optionals += '\n\
+                    ?y' + i + ' <' + dimensions[j].property.id + '> ?' + simplifiedDimURIs[j] + '.\n'                                       
+                    }
+                                                                                    
+                    optionals +='}\n';
+                
                 }
 
-            }
-            console.log("RESULT");
-            console.dir(result);
+                var query = '\n\
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n\
+            PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n\
+            SELECT DISTINCT ' + selectVariables + '\n\
+            WHERE {\n\
+                GRAPH <' + graph + '> {\n\
+                    { ' + optionals + '}\n\
+                }\n\
+            }';
+            
+            
+            return sparqlProxyQuery(endpoint, query).then(function(result) {
+                console.log('MULTIDIMENSION: ');
+                console.dir(result);
+                return result;
+            }).then(function(queryResult) {
+                console.log('QUERY RESULT FOR MULTIDIMENSION WIDGET');
+                console.dir(queryResult);
+                var result = [];
+                result.push(selectVariablesArray);
+                for (var i = 0; i < queryResult.length; i++) {
+                    var object = queryResult[i];
+                    console.log(selectVariablesArray.length);
+                    var record = []
+                    for (var j = 0; j < selectVariablesArray.length; j++) {
+                        var p = selectVariablesArray[j];
+                        console.log('ITEM ' + j + ': ' + p + '=' + object[p].value);
 
-            return result;
+                        var value = object[p].value;
+                   
+                        var parsedValue = parseFloat(value.replace(',', ''));
+                        if (_.isNaN(parsedValue) _.isUndefined(parsedValue)) {
+                            parsedValue = value;
+                        }
+                    
+                        record.push(parsedValue);
+                    }
+                    result.push(record);
 
-        });
+                    for (var property in object) {
+                        console.log('item ' + i + ': ' + property + '=' + object[property].value);
+                    }
 
-    }
+                }
+                console.log("RESULT");
+                console.dir(result);
+
+                return result;
+
+            });
+
+
+            // multidimension  
+        }
+
+
+
+    }//parse
 
     return {
         read: read,

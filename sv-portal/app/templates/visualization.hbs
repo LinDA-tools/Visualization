@@ -3,7 +3,7 @@
         <h6 class="workflowStepTitle">Select visualization</h6>                   
         <ul>                       
             <li> 
-                <ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-3"> 
+                <ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-4"> 
                     {{#each tool in controller}} 
                     <li> <a {{action 'configure' tool}}> {{tool.name}} </a>
                         <img {{bind-attr src="tool.thumbnail"}} " />
@@ -14,15 +14,15 @@
         </ul>
     </dd>
 
-    <dd {{bind-attr class="initialize:showElement:hideElement"}} id="wf-init-vis">
+    <dd {{bind-attr class="initialize:showElement:hideElement"}} id="wf-init-vis"> <!--{{bind-attr class="initialize:showElement:hideElement"}} id="wf-init-vis"-->
         <h6 class="workflowStepTitle">Initialize visualization</h6>   
         <div style="background-color: #ffffff">
             {{view App.ContainerView classNames="list" tagName="ul" elementId="structureOptionsView"}}
         </div>       
         <a {{action 'draw'}}>draw</a>
     </dd>
-
-    <dd  {{bind-attr class="customize:showElement:hideElement"}} id="wf-customize-vis">      
+ 
+    <dd {{bind-attr class="customize:showElement:hideElement"}} id="wf-customize-vis"> <!--{{bind-attr class="customize:showElement:hideElement"}} id="wf-customize-vis"-->     
         <h6 class="workflowStepTitle">Customize visualization</h6>
         <div  class="row">
             <div class="large-3 medium-4 columns tuning">
@@ -34,7 +34,14 @@
         </div>
     </dd>
 
-    <dd {{bind-attr class="customize:showElement:hideElement"}} id="wf-export-vis">
+    <dd {{bind-attr class="fullwidth:showElement:hideElement"}} id="wf-full-vis">  <!--{{bind-attr class="fullwidth:showElement:hideElement"}} id="wf-full-vis"-->    
+        <h6 class="workflowStepTitle">Visualization</h6>
+        <div>
+            <div id="fullwidth-visualization" style="width: 100%; height: 500px; margin-left: auto; margin-right: auto;"></div>
+        </div>
+    </dd>
+ 
+    <dd {{bind-attr class="customize:showElement:hideElement"}} id="wf-customize-vis"> <!--{{bind-attr class="fullwidthvis:showElement:hideElement"}} id="wf-fullwidth-vis"-->
         <h6 class="workflowStepTitle">Export or publish visualization</h6>
         <div  class="row">
             <div class="large-3 medium-4 columns export">
@@ -56,4 +63,5 @@
 
 </dl>
 
-
+ 
+ 

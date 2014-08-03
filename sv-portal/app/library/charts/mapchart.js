@@ -21,7 +21,7 @@ var mapchart = function() { // bubble chart module (js module pattern)
     function initialize(input, divId) {
         // Create and populate the data table.
         data = google.visualization.arrayToDataTable(input);
-        chart = new google.visualization.BubbleChart(document.getElementById(divId));
+        chart = new google.visualization.GeoChart(document.getElementById(divId));
     }
 
     function draw(config) {
@@ -33,7 +33,10 @@ var mapchart = function() { // bubble chart module (js module pattern)
         chart.draw(view, {
             title: config.title,
             width: 600,
-            height: 400
+            height: 400,
+            displayMode: 'regions',
+            region: 'ES', 
+            resolution: 'provinces'
         });
     }
 
@@ -45,7 +48,10 @@ var mapchart = function() { // bubble chart module (js module pattern)
         chart.draw(view, {
             title: config.title,
             width: 600,
-            height: 400,
+            height: 400, 
+            displayMode: 'regions',
+            region: 'ES', 
+            resolution: 'provinces'
         });
     }
 

@@ -2,21 +2,13 @@ google.load('visualization', '1', {packages: ['corechart']});
 
 var barchart = function() {
 
-    var structureOptionsCSV = {
-        axis: {label: "Axes", template: 'box', options: {
+    var structureOptions = {
+        axis: {label: "Axes", template: 'tabgroup', options: { // TODO: box; tabgroup
                 xAxis: {label: "Horizontal axis", template: 'dimension'},
                 yAxis: {label: "Vertical axis", template: 'multidimension'}
             }
         }
-    };
-    
-    var structureOptionsRDF= {
-        axis: {label: "Axes", template: 'tabgroup', options: {
-                xAxis: {label: "Horizontal axis", template: 'dimension'},
-                yAxis: {label: "Vertical axis", template: 'multidimensionGrouped'}
-            }
-        }
-    };
+    };    
 
     var tuningOptions = {
         title: {label: "Title", template: 'textField'},
@@ -44,43 +36,57 @@ var barchart = function() {
     var chart = null;
     var data = null;
 
-    function initialize(input, divId) {
-        // Create and populate the data table.
-        data = google.visualization.arrayToDataTable(input);
-        console.log('INITIALIZE');
-        console.dir(input);
-        chart = new google.visualization.BarChart(document.getElementById(divId));
-    }
-
-    function draw(config) {
-        // Create and draw the skeleton of the visualization.
-        var view = new google.visualization.DataView(data);
-        var columns = [config.axis.xAxis.id];
-        console.log('DRAW - config.axis.xAxis.id'+ config.axis.xAxis.id);
-        var yAxes = config.axis.yAxis.multiAxis;
-                console.dir(yAxes);
-
+    function draw(visualisationConfiguration, visualisationContainer) {
+        console.log("### INITIALIZE VISUALISATION");
+        
+        var dataModule = visualisationConfiguration.dataModule;
+        var subset = visualisationConfiguration.selectedSubset;
+        
+        console.log("VISUALISATION CONFIGURATION");
+        console.dir(visualisationConfiguration);
+        
+        var xAxis = visualisationConfiguration.axis.xAxis;   
+        var yAxes = visualisationConfiguration.axis.yAxis.multiAxis; 
+        
+        var order = []; 
+        
+        order.push(xAxis.id);
+        
         for (var i = 0; i < yAxes.length; i++) {
-            console.log('yAxis: '+yAxes[i].id);
-            columns.push(yAxes[i].id);
+             order.push(yAxes[i].id);             
         }
         
-        view.setColumns(columns);
-
-        chart.draw(view,
-                {title: config.title,
-                    width: 600, height: 400}
-        );
-    }
-
-  function drawRDF() {
+        console.log("COLUMNS/PROPERTIES ORDER");
+        console.dir(order);
+        
+        var location = visualisationConfiguration.datasourceInfo.location;
+                       
+        dataModule.parse(location, subset, order).then(function(inputData){
+        console.log("CONVERTED INPUT DATA");
+        console.dir(inputData);    
+            
+         // Create and populate the data table.
+        data = google.visualization.arrayToDataTable(inputData);
+                    
+        chart = new google.visualization.BarChart(document.getElementById(visualisationContainer));     
+        
+        console.log("### DRAW VISUALISATION");
+      
         chart.draw(data,
                 { width: 600, height: 400 }
         );
-    }
 
-    function tune(config) {
-        // Tune the visualization.
+       console.log("###########"); 
+        
+        
+        }); 
+            
+       console.log("###########");   
+    }   
+
+  function tune(config) {
+       console.log("### TUNE VISUALISATION");
+
         chart.draw(data,
                 {title: config.title,
                     width: 600, height: 400,
@@ -94,16 +100,14 @@ var barchart = function() {
                     isStacked: (config.style.id === 'stacked') ? true : false,
                 }
         );
+
+        console.log("###########"); 
     }
 
     return {
-        structureOptionsCSV: structureOptionsCSV,
-        structureOptionsRDF: structureOptionsRDF,
-
+        structureOptions: structureOptions,
         tuningOptions: tuningOptions,
-        initialize: initialize,
         draw: draw,
-        drawRDF: drawRDF,
         tune: tune
     };
 }();

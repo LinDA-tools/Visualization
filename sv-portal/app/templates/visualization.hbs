@@ -1,5 +1,5 @@
-<dl>
-    <dd class="datasource" id="wf-select-vis">
+<dl>          
+    <dd>
         <h6 class="workflowStepTitle">Select visualization</h6>                   
         <ul>                       
             <li> 
@@ -13,35 +13,28 @@
             </li>            
         </ul>
     </dd>
-
-    <dd {{bind-attr class="initialize:showElement:hideElement"}} id="wf-init-vis"> <!--{{bind-attr class="initialize:showElement:hideElement"}} id="wf-init-vis"-->
+         
+    <dd> <!--{{bind-attr class="initialize:showElement:hideElement"}} id="wf-init-vis"-->
         <h6 class="workflowStepTitle">Initialize visualization</h6>   
         <div style="background-color: #ffffff">
             {{view App.ContainerView classNames="list" tagName="ul" elementId="structureOptionsView"}}
         </div>       
         <a {{action 'draw'}}>draw</a>
     </dd>
- 
-    <dd {{bind-attr class="customize:showElement:hideElement"}} id="wf-customize-vis"> <!--{{bind-attr class="customize:showElement:hideElement"}} id="wf-customize-vis"-->     
+     
+    <dd> <!--{{bind-attr class="customize:showElement:hideElement"}} id="wf-customize-vis"-->     
         <h6 class="workflowStepTitle">Customize visualization</h6>
         <div  class="row">
             <div class="large-3 medium-4 columns tuning">
                 {{view App.ContainerView classNames="optionContainer" tagName="ul" elementId="tuningOptionsView"}}
             </div>
             <div class="large-9 medium-8 columns">
-                <div id="visualization" style="width: 600px; height: 400px;margin-left: auto; margin-right: auto;"></div>
+                <div id="visualisation" style="width: 600px; height: 400px;margin-left: auto; margin-right: auto;"></div>
             </div>
         </div>
     </dd>
-
-    <dd {{bind-attr class="fullwidth:showElement:hideElement"}} id="wf-full-vis">  <!--{{bind-attr class="fullwidth:showElement:hideElement"}} id="wf-full-vis"-->    
-        <h6 class="workflowStepTitle">Visualization</h6>
-        <div>
-            <div id="fullwidth-visualization" style="width: 100%; height: 500px; margin-left: auto; margin-right: auto;"></div>
-        </div>
-    </dd>
- 
-    <dd {{bind-attr class="customize:showElement:hideElement"}} id="wf-customize-vis"> <!--{{bind-attr class="fullwidthvis:showElement:hideElement"}} id="wf-fullwidth-vis"-->
+   
+    <dd> <!--{{bind-attr class="fullwidthvis:showElement:hideElement"}} id="wf-fullwidth-vis"-->
         <h6 class="workflowStepTitle">Export or publish visualization</h6>
         <div  class="row">
             <div class="large-3 medium-4 columns export">
@@ -52,7 +45,7 @@
                                    selection=controller.selectedFormat}}
             </div>
             <div class="large-9 medium-8 columns">
-                <div>               
+                <div>             
                       {{view Ember.TextArea value=controller.exportedCode rows="5" cols="50"}}
                 </div>
                 <span style="font-style: italic">Copy this code into your web site to embed the visualization</span>
@@ -60,7 +53,6 @@
         </div>
          <a {{action 'export'}}>export</a>
     </dd>
-
 </dl>
 
  

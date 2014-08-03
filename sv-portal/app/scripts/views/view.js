@@ -43,10 +43,10 @@ App.ButtonGroupView = Ember.CollectionView.extend({
         click: function(event) {
             var content = this.get('content');
             var buttonGroup =  this.get('parentView');
-            buttonGroup.set('selection', content);
+            buttonGroup.set('selection', content); // <=> datasubset aus dem controller        
             
             console.log("click");
-            console.dir(this);
+            console.dir(content);
         },
         classNameBindings: ['isSelected:verticalTabButtonSelected:verticalTabButtonUnselected']//to change background color of button
     }),

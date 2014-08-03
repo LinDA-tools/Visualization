@@ -200,15 +200,16 @@ h6 {
     margin: 10px;
 }
 
-.showElement {
+.showElement, .show-element {
     visibility:visible;
 }
 
 .export{
     padding-left:10px;
 }
-.hideElement{
-    visibility:hidden;
+.hideElement, .hide-element{
+    display: none !important;
+    visibility: hidden;
 }
 
 .tuning{

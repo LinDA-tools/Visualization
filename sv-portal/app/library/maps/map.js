@@ -49,6 +49,18 @@ var map = function() { // map/openstreetmap module (js module pattern)
         var indicatorColumns = config.axis.indicator.multiAxis;
         console.log("indicator: " + indicatorColumns.length);
         console.log(indicatorColumns);
+        
+        var maxIndicatorValue = 1;
+        for (var i = 1; i < data.length; ++i) {
+            var row = data[i];
+            for (var j = 0; j < indicatorColumns.length; j++) {
+                var indicatorColumn = indicatorColumns[j].id; // spaltenindex
+                var indicatorValue = row[indicatorColumn];
+                if(maxIndicatorValue < indicatorValue) {
+                    maxIndicatorValue = indicatorValue;
+                }
+            }
+        }
 
         var minLat = null;
         var maxLat = null;
@@ -57,7 +69,7 @@ var map = function() { // map/openstreetmap module (js module pattern)
 
         var minHue = 120;
         var maxHue = 0;
-
+            
         for (var i = 1; i < data.length; ++i) {
             var row = data[i];
             var lat = parseFloat(row[latColumn]);
@@ -85,7 +97,6 @@ var map = function() { // map/openstreetmap module (js module pattern)
                 color: '#000000'
             }
 
-
             for (var j = 0; j < indicatorColumns.length; j++) {
                 var indicatorColumn = indicatorColumns[j].id; // spaltenindex
                 var indicatorValue = row[indicatorColumn];
@@ -97,7 +108,7 @@ var map = function() { // map/openstreetmap module (js module pattern)
                     color: 'hsl(240,100%,55%)',
                     fillColor: 'hsl(240,80%,55%)',
                     minValue: 0,
-                    maxValue: 100,
+                    maxValue: maxIndicatorValue,
                     maxHeight: 20,
                     title: label,
                     displayText: function(value) {
@@ -142,6 +153,18 @@ var map = function() { // map/openstreetmap module (js module pattern)
         console.log("indicator: " + indicatorColumns.length);
         console.log(indicatorColumns);
 
+        var maxIndicatorValue = 1;
+        for (var i = 1; i < data.length; ++i) {
+            var row = data[i];
+            for (var j = 0; j < indicatorColumns.length; j++) {
+                var indicatorColumn = indicatorColumns[j].id; // spaltenindex
+                var indicatorValue = row[indicatorColumn];
+                if(maxIndicatorValue < indicatorValue) {
+                    maxIndicatorValue = indicatorValue;
+                }
+            }
+        }
+
         var minLat = null;
         var maxLat = null;
         var minLong = null;
@@ -184,12 +207,16 @@ var map = function() { // map/openstreetmap module (js module pattern)
                 var name = 'datapoint' + j;
 
                 console.log("indicator [j]: " + indicatorColumn + " name: " + name + " value: " + indicatorValue);
+                if(!indicatorValue) {
+                    continue;
+                }
+                
                 markeroptions.data[name] = indicatorValue;
                 markeroptions.chartOptions[name] = {
                     color: 'hsl(240,100%,55%)',
                     fillColor: 'hsl(240,80%,55%)',
                     minValue: 0,
-                    maxValue: 100,
+                    maxValue: maxIndicatorValue,
                     maxHeight: 20,
                     title: label,
                     displayText: function(value) {

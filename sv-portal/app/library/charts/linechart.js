@@ -20,6 +20,10 @@ var linechart = function() {
 
     var tuningOptions = {
         title: {label: "Title", template: 'textField'},
+        lineStyle: {label: "Line style", template: 'selectField',
+            values: [{label: "Straight", id: "straight"}, {label: "Curved", id: "curved"}],
+            defaults: {id: "straight"}
+        },
         axis: {label: "Axes", template: 'box', options: {
                 vLabel: {label: "Label (V)", template: 'textField'},
                 hLabel: {label: "Label (H)", template: 'textField'},
@@ -63,14 +67,14 @@ var linechart = function() {
         view.setColumns(columns);
 
         chart.draw(view, {
-            curveType: "function",
+            curveType: "none",
             width: 600, height: 400
         });
     }
 
     function drawRDF() {
         chart.draw(data, {
-            curveType: "function",
+            curveType: "none",
             width: 600, height: 400
         });
     }
@@ -79,7 +83,7 @@ var linechart = function() {
         // Tune the visualization.
         chart.draw(data, {
             title: config.title,
-            curveType: "function",
+            curveType: (config.lineStyle.id === 'curved') ?"function" : "none",
             width: 600, height: 400,
             vAxis: {title: config.axis.vLabel,
                 logScale: (config.axis.scale.id === 'logarithmic') ? true : false,

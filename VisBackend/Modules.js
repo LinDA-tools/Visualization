@@ -6,49 +6,31 @@ mongoose.connect('mongodb://localhost/visualization/');
 var Datasource = mongoose.Schema({
     name: String,
     location: Schema.Types.Mixed,
-    format: String
+    format: String,
+    metadata:String
 },
 {collection: 'dataset'}
 );
 
-var CSVVisualization = mongoose.Schema({
+var Widget = mongoose.Schema({
     name: String,
     thumbnail: String,
-    format: String
+    category: String    
 },
-{collection: 'csv_visualization'});
-
-var Tool = mongoose.Schema({
-    name: String,
-    tooluri: String,
-    category: String,
-    vocabulary: String,
-    format: String
-},
-{collection: 'tool'});
+{collection: 'widget'});
 
 var Vocabulary = mongoose.Schema({
-    category: {type: Schema.Types.ObjectId, ref: 'Category'},
     name: String,
     endpoint: String,
-    graph: String
+    graph: String,
+    category: String
 },
 {collection: 'vocabulary'});
 
-var Category = mongoose.Schema({
-    name: String,
-    vocabularies: [{type: Schema.Types.ObjectId, ref: 'Vocabulary'}]
-},
-{collection: 'category'});
-
 var DatasourceModel = mongoose.model('Datasource', Datasource);
-var CSVVisualizationModel = mongoose.model('CSVVisualization', CSVVisualization);
-var ToolModel = mongoose.model('Tool', Tool);
+var WidgetModel = mongoose.model('Widget', Widget);
 var VocabularyModel = mongoose.model('Vocabulary', Vocabulary);
-var CategoryModel = mongoose.model('Category', Category);
 
 exports.DatasourceModel = DatasourceModel;
-exports.CSVVisualizationModel = CSVVisualizationModel;
-exports.ToolModel = ToolModel;
+exports.WidgetModel = WidgetModel;
 exports.VocabularyModel = VocabularyModel;
-exports.CategoryModel = CategoryModel;

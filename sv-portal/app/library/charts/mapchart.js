@@ -3,7 +3,7 @@ google.load('visualization', '1', {packages: ['corechart']});
 var mapchart = function() { // bubble chart module (js module pattern)
 
     var structureOptions = {
-        axis: {label: "Axes", template: 'box', options: {
+        axis: {label: "Axes", template: 'box', suboptions: {
                 region: {label: "Region", template: 'dimension'},
                 value: {label: "Value", template: 'dimension'}
             }

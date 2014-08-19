@@ -3,7 +3,7 @@ google.load('visualization', '1', {packages: ['corechart']});
 var linechart = function() {
 
     var structureOptionsCSV = {
-        axis: {label: "Axes", template: 'box', options: {
+        axis: {label: "Axes", template: 'box', suboptions: {
                 xAxis: {label: "Horizontal axis", template: 'dimension'},
                 yAxis: {label: "Vertical axis", template: 'multidimension'}
             }
@@ -11,7 +11,7 @@ var linechart = function() {
     };
 
     var structureOptionsRDF = {
-        axis: {label: "Axes", template: 'tabgroup', options: {
+        axis: {label: "Axes", template: 'tabgroup', suboptions: {
                 xAxis: {label: "Horizontal axis", template: 'dimension'},
                 yAxis: {label: "Vertical axis", template: 'multidimensionGrouped'}
             }
@@ -24,7 +24,7 @@ var linechart = function() {
             values: [{label: "Straight", id: "straight"}, {label: "Curved", id: "curved"}],
             defaults: {id: "straight"}
         },
-        axis: {label: "Axes", template: 'box', options: {
+        axis: {label: "Axes", template: 'box', suboptions: {
                 vLabel: {label: "Label (V)", template: 'textField'},
                 hLabel: {label: "Label (H)", template: 'textField'},
                 grid: {label: "Grid", template: 'textField'},
@@ -34,7 +34,7 @@ var linechart = function() {
                 }
             }
         },
-        color: {label: "Line colors", template: 'box', options: {
+        color: {label: "Line colors", template: 'box', suboptions: {
                 yAxisColors: {template: 'multiAxisColors', axis: 'yAxis'} // TODO
             }
         }

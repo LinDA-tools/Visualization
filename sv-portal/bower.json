@@ -11,7 +11,8 @@
     "jquery-rdfquery": "~1.0.0",
     "ember-table": "~0.2.1",
     "jqueryui": "~1.11.0",
-    "underscore": "~1.6.0"
+    "underscore": "~1.6.0",
+    "jstree": "~3.0.2"
   },
   "devDependencies": {
     "ember-mocha-adapter": "0.2.0"

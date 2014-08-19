@@ -3,7 +3,7 @@ google.load('visualization', '1', {packages: ['corechart']});
 var bubblechart = function() { // bubble chart module (js module pattern)
 
     var structureOptions = {
-        axis: {label: "Axes", template: 'box', options: {
+        axis: {label: "Axes", template: 'box', suboptions: {
                 label: {label: "Label", template: 'dimension'},
                 xAxis: {label: "X Axis", template: 'dimension'},
                 yAxis: {label: "Y Axis", template: 'dimension'},
@@ -16,7 +16,7 @@ var bubblechart = function() { // bubble chart module (js module pattern)
     var tuningOptions = {
         title: {label: "Chart title", template: 'textField'},
         axes: {label: "Axes", template: 'box',
-            options: {
+            suboptions: {
                 vLabel: {label: "Title (V)", template: 'textField'},
                 hLabel: {label: "Title (H)", template: 'textField'},
                 vGrid: {label: "Grid (V)", template: 'textField'},

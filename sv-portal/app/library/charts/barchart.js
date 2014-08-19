@@ -3,31 +3,29 @@ google.load('visualization', '1', {packages: ['corechart']});
 var barchart = function() {
 
     var structureOptions = {
-        axis: {label: "Axes", template: 'tabgroup', options: { // TODO: box; tabgroup
-                xAxis: {label: "Horizontal axis", template: 'dimension'},
-                yAxis: {label: "Vertical axis", template: 'multidimension'}
+        axis: {label: "Axes", template: 'treeView', suboptions: {
+                xAxis: {label: "Horizontal axis", template: 'area'},
+                yAxis: {label: "Vertical axis", template: 'area'}
             }
         }
-    };    
+    };
 
     var tuningOptions = {
         title: {label: "Title", template: 'textField'},
-        
-        style: {label: "Style", template: 'selectField', 
+        style: {label: "Style", template: 'selectField',
             values: [{label: "Normal", id: "normal"}, {label: "Stacked", id: "stacked"}]
         },
-
-        axis: {label: "Axes", template: 'box', options: {
+        axis: {label: "Axes", template: 'box', suboptions: {
                 vLabel: {label: "Label (V)", template: 'textField'},
                 hLabel: {label: "Label (H)", template: 'textField'},
                 grid: {label: "Grid", template: 'textField'},
-                scale: {label: "Scale", template: 'selectField', 
+                scale: {label: "Scale", template: 'selectField',
                     values: [{label: "Linear", id: "linear"}, {label: "Logarithmic", id: "logarithmic"}],
-                    defaults:{id:"linear"}
+                    defaults: {id: "linear"}
                 }
             }
-        }, 
-        color: {label: "Horizontal axes colors", template: 'box', options: {
+        },
+        color: {label: "Horizontal axes colors", template: 'box', suboptions: {
                 yAxisColors: {template: 'multiAxisColors', axis: 'yAxis'} // TODO
             }
         }
@@ -38,54 +36,70 @@ var barchart = function() {
 
     function draw(visualisationConfiguration, visualisationContainer) {
         console.log("### INITIALIZE VISUALISATION");
-        
+
         var dataModule = visualisationConfiguration.dataModule;
-        var subset = visualisationConfiguration.selectedSubset;
-        
+
         console.log("VISUALISATION CONFIGURATION");
         console.dir(visualisationConfiguration);
-        
-        var xAxis = visualisationConfiguration.axis.xAxis;   
-        var yAxes = visualisationConfiguration.axis.yAxis.multiAxis; 
-        
-        var order = []; 
-        
-        order.push(xAxis.id);
-        
+
+        var xAxis = visualisationConfiguration.axis.xAxis;
+        console.log('xAxis');
+        console.dir(xAxis);
+
+        var yAxes = visualisationConfiguration.axis.yAxis;
+        console.log('yAxes');
+        console.dir(yAxes);
+
+        var selection = {};
+        var dimension = [];
+        var multidimension = [];
+        var group = [];
+
+        dimension.push(xAxis[0]);
+              
         for (var i = 0; i < yAxes.length; i++) {
-             order.push(yAxes[i].id);             
+            console.dir(yAxes[i]);
+            if (yAxes[i].groupBy) {
+                group.push(yAxes[i]);
+            } else {
+                multidimension.push(yAxes[i]);
+            }
         }
         
-        console.log("COLUMNS/PROPERTIES ORDER");
-        console.dir(order);
-        
+        selection.dimension = dimension;
+        selection.multidimension = multidimension;
+        selection.group = group;
+
+        console.log("SELECTION");
+        console.dir(selection);
+
         var location = visualisationConfiguration.datasourceInfo.location;
-                       
-        dataModule.parse(location, subset, order).then(function(inputData){
-        console.log("CONVERTED INPUT DATA");
-        console.dir(inputData);    
-            
-         // Create and populate the data table.
-        data = google.visualization.arrayToDataTable(inputData);
-                    
-        chart = new google.visualization.BarChart(document.getElementById(visualisationContainer));     
-        
-        console.log("### DRAW VISUALISATION");
-      
-        chart.draw(data,
-                { width: 600, height: 400 }
-        );
 
-       console.log("###########"); 
-        
-        
-        }); 
-            
-       console.log("###########");   
-    }   
+        dataModule.parse(location, selection).then(function(inputData) {
+            console.log("CONVERTED INPUT DATA");
+            console.dir(inputData);
 
-  function tune(config) {
-       console.log("### TUNE VISUALISATION");
+            // Create and populate the data table.
+            data = google.visualization.arrayToDataTable(inputData);
+
+            chart = new google.visualization.BarChart(document.getElementById(visualisationContainer));
+
+            console.log("### DRAW VISUALISATION");
+
+            chart.draw(data,
+                    {width: 600, height: 400}
+            );
+
+            console.log("###########");
+
+
+        });
+
+        console.log("###########");
+    }
+
+    function tune(config) {
+        console.log("### TUNE VISUALISATION");
 
         chart.draw(data,
                 {title: config.title,
@@ -101,7 +115,7 @@ var barchart = function() {
                 }
         );
 
-        console.log("###########"); 
+        console.log("###########");
     }
 
     return {

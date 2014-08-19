@@ -40,8 +40,6 @@ app.get('/suggest/:datasource_id', function(req, res) {
     });
 });
 
-
-
 app.get('/sparql-proxy/:endpoint/:query', function(req, res) {
     var query = req.param("query");    
     var endpoint = req.param("endpoint");    
@@ -95,8 +93,8 @@ app.get('/bind/:datasource_id/:tool_id', function(req, res) {
      });
 });
 
-http.createServer(app).listen(3000, function() {
-    console.log("VisBackend: Express server listening on port 3000");
+http.createServer(app).listen(3001, function() {
+    console.log("VisBackend: Express server listening on port 3001");
 });
 
 http.createServer(function(req, res) {

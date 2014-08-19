@@ -1,0 +1,12 @@
+<div class="col-xs-6 area-box">
+    <h6>{{view.label}}</h6>
+    
+    <div style="min-height:4rem;text-align: left;">
+    {{#each item_ in view.content}}
+      {{property-item item=item_ collection=view.content}}	
+    {{/each}}
+    </div>
+    
+    {{droppable-area inArea=view.content}}
+</div>
+       

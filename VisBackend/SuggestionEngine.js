@@ -6,7 +6,7 @@ var Q = require('q'); // promis library for the graph-store-client SPARQL client
 
 
 function suggest(datasource_id) {
-
+    console.log('SUGGESTION ENGINE ##############');
     var query = modules.DatasourceModel.findById(datasource_id);
 
     return query.exec().then(function(datasource, err) {
@@ -15,73 +15,60 @@ function suggest(datasource_id) {
             return;
         }
 
-        console.log('SE: Retrieved datasource: ');
+        console.log('DATASETS');
         console.dir(datasource);
 
-        if (datasource.format !== 'rdf') {
-            // Get CSV based visualizations
+        if (datasource.format !== 'sparql') { // tabular data           
             return getCSVVisualizations().then(function(visualizations, err) {
                 if (err) {
                     console.log('SE: Could not retrieve visualizations: ' + err);
                     return;
                 }
-               return visualizations;
+                return visualizations;
             });
-            
-        } else { // RDF
-            console.log('SE: RDF-based visualization');
-            console.log('SE: Retrieved Void from datasource');
-            console.dir(datasource.lodstats);
+
+        } else { // RDF data
+            console.log('RETRIEVE VOID ' + datasource.name);
 
             return getVocabularies().then(function(vocabularies, err) {
                 if (err) {
                     console.log('SE: Could not retrieve vocabulary graphs: ' + err);
                     return;
                 }
-               return suggestRDF(datasource.lodstats, vocabularies);
+                return suggestRDF(datasource.metadata, vocabularies);
             });
 
         }
     });
+     console.log(' ############## SUGGESTION ENGINE END');
 }
 
-function suggestRDF(dsUri, vocUri) {
-    console.log("suggest " + dsUri);
+function suggestRDF(dsUri, vocUri) {  
+    console.log("SUGGEST_RDF");
+    
     return getPropertiesAndClasses(dsUri, vocUri).then(function(results, err) {
-        if (err) {
-            console.log('SE: Could not retrieve classes and properties from data source or vocabularies: ' + err);
-            return;
-        }
         var dsList = results.shift();
-
-        console.log('matching');
         var matching = match(dsList.list, results);
-        console.dir(matching);
-
-        console.log('category');
-        return getCategories(matching);
-    }).then(function(categories, err) {
-        if (err) {
-            console.log('SE: Could not calculate categories ranking: ' + err);
-            return;
-        }
-        console.dir(categories);
-
-        console.log('tools');
-        return getTools(categories);
-    }).then(function(tools, err) {
-        if (err) {
-            console.log('SE: Could not retrieve visualizations: ' + err);
-            return;
-        }
-        console.dir(tools);
-        return tools;
+        
+        return matching;
+    }).then(function(matching, err) {       
+        var ranking = rank(matching);  
+        
+        return ranking;    
+    }).then(function(ranking, err) {
+        var categories = getCategories(ranking);
+       
+        return categories;
+    }).then(function(categories, err) {         
+        var suggestions = getTools(categories);
+                       
+        return suggestions;
     });
 }
 
 function match(dsList, vocLists) {
     var matching = {};
-    console.log('MATCHING');
+    console.log("MATCH VOCABULARIES");        
     console.dir(dsList);
     console.dir(vocLists);
     for (var g in vocLists) {
@@ -99,15 +86,23 @@ function match(dsList, vocLists) {
         }
         matching[rmap.graph] = match / vocList.length;
     }
+    console.log("MATCHING RESULT");
+    console.dir(matching);
     return matching;
 }
 
-function rank(matching) {
+function rank(matching) {   
     var ranking = Object.keys(matching);
     ranking.sort(function(a, b) {
         return matching[b] - matching[a]
     });
-    return {matching: matching, ranking: ranking};
+ 
+    var result = {matching: matching, ranking: ranking};  
+    
+    console.log("RANKING RESULT");
+    console.dir(result);
+    
+    return result;
 }
 
 function getVocabularies() {
@@ -118,59 +113,28 @@ function getVocabularies() {
     return query.exec();
 }
 
-function getCategories(matching) {
-    var vm = modules.CategoryModel;
-
-    var categories = vm.find({}).populate('vocabularies').exec().then(function(result, err) {
-        var map = {};
-
-        if (err) {
-            console.log('SE: Could not retrieve category: ' + err);
-            return;
-        }
-
-        // calculate maximum of vocabulary matchings in order to determine category ranking
-        for (c in result) {
-            var category = result[c];
-            var vocabularies = category.vocabularies;
-            var m = 0;
-            for (var v = 0; v < vocabularies.length; v++) {
-                var matchingValue = matching[vocabularies[v].graph];
-                if (m < matchingValue) {
-                    m = matchingValue;
-                }
-            }
-            if (category.name === 'Generic' || m > 0) {
-                map[category.name] = m;
-            }
-        }
-
-        return rank(map);
-    });
-    return categories;
-}
-
-function getTools(category) {
-    var categories = category.ranking;
-    var tm = modules.ToolModel;
-
-    var tools = tm.find({}).where('category').in(categories).exec().then(function(result, err) {
-        if (err) {
-            console.log('SE: Could not retrieve tools: ' + err);
-            return;
-        }
-        return result;
+function getTools(category) {         
+    var tm = modules.WidgetModel;
+    console.log('cat');
+    console.dir(category);
+    var tools = tm.find({}).where('category').in(category).exec().then(function(result, err) {    
+    console.log('SUGGESTED TOOLS RESULT');
+    console.dir(result);
+    return result;
     });
 
+    console.log('SUGGESTED TOOLS');
+    console.dir(tools);
+    
     return tools;
 }
 
 function getCSVVisualizations() {
-    return modules.CSVVisualizationModel.find({}).exec();
+    return modules.WidgetModel.find({}).exec();
 }
 
 function getPropertiesAndClasses(dsUri, vocUri) {
-    console.log("getPropertiesAndClasses " + dsUri);
+    console.log("RETRIEVE CLASSES AND PROPERTIES" );      
     var array = [];
 
     // SPARQL query metadata data source (properties and classes list: ds_pl and ds_cl)
@@ -196,11 +160,35 @@ function getPropertiesAndClasses(dsUri, vocUri) {
                             { ?cp <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> } \n\
                             UNION \n\
                             { ?cp <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> } \n\
+                            UNION \n\
+                            { ?cp <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> } \n\
                         }\n\
                     } ";
         array.push(execQuery(qvc, graph)); // retrieve classes and properties of each vocabulary
     }
     return Q.all(array);
+}
+
+function getCategories(resultRanking){
+       var vm = modules.VocabularyModel.find();
+       var ranking = resultRanking.ranking; // array [graph, graph, ...]
+       var matching = resultRanking.matching; // map {graph:sim_val, graph:sim_val, ...}
+      
+       return vm.find({}).exec().then(function(result, err) {                                     
+            var categories = [];
+              for (var v = 0; v < result.length; v++) {             
+                 for (var k = 0; k < ranking.length; k++) {
+                         if((ranking[k]===result[v].graph) && (matching[result[v].graph]>0)){                       
+                             categories.push(result[v].category);
+                         }  
+                  }   
+              }
+
+            console.log('RETRIEVE CATEGORIES');
+            console.dir(categories); 
+            
+            return categories;
+            });
 }
 
 function execQuery(q, g) {

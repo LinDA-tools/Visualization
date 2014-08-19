@@ -2,7 +2,7 @@
 var map = function() { // map/openstreetmap module (js module pattern)
 
     var structureOptionsRDF = {
-        axis: {label: "Map options", template: 'tabgroup', options: {
+        axis: {label: "Map options", template: 'tabgroup', suboptions: {
                 label: {label: 'Set label', template: 'dimension'},
                 lat: {label: 'Set latitude', template: 'dimension'},
                 long: {label: 'Set longitude', template: 'dimension'},
@@ -11,7 +11,7 @@ var map = function() { // map/openstreetmap module (js module pattern)
         }
     };
     var structureOptionsCSV = {
-        axis: {label: "Map options", template: 'box', options: {
+        axis: {label: "Map options", template: 'box', suboptions: {
                 label: {label: 'Set label', template: 'dimension'},
                 lat: {label: 'Set latitude', template: 'dimension'},
                 long: {label: 'Set longitude', template: 'dimension'},

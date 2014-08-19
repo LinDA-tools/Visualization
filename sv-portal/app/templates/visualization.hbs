@@ -1,31 +1,28 @@
 <dl>          
     <dd>
-        <h6 class="workflowStepTitle">Select visualization</h6>                   
-        <ul>                       
-            <li> 
-                <ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-4"> 
+        <h6 class="workflowStepTitle list_default">Select visualization</h6>                          
+                <ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-4 "> 
                     {{#each tool in controller}} 
-                    <li> <a {{action 'configure' tool}}> {{tool.name}} </a>
-                        <img {{bind-attr src="tool.thumbnail"}} " />
+                    <li style="text-align: center; font-size: 11pt; font-weight: bold;"> 
+                        <div style="background-color: #ffffff "><a style="color: #4b4b4b" {{action 'configure' tool}}> {{tool.name}} </a></div>
+                        <img {{bind-attr src="tool.thumbnail"}} style="width:100%"/>
                     </li>
-                    {{/each}}  
-                </ul>
-            </li>            
-        </ul>
-    </dd>
+                    {{/each}}   
+                </ul>          
+    </dd> 
          
-    <dd> <!--{{bind-attr class="initialize:showElement:hideElement"}} id="wf-init-vis"-->
-        <h6 class="workflowStepTitle">Initialize visualization</h6>   
+    <dd> 
+        <h6 class="workflowStepTitle list_default">Initialize visualization</h6>   
         <div style="background-color: #ffffff">
             {{view App.ContainerView classNames="list" tagName="ul" elementId="structureOptionsView"}}
         </div>       
         <a {{action 'draw'}}>draw</a>
-    </dd>
+    </dd> 
      
-    <dd> <!--{{bind-attr class="customize:showElement:hideElement"}} id="wf-customize-vis"-->     
+    <dd> 
         <h6 class="workflowStepTitle">Customize visualization</h6>
         <div  class="row">
-            <div class="large-3 medium-4 columns tuning">
+            <div class="large-3 medium-4 columns list_default">
                 {{view App.ContainerView classNames="optionContainer" tagName="ul" elementId="tuningOptionsView"}}
             </div>
             <div class="large-9 medium-8 columns">
@@ -34,8 +31,8 @@
         </div>
     </dd>
    
-    <dd> <!--{{bind-attr class="fullwidthvis:showElement:hideElement"}} id="wf-fullwidth-vis"-->
-        <h6 class="workflowStepTitle">Export or publish visualization</h6>
+    <dd> 
+        <h6 class="workflowStepTitle list_default">Export or publish visualization</h6>
         <div  class="row">
             <div class="large-3 medium-4 columns export">
                 {{view App.Select viewName="selectFormat"
@@ -54,6 +51,6 @@
          <a {{action 'export'}}>export</a>
     </dd>
 </dl>
-
  
+  
  

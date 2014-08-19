@@ -17,7 +17,7 @@ App.ApplicationRoute = Ember.Route.extend({
 
 App.VisualizationRoute = Ember.Route.extend({
     model: function(params) {
-        var tools = Ember.$.getJSON('http://localhost:3000/suggest/' + params.datasource_id);
+        var tools = Ember.$.getJSON('http://localhost:3001/suggest/' + params.datasource_id);
         console.log('visualization route');
         console.log(tools);
         return tools;

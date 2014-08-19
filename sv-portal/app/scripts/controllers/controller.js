@@ -54,9 +54,9 @@ App.ApplicationController = Ember.ArrayController.extend({
 App.DatasourceController = Ember.ObjectController.extend({});
 
 App.VisualizationController = Ember.ArrayController.extend({
-    needs: "application",
+    needs: ["application"],
     applicationController: Ember.computed.alias("controllers.application"),
-    dataInfo: [],
+    dataInfo: {},
     dataSubset: null,
     dimensions: function() { // computed property; die wird den childviews übergeben      
         var dataSubset = this.get('dataSubset');
@@ -66,32 +66,39 @@ App.VisualizationController = Ember.ArrayController.extend({
 
         var properties = _.values(dataSubset.properties);
         console.log("CHANGED PROPERTIES");
-        console.dir(properties);
+        console.dir(propertdataInfoies);
         return properties;
     }.property('dataSubset'),
-    q: null,    
-    visualisationWidget: null,   
+    q: null,
+    visualisationWidget: null,
     visualisationContainer: "visualisation", // div, visualisation.hbs
     visualisationConfiguration: {},
     createOptionViews: function(options, visualisationConfiguration, observer, container) {
         console.log("### CREATE VISUALISATION CONFIGURATION VIEW");
-        
-        for (var option in options) {
-            var optionvalue = options[option];
-            var view;
-            if (optionvalue.options) {
-                if (!visualisationConfiguration[option]) {
-                    visualisationConfiguration[option] = {};
-                }
+        console.log('OPTIONS');
+        console.dir(options);
 
+        for (var optionName in options) {
+            var option = options[optionName];
+            var view;
+
+            console.log('OPTION NAME: ' + optionName);
+            console.log('OPTION MAP');
+            console.dir(option);
+
+            if (!visualisationConfiguration[optionName]) {
+                visualisationConfiguration[optionName] = this.getOptionDefaultValue(option);
+            }
+
+            if (option.suboptions) {
                 view = Ember.View.create({
                     tagName: "li",
-                    templateName: "vistemplates/" + optionvalue.template,
-                    name: option,
+                    templateName: "vistemplates/" + option.template,
+                    name: optionName,
                     parent: container,
-                    childrenConfig: visualisationConfiguration[option],
-                    label: optionvalue.label,
-                    optionvalue: optionvalue,
+                    childrenConfig: visualisationConfiguration[optionName],
+                    label: option.label,
+                    optionvalue: option,
                     classNames: "optionContainer",
                     childrenViews: [],
                     pushObject: function(child) {
@@ -99,33 +106,36 @@ App.VisualizationController = Ember.ArrayController.extend({
                         this.childrenViews.push(child);
                     }
                 });
-                this.createOptionViews(optionvalue.options, visualisationConfiguration[option], observer, view);
+                this.createOptionViews(option.suboptions, visualisationConfiguration[optionName], observer, view);
             } else {
-                if (!visualisationConfiguration[option]) {
-                    if (optionvalue.values) {
-                        visualisationConfiguration[option] = optionvalue.values[0];
-                    } else if (optionvalue.template === 'multidimensionGrouped' || optionvalue.template === 'multidimension') {
-                        visualisationConfiguration[option] = {};
-                    } else {
-                        visualisationConfiguration[option] = "";
-                    }
-                }
-
                 var view = Ember.View.extend({
                     tagName: "li",
-                    templateName: "vistemplates/" + optionvalue.template,
-                    name: option,
-                    values: optionvalue.values,
-                    label: optionvalue.label,
-                    optionvalue: optionvalue,
+                    templateName: "vistemplates/" + option.template,
+                    name: optionName,
+                    values: option.values,
+                    label: option.label,
+                    optionvalue: option,
                     parent: container,
-                    content: visualisationConfiguration[option],
+                    content: visualisationConfiguration[optionName], // initial value; later user input
                     contentObserver: observer.observes('content')
                 }).create();
             }
             container.pushObject(view);
         }
-        console.log("###########");   
+        console.log("###########");
+    },
+    getOptionDefaultValue: function(option) {
+        switch (option.template) {
+            case 'treeView':
+            case 'box':
+                return {};
+            case 'area':
+                return [];
+            case 'selectField':
+                return option.values[0];
+            default:
+                return "";
+        }
     },
     getWidget: function(widgetName) {
         switch (widgetName) {
@@ -159,62 +169,14 @@ App.VisualizationController = Ember.ArrayController.extend({
         }
         return null;
     },
-    getQueryOptions: function(options, visualisationConfiguration, map) {
-        for (var option in options) {
-            var optionvalue = options[option];
-            console.dir(optionvalue.template);
-            console.dir(visualisationConfiguration);
-            console.log(option);
-            console.log(visualisationConfiguration[option]);
-            if (optionvalue.template === "multidimensionGrouped") {
-                // aus der visualisationConfiguration wird das was unter der structure otpion gespeichert ist rausgeholt
-                map.multidimensionGrouped = {
-                    key: option,
-                    property: visualisationConfiguration[option].cube,
-                    index: optionvalue.index
-                }; //Array (property uri+label+axis)
-                var group = visualisationConfiguration[option].group;
-                if (group) {
-                    map.group = {
-                        key: option,
-                        property: group,
-                        index: optionvalue.index
-                    }
-                }
-            }
-
-            if (optionvalue.template === "dimension") {
-                map.dimension.push({
-                    key: option,
-                    property: visualisationConfiguration[option],
-                    index: optionvalue.index
-                });
-            }
-
-            if (optionvalue.template === "multidimension") {
-                console.log("Option template multidimension: ");
-                console.dir(visualisationConfiguration[option]);
-                console.dir(visualisationConfiguration[option].multiAxis);              
-                map.multidimension = {
-                    key: option,
-                    property: visualisationConfiguration[option].multiAxis,
-                    index: optionvalue.index
-                };
-            }
-
-            if (optionvalue.options) {
-                var result = this.getQueryOptions(optionvalue.options, visualisationConfiguration[option], map);
-            }
-        }
-        return map;
-    },
+    treeContent: {},
     actions: {
         configure: function(selection) {
             console.log("### CONFIGURE VISUALISATION")
-           
+
             var controller = this;
-            var visualisationConfiguration = this.get('visualisationConfiguration');  
-            
+            var visualisationConfiguration = this.get('visualisationConfiguration');
+
             var applicationController = this.get('applicationController');
             var dataset = applicationController.get('selectedSource');
             console.log("SELECTED DATASOURCE");
@@ -223,9 +185,9 @@ App.VisualizationController = Ember.ArrayController.extend({
             console.log(dataset.get('format'));
             console.log("LOCATION");
             console.log(dataset.get('location'));
-            
+
             var visualisationWidget = this.getWidget(selection.name);
-            this.set('visualisationWidget', visualisationWidget);           
+            this.set('visualisationWidget', visualisationWidget);
             console.log("SELECTED WIDGET");
             console.dir(visualisationWidget);
 
@@ -233,53 +195,50 @@ App.VisualizationController = Ember.ArrayController.extend({
             console.log("MODULE");
             console.dir(module);
             visualisationConfiguration.dataModule = module;
-            
-            var options = visualisationWidget.structureOptions;                          
+
+            var l = visualisationWidget.structureOptions;
             console.log("OPTIONS");
-            console.dir(options);
-                          
+            console.dir(l);
+
             module.read(dataset.get("location")).then(function(datasourceInfo) {
                 var dataInfo = datasourceInfo.dataInfo;
-                var defaultItem =  dataInfo[Object.keys(dataInfo)[0]];
-                controller.set('dataInfo',_.values(dataInfo));
-                controller.set('dataSubset',defaultItem); 
-                console.log("DEFAULT IITEM:");
-                console.dir(defaultItem)
+                controller.set('treeContent', tree_data.create(dataInfo));
+
                 visualisationConfiguration.datasourceInfo = datasourceInfo; // TODO: vielleicht reicht ja das data module
             });
-                                           
+
             var observer = function() {
-                console.log("OBSERVER - CONFIGURE");
+                console.log("CONFIG VIS OBSERVER");
                 console.log("setting " + this.get('name') + " to: ");
-                console.dir(this.get('content'));
                 var parent = this.get('parent');
                 var childrenConfig = parent.childrenConfig;
-                    childrenConfig[this.get('name')] = this.get('content');
-                
+                childrenConfig[this.get('name')] = this.get('content');
+                console.log("USER SELECTION");
+                console.dir(this.get('content'));
                 console.log("CHILDREN CONFIG");
                 console.dir(childrenConfig);
             };
-            
-             var container = Ember.View.views['structureOptionsView'];
-                container.clear();
-                container.childrenConfig = visualisationConfiguration;
 
-                this.createOptionViews(options, visualisationConfiguration, observer, container);    
-            
+            var container = Ember.View.views['structureOptionsView'];
+            container.clear();
+            container.childrenConfig = visualisationConfiguration;
+
+            this.createOptionViews(l, visualisationConfiguration, observer, container);
+
             console.log("###########");
         },
         draw: function() {
             console.log("### DRAW VISUALISATION");
             var visualisationWidget = this.get('visualisationWidget');
-            var visualisationConfiguration = this.get('visualisationConfiguration');  
-            var visualisationContainer = this.get('visualisationContainer'); 
-            
+            var visualisationConfiguration = this.get('visualisationConfiguration');
+            var visualisationContainer = this.get('visualisationContainer');
+
             console.log('SUBSET DRAW');
             console.dir(this.get('dataSubset'));
             visualisationConfiguration.selectedSubset = this.get('dataSubset');
-            
+
             visualisationWidget.draw(visualisationConfiguration, visualisationContainer);
-                                  
+
             var options = visualisationWidget.tuningOptions;
 
             var observer = function() {
@@ -288,8 +247,8 @@ App.VisualizationController = Ember.ArrayController.extend({
                 console.dir(this.get('content'));
                 var parent = this.get('parent');
                 var childrenConfig = parent.childrenConfig;
-                    childrenConfig[this.get('name')] = this.get('content');
-                    visualisationWidget.tune(visualisationConfiguration);
+                childrenConfig[this.get('name')] = this.get('content');
+                visualisationWidget.tune(visualisationConfiguration);
                 console.log("CHILDREN CONFIG");
                 console.dir(childrenConfig);
             };
@@ -298,8 +257,8 @@ App.VisualizationController = Ember.ArrayController.extend({
             container.clear();
             container.childrenConfig = visualisationConfiguration;
             this.createOptionViews(options, visualisationConfiguration, observer, container);
-                                        
-            console.log("###########");   
+
+            console.log("###########");
         }
     }
 });

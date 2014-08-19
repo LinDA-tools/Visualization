@@ -26,18 +26,15 @@ html, body {
     }  
 }
 
-.list, #structureOptionsView ul {
-    li {display:inline-block; vertical-align:top}
-    list-style-type: none;
-} 
 #structureOptionsView {
     > li {
         width: 100%;
+        list-style-type: none;
         >.box {
             width: 100%;
             > .boxContent  {
                 width: 100%;
-                > li {
+                > li {                   
                     width: 24%;
                 }
             }
@@ -163,12 +160,17 @@ html, body {
 }
 
 // div after a div inside a .row
-.row div + div { 
-    padding-left: 0.2em;
+.row > div + div { 
+    padding-left: 0.5em;
 }
 
 .heading {
     font-weight: bold;
+}
+
+.side-nav a:hover {
+    background-color: #cccccc;
+    
 }
 
 h6 {
@@ -212,7 +214,7 @@ h6 {
     visibility: hidden;
 }
 
-.tuning{
+.list_default{
     ul {
         list-style-type: none;
     }
@@ -227,6 +229,87 @@ select {
 select[size], select[multiple] {
     background-image: none;
 }
+
+// TREE VIEW
+
+/* Branch */
+.tree-branch {
+    padding: 0px;
+    margin: 0px;
+}
+.tree-node .tree-branch {
+    padding-left: 10px; /* Nested tree branches should be indented */
+}
+
+/* Node */
+.tree-node {
+    list-style: none;
+    line-height: 20px;
+    display:list-item;
+    
+}
+
+/* Arrow */
+.tree-node .toggle-icon {
+    cursor: pointer;
+    display: inline-block;
+    width: 10px;
+    margin-right: 0px;
+    font-size: 10px;
+}
+.tree-node .toggle-icon:hover {
+    opacity: 0.8;
+}
+.tree-node .toggle-icon.leaf {
+    visibility: hidden;
+}
+
+/* Node text */
+.tree-node .text {
+    cursor: pointer;
+    text-decoration: underline;
+}
+.tree-node .text:hover {
+    text-decoration: none;
+}
+.contents {
+  width: 90%;
+  margin: auto;
+}
+
+.file {
+  border: 5px solid #FAFAFA;
+  border-radius: 3px;
+  margin: 5px 0;
+  padding: 3px 5px 3px 5px;
+  background: #ff3232;
+  width: 100%;
+}
+
+.droparea {
+  border: 1px dotted #4b4b4b;
+  border-radius: 5px;
+  height: 4rem;
+}
+
+.droparea-active {
+  background: #c8c8c8;
+  font-weight: bold;
+  height: 4rem;
+}
+
+.areas{
+   li {display:inline-block; vertical-align:top}
+    list-style-type: none; 
+}
+
+.area-box {
+    border: 3px solid #e1e1e1;
+    padding: 0.5rem;
+    padding-top: 0.1rem;
+    text-align: center;
+}
+
 
 // Vertical tabgroup
 .ui-tabs-vertical { width: 55em; }

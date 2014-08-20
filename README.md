@@ -24,7 +24,7 @@ Install Virtuoso:
 ```sh
 - sudo apt-get install virtuoso-opensource
 ```
-For further details on how to configure the virtuoso.ini please see the [virtuoso setup guide](http://virtuoso.openlinksw.com/dataspace/doc/dav/wiki/Main/VOSUbuntuNotes)  
+For further details on how to configure the virtuoso.ini please see the [virtuoso setup guide](http://virtuoso.openlinksw.com/dataspace/doc/dav/wiki/Main/VOSUbuntuNotes).  
 
 Install MongoDB: 
 ```sh

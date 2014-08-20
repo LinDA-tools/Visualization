@@ -46,8 +46,9 @@ Install LinDA visualization:
 
 Start the application:
 ```sh
-- nodemon
-- sudo service virtuoso-opensource-6.1 start
+- nodemon &
+- sudo service virtuoso-opensource-6.1 start 
 - sudo service mongod start
+- cd visualisation/frontend
 - grunt serve
 ```

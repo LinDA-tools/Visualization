@@ -41,7 +41,7 @@ Install LinDA visualization
 - cd visualisation/frontend
 - npm install 
 - bower install
-- cd visualisation/backend
+- cd ../backend
 - npm install
 ```
 

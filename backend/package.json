@@ -1,8 +1,8 @@
 {
-    "name": "VisBackend",
+    "name": "LinDA Visualization Prototype - BACK END",
     "description": "",
     "version": "0.0.1",
-    "main": "./VisBackend.js",
+    "main": "./visualization_backend.js",
     "author": {
         "name": "Klaudia Thellmann",
         "email": "klaudia.thellmann@gmx.de"
@@ -13,10 +13,10 @@
     },
     "repository": {
         "type": "git",
-        "url": "git://github.com/YOUR_LOGIN/VisBackend.git"
+        "url": "git://github.com/YOUR_LOGIN/visualization_backend.git"
     },
     "bugs": {
-        "url": "http://github.com/YOUR_LOGIN/VisBackend/issues"
+        "url": "http://github.com/YOUR_LOGIN/visualization_backend/issues"
     },
     "dependencies": {
       "express" : "3.5.0",

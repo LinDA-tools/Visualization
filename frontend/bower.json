@@ -1,5 +1,5 @@
 {
-  "name": "ember-demo",
+  "name": "LinDA Visualization Prototype - FRONT END",
   "version": "0.0.0",
   "dependencies": {
     "ember": "1.4.0",

@@ -164,7 +164,7 @@ App.VisualizationController = Ember.ArrayController.extend({
         switch (datasource.get('format')) {
             case 'csv':
                 return csv_data_module;
-            case 'sparql':
+            case 'rdf':
                 return sparql_data_module;
         }
         return null;

@@ -6,19 +6,10 @@ var mountFolder = function (connect, dir) {
     return connect.static(require('path').resolve(dir));
 };
 
-// # Globbing
-// for performance reasons we're only matching one level down:
-// 'test/spec/{,*/}*.js'
-// use this if you want to match all subfolders:
-// 'test/spec/**/*.js'
-
 module.exports = function (grunt) {
-    // show elapsed time at the end
     require('time-grunt')(grunt);
-    // load all grunt tasks
     require('load-grunt-tasks')(grunt);
 
-    // configurable paths
     var yeomanConfig = {
         app: 'app',
         dist: 'dist'
@@ -54,7 +45,6 @@ module.exports = function (grunt) {
         connect: {
             options: {
                 port: 9000,
-                // change this to '0.0.0.0' to access the server from outside
                 hostname: 'localhost'
             },
             livereload: {
@@ -147,17 +137,6 @@ module.exports = function (grunt) {
                 }
             }
         },
-        // not used since Uglify task does concat,
-        // but still available if needed
-        /*concat: {
-            dist: {}
-        },*/
-        // not enabled since usemin task does concat and uglify
-        // check index.html to edit your build targets
-        // enable this task if you prefer defining your build targets here
-        /*uglify: {
-            dist: {}
-        },*/
         rev: {
             dist: {
                 files: {
@@ -216,15 +195,6 @@ module.exports = function (grunt) {
         htmlmin: {
             dist: {
                 options: {
-                    /*removeCommentsFromCDATA: true,
-                    // https://github.com/yeoman/grunt-usemin/issues/44
-                    //collapseWhitespace: true,
-                    collapseBooleanAttributes: true,
-                    removeAttributeQuotes: true,
-                    removeRedundantAttributes: true,
-                    useShortDoctype: true,
-                    removeEmptyAttributes: true,
-                    removeOptionalTags: true*/
                 },
                 files: [{
                     expand: true,
@@ -258,7 +228,6 @@ module.exports = function (grunt) {
             ]
           }
         },
-        // Put files not handled in other tasks here
         copy: {
             dist: {
                 files: [{

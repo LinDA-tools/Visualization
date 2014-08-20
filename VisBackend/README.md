@@ -1,6 +1,0 @@
-VisBackend
-==============
-
-This is VisBackend.
-
-

@@ -6,7 +6,7 @@ Prerequisites
 - Virtuoso
 - MongoDB
 
-Installation under Ubuntu (12.04)
+Installation under Ubuntu (version 12.04)
 =======================================
 
 Install Nodejs

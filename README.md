@@ -8,7 +8,7 @@ One of the main tasks in this context is to build an ecosystem of tools for visu
 To complete this task, a generic visualisation workflow is being implemented based on state-of-the-art Linked Data 
 visualisation approaches.  
 
-A demonstration of the prototype can be found [here](http://goo.gl/bSgvjn).
+A demonstration of the prototype and a description of the visualization workfolw can be found [here](http://goo.gl/bSgvjn).
 
 
 

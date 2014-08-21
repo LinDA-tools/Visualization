@@ -16,7 +16,7 @@ Prerequisites
 Installation steps (Ubuntu version 12.04)
 ------------------------------------------------------------------
 
- h3. Install Nodejs:
+**Install Nodejs:**
 ```sh
 - sudo apt-get update
 - sudo apt-get install nodejs
@@ -24,18 +24,18 @@ Installation steps (Ubuntu version 12.04)
 - npm install -g nodemon
 ```
 
- h3. Install Git:
+**Install Git:**
 ```sh
 - sudo apt-get install git-core
 ```
 
- h3. Install Virtuoso:
+**Install Virtuoso:**
 ```sh
 - sudo apt-get install virtuoso-opensource
 ```
 For further details on how to configure the virtuoso.ini please see the [virtuoso setup guide](http://virtuoso.openlinksw.com/dataspace/doc/dav/wiki/Main/VOSUbuntuNotes). 
 
- h3. Install MongoDB: 
+**Install MongoDB:** 
 ```sh
 - sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
 - echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | sudo tee /etc/apt/sources.list.d/mongodb.list
@@ -43,7 +43,7 @@ For further details on how to configure the virtuoso.ini please see the [virtuos
 - sudo apt-get install mongodb-org
 ```
 
-h3. Install LinDA visualization:
+**Install LinDA visualization:**
 ```sh
 - git clone https://github.com/LinDA-tools/visualisation.git
 - cd visualisation/frontend
@@ -53,7 +53,7 @@ h3. Install LinDA visualization:
 - npm install
 ```
 
-h3. Initial setup:
+**Initial setup:**
 - Upload RDF datasets from `Visualization/backend/testsets` into Virtuoso:
 ```sh
 - Login into Virtuoso Conductor web interface (e.g. http://localhost:8890). 
@@ -72,7 +72,7 @@ h3. Initial setup:
   mongoimport -d visualization -c vocabulary < vocabulary
 ```
 
-h3. Start the application:
+**Start the application:**
 ```sh
 - nodemon &
 - sudo service virtuoso-opensource-6.1 start 

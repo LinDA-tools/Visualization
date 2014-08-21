@@ -1,6 +1,16 @@
 Description
 =============
 
+The increasing number of publicly available datasets poses a challenge regarding the integration and consumption of information. The aim of the [LinDA project](http://linda-project.eu/) is to make the benefits of Linked Open Data accessible to SMEs and data providers by providing libraries for Open Data consumption.
+
+One of the main tasks in this context is to build an ecosystem of tools for visualising Linked Data to assist SMEs in their daily tasks by hiding complexity through automation and an intuitive user interface.
+
+To complete this task, a generic visualisation workflow is being implemented based on state-of-the-art Linked Data 
+visualisation approaches.  
+
+A demonstration of the prototype can be found [here](http://goo.gl/bSgvjn).
+
+
 
 Installation
 =============
@@ -33,7 +43,7 @@ Installation steps (Ubuntu v. 12.04)
 ```sh
 - sudo apt-get install virtuoso-opensource
 ```
-For further details on how to configure the virtuoso.ini please see the [virtuoso setup guide](http://virtuoso.openlinksw.com/dataspace/doc/dav/wiki/Main/VOSUbuntuNotes). 
+For further details on how to configure the `virtuoso.ini` please see the [virtuoso setup guide](http://virtuoso.openlinksw.com/dataspace/doc/dav/wiki/Main/VOSUbuntuNotes). 
 
 **Install MongoDB:** 
 ```sh

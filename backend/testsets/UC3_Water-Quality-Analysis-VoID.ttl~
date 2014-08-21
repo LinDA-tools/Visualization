@@ -1,0 +1,83 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix void-ext: <http://stats.lod2.eu/rdf/void-ext/> .
+@prefix qb: <http://purl.org/linked-data/cube#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix ls-void: <http://stats.lod2.eu/rdf/void/> .
+@prefix ls-qb: <http://stats.lod2.eu/rdf/qb/> .
+@prefix ls-cr: <http://stats.lod2.eu/rdf/qb/criteria/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix xstats: <http://example.org/XStats#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://stats.lod2.eu/rdf/void/?source=file:///home/klaudia/Documents/www/data/testsets/Water-Quality-Analysis.nt>
+    void:classPartition [
+        void:class qb:DimensionProperty ;
+        void:entities "1"^^xsd:int
+    ], [
+        void:class qb:MeasureProperty ;
+        void:entities "2"^^xsd:int
+    ], [
+        void:class qb:Observation ;
+        void:entities "12"^^xsd:int
+    ], [
+        void:class qb:ComponentSpecification ;
+        void:entities "3"^^xsd:int
+    ], [
+        void:class <http://www.w3.org/2002/07/owl#Ontology> ;
+        void:entities "1"^^xsd:int
+    ], [
+        void:class qb:DataStructureDefinition ;
+        void:entities "1"^^xsd:int
+    ], [
+        void:class qb:DataSet ;
+        void:entities "1"^^xsd:int
+    ] ;
+    void:classes 0 ;
+    void:distinctObjects 59 ;
+    void:distinctSubjects 21 ;
+    void:entities 41 ;
+    void:properties 12 ;
+    void:propertyPartition [
+        void:property qb:component ;
+        void:triples 3
+    ], [
+        void:property <http://purl.org/dc/elements/1.1/description> ;
+        void:triples 1
+    ], [
+        void:property qb:structure ;
+        void:triples 1
+    ], [
+        void:property qb:measure ;
+        void:triples 2
+    ], [
+        void:property qb:dimension ;
+        void:triples 1
+    ], [
+        void:property <http://example.cubeviz.org/compare/populationEurope/valueQual> ;
+        void:triples 12
+    ], [
+        void:property rdfs:range ;
+        void:triples 1
+    ], [
+        void:property <http://example.cubeviz.org/compare/populationEurope/valuePre> ;
+        void:triples 12
+    ], [
+        void:property rdfs:label ;
+        void:triples 9
+    ], [
+        void:property qb:dataSet ;
+        void:triples 12
+    ], [
+        void:property rdf:type ;
+        void:triples 21
+    ], [
+        void:property <http://example.cubeviz.org/compare/populationEurope/month> ;
+        void:triples 12
+    ] ;
+    void:triples 87 ;
+    void:vocabulary <http://example.cubeviz.org/compare/populationEurope/>, <http://purl.org/dc/elements/1.1/>, <http://purl.org/linked-data/cube>, <http://www.w3.org/1999/02/22-rdf-syntax-ns>, <http://www.w3.org/2000/01/rdf-schema> ;
+    a void:Dataset .
+
+

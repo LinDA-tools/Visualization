@@ -1,0 +1,56 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix void-ext: <http://stats.lod2.eu/rdf/void-ext/> .
+@prefix qb: <http://purl.org/linked-data/cube#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix ls-void: <http://stats.lod2.eu/rdf/void/> .
+@prefix ls-qb: <http://stats.lod2.eu/rdf/qb/> .
+@prefix ls-cr: <http://stats.lod2.eu/rdf/qb/criteria/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix xstats: <http://example.org/XStats#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://stats.lod2.eu/rdf/void/?source=file:///home/klaudia/Documents/www/data/testsets/Healthcare-Analysis.nt>
+    void:classPartition [
+        void:class <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
+        void:entities "5"^^xsd:int
+    ], [
+        void:class <http://www.w3.org/2002/07/owl#Class> ;
+        void:entities "1"^^xsd:int
+    ], [
+        void:class <http://www.hospitals_reviewer.com/schema#Hospital> ;
+        void:entities "5"^^xsd:int
+    ] ;
+    void:classes 1 ;
+    void:distinctObjects 38 ;
+    void:distinctSubjects 11 ;
+    void:entities 11 ;
+    void:properties 7 ;
+    void:propertyPartition [
+        void:property rdfs:label ;
+        void:triples 10
+    ], [
+        void:property rdf:type ;
+        void:triples 11
+    ], [
+        void:property <http://www.hospitals_reviewer.com/schema#infection_rate> ;
+        void:triples 5
+    ], [
+        void:property <http://www.w3.org/2003/01/geo/wgs84_pos#long> ;
+        void:triples 5
+    ], [
+        void:property <http://www.hospitals_reviewer.com/schema#nr_beds> ;
+        void:triples 5
+    ], [
+        void:property <http://www.hospitals_reviewer.com/schema#patients_room> ;
+        void:triples 5
+    ], [
+        void:property <http://www.w3.org/2003/01/geo/wgs84_pos#lat> ;
+        void:triples 5
+    ] ;
+    void:triples 46 ;
+    void:vocabulary <http://www.hospitals_reviewer.com/schema>, <http://www.w3.org/1999/02/22-rdf-syntax-ns>, <http://www.w3.org/2000/01/rdf-schema>, <http://www.w3.org/2003/01/geo/wgs84_pos> ;
+    a void:Dataset .
+
+

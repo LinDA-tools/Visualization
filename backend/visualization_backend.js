@@ -21,7 +21,8 @@ app.configure(function() {
     app.use(express.bodyParser());
     app.use(express.methodOverride());
     app.use(allowCrossDomain);
-    app.use('/library', express.static(__dirname+'/library')); 
+    app.use('/thumbnails', express.static(__dirname+'/thumbnails')); 
+    app.use('/testsets', express.static(__dirname+'/testsets')); 
     restify.serve(app, modules.DatasourceModel, {prefix: '', version: '', plural: true, lowercase: true});
 });
 
@@ -42,7 +43,7 @@ app.get('/suggest/:datasource_id', function(req, res) {
 
 app.get('/sparql-proxy/:endpoint/:query', function(req, res) {
     var query = req.param("query");    
-    var endpoint = req.param("endpoint");    
+    var endpoint = req.param("endpoint");   
     var client = new GraphStoreClient(endpoint, null);
 
     client.query(query).then(function(result, err) {

@@ -1,0 +1,102 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix cainf: <http://newspaper.org/schema-inf#> .
+@prefix cap: <http://newspaper.org/articles_2007#> .
+
+@base <http://www.w3.org/2002/07/owl#> .
+
+cap:NPA1 rdf:type cainf:NPA ;
+           rdfs:label "NPA1" ;		
+           cainf:topic "A" ;
+           cainf:nrPages "5"^^xsd:integer ;
+           cainf:sentiment "0.9"^^xsd:float ;
+           cainf:np cap:NP1 .
+
+cap:NPA2 rdf:type cainf:NPA ;
+           rdfs:label "NPA2" ;		
+           cainf:topic "B" ;
+           cainf:nrPages "2"^^xsd:integer ;
+           cainf:sentiment "0.78"^^xsd:float ;
+           cainf:np cap:NP2 .
+
+cap:NPA3 rdf:type cainf:NPA ;
+           rdfs:label "NPA3" ;		
+           cainf:topic "C" ;
+           cainf:nrPages "7"^^xsd:integer ;
+           cainf:sentiment "-0.4"^^xsd:float ;
+           cainf:np cap:NP3 .
+
+cap:NPA4 rdf:type cainf:NPA ;
+           rdfs:label "NPA4" ;		
+           cainf:topic "B" ;
+           cainf:nrPages "6"^^xsd:integer ;
+           cainf:sentiment "0.3"^^xsd:float ;
+           cainf:np cap:NP2 .
+
+cap:NPA5 rdf:type cainf:NPA ;
+           rdfs:label "NPA5" ;		
+           cainf:topic "A" ;
+           cainf:nrPages "7"^^xsd:integer ;
+           cainf:sentiment "-0.2"^^xsd:float ;
+           cainf:np cap:NP3 .
+
+cap:NPA6 rdf:type cainf:NPA ;
+           rdfs:label "NPA6" ;		
+           cainf:topic "D" ;
+           cainf:nrPages "12"^^xsd:integer ;
+           cainf:sentiment "0.6"^^xsd:float ;
+           cainf:np cap:NP2 .
+
+cap:NPA7 rdf:type cainf:NPA ;
+           rdfs:label "NPA7" ;		
+           cainf:topic "E" ;
+           cainf:nrPages "3"^^xsd:integer ;
+           cainf:sentiment "-0.12"^^xsd:float ;
+           cainf:np cap:NP3 .
+
+cap:NP1 rdf:type cainf:NP ;
+       rdfs:label "NP1" ;
+       cainf:politicalView "0.9"^^xsd:float ;
+       cainf:nrArticles "54"^^xsd:integer .
+
+cap:NP2 rdf:type cainf:NP ;
+       rdfs:label "NP2" ;
+       cainf:politicalView "-0.85"^^xsd:float ;
+       cainf:nrArticles "25"^^xsd:integer .
+
+cap:NP3 rdf:type cainf:NP ;
+       rdfs:label "NP3" ;
+       cainf:politicalView "0.84"^^xsd:float ;
+       cainf:nrArticles "34"^^xsd:integer .
+
+cap:NP4 rdf:type cainf:NP ;
+       rdfs:label "NP4" ;
+       cainf:politicalView "0.3"^^xsd:float ;
+       cainf:nrArticles "10"^^xsd:integer .
+
+cap:NP5 rdf:type cainf:NP ;
+       rdfs:label "NP5" ;
+       cainf:politicalView "-0.3"^^xsd:float ;
+       cainf:nrArticles "27"^^xsd:integer .
+
+cainf:NPA rdf:type owl:Class .
+cainf:NP rdf:type owl:Class .
+
+cainf:topic rdf:type owl:DatatypeProperty .
+cainf:nrPages rdf:type owl:DatatypeProperty .
+cainf:sentiment rdf:type owl:DatatypeProperty .
+cainf:politicalView rdf:type owl:DatatypeProperty .
+cainf:nrArticles rdf:type owl:DatatypeProperty .
+
+cainf:np rdf:type owl:ObjectProperty .
+
+cainf:topic rdfs:label "Topic" .
+cainf:np rdfs:label "Newspaper" .
+cainf:nrPages rdfs:label "Nr of Pages" .
+cainf:sentiment rdfs:label "Sentiment" .
+cainf:politicalView rdfs:label "Political View" .
+cainf:nrArticles rdfs:label "Nr of Articles" .
+
+

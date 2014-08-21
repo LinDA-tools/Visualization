@@ -1,0 +1,65 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix void-ext: <http://stats.lod2.eu/rdf/void-ext/> .
+@prefix qb: <http://purl.org/linked-data/cube#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix ls-void: <http://stats.lod2.eu/rdf/void/> .
+@prefix ls-qb: <http://stats.lod2.eu/rdf/qb/> .
+@prefix ls-cr: <http://stats.lod2.eu/rdf/qb/criteria/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix xstats: <http://example.org/XStats#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://stats.lod2.eu/rdf/void/?source=file:///home/klaudia/Documents/www/data/testsets/Newspaper-Articles-Analysis.nt>
+    void:classPartition [
+        void:class <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
+        void:entities "5"^^xsd:int
+    ], [
+        void:class <http://newspaper.org/schema-inf#NPA> ;
+        void:entities "7"^^xsd:int
+    ], [
+        void:class <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+        void:entities "1"^^xsd:int
+    ], [
+        void:class <http://newspaper.org/schema-inf#NP> ;
+        void:entities "5"^^xsd:int
+    ], [
+        void:class <http://www.w3.org/2002/07/owl#Class> ;
+        void:entities "2"^^xsd:int
+    ] ;
+    void:classes 2 ;
+    void:distinctObjects 52 ;
+    void:distinctSubjects 20 ;
+    void:entities 27 ;
+    void:properties 8 ;
+    void:propertyPartition [
+        void:property <http://newspaper.org/schema-inf#sentiment> ;
+        void:triples 7
+    ], [
+        void:property <http://newspaper.org/schema-inf#politicalView> ;
+        void:triples 5
+    ], [
+        void:property rdfs:label ;
+        void:triples 18
+    ], [
+        void:property <http://newspaper.org/schema-inf#nrArticles> ;
+        void:triples 5
+    ], [
+        void:property rdf:type ;
+        void:triples 20
+    ], [
+        void:property <http://newspaper.org/schema-inf#np> ;
+        void:triples 7
+    ], [
+        void:property <http://newspaper.org/schema-inf#topic> ;
+        void:triples 7
+    ], [
+        void:property <http://newspaper.org/schema-inf#nrPages> ;
+        void:triples 7
+    ] ;
+    void:triples 76 ;
+    void:vocabulary <http://newspaper.org/schema-inf>, <http://www.w3.org/1999/02/22-rdf-syntax-ns>, <http://www.w3.org/2000/01/rdf-schema> ;
+    a void:Dataset .
+
+

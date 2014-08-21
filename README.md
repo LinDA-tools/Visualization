@@ -1,32 +1,41 @@
-Prerequisites
+Description
 =============
+
+
+Installation
+=============
+
+Prerequisites
+------------------------------------------------------------------
 
 - Nodejs
 - Git
 - Virtuoso
 - MongoDB
 
-Installation under Ubuntu (version 12.04)
-=======================================
+Installation steps (Ubuntu version 12.04)
+------------------------------------------------------------------
 
-Install Nodejs:
+ h3. Install Nodejs:
 ```sh
 - sudo apt-get update
 - sudo apt-get install nodejs
 - sudo apt-get install npm
 - npm install -g nodemon
 ```
-Install Git:
+
+ h3. Install Git:
 ```sh
 - sudo apt-get install git-core
 ```
-Install Virtuoso:
+
+ h3. Install Virtuoso:
 ```sh
 - sudo apt-get install virtuoso-opensource
 ```
-For further details on how to configure the virtuoso.ini please see the [virtuoso setup guide](http://virtuoso.openlinksw.com/dataspace/doc/dav/wiki/Main/VOSUbuntuNotes).  
+For further details on how to configure the virtuoso.ini please see the [virtuoso setup guide](http://virtuoso.openlinksw.com/dataspace/doc/dav/wiki/Main/VOSUbuntuNotes). 
 
-Install MongoDB: 
+ h3. Install MongoDB: 
 ```sh
 - sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
 - echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | sudo tee /etc/apt/sources.list.d/mongodb.list
@@ -34,7 +43,7 @@ Install MongoDB:
 - sudo apt-get install mongodb-org
 ```
 
-Install LinDA visualization:
+h3. Install LinDA visualization:
 ```sh
 - git clone https://github.com/LinDA-tools/visualisation.git
 - cd visualisation/frontend
@@ -44,8 +53,8 @@ Install LinDA visualization:
 - npm install
 ```
 
-Set up the application:
-- Upload RDF datasets from Visualization/backend/testsets into Virtuoso:
+h3. Initial setup:
+- Upload RDF datasets from `Visualization/backend/testsets` into Virtuoso:
 ```sh
 - Login into Virtuoso Conductor web interface (e.g. http://localhost:8890). 
   Default login is: user=password=dba
@@ -55,8 +64,7 @@ Set up the application:
   UC3_Water-Quality-Analysis: http://water_quality_check.it/info
   UC4_a_Healthcare-Analysis: http://www.hospitals_reviewer.com/2014
 ```
-
-- Import metadata about the visualisation widgets and datasets from Visualization/metadata into MongoDB:
+- Import metadata about the visualisation widgets and datasets from `Visualization/metadata` into MongoDB:
 ```sh
 - Open bash and enter: 
   mongoimport -d visualization -c dataset < dataset
@@ -64,7 +72,7 @@ Set up the application:
   mongoimport -d visualization -c vocabulary < vocabulary
 ```
 
-Start the application:
+h3. Start the application:
 ```sh
 - nodemon &
 - sudo service virtuoso-opensource-6.1 start 

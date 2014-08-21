@@ -1,5 +1,5 @@
 {
-    "name": "LinDA Visualization Prototype - BACK END",
+    "name": "LinDA_Visualization_Prototype_BACK_END",
     "description": "",
     "version": "0.0.1",
     "main": "./visualization_backend.js",
@@ -13,10 +13,10 @@
     },
     "repository": {
         "type": "git",
-        "url": "git://github.com/YOUR_LOGIN/visualization_backend.git"
+        "url": "git://github.com/LinDA-tools/Visualization.git"
     },
     "bugs": {
-        "url": "http://github.com/YOUR_LOGIN/visualization_backend/issues"
+        "url": "http://github.com/LinDA-tools/Visualization/issues"
     },
     "dependencies": {
       "express" : "3.5.0",

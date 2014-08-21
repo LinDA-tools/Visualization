@@ -69,7 +69,7 @@ For further details on how to configure the `virtuoso.ini` please see the [virtu
 - Login into Virtuoso Conductor web interface (e.g. http://localhost:8890). 
   Default login is: user=password=dba
 - Select the tab "Linked Data" and then "Quad Store Upload"
-- For each dataset you are uploading from visalization/backend/testsets enter the corresponding graph IRI:
+- For each RDF dataset (e.g. .ttl, .nt) you are uploading from Visalization/backend/testsets enter the corresponding graph IRI:
   UC2_Newspaper-Articles-Analysis: http://newspaper.org/articles_2007
   UC3_Water-Quality-Analysis: http://water_quality_check.it/info
   UC4_a_Healthcare-Analysis: http://www.hospitals_reviewer.com/2014

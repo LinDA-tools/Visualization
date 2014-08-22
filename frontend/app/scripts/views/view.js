@@ -86,6 +86,8 @@ App.DroppableAreaComponent = Ember.Component.extend({
         event.preventDefault();
     },
     drop: function(event) {
+        event.stopPropagation();
+        event.preventDefault();
         var droppable = event.dataTransfer.getData('text/plain');
         console.log('DROPPABLE');
         console.dir(JSON.parse(droppable));

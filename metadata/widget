@@ -1,4 +1,5 @@
 { "_id" : { "$oid" : "53f0e8ba8e2a624dfcae3b0c" }, "name" : "Bar Chart", "thumbnail" : "http://localhost:3001/thumbnails/bar_chart.png", "category" : "statistical" }
+{ "_id" : { "$oid" : "53f63df069da414dd532f451" }, "name" : "Column Chart", "thumbnail" : "http://localhost:3001/thumbnails/column_chart.png", "category" : "statistical" }
 { "_id" : { "$oid" : "53f0e8cc8e2a624dfcae3b0d" }, "name" : "Line Chart", "thumbnail" : "http://localhost:3001/thumbnails/line_chart.png", "category" : "statistical" }
 { "_id" : { "$oid" : "53f0e8df8e2a624dfcae3b0e" }, "name" : "Bubble Chart", "thumbnail" : "http://localhost:3001/thumbnails/bubble_chart.png", "category" : "statistical" }
 { "_id" : { "$oid" : "53f0e8f28e2a624dfcae3b0f" }, "name" : "Timeline", "thumbnail" : "http://localhost:3001/thumbnails/timeline.png", "category" : "temporal" }

@@ -109,3 +109,4 @@ App.PropertyItemComponent = Ember.Component.extend({
        
     }
 });
+//

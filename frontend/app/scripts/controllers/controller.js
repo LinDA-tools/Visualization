@@ -155,7 +155,7 @@ App.VisualizationController = Ember.ArrayController.extend({
                 return scatterchart;
             case 'Map Chart':
                 return mapchart;
-            case 'Map (OpenStreetMap)':
+            case 'Map':
                 return map;
         }
         return null;

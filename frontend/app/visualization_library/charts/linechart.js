@@ -1,28 +1,16 @@
-google.load('visualization', '1', {packages: ['corechart']});
-
 var linechart = function() {
-
-    var structureOptionsCSV = {
-        axis: {label: "Axes", template: 'box', suboptions: {
-                xAxis: {label: "Horizontal axis", template: 'dimension'},
-                yAxis: {label: "Vertical axis", template: 'multidimension'}
-            }
-        }
-    };
-
-    var structureOptionsRDF = {
-        axis: {label: "Axes", template: 'tabgroup', suboptions: {
-                xAxis: {label: "Horizontal axis", template: 'dimension'},
-                yAxis: {label: "Vertical axis", template: 'multidimensionGrouped'}
+    var structureOptions = {
+        axis: {label: "Axes", template: 'treeView', suboptions: {
+                xAxis: {label: "Horizontal axis", template: 'area'},
+                yAxis: {label: "Vertical axis", template: 'area'}
             }
         }
     };
 
     var tuningOptions = {
         title: {label: "Title", template: 'textField'},
-        lineStyle: {label: "Line style", template: 'selectField',
-            values: [{label: "Straight", id: "straight"}, {label: "Curved", id: "curved"}],
-            defaults: {id: "straight"}
+        style: {label: "Style", template: 'selectField',
+            values: [{label: "Normal", id: "normal"}, {label: "Stacked", id: "stacked"}]
         },
         axis: {label: "Axes", template: 'box', suboptions: {
                 vLabel: {label: "Label (V)", template: 'textField'},
@@ -34,74 +22,102 @@ var linechart = function() {
                 }
             }
         },
-        color: {label: "Line colors", template: 'box', suboptions: {
+        color: {label: "Horizontal axes colors", template: 'box', suboptions: {
                 yAxisColors: {template: 'multiAxisColors', axis: 'yAxis'} // TODO
             }
         }
     };
 
     var chart = null;
-    var data = null;
+    var seriesHeaders = [];
+    var series = [];
 
-    function initialize(input, divId) {
-        // Create and populate the data table.
-        data = google.visualization.arrayToDataTable(input);
-        console.log('INITIALIZE');
-        console.dir(input);
-        chart = new google.visualization.LineChart(document.getElementById(divId));
-    }
+    function draw(visualisationConfiguration, visualisationContainer) {
+        console.log("### INITIALIZE VISUALISATION");
 
-    function draw(config) {
-        // Create and draw the skeleton of the visualization.
-        var view = new google.visualization.DataView(data);
-        var columns = [config.axis.xAxis.id];
-        console.log('DRAW - config.axis.xAxis.id' + config.axis.xAxis.id);
-        var yAxes = config.axis.yAxis.multiAxis;
+        var dataModule = visualisationConfiguration.dataModule;
+
+        console.log("VISUALISATION CONFIGURATION");
+        console.dir(visualisationConfiguration);
+
+        var xAxis = visualisationConfiguration.axis.xAxis;
+        console.log('xAxis');
+        console.dir(xAxis);
+
+        var yAxes = visualisationConfiguration.axis.yAxis;
+        console.log('yAxes');
         console.dir(yAxes);
 
+        var selection = {};
+        var dimension = [];
+        var multidimension = [];
+        var group = [];
+
+        dimension.push(xAxis[0]);
+
         for (var i = 0; i < yAxes.length; i++) {
-            console.log('yAxis: ' + yAxes[i].id);
-            columns.push(yAxes[i].id);
+            console.dir(yAxes[i]);
+            if (yAxes[i].groupBy) {
+                group.push(yAxes[i]);
+            } else {
+                multidimension.push(yAxes[i]);
+            }
         }
 
-        view.setColumns(columns);
+        selection.dimension = dimension;
+        selection.multidimension = multidimension;
+        selection.group = group;
 
-        chart.draw(view, {
-            curveType: "none",
-            width: 600, height: 400
-        });
-    }
+        console.log("SELECTION");
+        console.dir(selection);
 
-    function drawRDF() {
-        chart.draw(data, {
-            curveType: "none",
-            width: 600, height: 400
+        var location = visualisationConfiguration.datasourceInfo.location;
+
+        dataModule.parse(location, selection).then(function(inputData) {
+            console.log("CONVERTED INPUT DATA");
+            console.dir(inputData);
+            
+            seriesHeaders = inputData[0];
+            series = transpose(inputData);
+            chart = c3.generate({
+                bindto: '#' + visualisationContainer,
+                data: {
+                    columns: series,
+                    x: seriesHeaders[0],
+                    type: 'line'
+                }
+            });
         });
+
+        console.log("###########");
     }
 
     function tune(config) {
-        // Tune the visualization.
-        chart.draw(data, {
-            title: config.title,
-            curveType: (config.lineStyle.id === 'curved') ?"function" : "none",
-            width: 600, height: 400,
-            vAxis: {title: config.axis.vLabel,
-                logScale: (config.axis.scale.id === 'logarithmic') ? true : false,
-                gridlines: {
-                    count: config.axis.grid
-                }
-            },
-            hAxis: {title: config.axis.hLabel}
+        console.log("### TUNE VISUALISATION");
+        console.dir(chart);
+        
+        var groups;
+        if(config.style.id === "stacked") {
+            groups = [seriesHeaders.slice(1)];
+            console.dir(groups);
+        } else {
+            groups = [];
+        }
+        
+        chart.groups(groups);
+
+        chart.axis.labels({
+                x: config.axis.hLabel,
+                y: config.axis.vLabel
         });
+
+        console.log("###########");
     }
 
     return {
-        structureOptionsCSV: structureOptionsCSV,
-        structureOptionsRDF: structureOptionsRDF,
+        structureOptions: structureOptions,
         tuningOptions: tuningOptions,
-        initialize: initialize,
         draw: draw,
-        drawRDF: drawRDF,
         tune: tune
     };
 }();

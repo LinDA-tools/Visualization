@@ -2,10 +2,10 @@
     <li style="width:30%">{{view.label}}</li>
     <li style="width:60%">
         <!--view in content und selection bezieht sich auf die selectField.hbs view nicht auf Ember.Select view -->
-        {{view Ember.Select viewName="selectField" 
+        {{view Ember.Select viewName="selectField"
             content=view.values
             optionLabelPath="content.label"
-            optionValuePath="content.id"
             selection=view.content}}
+            {{! RE-ACTIVATE AFTER EMBER UPGRADE  optionValuePath="content.id"}}
     </li>
 </ul>

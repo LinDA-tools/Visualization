@@ -29,7 +29,8 @@ var columnchart = function() {
     };
 
     var chart = null;
-    var data = null;
+    var seriesHeaders = [];
+    var series = [];
 
     function draw(visualisationConfiguration, visualisationContainer) {
         console.log("### INITIALIZE VISUALISATION");
@@ -75,26 +76,14 @@ var columnchart = function() {
         dataModule.parse(location, selection).then(function(inputData) {
             console.log("CONVERTED INPUT DATA");
             console.dir(inputData);
-
-            // Create and populate the data table.
-            var columnHeaders = inputData[0];
-
-            var columns = [];
-            for (var i = 0; i < columnHeaders.length; i++) {
-                var column = [];
-                for (var j = 0; j < inputData.length; j++) {
-                    column.push(inputData[j][i]);
-                }
-                columns.push(column);
-            }
             
-            data = columns;
-
+            seriesHeaders = inputData[0];
+            series = transpose(inputData);
             chart = c3.generate({
                 bindto: '#' + visualisationContainer,
                 data: {
-                    columns: columns,
-                    x: columnHeaders[0],
+                    columns: series,
+                    x: seriesHeaders[0],
                     type: 'bar'
                 }
             });
@@ -106,6 +95,16 @@ var columnchart = function() {
     function tune(config) {
         console.log("### TUNE VISUALISATION");
         console.dir(chart);
+        
+        var groups;
+        if(config.style.id === "stacked") {
+            groups = [seriesHeaders.slice(1)];
+            console.dir(groups);
+        } else {
+            groups = [];
+        }
+        
+        chart.groups(groups);
 
         chart.axis.labels({
                 x: config.axis.hLabel,

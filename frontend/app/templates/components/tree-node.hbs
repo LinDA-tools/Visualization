@@ -1,25 +1,25 @@
 {{#if node.draggable}}
-  <div draggable="true">   
-		<span {{bind-attr class=":toggle-icon node.children.length::leaf"}} {{action toggle}}>
-			{{#if isExpanded}}
-				&#x25BC;
-			{{else}}
-				&#x25B6;
-			{{/if}}
-		</span>
+    <div draggable="true">   
+        <span {{bind-attr class=":toggle-icon node.children.length::leaf"}} {{action toggle}}>
+            {{#if isExpanded}}
+                &#x25BC;
+            {{else}}
+                &#x25B6;
+            {{/if}}
+        </span>
 	{{node.draggable.label}}
-   </div>	  
+    </div>	  
 {{else}}
-	<div>  
-		<span {{bind-attr class=":toggle-icon node.children.length::leaf"}} {{action toggle}}>
-			{{#if isExpanded}}
-				&#x25BC;
-			{{else}}
-				&#x25B6;
-			{{/if}}
-		</span>
-    {{node.label}} 
-	</div>
+    <div>  
+        <span {{bind-attr class=":toggle-icon node.children.length::leaf"}} {{action toggle}}>
+            {{#if isExpanded}}
+                &#x25BC;
+            {{else}}
+                &#x25B6;
+            {{/if}}
+        </span>
+        {{node.label}} 
+    </div>
 {{/if}}
     
 {{#if isExpanded}}

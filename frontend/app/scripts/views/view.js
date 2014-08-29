@@ -62,7 +62,12 @@ App.TreeBranchComponent = Ember.Component.extend({
 App.TreeNodeComponent = Ember.Component.extend({
     tagName: 'li',
     classNames: ['tree-node'],
-    isExpanded: false,
+    init: function() {
+        this._super();
+        console.log("expanded: " + this.get('node.expanded'));
+        console.dir(this.get('node'));
+        this.set('isExpanded', this.get('node.expanded') || false);
+    },
     toggle: function() {
         this.toggleProperty('isExpanded');
     },
@@ -88,25 +93,32 @@ App.DroppableAreaComponent = Ember.Component.extend({
     drop: function(event) {
         event.stopPropagation();
         event.preventDefault();
-        var droppable = event.dataTransfer.getData('text/plain');
+        var droppableJSON = event.dataTransfer.getData('text/plain');
         console.log('DROPPABLE');
-        console.dir(JSON.parse(droppable));
-        this.get('inArea').pushObject(JSON.parse(droppable));
+        console.dir(JSON.parse(droppableJSON));
+        var droppable = JSON.parse(droppableJSON);
+        var inArea = this.get('inArea');
+        for (var i = 0; i < inArea.length; i++) {
+            if (inArea[i].id === droppable.id) {
+                return;
+            }
+        }
+        this.get('inArea').pushObject(droppable);
     }
 });
 
 // ITEMS COMPONENT 
 App.PropertyItemComponent = Ember.Component.extend({
     remove: function() {
-       console.log('REMOVE');
-       var collection=this.get('collection'); //collection = inArea
-       var item=this.get('item');
-       
-       console.dir(collection);      
-       console.dir(item); 
-       
-       collection.removeObject(item);
-       
+        console.log('REMOVE');
+        var collection = this.get('collection'); //collection = inArea
+        var item = this.get('item');
+
+        console.dir(collection);
+        console.dir(item);
+
+        collection.removeObject(item);
+
     }
 });
 //

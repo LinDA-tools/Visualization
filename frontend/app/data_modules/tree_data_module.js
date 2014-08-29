@@ -11,7 +11,7 @@ var tree_data = function() {
             children: []
         };
 
-
+        var first = true;
         for (var i in dataInfo) { // iterate over subset IDs (=keys)
             var subset = dataInfo[i];
             console.log("SUBSET: " + i);
@@ -22,8 +22,10 @@ var tree_data = function() {
             treeContent.children.push({
                 ID: subset.id,
                 label: subset.label,
+                expanded: first,
                 children: (subset.properties ? branch(subset.properties, parent.concat([subset.id]), []) : [])
             });
+            first = false;
         }
 
         console.log("TREE DATA");

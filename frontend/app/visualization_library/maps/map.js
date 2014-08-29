@@ -113,10 +113,10 @@ var map = function() { // map/openstreetmap module (js module pattern)
                     console.dir(row);
                     continue;
                 }
-                minLat = Math.max(minLat, lat);
-                maxLat = Math.min(maxLat, lat);
-                minLong = Math.max(minLat, long);
-                maxLong = Math.min(maxLat, long);
+                minLat = Math.min(minLat, lat);
+                maxLat = Math.max(maxLat, lat);
+                minLong = Math.min(minLong, long);
+                maxLong = Math.max(maxLong, long);
                 var label = row[labelColumn];
 
                 console.log("LatLong: " + lat + ", " + long);

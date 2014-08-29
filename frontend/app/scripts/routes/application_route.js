@@ -17,14 +17,18 @@ App.ApplicationRoute = Ember.Route.extend({
 
 App.VisualizationRoute = Ember.Route.extend({
     model: function(params) {
-        var tools = Ember.$.getJSON('http://localhost:3001/suggest/' + params.datasource_id);
-        console.log('visualization route');
-        console.log(tools);
-        return tools;
+        return this.store.find('datasource', params.datasource_id).then(function(ds) {
+            return Ember.$.getJSON('http://localhost:3001/suggest/' + params.datasource_id).then(function(tools) {
+                console.log('visualization route');
+                console.log(tools);
+                return {selectedDatasource: ds, suggestedTools: tools}
+            });
+        });
     },
     setupController: function(controller, model) {
-        controller.set('model', model);
-        controller.set('isSelected', false);
-        controller.set('uri', '');
+        console.log("Model: ");
+        console.dir(model);
+        controller.set('selectedDatasource', model.selectedDatasource);
+        controller.set('suggestedTools', model.suggestedTools);
     }
 });

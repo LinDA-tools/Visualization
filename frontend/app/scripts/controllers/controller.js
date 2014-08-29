@@ -1,7 +1,6 @@
 App.ApplicationController = Ember.ArrayController.extend({
     itemController: 'datasource',
     addSource: false,
-    selectedSource: null,
     actions: {
         show: function() {
             this.set('addSource', true);
@@ -45,7 +44,6 @@ App.ApplicationController = Ember.ArrayController.extend({
             datasource.save();
         },
         select: function(ds) {
-            this.set('selectedSource', ds);
             this.transitionToRoute('visualization', ds.id);
         }
     }
@@ -161,24 +159,31 @@ App.VisualizationController = Ember.ArrayController.extend({
         return null;
     },
     getDataModule: function(datasource) {
-        switch (datasource.get('format')) {
+        var format = datasource.get('format');
+        switch (format) {
             case 'csv':
                 return csv_data_module;
             case 'rdf':
                 return sparql_data_module;
         }
+        console.error("Unknown data format '" + format + "'");
         return null;
     },
     treeContent: {},
+    scrollTo: function(id) {
+        Ember.$('html,body').animate({
+            scrollTop: $("#" + id).offset().top
+        });
+    },
     actions: {
         configure: function(selection) {
             console.log("### CONFIGURE VISUALISATION")
 
             var controller = this;
-            var visualisationConfiguration = this.get('visualisationConfiguration');
+            var visualisationConfiguration = {};
+            this.set('visualisationConfiguration', visualisationConfiguration)
 
-            var applicationController = this.get('applicationController');
-            var dataset = applicationController.get('selectedSource');
+            var dataset = this.get('selectedDatasource');
             console.log("SELECTED DATASOURCE");
             console.dir(dataset);
             console.log("FORMAT");
@@ -226,6 +231,7 @@ App.VisualizationController = Ember.ArrayController.extend({
             this.createOptionViews(l, visualisationConfiguration, observer, container);
 
             console.log("###########");
+            this.scrollTo("wf-init-vis");
         },
         draw: function() {
             console.log("### DRAW VISUALISATION");
@@ -258,6 +264,7 @@ App.VisualizationController = Ember.ArrayController.extend({
             container.childrenConfig = visualisationConfiguration;
             this.createOptionViews(options, visualisationConfiguration, observer, container);
 
+            this.scrollTo("wf-show-vis");
             console.log("###########");
         }
     }

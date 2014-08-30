@@ -175,7 +175,7 @@ html, body {
 
 h6 {
     font-weight: bold;
-    font-size: 10pt;
+    font-size: 12pt;
 }
 
 .toolframe {
@@ -189,12 +189,13 @@ h6 {
     color: white;
     padding-top: 10px;
     padding-left:5px;
-    font-size: 10pt;
+    font-size: 14pt;
 }
 
 .workflowStepTitle {
     font-weight: bold;
-    background-color: white;
+    // background-color: #ff9933;
+    padding: 0.2rem;
 }
 
 .toolthumbnail {

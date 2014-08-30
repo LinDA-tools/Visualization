@@ -64,7 +64,7 @@ App.VisualizationController = Ember.ArrayController.extend({
 
         var properties = _.values(dataSubset.properties);
         console.log("CHANGED PROPERTIES");
-        console.dir(propertdataInfoies);
+        console.dir(properties);
         return properties;
     }.property('dataSubset'),
     q: null,
@@ -179,6 +179,10 @@ App.VisualizationController = Ember.ArrayController.extend({
         configure: function(selection) {
             console.log("### CONFIGURE VISUALISATION")
 
+            Ember.View.views['tuningOptionsView'].clear();
+            Ember.View.views['structureOptionsView'].clear();
+            Ember.$('#visualisation').empty();
+
             var controller = this;
             var visualisationConfiguration = {};
             this.set('visualisationConfiguration', visualisationConfiguration)
@@ -192,6 +196,9 @@ App.VisualizationController = Ember.ArrayController.extend({
             console.log(dataset.get('location'));
 
             var visualisationWidget = this.getWidget(selection.name);
+            console.log("SELECTION");
+            console.dir(selection);
+
             this.set('visualisationWidget', visualisationWidget);
             console.log("SELECTED WIDGET");
             console.dir(visualisationWidget);
@@ -199,36 +206,53 @@ App.VisualizationController = Ember.ArrayController.extend({
             var module = this.getDataModule(dataset);
             console.log("MODULE");
             console.dir(module);
-            visualisationConfiguration.dataModule = module;
 
-            var l = visualisationWidget.structureOptions;
+         
+            var structureOptions = selection.structureOptions || visualisationWidget.structureOptions;
             console.log("OPTIONS");
-            console.dir(l);
+            console.dir(structureOptions);
+            console.log("SELECTION");
+            console.dir(selection);
 
-            module.read(dataset.get("location")).then(function(datasourceInfo) {
-                var dataInfo = datasourceInfo.dataInfo;
-                controller.set('treeContent', tree_data.create(dataInfo));
+            // retrieve pre-configuration from backend
+            var dataset_id = dataset.id;
+            var visualization_id = selection._id;
 
-                visualisationConfiguration.datasourceInfo = datasourceInfo; // TODO: vielleicht reicht ja das data module
+            var promise = Ember.$.getJSON('http://localhost:3001/preconfigure/' + dataset_id + "/" + visualization_id);
+
+            return promise.then(function(preconfig) {
+                console.log("RETRIEVE PRECONFIGURATION");
+                console.dir(preconfig);
+                controller.set('visualisationConfiguration', preconfig);
+                 preconfig.dataModule = module;
+
+                // read data from backend and create a data tree
+                module.read(dataset.get("location")).then(function(datasourceInfo) {
+                    var dataInfo = datasourceInfo.dataInfo;
+                    controller.set('treeContent', tree_data.create(dataInfo));
+
+                    preconfig.datasourceInfo = datasourceInfo; // TODO: vielleicht reicht ja das data module
+                });
+
+                var observer = function() {
+                    console.log("CONFIG VIS OBSERVER");
+                    console.log("setting " + this.get('name') + " to: ");
+                    var parent = this.get('parent');
+                    var childrenConfig = parent.childrenConfig;
+                    childrenConfig[this.get('name')] = this.get('content');
+                    console.log("USER SELECTION");
+                    console.dir(this.get('content'));
+                    console.log("CHILDREN CONFIG");
+                    console.dir(childrenConfig);
+                };
+
+            var optionsContainer = Ember.View.views['structureOptionsView'];
+                optionsContainer.clear();
+                optionsContainer.childrenConfig = preconfig;
+
+                // create preconfigured option view
+                controller.createOptionViews(structureOptions, preconfig, observer, optionsContainer);
             });
-
-            var observer = function() {
-                console.log("CONFIG VIS OBSERVER");
-                console.log("setting " + this.get('name') + " to: ");
-                var parent = this.get('parent');
-                var childrenConfig = parent.childrenConfig;
-                childrenConfig[this.get('name')] = this.get('content');
-                console.log("USER SELECTION");
-                console.dir(this.get('content'));
-                console.log("CHILDREN CONFIG");
-                console.dir(childrenConfig);
-            };
-
-            var container = Ember.View.views['structureOptionsView'];
-            container.clear();
-            container.childrenConfig = visualisationConfiguration;
-
-            this.createOptionViews(l, visualisationConfiguration, observer, container);
 
             console.log("###########");
             this.scrollTo("wf-init-vis");

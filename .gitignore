@@ -2,4 +2,4 @@
 /backend/node_modules
 /frontend/node_modules
 /frontend/app/bower_components
-
+/frontend/.netbeans.xml

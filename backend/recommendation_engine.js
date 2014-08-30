@@ -36,6 +36,8 @@ function suggest(datasource_id) {
                 return data(datasource.metadata, vocabularies);
             }).then(function(results, err) {
                 var dsList = results.shift();
+                console.dir("dsList");
+                console.dir(dsList);
                 var matching = match(dsList.list, results);
 
                 return matching;

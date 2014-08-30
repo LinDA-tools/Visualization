@@ -15,7 +15,8 @@ var Datasource = mongoose.Schema({
 var Widget = mongoose.Schema({
     name: String,
     thumbnail: String,
-    category: String    
+    category: String,
+    structureOptions: Schema.Types.Mixed
 },
 {collection: 'widget'});
 

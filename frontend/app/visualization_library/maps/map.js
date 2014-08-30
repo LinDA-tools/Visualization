@@ -13,19 +13,19 @@ var map = function() { // map/openstreetmap module (js module pattern)
 
 
     var map = null;
-
-
     function draw(config, visualisationContainer) {
+        // Remove if 'draw' was called before
+        if (map) {
+            $(visualisationContainer).empty();
+            map.remove();
+        }
         map = L.map(visualisationContainer)
         // create a map in the "visualization" div
         L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
             maxZoom: 18
         }).addTo(map);
-
-
         console.log("### INITIALIZE VISUALISATION");
-
         var dataModule = config.dataModule;
 
         var labelPropertyInfo = config.axis.label[0];
@@ -33,30 +33,31 @@ var map = function() { // map/openstreetmap module (js module pattern)
         var longPropertyInfo = config.axis.long[0];
         var indicatorPropertyInfos = config.axis.indicator;
 
-        var labelColumn = 0;
-        var latColumn = 1;
-        var longColumn = 2;
+        var currColumn = 0;
+        var latColumn = currColumn++;
+        var longColumn = currColumn++;
+        var labelColumn = -1;
+        if (labelPropertyInfo) {
+            labelColumn = currColumn++;
+        }
         var indicatorColumns = _.range(3, 3 + indicatorPropertyInfos.length)
 
-        console.log("label, lat, long, indicators:");
-        console.dir(labelPropertyInfo);
+        console.log("lat, long, label, indicators:");
         console.dir(latPropertyInfo);
         console.dir(longPropertyInfo);
+        console.dir(labelPropertyInfo);
         console.dir(indicatorPropertyInfos);
-
-
         console.log("VISUALISATION CONFIGURATION");
         console.dir(config);
-
         var selection = {};
-        var dimension = [];
+        var dimensions = [];
         var indicators = [];
         var group = [];
-
-        dimension.push(labelPropertyInfo);
-        dimension.push(latPropertyInfo);
-        dimension.push(longPropertyInfo);
-
+        dimensions.push(latPropertyInfo);
+        dimensions.push(longPropertyInfo);
+        if (labelPropertyInfo) {
+            dimensions.push(labelPropertyInfo);
+        }
         for (var i = 0; i < indicatorPropertyInfos.length; i++) {
             console.dir(indicatorPropertyInfos[i]);
             if (indicatorPropertyInfos[i].groupBy) {
@@ -66,29 +67,21 @@ var map = function() { // map/openstreetmap module (js module pattern)
             }
         }
 
-        selection.dimension = dimension;
+        selection.dimension = dimensions;
         selection.multidimension = indicators;
         selection.group = group;
-
         console.log("SELECTION");
         console.dir(selection);
-
         var location = config.datasourceInfo.location;
-
         dataModule.parse(location, selection).then(function(data) {
             console.log("CONVERTED INPUT DATA");
             console.dir(data);
-
-            var minLat = null;
-            var maxLat = null;
-            var minLong = null;
-            var maxLong = null;
-
-
+            var minLat = 90;
+            var maxLat = -90;
+            var minLong = 180;
+            var maxLong = -180;
             var minHue = 120;
             var maxHue = 0;
-
-
             var maxIndicatorValues = [];
             for (var j = 0; j < indicatorColumns.length; j++) {
                 var maxIndicatorValue = 0;
@@ -96,7 +89,7 @@ var map = function() { // map/openstreetmap module (js module pattern)
                     var row = data[i];
                     var indicatorColumn = indicatorColumns[j]; // spaltenindex
                     var indicatorValue = row[indicatorColumn];
-                    if(maxIndicatorValue < indicatorValue) {
+                    if (maxIndicatorValue < indicatorValue) {
                         maxIndicatorValue = indicatorValue;
                     }
                 }
@@ -117,11 +110,8 @@ var map = function() { // map/openstreetmap module (js module pattern)
                 maxLat = Math.max(maxLat, lat);
                 minLong = Math.min(minLong, long);
                 maxLong = Math.max(maxLong, long);
-                var label = row[labelColumn];
-
+                var label = labelColumn >= 0 ? row[labelColumn] : '';
                 console.log("LatLong: " + lat + ", " + long);
-
-
                 var markeroptions = {
                     data: {
                     },
@@ -138,7 +128,6 @@ var map = function() { // map/openstreetmap module (js module pattern)
                     var indicatorColumn = indicatorColumns[j]; // spaltenindex
                     var indicatorValue = row[indicatorColumn];
                     var name = 'datapoint' + j;
-
                     console.log("indicator [j]: " + indicatorColumn + " name: " + name + " value: " + indicatorValue);
                     markeroptions.data[name] = indicatorValue;
                     markeroptions.chartOptions[name] = {
@@ -164,10 +153,12 @@ var map = function() { // map/openstreetmap module (js module pattern)
                 console.log("Point: [" + lat + ", " + long + ", " + label + "]")
             }
             console.log("Bounds: [" + minLat + ", " + maxLat + "], [" + minLong + ", " + maxLong + "]")
-            map.fitBounds([
-                [minLat, minLong],
-                [maxLat, maxLong]
-            ]);
+            if (minLat !== null && minLong !== null && maxLat !== null && maxLong !== null) {
+                map.fitBounds([
+                    [minLat, minLong],
+                    [maxLat, maxLong]
+                ]);
+            }
         });
     }
 

@@ -3,12 +3,12 @@ google.load('visualization', '1', {packages: ['corechart']});
 var bubblechart = function() { // bubble chart module (js module pattern)
 
     var structureOptions = {
-        axis: {label: "Axes", template: 'box', suboptions: {
-                label: {label: "Label", template: 'dimension'},
-                xAxis: {label: "X Axis", template: 'dimension'},
-                yAxis: {label: "Y Axis", template: 'dimension'},
-                color: {label: "Gradient/category", template: 'dimension'},
-                radius: {label: "Radius", template: 'dimension'}
+        axis: {label: "Axes", template: 'treeView', suboptions: {
+                label: {label: "Label", template: 'area'},
+                xAxis: {label: "X Axis", template: 'area'},
+                yAxis: {label: "Y Axis", template: 'area'},
+                color: {label: "Gradient/category", template: 'area'},
+                radius: {label: "Radius", template: 'area'}
             }
         }
     };

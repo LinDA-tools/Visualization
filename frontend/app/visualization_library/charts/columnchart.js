@@ -85,6 +85,26 @@ var columnchart = function() {
                     columns: series,
                     x: seriesHeaders[0],
                     type: 'bar'
+                },
+                axis: {
+                    y: {
+                        tick: {
+                            format: function(val) {
+                                if(!val && val !== 0) {
+                                    return '';
+                                }
+                                return val.toLocaleString([], {
+                                    useGrouping: false,
+                                    maximumFractionDigits: 6
+                                });
+                            }
+                        }
+                    }
+                },
+                grid: {
+                    y: {
+                        lines: [{value: 0}]
+                    }
                 }
             });
         });

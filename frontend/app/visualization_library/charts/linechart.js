@@ -76,7 +76,6 @@ var linechart = function() {
         dataModule.parse(location, selection).then(function(inputData) {
             console.log("CONVERTED INPUT DATA");
             console.dir(inputData);
-            
             seriesHeaders = inputData[0];
             series = transpose(inputData);
             chart = c3.generate({
@@ -85,6 +84,26 @@ var linechart = function() {
                     columns: series,
                     x: seriesHeaders[0],
                     type: 'line'
+                },
+                axis: {
+                    y: {
+                        tick: {
+                            format: function(val) {
+                                if(!val && val !== 0) {
+                                    return '';
+                                }
+                                return val.toLocaleString([], {
+                                    useGrouping: false,
+                                    maximumFractionDigits: 6
+                                });
+                            }
+                        }
+                    }
+                },
+                grid: {
+                    y: {
+                        lines: [{value: 0}]
+                    }
                 }
             });
         });
@@ -95,20 +114,20 @@ var linechart = function() {
     function tune(config) {
         console.log("### TUNE VISUALISATION");
         console.dir(chart);
-        
+
         var groups;
-        if(config.style.id === "stacked") {
+        if (config.style.id === "stacked") {
             groups = [seriesHeaders.slice(1)];
             console.dir(groups);
         } else {
             groups = [];
         }
-        
+
         chart.groups(groups);
 
         chart.axis.labels({
-                x: config.axis.hLabel,
-                y: config.axis.vLabel
+            x: config.axis.hLabel,
+            y: config.axis.vLabel
         });
 
         console.log("###########");

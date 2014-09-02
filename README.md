@@ -83,7 +83,7 @@ For further details on how to configure the `virtuoso.ini` please see the [virtu
       http://www.hospitals_reviewer.com/2014
       http://void_www.hospitals_reviewer.com/2014
   
-- Finally upload the basic geo and datacube RDF vocabularies with the following URIs:
+- Finally upload into Virtuoso the basic geo and datacube RDF vocabulary with the following URIs:
       http://purl.org/linked-data/cube#
       http://www.w3.org/2003/01/geo/wgs84_pos#
 ```

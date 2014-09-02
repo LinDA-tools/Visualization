@@ -63,16 +63,29 @@ For further details on how to configure the `virtuoso.ini` please see the [virtu
 - npm install
 ```
 
-**Initial setup:**
+**DEMO SETUP:**
 - Upload RDF datasets from `Visualization/backend/testsets` into Virtuoso:
 ```sh
 - Login into Virtuoso Conductor web interface (e.g. http://localhost:8890). 
   Default login is: user=password=dba
 - Select the tab "Linked Data" and then "Quad Store Upload"
-- For each RDF dataset (e.g. .ttl, .nt) you are uploading from Visalization/backend/testsets enter the corresponding graph IRI:
-  UC2_Newspaper-Articles-Analysis: http://newspaper.org/articles_2007
-  UC3_Water-Quality-Analysis: http://water_quality_check.it/info
-  UC4_a_Healthcare-Analysis: http://www.hospitals_reviewer.com/2014
+- For each RDF dataset and corresponding VoID description enter the following graph IRIs:
+
+  UC2_Newspaper-Articles-Analysis: 
+       http://newspaper.org/articles_2007
+       http://void_newspaper.org/articles_2007
+       
+  UC3_Water-Quality-Analysis: 
+      http://water_quality_check.it/info
+      http://void_water_quality_check.it/info
+      
+  UC4_a_Healthcare-Analysis: 
+      http://www.hospitals_reviewer.com/2014
+      http://void_www.hospitals_reviewer.com/2014
+  
+- Finally upload the basic geo and datacube RDF vocabularies with the following URIs:
+      http://purl.org/linked-data/cube#
+      http://www.w3.org/2003/01/geo/wgs84_pos#
 ```
 - Import metadata about the visualisation widgets and datasets from `Visualization/metadata` into MongoDB:
 ```sh

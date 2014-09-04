@@ -30,29 +30,46 @@ var bubblechart = function() { // bubble chart module (js module pattern)
     var data = null;
 
 
-    function initialize(input, divId) {
-        // Create and populate the data table.
-        data = google.visualization.arrayToDataTable(input);
-        chart = new google.visualization.BubbleChart(document.getElementById(divId));
-    }
-
-    function draw(config) {
-        // Create and draw the skeleton of the visualization.
-        var view = new google.visualization.DataView(data);
-        var columns = [config.axis.label.id, config.axis.xAxis.id, config.axis.yAxis.id]
-        if (config.axis.color) {
-            columns.push(config.axis.color.id);
+    function draw(config, visualisationContainer) {
+        console.log("### INITIALIZE VISUALISATION");
+        var dataModule = config.dataModule;
+        var columns = [config.axis.label[0], config.axis.xAxis[0], config.axis.yAxis[0]]
+        if (config.axis.color.length > 0) {
+            columns.push(config.axis.color[0]);
         }
-        if (config.axis.radius) {
-            columns.push(config.axis.radius.id);
+        if (config.axis.radius.length > 0) {
+            columns.push(config.axis.radius[0]);
         }
-        ;
-        view.setColumns(columns);
 
-        chart.draw(view,
-                {title: config.title,
-                    width: 600, height: 400}
-        );
+        var selection = {
+            dimension: [],
+            multidimension: columns,
+            group: []
+        };
+        var location = config.datasourceInfo.location;
+        dataModule.parse(location, selection).then(function(input) {
+
+            // Create and populate the data table.
+            data = google.visualization.arrayToDataTable(input);
+            chart = new google.visualization.BubbleChart(document.getElementById(visualisationContainer));
+
+            // Create and draw the skeleton of the visualization.
+//        var view = new google.visualization.DataView(data);
+//        var columns = [config.axis.label.id, config.axis.xAxis.id, config.axis.yAxis.id]
+//        if (config.axis.color) {
+//            columns.push(config.axis.color.id);
+//        }
+//        if (config.axis.radius) {
+//            columns.push(config.axis.radius.id);
+//        }
+//        ;
+//        view.setColumns(columns);
+
+            chart.draw(data,
+                    {title: config.title,
+                        width: 600, height: 400}
+            );
+        });
     }
 
     function tune(config) {
@@ -79,7 +96,6 @@ var bubblechart = function() { // bubble chart module (js module pattern)
     return {
         structureOptions: structureOptions,
         tuningOptions: tuningOptions,
-        initialize: initialize,
         draw: draw,
         tune: tune
     };

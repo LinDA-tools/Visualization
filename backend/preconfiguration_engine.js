@@ -111,7 +111,7 @@ function preconfigure(datasource_id, visualization_id) {
                             var optionMatches = selectedClassOptionMatches[option];
                             var random = Math.floor((Math.random() * optionMatches.length));
                             var optionMatch = optionMatches[random];
-                            var label = optionMatch.propertyLabel || simplifyURI(optionMatch.property);
+                            var label = optionMatch.label || simplifyURI(optionMatch.property);
 
                             console.log("Mappiong to " + option + ":");
                             printDeep(optionMatch);

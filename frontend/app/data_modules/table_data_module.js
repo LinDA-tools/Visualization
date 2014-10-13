@@ -8,9 +8,6 @@ var table_data = function() {
         var _location = null;
         var _format = null;
 
-        console.log('LIST in table_data_module');
-        console.dir(list);
-
         for (var i = 0; i < list.length; i++) {
             var item = list[i];
             var parent = item.data.parent;
@@ -29,13 +26,7 @@ var table_data = function() {
 
         var data_module = getDataModule(_format);
 
-        console.log('PROPERTY PATHS in table_data_module');
-        console.dir(propertyPaths);
-
         return data_module.queryInstances(_location, _class, propertyPaths).then(function(results) {
-            console.log('QUERY INSTANCES RESULT: ');
-            console.dir(results);
-
             var values = {}
 
             var numRows = 0;
@@ -52,9 +43,6 @@ var table_data = function() {
 
             }
             
-            console.log("VALUES");
-            console.dir(values);
-
             var table = [];
             for (var i = 0; i < numRows; i++) {
                 var row = [];

@@ -2,9 +2,6 @@ var tree_data = function() {
     // first level: csv dummy or classes second ... n level: class properties or columns
     // iterate over subsets (in case of csv is just one subset; in case of RDF the subset are the classes        
     function create(dataInfo) {
-        console.log("CREATING TREE CONTENT");
-        console.dir(dataInfo);
-
         var treeContent = Ember.Object.create({
             ID: '0000',
             label: 'ROOT',
@@ -17,7 +14,7 @@ var tree_data = function() {
             data: {}
         });
 
-        for (var i = 0; i < dataInfo.length; i++) { // iterate over subset IDs (=keys)
+        for (var i = 0; i < dataInfo.length; i++) { 
             var datasource = dataInfo[i];
             var node = Ember.Object.create({
                 ID: datasource.get('id'),
@@ -30,8 +27,6 @@ var tree_data = function() {
                     var result = DS.PromiseArray.create({
                         promise: getNodeChildren(node)
                     });
-                    console.log('ADDED NEW CHILDREN IN TREE_DATA_MODULE --- CREATE');
-                    console.dir(result);
                     return result;
                 },
                 data: {
@@ -43,10 +38,6 @@ var tree_data = function() {
             });
             treeContent.children.push(node);
         }
-
-        console.log("TREE DATA");
-        console.dir(treeContent);
-
         return treeContent;
     }
 
@@ -70,10 +61,6 @@ var tree_data = function() {
                             return children;
                         })
                     });
-                    console.log('ADDED NEW CHILDREN IN TREE_DATA_MODULE --- BRANCH');
-                    console.dir(result);
-
-
                     return result;
                 },
                 data: {
@@ -85,9 +72,6 @@ var tree_data = function() {
                 }
             }));
         }
-
-        console.log("BRANCH children");
-        console.dir(children);
 
         return children;
     }
@@ -104,9 +88,6 @@ var tree_data = function() {
     }
 
     function getNodeChildren(node) {
-        console.log("INSERTING TREE CONTENT");
-        console.dir(node);
-
         var data_module = getDataModule(node.data.format);
         var _class = node.data.parent[0];
         var _properties = node.data.parent.slice(1, node.data.parent.length);
@@ -117,17 +98,9 @@ var tree_data = function() {
                 return [];
             } else {
                 var children = branch(node, subsetInfo, node.data.parent, node.data.format, node.data.location);
-
-                console.log("ADDED CHILDREN: ");
-                console.dir(children);
-
                 return children;
             }
         });
-
-        console.log('ADDED NEW CHILDREN IN TREE_DATA_MODULE');
-        console.dir(newChildren);
-
     }
 
     return {

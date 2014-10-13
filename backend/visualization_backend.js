@@ -92,8 +92,8 @@ app.get('/sparql-proxy/:endpoint/:query', function(req, res) {
     }, printError);
 });
 
-http.createServer(app).listen(3001, function() {
-    console.log("visualisation_backend: Express server listening on port 3001");
+http.createServer(app).listen(3002, function() {
+    console.log("visualisation_backend: Express server listening on port 3002");
 });
 
 process.on('uncaughtException', printError);

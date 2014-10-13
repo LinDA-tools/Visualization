@@ -48,6 +48,14 @@ For further details on how to configure the `virtuoso.ini` please see the [virtu
 - npm install
 ```
 
+**Start the application:**
+```sh
+- nodemon &
+- sudo service virtuoso-opensource-6.1 start
+- cd visualisation/frontend
+- grunt serve
+```
+
 **DEMO SETUP:**
 - Upload RDF datasets from `Visualization/backend/testsets` into Virtuoso:
 ```sh
@@ -66,11 +74,3 @@ For further details on how to configure the `virtuoso.ini` please see the [virtu
 **TODO**
 - Finish implementation of visualization recommendation algorithm 
 - Integrate visualization libraries for graph visualizations
-
-**Start the application:**
-```sh
-- nodemon &
-- sudo service virtuoso-opensource-6.1 start
-- cd visualisation/frontend
-- grunt serve
-```

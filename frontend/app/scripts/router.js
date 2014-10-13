@@ -1,8 +1,5 @@
 // router
 App.Router.map(function() {
-    this.route("account");
-    this.route("help");
-    this.route('visualization', { path: "/visualization/:datasource_id"}); // dynamic segment
+    this.route("upload");
+    this.resource("selectData");
 });
-
-console.log(Ember.keys(App.Router.router.recognizer.names))

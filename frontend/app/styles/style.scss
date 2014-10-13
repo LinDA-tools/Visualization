@@ -19,12 +19,132 @@ html, body {
     clear:both;
 }
 
-.datasource{
-    ul {
-        li label {display:inline-block; vertical-align:top}
-        list-style-type: none;
-    }  
+ul {
+    list-style-type: none;
 }
+
+h6 {
+    font-weight: bold;
+    font-size: 16pt;
+}
+
+h7 {
+    font-size: 12pt;
+    font-weight: bold;
+}
+
+.top-bar .name h1 a:before {
+    background-image: url('../images/logo.png');
+    background-repeat: no-repeat;
+    width: 50px; 
+    height: 35px;
+    content: "";
+    display: inline-block;
+    position: relative;
+    top: 5px;
+    background-size: contain;
+}
+
+.top-bar .name h1 a {
+    font-size: 20pt;
+    font-weight: bold;
+}
+
+.workflow{
+    margin: 2.5rem auto; 
+    max-width: 85%;
+}
+
+.workflow_step{
+    border-style:solid;
+    border-color:black;
+    border-width: 1px;
+    background-color:orange;
+    padding: 3px;
+    padding-left: 10px;
+    font-size: 15pt;
+    font-weight: bold;
+}
+
+.workflow_step + .box {
+    margin-top: -1px;
+}
+
+
+.box{
+    border-style:solid;
+    border-width: 1px;
+    border-color:black;
+    padding: 15px 10px 10px 10px;
+    box-shadow: 5px 5px 2px darkgray
+}
+
+.inner_title_box{
+    border-style:solid;
+    border-width: 1px;
+    border-color:darkgray;
+    background-color:bisque;
+    padding: 1px;
+    padding-left: 10px;
+    margin-top: 1px;
+}
+
+.inner_title_box + .inner_box {
+    margin-top: -1px;
+}
+
+.inner_subtitle_box{
+    border-style:solid;
+    border-width: 1px;
+    border-color:darkgray;
+    padding: 2px;
+    padding-left: 10px;
+}
+
+.inner_subtitle_box + .inner_box {
+    margin-top: 5px;
+}
+
+.inner_box {
+    border-style:solid;
+    border-width: 1px;
+    border-color:darkgray;
+    padding: 10px;
+    margin-top: 1px;
+    margin-bottom: 12px;
+    box-shadow: 5px 5px 2px darkgray
+}
+
+#consumption ul {
+    margin: 10px;
+    margin-left: 0px;
+    padding: 0;
+    list-style-type: none;
+    text-align: left;
+}
+
+#consumption ul li { display: inline; }
+
+#consumption ul li a
+{
+    text-decoration: none;
+    padding: .5em 1.5em;
+    color:  darkslategray;
+    background-color: bisque;
+}
+
+#consumption ul li a:hover
+{
+    color: darkslategray;
+    background-color: orange;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
 
 #structureOptionsView {
     > li {
@@ -117,7 +237,7 @@ html, body {
 .optionContainer {
     font-size: 10pt;
     background-color: #ffffff;
-    padding-top: 0.5rem;
+    /*padding-top: 0.5rem;*/
 }
 
 .textfield{
@@ -170,13 +290,9 @@ html, body {
 
 .side-nav a:hover {
     background-color: #cccccc;
-    
+
 }
 
-h6 {
-    font-weight: bold;
-    font-size: 12pt;
-}
 
 .toolframe {
     width: 100%; 
@@ -247,14 +363,13 @@ select[size], select[multiple] {
     list-style: none;
     line-height: 20px;
     display:list-item;
-    
+
 }
 
 /* Arrow */
 .tree-node .toggle-icon {
     cursor: pointer;
     display: inline-block;
-    width: 10px;
     margin-right: 0px;
     font-size: 10px;
 }
@@ -274,31 +389,31 @@ select[size], select[multiple] {
     text-decoration: none;
 }
 .contents {
-  width: 90%;
-  margin: auto;
+    width: 90%;
+    margin: auto;
 }
 
 .file {
-  border: 5px solid #FAFAFA;
-  border-radius: 3px;
-  margin: 5px 0;
-  padding: 3px 5px 3px 5px;
-  background: #ff3232;
-  width: 100%;
+    border: 5px solid #FAFAFA;
+    border-radius: 3px;
+    margin: 5px 0;
+    padding: 3px 5px 3px 5px;
+    background: #ff3232;
+    width: 100%;
 }
 
 .droparea {
-  border: 1px dotted #4b4b4b;
-  border-radius: 5px;
+    border: 1px dotted #4b4b4b;
+    border-radius: 5px;
 }
 
 .droparea-active {
-  background: #c8c8c8;
-  font-weight: bold;
+    background: #c8c8c8;
+    font-weight: bold;
 }
 
 .areas{
-   li {display:inline-block; vertical-align:top}
+    li {display:inline-block; vertical-align:top}
     list-style-type: none; 
 }
 
@@ -308,12 +423,3 @@ select[size], select[multiple] {
     padding-top: 0.1rem;
     text-align: center;
 }
-
-
-// Vertical tabgroup
-.ui-tabs-vertical { width: 55em; }
-.ui-tabs-vertical .ui-tabs-nav { padding: .2em .1em .2em .2em; float: left; width: 12em; }
-.ui-tabs-vertical .ui-tabs-nav li { clear: left; width: 100%; border-bottom-width: 1px !important; border-right-width: 0 !important; margin: 0 -1px .2em 0; }
-.ui-tabs-vertical .ui-tabs-nav li a { display:block; }
-.ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active { padding-bottom: 0; padding-right: .1em; border-right-width: 1px; border-right-width: 1px; }
-.ui-tabs-vertical .ui-tabs-panel { padding: 1em; float: right; width: 40em;}

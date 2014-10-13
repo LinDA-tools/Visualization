@@ -1,32 +1,20 @@
-<div class="container">    
-    <div id="header">  
-        <nav class="top-bar" data-topbar>  
+<div class="container">
+    <div id="header">
+        <nav class="top-bar" data-topbar role="navigation">
             <ul class="title-area">
-                <li class="title">  LinDA Visualization </li>
+               <li class="name">
+                    <h1>{{#link-to "index"}}LinDa VIS{{/link-to}}</h1>
+                </li>
             </ul>
             <section class="top-bar-section">
-                <ul class="right">                    
-                    <li>{{#link-to "index"}}Home{{/link-to}}</li>
-                    <li>{{#link-to "account"}}My Account{{/link-to}}</li>
-                    <li>{{#link-to "help"}}Help{{/link-to}}</li>
+                <ul class="right">
+                    <li>{{#link-to "upload"}}Upload data{{/link-to}}</li>
                 </ul>
             </section>
         </nav>
-    </div> 
+    </div>
 
     <div class="row left-collapse">
-        <div class="large-3 medium-4 columns">
-            {{outlet dsManager}}  
-        </div>    
-        <div class="stage large-9 medium-8 columns">
-            {{outlet}}
-        </div>  
-    </div>       
-
-    <div id="footer"></div> 
-
+        {{outlet}}
+    </div>
 </div>
-  
-
-
-

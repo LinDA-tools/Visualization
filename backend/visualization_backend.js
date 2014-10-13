@@ -1,19 +1,15 @@
 var http = require('http');
-var rec_engine = require('./recommendation_engine');
-var preconfig_engine = require('./preconfiguration_engine');
+var dataset_management = require('./dataset_management');
 var GraphStoreClient = require('graph-store-client');
-var modules = require('./metadata_module');
 var express = require('express');
-var restify = require('express-restify-mongoose');
-
 
 var Q = require('q');
 Q.longStackSupport = true;
 
 var printError = function(error) {
     console.error("ERROR: " + error.stack);
-    res.status(500).send({ error: 'Internal error' });
-}
+    res.status(500).send({error: 'Internal error'});
+};
 
 //CORS middleware
 var allowCrossDomain = function(req, res, next) {
@@ -33,7 +29,18 @@ app.configure(function() {
     app.use(allowCrossDomain);
     app.use('/thumbnails', express.static(__dirname + '/thumbnails'));
     app.use('/testsets', express.static(__dirname + '/testsets'));
-    restify.serve(app, modules.DatasourceModel, {prefix: '', version: '', plural: true, lowercase: true});
+});
+
+app.get('/datasources', function(req, res) {
+    console.log('app.get /datasources');
+
+    dataset_management.retrieveMetadata().then(function(metadata, err) {
+        if (err) {
+            console.log('visualization_backend: Could not retrieve metadata about data sources: ' + err);
+            return;
+        }
+        res.send(metadata);
+    }, printError);
 });
 
 app.get('/suggest/:datasource_id', function(req, res) {

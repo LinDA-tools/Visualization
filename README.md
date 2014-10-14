@@ -15,6 +15,7 @@ Prerequisites
 - Git
 - Nodejs
 - Virtuoso
+- Compass (Ruby)
 
 Installation steps (Ubuntu v. 12.04)
 ------------------------------------------------------------------
@@ -54,6 +55,34 @@ For further details on how to configure the `virtuoso.ini` please see the [virtu
 - sudo service virtuoso-opensource-6.1 start
 - cd visualisation/frontend
 - grunt serve
+```
+
+**RUBY and COMPASS Versions**
+
+Please make sure you are using Ruby 2 and Compass 0.12.3
+
+Unwanted old Ruby installations may cause problems:
+```sh
+- ruby -v
+- compass -v
+- which compass
+- which ruby
+```
+
+Remove them:
+```sh
+- sudo apt-get remove ruby_version
+```
+
+Install Ruby Version Manager rvm:
+```sh
+- rvm install 2.0.0
+- rvm use 2.0.0 (as root/sudo)
+```
+
+Then install Compass: 
+```sh
+- gem install compass --version="0.12.3"
 ```
 
 **DEMO SETUP:**

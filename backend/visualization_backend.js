@@ -74,8 +74,8 @@ app.get('/dataselections/:selection_id', function(req, res) {
     });
 });
 
-app.get('/visualizations/:dataselection_id', function(req, res) {
-    var dataselection_id = req.param("dataselection_id");
+app.get('/visualizations', function(req, res) {
+    var dataselection_id = req.query.dataselection_id;
 
     console.log('/visualizations/:dataselection_id: ');
     console.dir(dataselection_id);

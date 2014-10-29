@@ -43,19 +43,119 @@ app.get('/datasources', function(req, res) {
     }, printError);
 });
 
-app.get('/suggest/:datasource_id', function(req, res) {
-    var datasource_id = req.param("datasource_id");
+var sampleSelection = {
+    id: "SampleSelection",
+    datasource: "http://linda-project.eu/datasets#r4077e6b47fa4ced5ffe0873",
+    "class": {
+        id: 1234,
+        uri: "http://purl.org/linked-data/cube#Observation",
+        label: "Observation"
+    },
+    propertyPaths: [
+        ["http://purl.org/linked-data/sdmx/2009/dimension#refArea"],
+        ["http://purl.org/linked-data/sdmx/2009/dimension#refPeriod"],
+        ["http://purl.org/linked-data/sdmx/2009/measure#obsValue"]
+    ]
+};
 
-    console.log('/suggest/:datasource_id: ');
-    console.dir(req.param("datasource_id"));
+app.post('/dataselections', function(req, res) {
+    console.log('app.post /dataselections');
+    res.send({
+        dataselection: [
+            sampleSelection
+        ]
+    });
+});
 
-    rec_engine.suggest(datasource_id).then(function(tools, err) {
-        if (err) {
-            console.log('visualization_backend: Could not retrieve visualizations: ' + err);
-            return;
-        }
-        res.send(tools);
-    }, printError);
+app.get('/dataselections/:selection_id', function(req, res) {
+    console.log('app.post /dataselection');
+    res.send({
+        dataselection: sampleSelection
+    });
+});
+
+app.get('/visualizations/:dataselection_id', function(req, res) {
+    var dataselection_id = req.param("dataselection_id");
+
+    console.log('/visualizations/:dataselection_id: ');
+    console.dir(dataselection_id);
+
+    res.send({
+        visualization: [{
+                id: 5345342,
+                name: "Line Chart",
+                structureOptions: {
+                    dimensions: {
+                        xAxis: {
+                            values: [{
+                                    "URI1": "Reference Period"
+                                }],
+                            metadata: ["number", "data"]
+                        },
+                        yAxis: {
+                            values: [{
+                                    "URI1": "Reference Area"
+                                }, {
+                                    "URI2": "Observed value"
+                                }],
+                            metadata: ["number", "string", "date"]
+                        }
+                    }
+                },
+                tuningOptions: {
+                    width: 500,
+                    height: 500,
+                    background_color: "#ffffff",
+                    style: ["#001122", "#ff0000", "#0123ff"],
+                    axis: {
+                        hLabel: "HorizontalLabelName",
+                        vLabel: "VerticalLabelName",
+                        numGridlinesHor: 3,
+                        numGridlinesVer: 5,
+                        ticks: 10
+                    }
+                }
+            }, {
+                id: 352564,
+                name: "Bar Chart",
+                structureOptions: {
+                    dimensions: {
+                        xAxis: {
+                            values: [{
+                                    "URI1": "Reference Period"
+                                }],
+                            metadata: ["number"]
+                        },
+                        yAxis: {
+                            values: [{
+                                    "URI1": "Reference Area"
+                                }, {
+                                    "URI2": "Observed value"
+                                }],
+                            metadata: ["number", "string", "date"]
+                        }
+                    }
+                },
+                tuningOptions: {
+                    width: 500,
+                    height: 500,
+                    background_color: "#ffffff",
+                    style: ["#001122", "#ff0000", "#0123ff"],
+                    axis: {
+                        hLabel: "HorizontalLabelName",
+                        vLabel: "VerticalLabelName",
+                        numGridlinesHor: 3,
+                        numGridlinesVer: 5,
+                        widthPx: 100,
+                        widthRatio: 0.5 //it's possible to choose one width parameter
+                    }
+                }
+            }
+        ]
+    });
+
+
+
 });
 
 app.get('/preconfigure/:dataset_id/:visualization_id', function(req, res) {

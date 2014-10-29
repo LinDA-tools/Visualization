@@ -1,6 +1,4 @@
-// TODO: UNDER CONSTRUCTION
-
-App.VisualizeDataController = Ember.ArrayController.extend({
+App.OldvisualizationController = Ember.ObjectController.extend({
     needs: ["application"],
     applicationController: Ember.computed.alias("controllers.application"),
     dataInfo: {},

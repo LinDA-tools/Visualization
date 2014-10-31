@@ -24,7 +24,7 @@
                     <h7>Customize Visualization</h7>
                 </div>
                 <div class="inner_box">
-                    {{view App.ContainerView tagName="ul" elementId="tuningOptionsView"}}
+                    {{view App.ContainerView tagName="ul" elementId="layoutOptionsView"}}
                 </div>
             </div>
         </div>
@@ -35,10 +35,10 @@
                 </div>
                 <div class="inner_box" >
                     <ul >              
-                        {{#each tool in suggestions}}
+                        {{#each tool in controller}}
                         <li>
-                            <div><a {{action 'configure' tool}}> {{tool.name}} </a></div>
-                            <img {{bind-attr src="tool.thumbnail"}} />
+                            <div><a {{action 'chooseVisualization' tool}}> {{tool.name}} </a></div>
+                            <!--<img {{bind-attr src="tool.thumbnail"}} />-->
                         </li>
                         {{/each}}
                     </ul>
@@ -66,7 +66,7 @@
                 <h7> Dimension Mapping </h7>
             </div>
             <div class="inner_box">
-                <!--{{view App.ContainerView classNames="list" tagName="ul" elementId="structureOptionsView"}}-->
+                {{view App.ContainerView classNames="list" tagName="ul" elementId="structureOptionsView"}}
             </div>
 
         </div>

@@ -1,4 +1,4 @@
-var templateMapping = function(editObject) {
+function templateMapping(editObject) {
     //the input object might be the result of the recommendation algorithm
     //or the JSON with changed template data, i.e. {tuningOptions:{height:500}}
 

@@ -1,53 +1,91 @@
 App.VisualizationController = Ember.ArrayController.extend({
-    configuration: {},
-    setupVisualization: function(visualization) {
-        console.log("Setting up visualization:");
-        console.dir(visualization);
-        
-        // var mapping = templateMapping(visualizaiton)
-        // var structureOptionMappings = mapping.structureOptionMappings
-        // var layoutOptionMappings = mapping.layoutOptionMappings
-        // var configuration = mapping.configuration
+    layoutOptions: {},
+    structureOptions: {},
+    visualizationConfiguration: [{}],
+    createVisualization: function() {
+        var selectedVisualization = this.get('selectedVisualization');
+        console.log("Creating visualization: ");
+        console.dir(selectedVisualization);
 
-        // *** MOCK START
-        // These values have to be returned by templateMapping
-        // 
-        // Configuration result that will be passed to visualization
-        var configuration = {
-            axis: {
-                xAxis: [{
-                        "URI1": "Reference Period"
-                    }],
-                yAxis: [{
-                        "URI1": "Reference Area"
-                    }, {
-                        "URI2": "Observed value"
-                    }],
+        var mapping = {
+            structureOptions: {
             }
         };
 
-        // Template mapping result
-        var structureOptionMappings = [
-            {template: "dimension-area", options: {label: "X Axis", value: configuration.axis.xAxis}}
-        ];
-
-        // *** MOCK END
-        // TODO clear configuration views
-        // this.createConfigurationView(structureOptionMappings, structureOptionsView);
-        // this.createConfigurationView(layoutOptionMappings, this.get('layoutOptionsView'))
-        this.set('configuration', configuration);
-    },
-    createConfigurationView: function(mappings, targetContainerView) {
-        for (var i = 0; i < mappings.length; i++) {
-            var mapping = mappings[i];
-            // TODO: Find component for mapping
-            // targetContainerView.pushObject(optionView);
+        var structureOptions = selectedVisualization.get('structureOptions');
+        console.log("structureOptions");
+        console.dir(structureOptions);
+        var dimensions = structureOptions.dimensions;
+        console.log("dimensions");
+        console.dir(dimensions);
+        var dimensionNames = Object.getOwnPropertyNames(dimensions);
+        for (i = 0; i < dimensionNames.length; i++) {
+            var dimensionName = dimensionNames[i];
+            var dimension = dimensions[dimensionName];
+            dimension.template = "dimension-area";
+            mapping.structureOptions[dimensionName] = dimension;
         }
-    },
-    onNewModel: function() {
+        console.log('mapping.structureOptions');
+        console.dir(mapping.structureOptions);
+
+        this.set('structureOptions', mapping.structureOptions);
+    }.observes('selectedVisualization'),
+    drawVisualization: function() {
+        var config = this.get('visualizationConfiguration')[0];
+        console.log("Configuration changed");
+        console.dir(config);
+
+        var selectedVisualization = this.get('selectedVisualization');
+        console.log("selectedVisualization")
+        console.dir(selectedVisualization);
+        var dataselection = selectedVisualization.get('dataselection');
+        console.log("dataselection")
+        console.dir(dataselection);
+        var datasource = dataselection.get('datasource');
+        var format = datasource.get('format');
+        console.log("datasource")
+        console.dir(datasource);
+        config.datasourceLocation = datasource.get('location');
+        switch (format) {
+            case 'rdf':
+                config.dataModule = sparql_data_module;
+                break;
+            case 'csv':
+                config.dataModule = csv_data_module;
+                break;
+            default:
+                console.error("Unknown DS format: " + format);
+                return;
+        }
+        // var name = selectedVisualization.get('name');
+        var name = "Line Chart";
+        var visualization = visualizationRegistry.getVisualization(name);
+        console.log("Visualization " + name);
+        console.dir(visualization);
+        console.dir(config);
+        visualization.draw(config, "visualisation");
+    }.observes('visualizationConfiguration.@each'),
+    setSuggestedVisualization: function() {
         var topSuggestion = this.get('firstObject');
-        this.setupVisualization(topSuggestion);
+        console.log("Setting top suggestion");
+        console.dir(topSuggestion);
+        this.set('selectedVisualization', topSuggestion);
     }.observes('model'),
+    dimensionMappingContent: function() {
+        var visualization = this.get('selectedVisualization');
+        var dataselection = visualization.get('dataselection'); // data sources
+
+        if (!dataselection)
+            return {};
+
+        console.log("dataselection");
+        console.dir(dataselection);
+
+        var treedata = dimension_data.create(dataselection);
+        console.log("treedata: ");
+        console.dir(treedata);
+        return treedata;
+    }.property('selectedVisualization'),
     actions: {
         export: function() {
         },
@@ -58,7 +96,7 @@ App.VisualizationController = Ember.ArrayController.extend({
         share: function() {
         },
         chooseVisualization: function(visualization) {
-            this.setupVisualization(visualization);
+            this.set('selectedVisualization', visualization);
         }
     }
 });

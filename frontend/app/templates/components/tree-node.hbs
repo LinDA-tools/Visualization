@@ -1,4 +1,4 @@
-<div {{bind-attr draggable="node.draggable:true"}}>
+<div>
     <span {{bind-attr class=":toggle-icon node.isLeaf:leaf:"}} {{action toggle}}>
         {{#if isExpanded}}
             &#x25BC;
@@ -7,9 +7,11 @@
         {{/if}}
     </span>
 
-    {{input type="checkbox" checked=node.selected}}
+    {{#if node.hasCheckbox}}
+        {{input type="checkbox" checked=node.selected}}
+    {{/if}}
 
-    <span {{action toggle}}>
+    <span {{action toggle}} {{bind-attr draggable=node.draggable}}>
         {{node.label}}
     </span>
 </div>

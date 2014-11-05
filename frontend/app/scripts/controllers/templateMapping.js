@@ -39,6 +39,3 @@ function templateMapping(editObject) {
     }
 
 };
-
-
-

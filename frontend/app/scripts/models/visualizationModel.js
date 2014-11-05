@@ -1,5 +1,7 @@
 App.Visualization = DS.Model.extend({
     name: DS.attr('string'),
     structureOptions: DS.attr(),
-    tuningOptions: DS.attr()
+    tuningOptions: DS.attr(),
+    dataselection: DS.belongsTo("dataselection"),
+    thumbnail: DS.attr('string')
 });

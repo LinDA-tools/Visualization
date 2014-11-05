@@ -43,18 +43,39 @@ app.get('/datasources', function(req, res) {
     }, printError);
 });
 
+app.get('/datasources/:ds_id', function(req, res) {
+    var ds_id = req.param("ds_id");
+    console.log('app.get /datasources ' + ds_id);
+    dataset_management.retrieveMetadata().then(function(metadata, err) {
+        if (err) {
+            console.log('visualization_backend: Could not retrieve metadata about data sources: ' + err);
+            return;
+        }
+        for (var i = 0; i < metadata.datasource.length; i++) {
+            var ds = metadata.datasource[i];
+            if (ds.id === ds_id) {
+                var result = {
+                    datasource: ds
+                };
+                res.send(result);
+            }
+        }
+    }, printError);
+});
+
 var sampleSelection = {
     id: "SampleSelection",
     datasource: "http://linda-project.eu/datasets#r4077e6b47fa4ced5ffe0873",
-    "class": {
+    selectedClass: {
         id: 1234,
         uri: "http://purl.org/linked-data/cube#Observation",
-        label: "Observation"
+        label: "Observation",
+        datasource: "http://linda-project.eu/datasets#r4077e6b47fa4ced5ffe0873"
     },
-    propertyPaths: [
-        ["http://purl.org/linked-data/sdmx/2009/dimension#refArea"],
-        ["http://purl.org/linked-data/sdmx/2009/dimension#refPeriod"],
-        ["http://purl.org/linked-data/sdmx/2009/measure#obsValue"]
+    propertypaths: [
+        [{id: 35243, uri: "http://purl.org/linked-data/sdmx/2009/dimension#refArea", label: "Reference Area"}],
+        [{id: 6345, uri: "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod", label: "Reference Period"}],
+        [{id: 42247, uri: "http://purl.org/linked-data/sdmx/2009/measure#obsValue", label: "Observation"}]
     ]
 };
 
@@ -84,21 +105,50 @@ app.get('/visualizations', function(req, res) {
         visualization: [{
                 id: 5345342,
                 name: "Line Chart",
+                thumbnail: "http://localhost:3002/thumbnails/line_chart.png",
                 structureOptions: {
                     dimensions: {
                         xAxis: {
-                            values: [{
-                                    "URI1": "Reference Period"
-                                }],
-                            metadata: ["number", "data"]
+                            label: "Horizontal Axis",
+                            value: [
+                                {
+                                    parent: ["http://purl.org/linked-data/cube#Observation"],
+                                    id: "http://purl.org/linked-data/sdmx/2009/dimension#refPeriod",
+                                    label: "Reference Period",
+                                    type: "date"
+                                }
+                            ],
+                            metadata: {
+                                types: ["date", "number"]
+                            }
                         },
                         yAxis: {
-                            values: [{
-                                    "URI1": "Reference Area"
-                                }, {
-                                    "URI2": "Observed value"
-                                }],
-                            metadata: ["number", "string", "date"]
+                            label: "Vertical Axis",
+                            value: [
+                                {
+                                    parent: ["http://purl.org/linked-data/cube#Observation"],
+                                    id: "http://purl.org/linked-data/sdmx/2009/measure#obsValue",
+                                    label: "Observation",
+                                    type: "date"
+                                }
+                            ],
+                            metadata: {
+                                types: ["date", "number", "string"]
+                            }
+                        },
+                        group: {
+                            label: "Groups (optional)",
+                            value: [
+                                {
+                                    parent: ["http://purl.org/linked-data/cube#Observation"],
+                                    id: "http://purl.org/linked-data/sdmx/2009/dimension#refArea",
+                                    label: "Reference Area",
+                                    type: "date"
+                                }
+                            ],
+                            metadata: {
+                                types: ["date", "number", "string"]
+                            }
                         }
                     }
                 },
@@ -114,10 +164,12 @@ app.get('/visualizations', function(req, res) {
                         numGridlinesVer: 5,
                         ticks: 10
                     }
-                }
+                },
+                dataselection: sampleSelection.id
             }, {
                 id: 352564,
                 name: "Bar Chart",
+                thumbnail: "http://localhost:3002/thumbnails/bar_chart.png",
                 structureOptions: {
                     dimensions: {
                         xAxis: {
@@ -149,7 +201,8 @@ app.get('/visualizations', function(req, res) {
                         widthPx: 100,
                         widthRatio: 0.5 //it's possible to choose one width parameter
                     }
-                }
+                },
+                dataselection: sampleSelection.id
             }
         ]
     });

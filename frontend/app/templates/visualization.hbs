@@ -7,8 +7,8 @@
         <div class="large-10 medium-9 columns">
             <div class="inner_box" data-equalizer-watch>
                 <!-- Visualization -->
-                <div class="inner_box">
-                    <div id="visualisation">Visualization</div>
+                <div class="inner_box" style="padding:-10%">
+                    <div id="visualisation" style="height:300px"></div>
                 </div>
                 <!-- Consumption -->                       
                 <div id="consumption">
@@ -24,7 +24,12 @@
                     <h7>Customize Visualization</h7>
                 </div>
                 <div class="inner_box">
-                    {{view App.ContainerView tagName="ul" elementId="layoutOptionsView"}}
+                    {{view App.ConfigureVisualizationView 
+                        mapping=controller.layoutOptions 
+                        elementId="layoutOptionsView"
+                        configurationObserver=controller.configurationObserver
+                        visualizationConfiguration=controller.visualizationConfiguration
+                    }}
                 </div>
             </div>
         </div>
@@ -37,8 +42,12 @@
                     <ul >              
                         {{#each tool in controller}}
                         <li>
-                            <div><a {{action 'chooseVisualization' tool}}> {{tool.name}} </a></div>
-                            <!--<img {{bind-attr src="tool.thumbnail"}} />-->
+                            <div class="inner_box" style="text-align: center">
+                                <a {{action 'chooseVisualization' tool}}> 
+                                    <img {{bind-attr src="tool.thumbnail"}} />
+                                    {{tool.name}}
+                                </a>
+                            </div>
                         </li>
                         {{/each}}
                     </ul>
@@ -54,10 +63,13 @@
         <!-- Tree (selected data) -->
         <div class="large-4 medium-5 columns">   
             <div class="inner_subtitle_box">
-                <h7> Selected Data </h7>
+                <h7> 
+                    Selected Data 
+                    ({{selectedVisualization.dataselection.datasource.title}})
+                </h7>
             </div>
             <div class="inner_box">
-                Tree
+                {{tree-branch node=controller.dimensionMappingContent}} <!--tree component-->
             </div>
         </div>
         <!-- Dimension Mapping -->
@@ -66,9 +78,13 @@
                 <h7> Dimension Mapping </h7>
             </div>
             <div class="inner_box">
-                {{view App.ContainerView classNames="list" tagName="ul" elementId="structureOptionsView"}}
+                {{view App.ConfigureVisualizationView 
+                    mapping=controller.structureOptions 
+                    elementId="structureOptionsView" 
+                    configurationObserver=controller.configurationObserver
+                    visualizationConfiguration=controller.visualizationConfiguration
+                }}
             </div>
-
         </div>
     </div>
 </div>

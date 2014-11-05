@@ -1,7 +1,7 @@
 App.Dataselection = DS.Model.extend({
     datasource: DS.belongsTo("datasource"),
-    "class": DS.attr("string"),
-    propertypaths: DS.hasMany("propertypath")
+    selectedClass: DS.attr(), // DS.belongsTo("rdfclass"),
+    propertypaths: DS.attr() // DS.hasMany("propertypath")
 });
 
 App.Rdfclass = DS.Model.extend({

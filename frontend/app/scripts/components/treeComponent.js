@@ -25,6 +25,9 @@ App.TreeNodeComponent = Ember.Component.extend({
         this.toggleProperty('isExpanded');
     },
     refreshSelection: function() {
+        if(!this.get('node.hasCheckbox')) {
+            return;
+        }
         var sel = this.get('node.selected');
         var list = this.get('selection');
         var node = this.get('node');
@@ -55,7 +58,8 @@ App.TreeNodeComponent = Ember.Component.extend({
 
     }.observes('isExpanded'),
     dragStart: function(event) {
-        if (!this.get('draggable')) {
+        console.log("DRAG START")
+        if (!this.get('node.draggable')) {
             return;
         }
 

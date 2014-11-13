@@ -153,16 +153,37 @@ app.get('/visualizations', function(req, res) {
                     }
                 },
                 tuningOptions: {
-                    width: 500,
-                    height: 500,
+                    width: {
+                        label: "Width",
+                        value: 500
+                    },
+                    height:{
+                        label: "Height",
+                        value: 500,
+                    },
                     //background_color: "#ffffff",
                     //style: ["#001122", "#ff0000", "#0123ff"],
                     axis: {
-                        hLabel: "HorizontalLabelName",
-                        vLabel: "VerticalLabelName",
-                        numGridlinesHor: 3,
-                        numGridlinesVer: 5,
-                        ticks: 10
+                        hLabel: {
+                            label: "Horizontal Label",
+                            value: "HorizontalLabelName"
+                        },
+                        vLabel: {
+                            label: "Vertical Label",
+                            value:"VerticalLabelName"
+                        },
+                        numGridlinesHor: {
+                            label: "Gridlines Horizontal",
+                            value: 3
+                        },
+                        numGridlinesVer: {
+                            label: "Gridlines Vertical",
+                            value: 5
+                        },
+                        ticks: {
+                            label: "Ticks",
+                            value: 10
+                        }
                     }
                 },
                 dataselection: sampleSelection.id

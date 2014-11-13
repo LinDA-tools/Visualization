@@ -23,14 +23,16 @@
                 <div class="inner_title_box">
                     <h7>Customize Visualization</h7>
                 </div>
-                <div class="inner_box">
+                <div class="inner_box row">
+                    <ul class="large-block-grid-4">
                     {{view App.ConfigureVisualizationView 
                         mapping=controller.layoutOptions 
                         elementId="layoutOptionsView"
                         configurationObserver=controller.configurationObserver
                         visualizationConfiguration=controller.visualizationConfiguration
-                        
+                        tagName='li'
                     }}
+                    </ul>
                 </div>
             </div>
         </div>

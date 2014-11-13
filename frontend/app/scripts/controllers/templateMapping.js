@@ -41,10 +41,8 @@ function templateMapping(editObject) {
                     if (prop !== 'axis') {
                         resultMapping.tuningOptions[prop]={
                             template: mapDB[prop],
-                            value: tuningOptions[prop],
-                            label: prop,
-                            name: prop
-                            
+                            value: tuningOptions[prop].value,
+                            label: tuningOptions[prop].label
                         };
                         //invokeTemplate(prop, tuningOptions[prop]);
                     } else {
@@ -52,10 +50,9 @@ function templateMapping(editObject) {
                         for (var axisprop in axisOptions) {
                             resultMapping.tuningOptions[axisprop]={
                             template: mapDB[axisprop],
-                            value: axisOptions[axisprop],
-                            label: axisprop,
-                            name: axisprop
-                            
+                            value: axisOptions[axisprop].value,
+                            label: axisOptions[axisprop].label
+
                         };
                             //invokeTemplate(axisprop, axisOptions[axisprop]);
                         }

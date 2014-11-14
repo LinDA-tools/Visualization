@@ -21,12 +21,18 @@ App.ConfigureVisualizationView = Ember.ContainerView.extend({
                 metadata: optionTemplate.metadata,
                 contentObserver: function() {
                     var content = this.get('content');
-                    console.log("Changed option " + optionName + ":");
+                    
+                    if (!isNaN(content)){
+                        content = parseInt(content);
+                    }
+                    
+                    var name = this.get('name');
+                    console.log("Changed option " + name + ":");
                     console.dir(content);
                     
                     var configMap = configArray[0];
-                    var content = this.get('content');
-                    configMap[optionName] = content;
+                    //var content = this.get('content');
+                    configMap[name] = content;
                     configArray.setObjects([configMap]);
                 }.observes('content.@each').on('init')
             }).create();

@@ -1,11 +1,13 @@
 function templateMapping(editObject) {
     //the input object might be the result of the recommendation algorithm
-    //or the JSON with changed template data, i.e. {tuningOptions:{height:500}}
-
-   var tuningOptions = null;
+    //or the JSON with changed template data, i.e. {layoutOptions:{height:500}}
+   console.log('Creating template mapping...');
+   
+   
+   var layoutOptions = null;
    var structureOptions = null;
    var resultMapping = {
-            tuningOptions: {},
+            layoutOptions: {},
             structureOptions: {},
             configuration: []
         };
@@ -26,8 +28,8 @@ function templateMapping(editObject) {
         };
 
         //retrieving the fields
-       // if (editObject.hasOwnProperty("tuningOptions")) {
-            tuningOptions = editObject.get("tuningOptions");
+       // if (editObject.hasOwnProperty("layoutOptions")) {
+            layoutOptions = editObject.get("layoutOptions");
         //}
 
         //if (editObject.hasOwnProperty("structureOptions")) {
@@ -35,20 +37,20 @@ function templateMapping(editObject) {
         //}
 
         //invoking an appropriate template for a tuning parameter
-        if (tuningOptions !== null) {
-            for (var prop in tuningOptions) {
-                if (tuningOptions.hasOwnProperty(prop)) {
+        if (layoutOptions !== null) {
+            for (var prop in layoutOptions) {
+                if (layoutOptions.hasOwnProperty(prop)) {
                     if (prop !== 'axis') {
-                        resultMapping.tuningOptions[prop]={
+                        resultMapping.layoutOptions[prop]={
                             template: mapDB[prop],
-                            value: tuningOptions[prop].value,
-                            label: tuningOptions[prop].label
+                            value: layoutOptions[prop].value,
+                            label: layoutOptions[prop].label
                         };
-                        //invokeTemplate(prop, tuningOptions[prop]);
+                        //invokeTemplate(prop, layoutOptions[prop]);
                     } else {
-                        var axisOptions = tuningOptions[prop];
+                        var axisOptions = layoutOptions[prop];
                         for (var axisprop in axisOptions) {
-                            resultMapping.tuningOptions[axisprop]={
+                            resultMapping.layoutOptions[axisprop]={
                             template: mapDB[axisprop],
                             value: axisOptions[axisprop].value,
                             label: axisOptions[axisprop].label
@@ -89,6 +91,10 @@ function templateMapping(editObject) {
 	        }
 	        resultMapping.configuration.push(configurationObject);
 	    }
+            
+             console.log('Template mapping result');
+             console.dir(resultMapping);
+           
     
         return resultMapping;
 

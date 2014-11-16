@@ -1,4 +1,3 @@
-// DRAG AND DROP 
 App.DroppableAreaComponent = Ember.Component.extend({
     dragOver: function(event) {
         event.stopPropagation();
@@ -21,8 +20,8 @@ App.DroppableAreaComponent = Ember.Component.extend({
     }
 });
 
-// ITEMS COMPONENT 
 App.PropertyItemComponent = Ember.Component.extend({
+    classNames: ['area-item'],
     remove: function() {
         console.log('REMOVE');
         var collection = this.get('collection'); //collection = inArea

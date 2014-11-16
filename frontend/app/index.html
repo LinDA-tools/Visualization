@@ -11,9 +11,11 @@
         <link rel="stylesheet" href="styles/style.css">
         <link rel="stylesheet" href="visualization_library/external_libraries/leaflet-dvf/css/dvf.css">       
         <link rel="stylesheet" href="bower_components/foundation-icon-fonts/foundation-icons.css" />   
-        <link rel="stylesheet" href="bower_components/datatables/media/css/jquery.dataTables.css" />   
+        <link rel="stylesheet" href="bower_components/datatables/media/css/jquery.dataTables.css" /> 
+        <link rel="stylesheet" href="bower_components/slick.js/slick/slick.css" />
 
-        <script src="bower_components/jquery/jquery.js"></script>  
+        <script src="bower_components/jquery/jquery.js"></script> 
+        <script src="bower_components/jquery/jquery-migrate.js"></script>
         <script src="bower_components/jquery-minicolors/jquery.minicolors.js"></script>          
         <script src="bower_components/underscore/underscore.js"></script>          
         <script src="bower_components/leaflet/dist/leaflet.js"></script> 
@@ -29,22 +31,23 @@
         <script src="bower_components/foundation/js/foundation/foundation.equalizer.js"></script>           
         <script src="bower_components/foundation/js/vendor/modernizr.js"></script>
         <script src="bower_components/handlebars/handlebars.js"></script>
+        <script src="bower_components/slick.js/slick/slick.js"></script>
 
-        <script src="data_modules/csv_data_module.js"></script> 
-        <script src="data_modules/sparql_data_module.js"></script> 
-        <script src="data_modules/tree_data_module.js"></script> 
-        <script src="data_modules/table_data_module.js"></script> 
-        <script src="data_modules/dimension_data_module.js"></script> 
+        <script type="text/javascript" src="//www.google.com/jsapi"></script>
 
         <script src="@@ember" ></script>
         <script src="@@ember_data"></script>
+        
+                
+        <script src="data_modules/csv_data_module.js"></script> 
+        <script src="data_modules/sparql_data_module.js"></script> 
+        <script src="data_modules/tree_data_module.js"></script>
 
         <script src="scripts/compiled-templates.js"></script> <!-- .hbs files -->
         <script src="scripts/combined-scripts.js"></script> <!-- app.js -->
 
-        <script src="visualization_library/maps/map.js"></script>
-
-        <script type="text/javascript" src="//www.google.com/jsapi"></script>
+        <script src="template_mapping/templateMapping.js"></script>
+        
         <script src="visualization_library/util.js"></script>  
         <script src="visualization_library/charts/barchart.js"></script>
         <script src="visualization_library/charts/columnchart.js"></script>
@@ -56,8 +59,7 @@
         <script src="visualization_library/charts/piechart.js"></script>    
         <script src="visualization_library/maps/map.js"></script>    
         <script src="visualization_library/visualizations.js"></script> 
-        <script src="scripts/controllers/templateMapping.js"></script>
-
+        
         <script src="bower_components/jquery-csv/src/jquery.csv.js"></script>  
 
     </head>

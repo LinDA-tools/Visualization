@@ -1,7 +1,6 @@
 // router
-App.Router.map(function() {
-    this.route("upload");
+App.Router.map(function() {   
     this.route("visualization", {
-        path: '/visualization/:dataselection_id'
+        path: '/visualization/:name/:location/:graph/:format'
     });
 });

@@ -1,8 +1,9 @@
 App.VisualizationController = Ember.ArrayController.extend({
     layoutOptions: {},
     structureOptions: {},
+    datasource: Ember.computed.alias("selectedVisualization.datasource"),
     visualizationConfiguration: [{}],
-    
+    recommendations: Ember.computed.alias("model"), // each recommendation is an instance of the visualization model
     createVisualization: function() {
         var selectedVisualization = this.get('selectedVisualization');
         console.log("Creating visualization: ");
@@ -14,37 +15,19 @@ App.VisualizationController = Ember.ArrayController.extend({
             layoutOptions: {}
         };
 
-        var structureOptions = selectedVisualization.get('structureOptions');
-        console.log("structureOptions");
-        console.dir(structureOptions);
-        
-        var dimensions = structureOptions.dimensions;
-        console.log("dimensions");
-        console.dir(dimensions);
-        
         var customMapping = templateMapping(selectedVisualization);
-        
-       /* var dimensionNames = Object.getOwnPropertyNames(dimensions);
-        for (i = 0; i < dimensionNames.length; i++) {
-            var dimensionName = dimensionNames[i];
-            var dimension = dimensions[dimensionName];
-            dimension.template = "dimension-area";
-            mapping.structureOptions[dimensionName] = dimension;
-                        
-           
-        }*/
+
         mapping.structureOptions = customMapping.structureOptions;
-        mapping.layoutOptions = customMapping.tuningOptions;
+        mapping.layoutOptions = customMapping.layoutOptions;
         console.log('mapping.structureOptions');
         console.dir(mapping.structureOptions);
-        
+
         console.log('mapping.layoutOptions');
         console.dir(mapping.layoutOptions);
-        
+
         this.set('structureOptions', mapping.structureOptions);
-        this.set('layoutOptions',mapping.layoutOptions);
+        this.set('layoutOptions', mapping.layoutOptions);
     }.observes('selectedVisualization'),
-    
     drawVisualization: function() {
         var config = this.get('visualizationConfiguration')[0];
         console.log("Configuration changed");
@@ -53,17 +36,14 @@ App.VisualizationController = Ember.ArrayController.extend({
         var selectedVisualization = this.get('selectedVisualization');
         console.log("selectedVisualization")
         console.dir(selectedVisualization);
-        
-        var dataselection = selectedVisualization.get('dataselection');
-        console.log("dataselection")
-        console.dir(dataselection);
-        
-        var datasource = dataselection.get('datasource');
-        var format = datasource.get('format');
-        console.log("datasource")
+     
+        var datasource = selectedVisualization.get('datasource');
+        console.log("datasource");
         console.dir(datasource);
         
-        config.datasourceLocation = datasource.get('location');
+        var format = datasource.format;
+        config.datasourceLocation = datasource.location;
+        
         switch (format) {
             case 'rdf':
                 config.dataModule = sparql_data_module;
@@ -75,38 +55,19 @@ App.VisualizationController = Ember.ArrayController.extend({
                 console.error("Unknown DS format: " + format);
                 return;
         }
-        // var name = selectedVisualization.get('name');
-        var name = "Line Chart";
+        var name = selectedVisualization.get("name");
         var visualization = visualizationRegistry.getVisualization(name);
         console.log("Visualization " + name);
         console.dir(visualization);
-        console.dir(config);
-        visualization.draw(config, "visualisation");
+        console.dir(config);        
+        visualization.draw(config, "visualization");
     }.observes('visualizationConfiguration.@each'),
-    
     setSuggestedVisualization: function() {
         var topSuggestion = this.get('firstObject');
         console.log("Setting top suggestion");
         console.dir(topSuggestion);
         this.set('selectedVisualization', topSuggestion);
     }.observes('model'),
-    
-    dimensionMappingContent: function() {
-        var visualization = this.get('selectedVisualization');
-        var dataselection = visualization.get('dataselection'); // data sources
-
-        if (!dataselection)
-            return {};
-
-        console.log("dataselection");
-        console.dir(dataselection);
-
-        var treedata = dimension_data.create(dataselection);
-        console.log("treedata: ");
-        console.dir(treedata);
-        return treedata;
-    }.property('selectedVisualization'),
-    
     actions: {
         export: function() {
         },

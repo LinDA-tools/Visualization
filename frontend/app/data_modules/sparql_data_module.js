@@ -125,50 +125,6 @@ var sparql_data_module = function() {
         });
     }
 
-    function queryInstances(_location, _class, propertyPaths) {
-        var graph = _location.graph;
-        var endpoint = encodeURIComponent(_location.endpoint);
-
-        var query = "";
-
-        query += 'PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> ';
-        query += 'PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> ';
-
-        query += 'SELECT DISTINCT';
-
-        for (var i = 0; i < propertyPaths.length; i++) {
-            query += ' ?y' + i;
-        }
-
-        query += ' WHERE ';
-        query += ' { ';
-        query += '  GRAPH <' + graph + '> ';
-        query += '  { ';
-        query += '   ?x0 rdf:type <' + _class + '> . ';
-
-        for (var j = 0; j < propertyPaths.length; j++) {
-            var path = propertyPaths[j];
-            query += ' { ';
-            for (var i = 0; i < path.length; i++) {
-                if (i < (path.length - 1)) {
-                    query += '   ?x' + i + ' <' + path[i] + '> ?x' + (i + 1) + ' . ';
-                } else {
-                    query += '   ?x' + i + ' <' + path[i] + '> ?y' + j + ' . ';
-                }
-            }
-            query += ' } ';
-
-            if (j < (propertyPaths.length - 1)) {
-                query += ' UNION ';
-            }
-        }
-
-        query += '   } ';
-        query += ' } ';
-
-        return sparqlProxyQuery(endpoint, query);
-    }
-
     function parse(location, selection) {
         var dimension = selection.dimension;
         var multidimension = selection.multidimension;
@@ -242,11 +198,11 @@ var sparql_data_module = function() {
         var columnHeaders = [];
         var optionals = "";
         var selectVariables = "";
-        var selectedVariablesArray = [];
+        var selectedVariablesArray = [];               
         var class_ = dimensions[0].parent[0];
 
         for (var i = 0; i < dimensions.length; i++) {
-            var dimension = dimensions[i]
+            var dimension = dimensions[i];
 
             selectVariables += " ?z" + i;
             columnHeaders.push(dimension.label);
@@ -336,7 +292,6 @@ var sparql_data_module = function() {
 
     return {
         queryData: queryData,
-        queryInstances: queryInstances,
         parse: parse
     };
 }(); 

@@ -5,7 +5,7 @@ var linechart = function() {
 
     function draw(configuration, visualisationContainer) {
         console.log("### INITIALIZE VISUALISATION");
-        
+
         $('#' + visualisationContainer).empty();
 
         if (!(configuration.dataModule && configuration.datasourceLocation
@@ -13,12 +13,16 @@ var linechart = function() {
                 && configuration.group)) {
             return;
         }
+        
+        if ((configuration.xAxis.length === 0) || (configuration.yAxis.length === 0)) {
+            return;
+        }
+        
         var dataModule = configuration.dataModule;
         var location = configuration.datasourceLocation;
 
         console.log("VISUALISATION CONFIGURATION");
         console.dir(configuration);
-
 
         var selection = {
             dimension: configuration.xAxis,
@@ -27,7 +31,6 @@ var linechart = function() {
         };
         console.log("SELECTION");
         console.dir(selection);
-
 
         dataModule.parse(location, selection).then(function(inputData) {
             console.log("CONVERTED INPUT DATA");

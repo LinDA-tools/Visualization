@@ -15,14 +15,11 @@ function templateMapping(editObject) {
         //Assuming there is a baseofmappings {option: template}
         var mapDB = {
             "dimensions": "dimension-area",
-            "width": "tuning-numinput",
-            "height":"tuning-numinput",
             "background_color": "tuning-bgc",
             "hLabel":"textField",
             "vLabel":"textField",
             "gridlines":"tuning-check",
             "tooltip":"tuning-check",
-            "numGridlinesVer":"tuning-numinput",
             "ticks":"tuning-numinput",
             "widthPx":"tuning-numinput",
             "widthRatio":"tuning-numinput"

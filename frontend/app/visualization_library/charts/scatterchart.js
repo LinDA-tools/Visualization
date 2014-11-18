@@ -24,7 +24,12 @@ var scatterchart = function() {
         var selection = {
             dimension: configuration.xAxis,
             multidimension: configuration.yAxis,
-            group: configuration.group
+            group: configuration.group,
+            hLabel: configuration.hLabel,
+            vLabel: configuration.vLabel,
+            tooltip: configuration.tooltip,
+            gridlines: configuration.gridlines,
+            ticks: configuration.ticks
         };
 
         console.log("VISUALIZATION SELECTION FOR SCATTER CHART:");
@@ -42,8 +47,39 @@ var scatterchart = function() {
                     x: seriesHeaders[0],
                     type: 'scatter'
                 },
+                axis:{
+                    x: {
+                        label: selection.hLabel,
+                        tick: {
+                            fit: true,
+                            count: selection.ticks,
+                            format: function(val) {
+                                if (!val && val !== 0) {
+                                    return '';
+                                }
+                                return val.toLocaleString([], {
+                                    useGrouping: false,
+                                    maximumFractionDigits: 2
+                                });
+                            }
+                        }
+                    },
+                    y: {
+                        label: selection.vLabel
+                    }
+                },
+                grid: {
+                    x: {
+                        show: selection.gridlines,
+                        lines: [{value:0}]
+                    },
+                    y: {
+                        show: selection.gridlines,
+                        lines: [{value:0}]
+                    }
+                },
                 tooltip: {
-                    show: true
+                    show: selection.tooltip
                 }
             });
         });

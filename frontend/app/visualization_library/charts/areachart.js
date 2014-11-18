@@ -24,7 +24,12 @@ var areachart = function() {
         var selection = {
             dimension: configuration.xAxis,
             multidimension: configuration.yAxis,
-            group: configuration.group
+            group: configuration.group,
+            hLabel: configuration.hLabel,
+            vLabel: configuration.vLabel,
+            tooltip: configuration.tooltip,
+            gridlines: configuration.gridlines,
+            ticks: configuration.ticks
         };
 
         console.log("VISUALIZATION SELECTION FOR AREA CHART:");
@@ -42,8 +47,40 @@ var areachart = function() {
                     x: seriesHeaders[0],
                     type: 'area-spline'
                 },
+                axis: {
+                    x: {
+                        label: selection.hLabel,
+                        tick: {
+                            fit: true,
+                            count: selection.ticks,
+                            format: function(val) {
+                                if (!val && val !== 0) {
+                                    return '';
+                                }
+                                return val.toLocaleString([], {
+                                    useGrouping: false,
+                                    maximumFractionDigits: 2
+                                });
+                            }
+                        }
+                    },
+                    y: {
+                        label: selection.vLabel,
+                        tick: {
+                            count: selection.ticks
+                        }
+                    }
+                },
+                grid: {
+                    x: {
+                        show: selection.gridlines
+                    },
+                    y: {
+                        show: selection.gridlines
+                    }
+                },
                 tooltip: {
-                    show: true
+                    show: selection.tooltip
                 }
             });
         });

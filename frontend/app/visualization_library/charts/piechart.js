@@ -23,7 +23,8 @@ var piechart = function() {
         var selection = {
             dimension: [],
             multidimension: configuration.slice,
-            group: []
+            group: [],
+            tooltip: configuration.tooltip
         };
 
         console.log("VISUALIZATION SELECTION FOR PIE CHART:");
@@ -41,7 +42,13 @@ var piechart = function() {
                     type: 'pie'
                 },
                 tooltip: {
-                    show: true
+                    show: selection.tooltip,
+                    format: {
+                        value:function(value,ratio,id){
+                            return d3.format('')(value); 
+                    }
+                }
+                
                 }
             });
         });

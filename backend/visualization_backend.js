@@ -120,7 +120,7 @@ app.get('/visualizations', function(req, res) {
                         },
                         tooltip: {
                             label: "Show Tooltip",
-                            value: true,
+                            value: false,
                             metadata: {
                                 types: ["boolean"]
                             }
@@ -142,7 +142,13 @@ app.get('/visualizations', function(req, res) {
                     }
                 },
                 layoutOptions: {
-                    // TODO
+                    tooltip: {
+                            label: "Show Tooltip",
+                            value: false,
+                            metadata: {
+                                types: ["boolean"]
+                            }
+                        }
                 },
                 datasource: ds_model
             }, {
@@ -164,7 +170,43 @@ app.get('/visualizations', function(req, res) {
                     }
                 },
                 layoutOptions: {
-                    // TODO
+                    axis: {
+                        hLabel: {
+                            label: "Horizontal Label",
+                            value: "X Name",
+                            metadata: {
+                                types: ["string"]
+                            }
+                        },
+                        vLabel: {
+                            label: "Vertical Label",
+                            value: "Y Name",
+                            metadata: {
+                                types: ["string"]
+                            }
+                        },
+                        gridlines: {
+                            label: "Show Gridlines",
+                            value: true,
+                            metadata: {
+                                types: ["boolean"]
+                            }
+                        },                     
+                        widthRatio: {
+                            label: "Columns Width Ratio",
+                            value: 0.5,
+                            metadata: {
+                                types: ["number"]
+                            }
+                        },
+                        tooltip: {
+                            label: "Show Tooltip",
+                            value: false,
+                            metadata: {
+                                types: ["boolean"]
+                            }
+                        }
+                    } 
                 },
                 datasource: ds_model
             },
@@ -225,7 +267,43 @@ app.get('/visualizations', function(req, res) {
                     }
                 },
                 layoutOptions: {
-                  // TODO                 
+                  axis: {
+                        hLabel: {
+                            label: "Horizontal Label",
+                            value: "X Name",
+                            metadata: {
+                                types: ["string"]
+                            }
+                        },
+                        vLabel: {
+                            label: "Vertical Label",
+                            value: "Y Name",
+                            metadata: {
+                                types: ["string"]
+                            }
+                        },
+                        gridlines: {
+                            label: "Show Gridlines",
+                            value: true,
+                            metadata: {
+                                types: ["boolean"]
+                            }
+                        },                     
+                        ticks: {
+                            label: "Ticks",
+                            value: 5,
+                            metadata: {
+                                types: ["number"]
+                            }
+                        },
+                        tooltip: {
+                            label: "Show Tooltip",
+                            value: false,
+                            metadata: {
+                                types: ["boolean"]
+                            }
+                        }
+                    }                 
                 },
                 datasource: ds_model
             },
@@ -248,7 +326,43 @@ app.get('/visualizations', function(req, res) {
                     }
                 },
                 layoutOptions: {
-                    // TODO
+                    axis: {
+                        hLabel: {
+                            label: "Horizontal Label",
+                            value: "X Name",
+                            metadata: {
+                                types: ["string"]
+                            }
+                        },
+                        vLabel: {
+                            label: "Vertical Label",
+                            value: "Y Name",
+                            metadata: {
+                                types: ["string"]
+                            }
+                        },
+                        gridlines: {
+                            label: "Show Gridlines",
+                            value: false,
+                            metadata: {
+                                types: ["boolean"]
+                            }
+                        },                     
+                        ticks: {
+                            label: "Ticks",
+                            value: 5,
+                            metadata: {
+                                types: ["number"]
+                            }
+                        },
+                        tooltip: {
+                            label: "Show Tooltip",
+                            value: false,
+                            metadata: {
+                                types: ["boolean"]
+                            }
+                        }
+                    }
                 },
                 datasource: ds_model
             }, {
@@ -270,7 +384,43 @@ app.get('/visualizations', function(req, res) {
                     }
                 },
                 layoutOptions: {
-                   // TODO                    
+                   axis: {
+                        hLabel: {
+                            label: "Horizontal Label",
+                            value: "X Name",
+                            metadata: {
+                                types: ["string"]
+                            }
+                        },
+                        vLabel: {
+                            label: "Vertical Label",
+                            value: "Y Name",
+                            metadata: {
+                                types: ["string"]
+                            }
+                        },
+                        gridlines: {
+                            label: "Show Gridlines",
+                            value: true,
+                            metadata: {
+                                types: ["boolean"]
+                            }
+                        },                     
+                        widthRatio: {
+                            label: "Columns Width Ratio",
+                            value: 0.5,
+                            metadata: {
+                                types: ["number"]
+                            }
+                        },
+                        tooltip: {
+                            label: "Show Tooltip",
+                            value: false,
+                            metadata: {
+                                types: ["boolean"]
+                            }
+                        }
+                    }                    
                 },
                 datasource: ds_model
             }

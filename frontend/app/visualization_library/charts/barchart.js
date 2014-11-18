@@ -24,7 +24,12 @@ var barchart = function() {
         var selection = {
             dimension: configuration.xAxis,
             multidimension: configuration.yAxis,
-            group: configuration.group
+            group: configuration.group,
+            hLabel: configuration.hLabel,
+            vLabel: configuration.vLabel,
+            widthRatio: configuration.widthRatio,
+            tooltip: configuration.tooltip,
+            gridlines: configuration.gridlines
         };
         
         console.log("VISUALIZATION SELECTION FOR BAR CHART:");
@@ -44,6 +49,7 @@ var barchart = function() {
                 },
                 axis: {
                     y: {
+                        label: selection.vLabel,
                         tick: {
                             format: function(val) {
                                 if (!val && val !== 0) {
@@ -55,15 +61,27 @@ var barchart = function() {
                                 });
                             }
                         }
+                    },
+                    x: {
+                        label: selection.hLabel
+                    }
+                },
+                bar: {
+                    width: {
+                        ratio: selection.widthRatio
                     }
                 },
                 grid: {
+                    x: {
+                        show: selection.gridlines
+                    },
                     y: {
+                        show: selection.gridlines,
                         lines: [{value: 0}]
                     }
                 },
                 tooltip: {
-                    show: false
+                    show: selection.tooltip
                 }
             });
         });

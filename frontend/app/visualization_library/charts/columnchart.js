@@ -24,7 +24,12 @@ var columnchart = function() {
         var selection = {
             dimension: configuration.xAxis,
             multidimension: configuration.yAxis,
-            group: configuration.group
+            group: configuration.group,
+            hLabel: configuration.hLabel,
+            vLabel: configuration.vLabel,
+            gridlines: configuration.gridlines,
+            tooltip: configuration.tooltip,
+            widthRatio: configuration.widthRatio
         };
 
         console.log("VISUALIZATION SELECTION FOR COLUMN CHART:");
@@ -54,19 +59,28 @@ var columnchart = function() {
                                     maximumFractionDigits: 6
                                 });
                             }
-                        }
+                        },
+                        label: selection.vLabel
+                    },
+                    x: {
+                        label: selection.hLabel
+                    }
+                },
+                bar: {
+                    width: {
+                        ratio: selection.widthRatio
                     }
                 },
                 grid: {
                     x: {
-                        show: true
+                        show: selection.gridlines
                     },
                     y: {
-                        show: true
+                        show: selection.gridlines
                     }
                 },
                 tooltip: {
-                    show: true
+                    show: selection.tooltip
                 }
             });
         });

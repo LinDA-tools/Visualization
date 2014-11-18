@@ -61,6 +61,7 @@ App.VisualizationController = Ember.ArrayController.extend({
         console.dir(visualization);
         console.dir(config);        
         visualization.draw(config, "visualization");
+        //visualization.tune(config);
     }.observes('visualizationConfiguration.@each'),
     setSuggestedVisualization: function() {
         var topSuggestion = this.get('firstObject');

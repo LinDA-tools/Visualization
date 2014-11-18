@@ -92,19 +92,38 @@ app.get('/visualizations', function(req, res) {
                     axis: {
                         hLabel: {
                             label: "Horizontal Label",
-                            value: ""
+                            value: "X Name",
+                            metadata: {
+                                types: ["string"]
+                            }
                         },
                         vLabel: {
                             label: "Vertical Label",
-                            value: ""
+                            value: "Y Name",
+                            metadata: {
+                                types: ["string"]
+                            }
                         },
                         gridlines: {
-                            label: "Gridlines Horizontal",
-                            value: true
+                            label: "Gridlines",
+                            value: true,
+                            metadata: {
+                                types: ["boolean"]
+                            }
                         },                     
                         ticks: {
                             label: "Ticks",
-                            value: 10
+                            value: 10,
+                            metadata: {
+                                types: ["number"]
+                            }
+                        },
+                        tooltip: {
+                            label: "Show Tooltip",
+                            value: true,
+                            metadata: {
+                                types: ["boolean"]
+                            }
                         }
                     }
                 },

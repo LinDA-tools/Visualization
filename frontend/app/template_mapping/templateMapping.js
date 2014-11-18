@@ -15,16 +15,17 @@ function templateMapping(editObject) {
         //Assuming there is a baseofmappings {option: template}
         var mapDB = {
             "dimensions": "dimension-area",
-            "width": "tuning-width",
-            "height":"tuning-height",
+            "width": "tuning-numinput",
+            "height":"tuning-numinput",
             "background_color": "tuning-bgc",
-            "hLabel":"tuning-hlabel",
-            "vLabel":"tuning-vlabel",
-            "numGridlinesHor":"tuning-gridsHorizontal",
-            "numGridlinesVer":"tuning-gridsVertical",
-            "ticks":"tuning-ticks",
-            "widthPx":"tuning-widthPx",
-            "widthRatio":"tuning-widthRatio"
+            "hLabel":"textField",
+            "vLabel":"textField",
+            "gridlines":"tuning-check",
+            "tooltip":"tuning-check",
+            "numGridlinesVer":"tuning-numinput",
+            "ticks":"tuning-numinput",
+            "widthPx":"tuning-numinput",
+            "widthRatio":"tuning-numinput"
         };
 
         //retrieving the fields
@@ -44,7 +45,8 @@ function templateMapping(editObject) {
                         resultMapping.layoutOptions[prop]={
                             template: mapDB[prop],
                             value: layoutOptions[prop].value,
-                            label: layoutOptions[prop].label
+                            label: layoutOptions[prop].label,
+                            metadata: layoutOptions[prop].metadata
                         };
                         //invokeTemplate(prop, layoutOptions[prop]);
                     } else {
@@ -53,7 +55,8 @@ function templateMapping(editObject) {
                             resultMapping.layoutOptions[axisprop]={
                             template: mapDB[axisprop],
                             value: axisOptions[axisprop].value,
-                            label: axisOptions[axisprop].label
+                            label: axisOptions[axisprop].label,
+                            metadata: axisOptions[axisprop].metadata
 
                         };
                             //invokeTemplate(axisprop, axisOptions[axisprop]);

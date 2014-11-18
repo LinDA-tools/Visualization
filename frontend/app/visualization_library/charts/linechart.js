@@ -24,7 +24,12 @@ var linechart = function() {
         var selection = {
             dimension: configuration.xAxis,
             multidimension: configuration.yAxis,
-            group: configuration.group
+            group: configuration.group,
+            hLabel: configuration.hLabel,
+            vLabel: configuration.vLabel,
+            gridlines : configuration.gridlines,
+            ticks: configuration.ticks,
+            tooltip: configuration.tooltip
         };
         
         console.log("VISUALISATION CONFIGURATION FOR LINE CHART:");
@@ -45,6 +50,7 @@ var linechart = function() {
                 axis: {
                     y: {
                         tick: {
+                            count: selection.ticks,
                             format: function(val) {
                                 if (!val && val !== 0) {
                                     return '';
@@ -54,16 +60,39 @@ var linechart = function() {
                                     maximumFractionDigits: 6
                                 });
                             }
-                        }
+                        },
+                        label: selection.vLabel
+                        
+                    },
+                    x: {
+                        tick: {
+                            fit: true,
+                            count: selection.ticks,
+                            format: function(val) {
+                                if (!val && val !== 0) {
+                                    return '';
+                                }
+                                return val.toLocaleString([], {
+                                    useGrouping: false,
+                                    maximumFractionDigits: 2
+                                });
+                            }
+                        },
+                        label: selection.hLabel
                     }
                 },
                 grid: {
+                    x: {
+                        show: selection.gridlines,
+                        lines: [{value:0}]
+                    },
                     y: {
+                        show: selection.gridlines,
                         lines: [{value: 0}]
                     }
                 },
                 tooltip: {
-                    show: false
+                    show: selection.tooltip
                 }
             });
         });

@@ -4,7 +4,7 @@ var linechart = function() {
     var series = [];
 
     function draw(configuration, visualisationContainer) {
-        console.log("### INITIALIZE VISUALISATION");
+        console.log("### INITIALIZE VISUALISATION - LINE CHART");
 
         $('#' + visualisationContainer).empty();
 
@@ -21,19 +21,17 @@ var linechart = function() {
         var dataModule = configuration.dataModule;
         var location = configuration.datasourceLocation;
 
-        console.log("VISUALISATION CONFIGURATION");
-        console.dir(configuration);
-
         var selection = {
             dimension: configuration.xAxis,
             multidimension: configuration.yAxis,
             group: configuration.group
         };
-        console.log("SELECTION");
+        
+        console.log("VISUALISATION CONFIGURATION FOR LINE CHART:");
         console.dir(selection);
 
         dataModule.parse(location, selection).then(function(inputData) {
-            console.log("CONVERTED INPUT DATA");
+            console.log("GENERATE INPUT DATA FORMAT FOR LINE CHART");
             console.dir(inputData);
             seriesHeaders = inputData[0];
             series = transpose(inputData);
@@ -74,7 +72,7 @@ var linechart = function() {
     }
 
     function tune(config) {
-        console.log("### TUNE VISUALISATION");
+        console.log("### TUNE LINE CHART");
         console.dir(chart);
 
         var groups;

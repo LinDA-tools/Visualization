@@ -1,0 +1,17 @@
+@prefix sd: <http://www.w3.org/ns/sparql-service-description#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix :<http://linda-project.eu/datasets#> .
+
+<#service> a sd:Service ;
+       sd:url    <http://localhost:8890/sparql> ;
+       sd:namedGraph  :b2f0d13u8e27624d0ca73b1b .
+
+:b2f0d13u8e27624d0ca73b1b  sd:name <http://www.linda-project.org/examples/worldbank-slice-5000> ;
+                 sd:graph :r4077e6b47fa4ced5ffe0873 .
+
+:r4077e6b47fa4ced5ffe0873 a sd:Graph;
+                a void:Dataset;
+                dcterms:title "World Bank GDP per capita" .
+

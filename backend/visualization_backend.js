@@ -88,15 +88,7 @@ app.get('/visualizations', function(req, res) {
                         }
                     }
                 },
-                layoutOptions: {
-                    width: {
-                        label: "Width",
-                        value: 500
-                    },
-                    height: {
-                        label: "Height",
-                        value: 500
-                    },
+                layoutOptions: {                                     
                     axis: {
                         hLabel: {
                             label: "Horizontal Label",
@@ -106,14 +98,10 @@ app.get('/visualizations', function(req, res) {
                             label: "Vertical Label",
                             value: ""
                         },
-                        numGridlinesHor: {
+                        gridlines: {
                             label: "Gridlines Horizontal",
-                            value: 3
-                        },
-                        numGridlinesVer: {
-                            label: "Gridlines Vertical",
-                            value: 5
-                        },
+                            value: true
+                        },                     
                         ticks: {
                             label: "Ticks",
                             value: 10
@@ -123,118 +111,147 @@ app.get('/visualizations', function(req, res) {
                 datasource: ds_model
             }, {
                 id: 351574,
+                name: "Pie Chart",
+                thumbnail: "http://localhost:3002/thumbnails/pie_chart.png",
+                structureOptions: {
+                    dimensions: {
+                        slice: {
+                            label: "Slice",
+                            value: [],
+                            metadata: ["number"]
+                        }
+                    }
+                },
+                layoutOptions: {
+                    // TODO
+                },
+                datasource: ds_model
+            }, {
+                id: 282534,
+                name: "Column Chart",
+                thumbnail: "http://localhost:3002/thumbnails/column_chart.png",
+                structureOptions: {
+                    dimensions: {                      
+                        xAxis: {
+                            label: "Horizontal Axis",
+                            value: [],
+                            metadata: ["number", "string", "date"]
+                        },
+                        yAxis: {
+                            label: "Vertical Axis",
+                            value: [],
+                            metadata: ["number"]
+                        }
+                    }
+                },
+                layoutOptions: {
+                    // TODO
+                },
+                datasource: ds_model
+            },
+            {
+                id: 3144372,
+                name: "Bubble Chart",
+                thumbnail: "http://localhost:3002/thumbnails/bubble_chart.png",
+                structureOptions: {
+                    dimensions: {
+                        label: {
+                            label: "Label",
+                            value: [],
+                            metadata: ["string"]
+                        },
+                        xAxis: {
+                            label: "Horizontal Axis",
+                            value: [],
+                            metadata: ["number"]
+                        },
+                        yAxis: {
+                            label: "Vertical Axis",
+                            value: [],
+                            metadata: ["number"]
+                        },
+                        color: {
+                            label: "Color",
+                            value: [],
+                            metadata: ["string"]
+                        },
+                        radius: {
+                            label: "Radius",
+                            value: [],
+                            metadata: ["number"]
+                        }
+                        
+                    }
+                },
+                layoutOptions: {
+                 // TODO
+                },
+                datasource: ds_model
+            }, {
+                id: 386595,
+                name: "Area Chart",
+                thumbnail: "http://localhost:3002/thumbnails/area_chart.png",
+                structureOptions: {
+                    dimensions: {
+                        yAxis: {
+                            label: "Vertical Axis",
+                            value: [],
+                            metadata: ["number"]
+                        },
+                        xAxis: {
+                            label: "Horizontal Axis",
+                            value: [],
+                            metadata: ["number", "string", "date"]
+                        }
+                    }
+                },
+                layoutOptions: {
+                  // TODO                 
+                },
+                datasource: ds_model
+            },
+             {
+                id: 382774,
+                name: "Scatter Chart",
+                thumbnail: "http://localhost:3002/thumbnails/scatter_chart.png",
+                structureOptions: {
+                    dimensions: {
+                        yAxis: {
+                            label: "Vertical Axis",
+                            value: [],
+                            metadata: ["number"]
+                        },
+                        xAxis: {
+                            label: "Horizontal Axis",
+                            value: [],
+                            metadata: ["number", "string", "date"]
+                        }
+                    }
+                },
+                layoutOptions: {
+                    // TODO
+                },
+                datasource: ds_model
+            }, {
+                id: 339594,
                 name: "Bar Chart",
                 thumbnail: "http://localhost:3002/thumbnails/bar_chart.png",
                 structureOptions: {
                     dimensions: {
-                        xAxis: {
-                            label: "Horizontal Axis",
-                            values: [],
-                            metadata: ["number"]
-                        },
                         yAxis: {
                             label: "Vertical Axis",
-                            values: [],
-                            metadata: ["number", "string", "date"]
-                        },
-                        group: {
-                            label: "Groups (optional)",
                             value: [],
-                            metadata: {
-                                types: ["date", "number", "string"]
-                            }
-                        }
-                    }
-                },
-                layoutOptions: {
-                    width: {
-                        label: "Width",
-                        value: 500
-                    },
-                    height: {
-                        label: "Height",
-                        value: 500
-                    },
-                    axis: {
-                        hLabel: {
-                            label: "Horizontal Label",
-                            value: ""
-                        },
-                        vLabel: {
-                            label: "Vertical Label",
-                            value: ""
-                        },
-                        numGridlinesHor: {
-                            label: "Gridlines Horizontal",
-                            value: 3
-                        },
-                        numGridlinesVer: {
-                            label: "Gridlines Vertical",
-                            value: 5
-                        },
-                        ticks: {
-                            label: "Ticks",
-                            value: 10
-                        }
-                    }
-                },
-                datasource: ds_model
-            }, {
-                id: 382594,
-                name: "Column Chart",
-                thumbnail: "http://localhost:3002/thumbnails/column_chart.png",
-                structureOptions: {
-                    dimensions: {
-                        yAxis: {
-                            label: "Vertical Axis",
-                            values: [],
                             metadata: ["number"]
                         },
                         xAxis: {
                             label: "Horizontal Axis",
-                            values: [],
-                            metadata: ["number", "string", "date"]
-                        },
-                        group: {
-                            label: "Groups (optional)",
                             value: [],
-                            metadata: {
-                                types: ["date", "number", "string"]
-                            }
+                            metadata: ["number", "string", "date"]
                         }
                     }
                 },
                 layoutOptions: {
-                    width: {
-                        label: "Width",
-                        value: 500
-                    },
-                    height: {
-                        label: "Height",
-                        value: 500,
-                    },
-                    axis: {
-                        hLabel: {
-                            label: "Horizontal Label",
-                            value: ""
-                        },
-                        vLabel: {
-                            label: "Vertical Label",
-                            value: ""
-                        },
-                        numGridlinesHor: {
-                            label: "Gridlines Horizontal",
-                            value: 3
-                        },
-                        numGridlinesVer: {
-                            label: "Gridlines Vertical",
-                            value: 5
-                        },
-                        ticks: {
-                            label: "Ticks",
-                            value: 10
-                        }
-                    }
+                   // TODO                    
                 },
                 datasource: ds_model
             }

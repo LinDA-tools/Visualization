@@ -13,14 +13,22 @@ App.VisualizationOptionsView = Ember.ContainerView.extend({
         }
         
         console.log("Creating visualization configuration view...");
-        console.log('Structure options: ' + options);
+        console.log('Structure options: ');
         console.dir(options);
-        console.log('Visualization configuration: ' + config);
+        console.log('Visualization configuration: ');
 
         var optionNames = Object.getOwnPropertyNames(options);
         for (var i = 0; i < optionNames.length; i++) {
-            var optionName = optionNames[i];
+            
+            var optionName = optionNames[i];          
+            console.log('Option name: ');
+            console.dir(optionName);
+            
             var optionTemplate = options[optionName];
+            console.log('Option template: ');
+            console.dir(optionTemplate);
+            console.dir(optionTemplate.value);
+            
             var view = Ember.View.extend({
                 tagName: "li",
                 classNames: ['dim-area'],

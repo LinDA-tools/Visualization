@@ -1,0 +1,913 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY visualization "http://www.semanticweb.org/ontologies/2014/9/visualization#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.semanticweb.org/ontologies/2014/9/visualization#"
+     xml:base="http://www.semanticweb.org/ontologies/2014/9/visualization"
+     xmlns:visualization="http://www.semanticweb.org/ontologies/2014/9/visualization#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/ontologies/2014/9/visualization"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/9/visualization#category -->
+
+    <owl:ObjectProperty rdf:about="&visualization;category">
+        <rdfs:range rdf:resource="&visualization;ChartCategory"/>
+        <rdfs:domain rdf:resource="&visualization;GraphicRepresentation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/9/visualization#dimensionType -->
+
+    <owl:ObjectProperty rdf:about="&visualization;dimensionType">
+        <rdfs:range rdf:resource="&visualization;DataType"/>
+        <rdfs:domain rdf:resource="&visualization;Dimension"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/9/visualization#dimensions -->
+
+    <owl:ObjectProperty rdf:about="&visualization;dimensions">
+        <rdfs:range rdf:resource="&visualization;Dimension"/>
+        <rdfs:domain rdf:resource="&visualization;GraphicRepresentation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/9/visualization#lib -->
+
+    <owl:ObjectProperty rdf:about="&visualization;lib">
+        <rdfs:range rdf:resource="&visualization;GraphicLibrary"/>
+        <rdfs:domain rdf:resource="&visualization;GraphicRepresentation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/9/visualization#som -->
+
+    <owl:ObjectProperty rdf:about="&visualization;som">
+        <rdfs:domain rdf:resource="&visualization;Dimension"/>
+        <rdfs:range rdf:resource="&visualization;ScaleOfMeasure"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/9/visualization#type -->
+
+    <owl:ObjectProperty rdf:about="&visualization;type">
+        <rdfs:range rdf:resource="&visualization;ChartType"/>
+        <rdfs:domain rdf:resource="&visualization;GraphicRepresentation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/9/visualization#chartID -->
+
+    <owl:DatatypeProperty rdf:about="&visualization;chartID">
+        <rdfs:domain rdf:resource="&visualization;Charts"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/9/visualization#chartThumbnail -->
+
+    <owl:DatatypeProperty rdf:about="&visualization;chartThumbnail">
+        <rdfs:domain rdf:resource="&visualization;Charts"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/9/visualization#numOfDims -->
+
+    <owl:DatatypeProperty rdf:about="&visualization;numOfDims">
+        <rdfs:domain rdf:resource="&visualization;Dimension"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/9/visualization#Axis -->
+
+    <owl:Class rdf:about="&visualization;Axis">
+        <rdfs:subClassOf rdf:resource="&visualization;Dimension"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/9/visualization#ChartCategory -->
+
+    <owl:Class rdf:about="&visualization;ChartCategory">
+        <rdfs:subClassOf rdf:resource="&visualization;Graphics"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/9/visualization#ChartType -->
+
+    <owl:Class rdf:about="&visualization;ChartType">
+        <rdfs:subClassOf rdf:resource="&visualization;Graphics"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/9/visualization#Charts -->
+
+    <owl:Class rdf:about="&visualization;Charts">
+        <rdfs:subClassOf rdf:resource="&visualization;GraphicRepresentation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/9/visualization#Data -->
+
+    <owl:Class rdf:about="&visualization;Data"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/9/visualization#DataType -->
+
+    <owl:Class rdf:about="&visualization;DataType">
+        <rdfs:subClassOf rdf:resource="&visualization;Data"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/9/visualization#Dimension -->
+
+    <owl:Class rdf:about="&visualization;Dimension">
+        <rdfs:subClassOf rdf:resource="&visualization;Data"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/9/visualization#GraphicLibrary -->
+
+    <owl:Class rdf:about="&visualization;GraphicLibrary">
+        <rdfs:subClassOf rdf:resource="&visualization;Lists"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/9/visualization#GraphicRepresentation -->
+
+    <owl:Class rdf:about="&visualization;GraphicRepresentation">
+        <rdfs:subClassOf rdf:resource="&visualization;Graphics"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/9/visualization#Graphics -->
+
+    <owl:Class rdf:about="&visualization;Graphics"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/9/visualization#Graphs -->
+
+    <owl:Class rdf:about="&visualization;Graphs">
+        <rdfs:subClassOf rdf:resource="&visualization;GraphicRepresentation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/9/visualization#Lists -->
+
+    <owl:Class rdf:about="&visualization;Lists"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/9/visualization#Maps -->
+
+    <owl:Class rdf:about="&visualization;Maps">
+        <rdfs:subClassOf rdf:resource="&visualization;GraphicRepresentation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/9/visualization#ScaleOfMeasure -->
+
+    <owl:Class rdf:about="&visualization;ScaleOfMeasure">
+        <rdfs:subClassOf rdf:resource="&visualization;Data"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/9/visualization#Time -->
+
+    <owl:Class rdf:about="&visualization;Time">
+        <rdfs:subClassOf rdf:resource="&visualization;GraphicRepresentation"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/9/visualization#BarChart -->
+
+    <owl:NamedIndividual rdf:about="&visualization;BarChart">
+        <rdf:type rdf:resource="&visualization;Charts"/>
+        <lib rdf:resource="&visualization;Lib_GoogleCharts"/>
+        <type rdf:resource="&visualization;configurable"/>
+        <dimensions rdf:resource="&visualization;xAxisNumberQuantitative_N"/>
+        <dimensions rdf:resource="&visualization;yAxisNumDateOrdinal_1"/>
+        <dimensions rdf:resource="&visualization;yAxisStringDiscreteCategorical_1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/9/visualization#BubbleChart -->
+
+    <owl:NamedIndividual rdf:about="&visualization;BubbleChart">
+        <rdf:type rdf:resource="&visualization;Charts"/>
+        <lib rdf:resource="&visualization;Lib_GoogleCharts"/>
+        <type rdf:resource="&visualization;configurable"/>
+        <dimensions rdf:resource="&visualization;xAxisNumberQuantitative_1"/>
+        <dimensions rdf:resource="&visualization;yAxisNumberQuantitative_1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/9/visualization#ColumnChart -->
+
+    <owl:NamedIndividual rdf:about="&visualization;ColumnChart">
+        <rdf:type rdf:resource="&visualization;Charts"/>
+        <lib rdf:resource="&visualization;Lib_C3"/>
+        <lib rdf:resource="&visualization;Lib_GoogleCharts"/>
+        <type rdf:resource="&visualization;configurable"/>
+        <category rdf:resource="&visualization;statictical"/>
+        <dimensions rdf:resource="&visualization;xAxisNumDateOrdinal_1"/>
+        <dimensions rdf:resource="&visualization;xAxisStringDiscreteCategorical_1"/>
+        <dimensions rdf:resource="&visualization;yAxisNumberQuantitative_N"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/9/visualization#Dim_BarLabel -->
+
+    <owl:NamedIndividual rdf:about="&visualization;Dim_BarLabel">
+        <rdf:type rdf:resource="&visualization;Dimension"/>
+        <numOfDims rdf:datatype="&xsd;string">1</numOfDims>
+        <dimensionType rdf:resource="&visualization;TypeString"/>
+        <som rdf:resource="&visualization;categorical"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/9/visualization#Dim_Color -->
+
+    <owl:NamedIndividual rdf:about="&visualization;Dim_Color">
+        <rdf:type rdf:resource="&visualization;Dimension"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/9/visualization#Dim_Column1_IDHeader -->
+
+    <owl:NamedIndividual rdf:about="&visualization;Dim_Column1_IDHeader">
+        <rdf:type rdf:resource="&visualization;Dimension"/>
+        <numOfDims rdf:datatype="&xsd;string">1</numOfDims>
+        <dimensionType rdf:resource="&visualization;TypeString"/>
+        <som rdf:resource="&visualization;categorical"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/9/visualization#Dim_Column2_IDParent -->
+
+    <owl:NamedIndividual rdf:about="&visualization;Dim_Column2_IDParent">
+        <rdf:type rdf:resource="&visualization;Dimension"/>
+        <numOfDims rdf:datatype="&xsd;string">1</numOfDims>
+        <dimensionType rdf:resource="&visualization;TypeString"/>
+        <som rdf:resource="&visualization;categorical"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/9/visualization#Dim_Column3_Size -->
+
+    <owl:NamedIndividual rdf:about="&visualization;Dim_Column3_Size">
+        <rdf:type rdf:resource="&visualization;Dimension"/>
+        <numOfDims rdf:datatype="&xsd;string">1</numOfDims>
+        <dimensionType rdf:resource="&visualization;TypeNumber"/>
+        <som rdf:resource="&visualization;quantitative"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/9/visualization#Dim_Column4_Color -->
+
+    <owl:NamedIndividual rdf:about="&visualization;Dim_Column4_Color">
+        <rdf:type rdf:resource="&visualization;Dimension"/>
+        <numOfDims rdf:datatype="&xsd;string">1</numOfDims>
+        <dimensionType rdf:resource="&visualization;TypeNumber"/>
+        <som rdf:resource="&visualization;quantitative"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/9/visualization#Dim_Edge -->
+
+    <owl:NamedIndividual rdf:about="&visualization;Dim_Edge">
+        <rdf:type rdf:resource="&visualization;Dimension"/>
+        <numOfDims rdf:datatype="&xsd;string">n</numOfDims>
+        <dimensionType rdf:resource="&visualization;TypeGraph"/>
+        <som rdf:resource="&visualization;categorical"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/9/visualization#Dim_EdgeLabel -->
+
+    <owl:NamedIndividual rdf:about="&visualization;Dim_EdgeLabel">
+        <rdf:type rdf:resource="&visualization;Dimension"/>
+        <numOfDims rdf:datatype="&xsd;string">1</numOfDims>
+        <dimensionType rdf:resource="&visualization;TypeString"/>
+        <som rdf:resource="&visualization;categorical"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/9/visualization#Dim_End -->
+
+    <owl:NamedIndividual rdf:about="&visualization;Dim_End">
+        <rdf:type rdf:resource="&visualization;Dimension"/>
+        <numOfDims rdf:datatype="&xsd;string">1</numOfDims>
+        <dimensionType rdf:resource="&visualization;TypeDate"/>
+        <dimensionType rdf:resource="&visualization;TypeNumber"/>
+        <som rdf:resource="&visualization;ordinal"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/9/visualization#Dim_ID -->
+
+    <owl:NamedIndividual rdf:about="&visualization;Dim_ID">
+        <rdf:type rdf:resource="&visualization;Dimension"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/9/visualization#Dim_Indicator -->
+
+    <owl:NamedIndividual rdf:about="&visualization;Dim_Indicator">
+        <rdf:type rdf:resource="&visualization;Dimension"/>
+        <numOfDims rdf:datatype="&xsd;string">n</numOfDims>
+        <dimensionType rdf:resource="&visualization;TypeNumber"/>
+        <som rdf:resource="&visualization;quantitative"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/9/visualization#Dim_MarkerLabel -->
+
+    <owl:NamedIndividual rdf:about="&visualization;Dim_MarkerLabel">
+        <rdf:type rdf:resource="&visualization;Dimension"/>
+        <numOfDims rdf:datatype="&xsd;string">1</numOfDims>
+        <dimensionType rdf:resource="&visualization;TypeString"/>
+        <som rdf:resource="&visualization;categorical"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/9/visualization#Dim_MarkerLocation -->
+
+    <owl:NamedIndividual rdf:about="&visualization;Dim_MarkerLocation">
+        <rdf:type rdf:resource="&visualization;Dimension"/>
+        <dimensionType rdf:resource="&visualization;TypeCoordinates"/>
+        <som rdf:resource="&visualization;geographical"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/9/visualization#Dim_RowLabel -->
+
+    <owl:NamedIndividual rdf:about="&visualization;Dim_RowLabel">
+        <rdf:type rdf:resource="&visualization;Dimension"/>
+        <numOfDims rdf:datatype="&xsd;string">1</numOfDims>
+        <dimensionType rdf:resource="&visualization;TypeString"/>
+        <som rdf:resource="&visualization;categorical"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/9/visualization#Dim_Size -->
+
+    <owl:NamedIndividual rdf:about="&visualization;Dim_Size">
+        <rdf:type rdf:resource="&visualization;Dimension"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/9/visualization#Dim_SliceLabels -->
+
+    <owl:NamedIndividual rdf:about="&visualization;Dim_SliceLabels">
+        <rdf:type rdf:resource="&visualization;Dimension"/>
+        <numOfDims rdf:datatype="&xsd;string">1</numOfDims>
+        <dimensionType rdf:resource="&visualization;TypeString"/>
+        <som rdf:resource="&visualization;categorical"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/9/visualization#Dim_SliceValues -->
+
+    <owl:NamedIndividual rdf:about="&visualization;Dim_SliceValues">
+        <rdf:type rdf:resource="&visualization;Dimension"/>
+        <numOfDims rdf:datatype="&xsd;string">1</numOfDims>
+        <dimensionType rdf:resource="&visualization;TypeNumber"/>
+        <som rdf:resource="&visualization;quantitative"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/9/visualization#Dim_Start -->
+
+    <owl:NamedIndividual rdf:about="&visualization;Dim_Start">
+        <rdf:type rdf:resource="&visualization;Dimension"/>
+        <numOfDims rdf:datatype="&xsd;string">1</numOfDims>
+        <dimensionType rdf:resource="&visualization;TypeDate"/>
+        <dimensionType rdf:resource="&visualization;TypeNumber"/>
+        <som rdf:resource="&visualization;ordinal"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/9/visualization#Dim_TableColumnHead -->
+
+    <owl:NamedIndividual rdf:about="&visualization;Dim_TableColumnHead">
+        <rdf:type rdf:resource="&visualization;Dimension"/>
+        <numOfDims rdf:datatype="&xsd;string">n</numOfDims>
+        <dimensionType rdf:resource="&visualization;TypeString"/>
+        <som rdf:resource="&visualization;any"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/9/visualization#Dim_TableRow -->
+
+    <owl:NamedIndividual rdf:about="&visualization;Dim_TableRow">
+        <rdf:type rdf:resource="&visualization;Dimension"/>
+        <numOfDims rdf:datatype="&xsd;string">n</numOfDims>
+        <dimensionType rdf:resource="&visualization;TypeCoordinates"/>
+        <dimensionType rdf:resource="&visualization;TypeDate"/>
+        <dimensionType rdf:resource="&visualization;TypeNumber"/>
+        <dimensionType rdf:resource="&visualization;TypeString"/>
+        <som rdf:resource="&visualization;any"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/9/visualization#Dim_VertexColor -->
+
+    <owl:NamedIndividual rdf:about="&visualization;Dim_VertexColor">
+        <rdf:type rdf:resource="&visualization;Dimension"/>
+        <numOfDims rdf:datatype="&xsd;string">1</numOfDims>
+        <dimensionType rdf:resource="&visualization;TypeString"/>
+        <som rdf:resource="&visualization;categorical"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/9/visualization#Dim_VertexID -->
+
+    <owl:NamedIndividual rdf:about="&visualization;Dim_VertexID">
+        <rdf:type rdf:resource="&visualization;Dimension"/>
+        <numOfDims rdf:datatype="&xsd;string">1</numOfDims>
+        <dimensionType rdf:resource="&visualization;TypeString"/>
+        <som rdf:resource="&visualization;categorical"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/9/visualization#DonutChart -->
+
+    <owl:NamedIndividual rdf:about="&visualization;DonutChart">
+        <rdf:type rdf:resource="&visualization;Charts"/>
+        <dimensions rdf:resource="&visualization;Dim_SliceLabels"/>
+        <dimensions rdf:resource="&visualization;Dim_SliceValues"/>
+        <lib rdf:resource="&visualization;Lib_C3"/>
+        <type rdf:resource="&visualization;configurable"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/9/visualization#Graph -->
+
+    <owl:NamedIndividual rdf:about="&visualization;Graph">
+        <rdf:type rdf:resource="&visualization;Graphs"/>
+        <dimensions rdf:resource="&visualization;Dim_Edge"/>
+        <dimensions rdf:resource="&visualization;Dim_EdgeLabel"/>
+        <dimensions rdf:resource="&visualization;Dim_VertexColor"/>
+        <dimensions rdf:resource="&visualization;Dim_VertexID"/>
+        <lib rdf:resource="&visualization;Lib_vis.js"/>
+        <type rdf:resource="&visualization;preview"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/9/visualization#Lib_C3 -->
+
+    <owl:NamedIndividual rdf:about="&visualization;Lib_C3">
+        <rdf:type rdf:resource="&visualization;GraphicLibrary"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/9/visualization#Lib_GoogleCharts -->
+
+    <owl:NamedIndividual rdf:about="&visualization;Lib_GoogleCharts">
+        <rdf:type rdf:resource="&visualization;GraphicLibrary"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/9/visualization#Lib_Leaflet -->
+
+    <owl:NamedIndividual rdf:about="&visualization;Lib_Leaflet">
+        <rdf:type rdf:resource="&visualization;GraphicLibrary"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/9/visualization#Lib_jQuery -->
+
+    <owl:NamedIndividual rdf:about="&visualization;Lib_jQuery">
+        <rdf:type rdf:resource="&visualization;GraphicLibrary"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/9/visualization#Lib_vis.js -->
+
+    <owl:NamedIndividual rdf:about="&visualization;Lib_vis.js">
+        <rdf:type rdf:resource="&visualization;GraphicLibrary"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/9/visualization#LineChart -->
+
+    <owl:NamedIndividual rdf:about="&visualization;LineChart">
+        <rdf:type rdf:resource="&visualization;Charts"/>
+        <lib rdf:resource="&visualization;Lib_C3"/>
+        <lib rdf:resource="&visualization;Lib_GoogleCharts"/>
+        <type rdf:resource="&visualization;configurable"/>
+        <dimensions rdf:resource="&visualization;xAxisNumDateOrdinal_1"/>
+        <dimensions rdf:resource="&visualization;xAxisStringDiscreteCategorical_1"/>
+        <dimensions rdf:resource="&visualization;yAxisNumberQuantitative_N"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/9/visualization#Map -->
+
+    <owl:NamedIndividual rdf:about="&visualization;Map">
+        <rdf:type rdf:resource="&visualization;Maps"/>
+        <dimensions rdf:resource="&visualization;Dim_Indicator"/>
+        <dimensions rdf:resource="&visualization;Dim_MarkerLabel"/>
+        <dimensions rdf:resource="&visualization;Dim_MarkerLocation"/>
+        <lib rdf:resource="&visualization;Lib_Leaflet"/>
+        <type rdf:resource="&visualization;configurable"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/9/visualization#PieChart -->
+
+    <owl:NamedIndividual rdf:about="&visualization;PieChart">
+        <rdf:type rdf:resource="&visualization;Charts"/>
+        <dimensions rdf:resource="&visualization;Dim_SliceLabels"/>
+        <dimensions rdf:resource="&visualization;Dim_SliceValues"/>
+        <lib rdf:resource="&visualization;Lib_C3"/>
+        <lib rdf:resource="&visualization;Lib_GoogleCharts"/>
+        <type rdf:resource="&visualization;configurable"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/9/visualization#ScatterChart -->
+
+    <owl:NamedIndividual rdf:about="&visualization;ScatterChart">
+        <rdf:type rdf:resource="&visualization;Charts"/>
+        <lib rdf:resource="&visualization;Lib_C3"/>
+        <lib rdf:resource="&visualization;Lib_GoogleCharts"/>
+        <type rdf:resource="&visualization;configurable"/>
+        <dimensions rdf:resource="&visualization;xAxisNumberQuantitative_1"/>
+        <dimensions rdf:resource="&visualization;yAxisNumberQuantitative_N"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/9/visualization#Table -->
+
+    <owl:NamedIndividual rdf:about="&visualization;Table">
+        <rdf:type rdf:resource="&visualization;Charts"/>
+        <dimensions rdf:resource="&visualization;Dim_TableColumnHead"/>
+        <dimensions rdf:resource="&visualization;Dim_TableRow"/>
+        <lib rdf:resource="&visualization;Lib_GoogleCharts"/>
+        <lib rdf:resource="&visualization;Lib_jQuery"/>
+        <type rdf:resource="&visualization;preview"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/9/visualization#Timeline -->
+
+    <owl:NamedIndividual rdf:about="&visualization;Timeline">
+        <rdf:type rdf:resource="&visualization;Time"/>
+        <dimensions rdf:resource="&visualization;Dim_BarLabel"/>
+        <dimensions rdf:resource="&visualization;Dim_End"/>
+        <dimensions rdf:resource="&visualization;Dim_RowLabel"/>
+        <dimensions rdf:resource="&visualization;Dim_Start"/>
+        <lib rdf:resource="&visualization;Lib_GoogleCharts"/>
+        <lib rdf:resource="&visualization;Lib_vis.js"/>
+        <type rdf:resource="&visualization;configurable"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/9/visualization#TreeMap -->
+
+    <owl:NamedIndividual rdf:about="&visualization;TreeMap">
+        <rdf:type rdf:resource="&visualization;Graphs"/>
+        <dimensions rdf:resource="&visualization;Dim_Column1_IDHeader"/>
+        <dimensions rdf:resource="&visualization;Dim_Column2_IDParent"/>
+        <dimensions rdf:resource="&visualization;Dim_Column3_Size"/>
+        <dimensions rdf:resource="&visualization;Dim_Column4_Color"/>
+        <lib rdf:resource="&visualization;Lib_GoogleCharts"/>
+        <type rdf:resource="&visualization;configurable"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/9/visualization#TypeCoordinates -->
+
+    <owl:NamedIndividual rdf:about="&visualization;TypeCoordinates">
+        <rdf:type rdf:resource="&visualization;DataType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/9/visualization#TypeDate -->
+
+    <owl:NamedIndividual rdf:about="&visualization;TypeDate">
+        <rdf:type rdf:resource="&visualization;DataType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/9/visualization#TypeDate_Continuous -->
+
+    <owl:NamedIndividual rdf:about="&visualization;TypeDate_Continuous">
+        <rdf:type rdf:resource="&visualization;DataType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/9/visualization#TypeGraph -->
+
+    <owl:NamedIndividual rdf:about="&visualization;TypeGraph">
+        <rdf:type rdf:resource="&visualization;DataType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/9/visualization#TypeNumber -->
+
+    <owl:NamedIndividual rdf:about="&visualization;TypeNumber">
+        <rdf:type rdf:resource="&visualization;DataType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/9/visualization#TypeString -->
+
+    <owl:NamedIndividual rdf:about="&visualization;TypeString">
+        <rdf:type rdf:resource="&visualization;DataType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/9/visualization#TypeString_Discrete -->
+
+    <owl:NamedIndividual rdf:about="&visualization;TypeString_Discrete">
+        <rdf:type rdf:resource="&visualization;DataType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/9/visualization#any -->
+
+    <owl:NamedIndividual rdf:about="&visualization;any">
+        <rdf:type rdf:resource="&visualization;ScaleOfMeasure"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/9/visualization#categorical -->
+
+    <owl:NamedIndividual rdf:about="&visualization;categorical">
+        <rdf:type rdf:resource="&visualization;ScaleOfMeasure"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/9/visualization#configurable -->
+
+    <owl:NamedIndividual rdf:about="&visualization;configurable">
+        <rdf:type rdf:resource="&visualization;ChartType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/9/visualization#geographical -->
+
+    <owl:NamedIndividual rdf:about="&visualization;geographical">
+        <rdf:type rdf:resource="&visualization;ScaleOfMeasure"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/9/visualization#ordinal -->
+
+    <owl:NamedIndividual rdf:about="&visualization;ordinal">
+        <rdf:type rdf:resource="&visualization;ScaleOfMeasure"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/9/visualization#preview -->
+
+    <owl:NamedIndividual rdf:about="&visualization;preview">
+        <rdf:type rdf:resource="&visualization;ChartType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/9/visualization#quantitative -->
+
+    <owl:NamedIndividual rdf:about="&visualization;quantitative">
+        <rdf:type rdf:resource="&visualization;ScaleOfMeasure"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/9/visualization#statictical -->
+
+    <owl:NamedIndividual rdf:about="&visualization;statictical">
+        <rdf:type rdf:resource="&visualization;ChartCategory"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/9/visualization#xAxisNumDateOrdinal_1 -->
+
+    <owl:NamedIndividual rdf:about="&visualization;xAxisNumDateOrdinal_1">
+        <rdf:type rdf:resource="&visualization;Axis"/>
+        <numOfDims rdf:datatype="&xsd;string">1</numOfDims>
+        <dimensionType rdf:resource="&visualization;TypeDate_Continuous"/>
+        <dimensionType rdf:resource="&visualization;TypeNumber"/>
+        <som rdf:resource="&visualization;ordinal"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/9/visualization#xAxisNumberQuantitative_1 -->
+
+    <owl:NamedIndividual rdf:about="&visualization;xAxisNumberQuantitative_1">
+        <rdf:type rdf:resource="&visualization;Axis"/>
+        <numOfDims rdf:datatype="&xsd;string">1</numOfDims>
+        <dimensionType rdf:resource="&visualization;TypeNumber"/>
+        <som rdf:resource="&visualization;quantitative"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/9/visualization#xAxisNumberQuantitative_N -->
+
+    <owl:NamedIndividual rdf:about="&visualization;xAxisNumberQuantitative_N">
+        <rdf:type rdf:resource="&visualization;Axis"/>
+        <numOfDims rdf:datatype="&xsd;string">n</numOfDims>
+        <dimensionType rdf:resource="&visualization;TypeNumber"/>
+        <som rdf:resource="&visualization;quantitative"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/9/visualization#xAxisStringDiscreteCategorical_1 -->
+
+    <owl:NamedIndividual rdf:about="&visualization;xAxisStringDiscreteCategorical_1">
+        <rdf:type rdf:resource="&visualization;Axis"/>
+        <numOfDims rdf:datatype="&xsd;string">1</numOfDims>
+        <dimensionType rdf:resource="&visualization;TypeString_Discrete"/>
+        <som rdf:resource="&visualization;categorical"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/9/visualization#yAxisNumDateOrdinal_1 -->
+
+    <owl:NamedIndividual rdf:about="&visualization;yAxisNumDateOrdinal_1">
+        <rdf:type rdf:resource="&visualization;Axis"/>
+        <numOfDims rdf:datatype="&xsd;string">1</numOfDims>
+        <dimensionType rdf:resource="&visualization;TypeDate_Continuous"/>
+        <dimensionType rdf:resource="&visualization;TypeNumber"/>
+        <som rdf:resource="&visualization;ordinal"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/9/visualization#yAxisNumberQuantitative_1 -->
+
+    <owl:NamedIndividual rdf:about="&visualization;yAxisNumberQuantitative_1">
+        <rdf:type rdf:resource="&visualization;Axis"/>
+        <numOfDims rdf:datatype="&xsd;string">1</numOfDims>
+        <dimensionType rdf:resource="&visualization;TypeNumber"/>
+        <som rdf:resource="&visualization;quantitative"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/9/visualization#yAxisNumberQuantitative_N -->
+
+    <owl:NamedIndividual rdf:about="&visualization;yAxisNumberQuantitative_N">
+        <rdf:type rdf:resource="&visualization;Axis"/>
+        <numOfDims rdf:datatype="&xsd;string">n</numOfDims>
+        <dimensionType rdf:resource="&visualization;TypeNumber"/>
+        <som rdf:resource="&visualization;quantitative"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/9/visualization#yAxisStringDiscreteCategorical_1 -->
+
+    <owl:NamedIndividual rdf:about="&visualization;yAxisStringDiscreteCategorical_1">
+        <rdf:type rdf:resource="&visualization;Axis"/>
+        <numOfDims rdf:datatype="&xsd;string">1</numOfDims>
+        <dimensionType rdf:resource="&visualization;TypeString_Discrete"/>
+        <som rdf:resource="&visualization;categorical"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+

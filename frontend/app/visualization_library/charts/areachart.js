@@ -1,109 +1,80 @@
-google.load('visualization', '1', {packages: ['corechart']});
-
 var areachart = function() {
-
-    var structureOptionsCSV = {
-        axis: {label: "Axes", template: 'box', suboptions: {
-                xAxis: {label: "Horizontal axis", template: 'dimension'},
-                yAxis: {label: "Vertical axis", template: 'multidimension'}
-            }
-        }
-    };
-    
-    var structureOptionsRDF= {
-        axis: {label: "Axes", template: 'tabgroup', suboptions: {
-                xAxis: {label: "Horizontal axis", template: 'dimension'},
-                yAxis: {label: "Vertical axis", template: 'multidimensionGrouped'}
-            }
-        }
-    };
-
-    var tuningOptions = {
-        title: {label: "Title", template: 'textField'},
-        
-        style: {label: "Style", template: 'selectField', 
-            values: [{label: "Normal", id: "normal"}, {label: "Stacked", id: "stacked"}]
-        },
-
-        axis: {label: "Axes", template: 'box', suboptions: {
-                vLabel: {label: "Label (V)", template: 'textField'},
-                hLabel: {label: "Label (H)", template: 'textField'},
-                grid: {label: "Grid", template: 'textField'},
-                scale: {label: "Scale", template: 'selectField', 
-                    values: [{label: "Linear", id: "linear"}, {label: "Logarithmic", id: "logarithmic"}],
-                    defaults:{id:"linear"}
-                }
-            }
-        }, 
-        color: {label: "Area colors", template: 'box', suboptions: {
-                yAxisColors: {template: 'multiAxisColors', axis: 'yAxis'} // TODO
-            }
-        }
-    };
-
     var chart = null;
-    var data = null;
+    var seriesHeaders = [];
+    var series = [];
 
-    function initialize(input, divId) {
-        // Create and populate the data table.
-        data = google.visualization.arrayToDataTable(input);
-        console.log('INITIALIZE');
-        console.dir(input);
-        chart = new google.visualization.AreaChart(document.getElementById(divId));
-    }
-
-    function draw(config) {
-        // Create and draw the skeleton of the visualization.
-        var view = new google.visualization.DataView(data);
-        var columns = [config.axis.xAxis.id];
-        console.log('DRAW - config.axis.xAxis.id'+ config.axis.xAxis.id);
-        var yAxes = config.axis.yAxis.multiAxis;
-                console.dir(yAxes);
-
-        for (var i = 0; i < yAxes.length; i++) {
-            console.log('yAxis: '+yAxes[i].id);
-            columns.push(yAxes[i].id);
-        }
+    function draw(configuration, visualisationContainer) {
+        console.log("### INITIALIZE VISUALISATION - AREA CHART");
         
-        view.setColumns(columns);
+        $('#' + visualisationContainer).empty();
 
-        chart.draw(view,
-                {title: config.title,
-                    width: 600, height: 400}
-        );
-    }
+        if (!(configuration.dataModule && configuration.datasourceLocation
+                && configuration.xAxis && configuration.yAxis
+                && configuration.group)) {
+            return;
+        }
 
-  function drawRDF() {
-        chart.draw(data,
-                { width: 600, height: 400 }
-        );
+        if ((configuration.xAxis.length === 0) || (configuration.yAxis.length === 0)) {
+            return;
+        }
+
+        var dataModule = configuration.dataModule;
+        var location = configuration.datasourceLocation;
+
+        var selection = {
+            dimension: configuration.xAxis,
+            multidimension: configuration.yAxis,
+            group: configuration.group
+        };
+
+        console.log("VISUALIZATION SELECTION FOR AREA CHART:");
+        console.dir(selection);
+
+        dataModule.parse(location, selection).then(function(inputData) {
+            console.log("GENERATE INPUT DATA FORMAT FOR AREA CHART");
+            console.dir(inputData);
+            seriesHeaders = inputData[0];
+            series = transpose(inputData);
+            chart = c3.generate({
+                bindto: '#' + visualisationContainer,
+                data: {
+                    columns: series,
+                    x: seriesHeaders[0],
+                    type: 'area-spline'
+                },
+                tooltip: {
+                    show: true
+                }
+            });
+        });
+
+        console.log("###########");
     }
 
     function tune(config) {
-        // Tune the visualization.
-        chart.draw(data,
-                {title: config.title,
-                    width: 600, height: 400,
-                    vAxis: {title: config.axis.vLabel,
-                        logScale: (config.axis.scale.id === 'logarithmic') ? true : false,
-                        gridlines: {
-                            count: config.axis.grid
-                        }
-                    },
-                    hAxis: {title: config.axis.hLabel},
-                    isStacked: (config.style.id === 'stacked') ? true : false,
-                }
-        );
+        console.log("### TUNE AREA CHART");
+        console.dir(chart);
+
+        var groups;
+        if (config.style.id === "stacked") {
+            groups = [seriesHeaders.slice(1)];
+            console.dir(groups);
+        } else {
+            groups = [];
+        }
+
+        chart.groups(groups);
+
+        chart.labels({
+            x: config.hLabel,
+            y: config.vLabel
+        });
+
+        console.log("###########");
     }
 
     return {
-        structureOptionsCSV: structureOptionsCSV,
-        structureOptionsRDF: structureOptionsRDF,
-
-        tuningOptions: tuningOptions,
-        initialize: initialize,
         draw: draw,
-        drawRDF: drawRDF,
         tune: tune
     };
 }();

@@ -1,58 +1,79 @@
-google.load('visualization', '1', {packages: ['corechart']});
-
-var scatterchart = function() { 
-
-    var structureOptions = [
-        {name: 'xAxis', template: 'dimension'},
-        {name: 'yAxis', template: 'multidimension'},
-        {name: 'title', template: 'textField'}
-    ];
-
-    var tuningOptions = [
-        {name: 'title', template: 'textField'},
-        {name: 'vAxisTitle', template: 'textField'},
-        {name: 'hAxisTitle', template: 'textField'}
-    ];
-
+var scatterchart = function() {
     var chart = null;
-    var data = null;
+    var seriesHeaders = [];
+    var series = [];
 
-    function initialize(input,divId) {
-        // Create and populate the data table.
-        data = google.visualization.arrayToDataTable(input);
-        chart = new google.visualization.ScatterChart(document.getElementById(divId));
-    }
+    function draw(configuration, visualisationContainer) {
+        console.log("### INITIALIZE VISUALISATION - SCATTER CHART");
+        
+        $('#' + visualisationContainer).empty();
 
-    function draw(config) {
-        // Create and draw the skeleton of the visualization.
-        var view = new google.visualization.DataView(data);
-        var columns = [config.xAxis.id];
-        var yAxes = config.yAxis;
-        for (var i = 0; i < yAxes.length; i++) {
-            columns.push(yAxes[i].id);
+        if (!(configuration.dataModule && configuration.datasourceLocation
+                && configuration.xAxis && configuration.yAxis
+                && configuration.group)) {
+            return;
         }
-        view.setColumns(columns);
 
-        chart.draw(view,
-                {title: config["title"],
-                    width: 600, height: 400}
-        );
+        if ((configuration.xAxis.length === 0) || (configuration.yAxis.length === 0)) {
+            return;
+        }
+
+        var dataModule = configuration.dataModule;
+        var location = configuration.datasourceLocation;
+
+        var selection = {
+            dimension: configuration.xAxis,
+            multidimension: configuration.yAxis,
+            group: configuration.group
+        };
+
+        console.log("VISUALIZATION SELECTION FOR SCATTER CHART:");
+        console.dir(selection);
+
+        dataModule.parse(location, selection).then(function(inputData) {
+            console.log("GENERATE INPUT DATA FORMAT FOR SCATTER CHART");
+            console.dir(inputData);
+            seriesHeaders = inputData[0];
+            series = transpose(inputData);
+            chart = c3.generate({
+                bindto: '#' + visualisationContainer,
+                data: {
+                    columns: series,
+                    x: seriesHeaders[0],
+                    type: 'scatter'
+                },
+                tooltip: {
+                    show: true
+                }
+            });
+        });
+
+        console.log("###########");
     }
 
     function tune(config) {
-        // Tune the visualization.
-        chart.draw(data,
-                {title: config["title"],
-                    width: 600, height: 400,
-                    vAxis: {title: config["vAxisTitle"]},
-                    hAxis: {title: config["hAxisTitle"]}}
-        );
+        console.log("### TUNE SCATTER CHART");
+        console.dir(chart);
+
+        var groups;
+        if (config.style.id === "stacked") {
+            groups = [seriesHeaders.slice(1)];
+            console.dir(groups);
+        } else {
+            groups = [];
+        }
+
+        chart.groups(groups);
+
+        chart.labels({
+            x: config.hLabel,
+            y: config.vLabel
+        });
+
+        console.log("###########");
     }
 
     return {
-        structureOptions: structureOptions,
-        tuningOptions: tuningOptions,
-        initialize: initialize,
         draw: draw,
         tune: tune
     };

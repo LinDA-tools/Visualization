@@ -17,7 +17,7 @@ App.ConfigureVisualizationView = Ember.View.extend({
         console.log("treedata: ");
         console.dir(treedata);
         return treedata;
-    }.property('datasource'),
+    }.property('datasource')
 });
 
 

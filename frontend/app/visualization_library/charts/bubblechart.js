@@ -2,71 +2,55 @@ google.load('visualization', '1', {packages: ['corechart']});
 
 var bubblechart = function() { // bubble chart module (js module pattern)
 
-    var structureOptions = {
-        axis: {label: "Axes", template: 'treeView', suboptions: {
-                label: {label: "Label", template: 'area'},
-                xAxis: {label: "X Axis", template: 'area'},
-                yAxis: {label: "Y Axis", template: 'area'},
-                color: {label: "Gradient/category", template: 'area'},
-                radius: {label: "Radius", template: 'area'}
-            }
-        }
-    };
-
-    var tuningOptions = {
-        title: {label: "Chart title", template: 'textField'},
-        axes: {label: "Axes", template: 'box',
-            suboptions: {
-                vLabel: {label: "Title (V)", template: 'textField'},
-                hLabel: {label: "Title (H)", template: 'textField'},
-                vGrid: {label: "Grid (V)", template: 'textField'},
-                hGrid: {label: "Grid (H)", template: 'textField'}
-                /*, color: {label: "Color", template: 'textField'}*/
-            }
-        }
-    };
-
     var chart = null;
     var data = null;
 
 
-    function draw(config, visualisationContainer) {
-        console.log("### INITIALIZE VISUALISATION");
-        var dataModule = config.dataModule;
-        var columns = [config.axis.label[0], config.axis.xAxis[0], config.axis.yAxis[0]]
-        if (config.axis.color.length > 0) {
-            columns.push(config.axis.color[0]);
+    function draw(configuration, visualisationContainer) {
+        console.log("### INITIALIZE VISUALISATION - BUBBLE CHART");
+
+        $('#' + visualisationContainer).empty();
+
+        if (!(configuration.dataModule && configuration.datasourceLocation
+                && configuration.label && configuration.xAxis && configuration.yAxis
+                && configuration.color && configuration.radius)) {
+            console.log("Missing Data")
+            return;
         }
-        if (config.axis.radius.length > 0) {
-            columns.push(config.axis.radius[0]);
+        if (configuration.label.length <= 0 || configuration.xAxis.length <= 0 || configuration.yAxis.length <= 0) {
+            console.log("Missing Data")
+            return;
+        }
+
+        var dataModule = configuration.dataModule;
+        var location = configuration.datasourceLocation;
+
+        var dimensions = [];
+        var multidimensions = [configuration.label[0], configuration.xAxis[0], configuration.yAxis[0]]
+        if (configuration.color.length > 0) {
+            multidimensions.push(configuration.color[0]);
+        }
+        if (configuration.radius.length > 0) {
+            multidimensions.push(configuration.radius[0]);
         }
 
         var selection = {
-            dimension: [],
-            multidimension: columns,
+            dimension: dimensions,
+            multidimension: multidimensions,
             group: []
         };
-        var location = config.datasourceInfo.location;
+
         dataModule.parse(location, selection).then(function(input) {
 
-            // Create and populate the data table.
             data = google.visualization.arrayToDataTable(input);
+            
+            console.log("Data:");
+            console.dir(data);
+            
             chart = new google.visualization.BubbleChart(document.getElementById(visualisationContainer));
 
-            // Create and draw the skeleton of the visualization.
-//        var view = new google.visualization.DataView(data);
-//        var columns = [config.axis.label.id, config.axis.xAxis.id, config.axis.yAxis.id]
-//        if (config.axis.color) {
-//            columns.push(config.axis.color.id);
-//        }
-//        if (config.axis.radius) {
-//            columns.push(config.axis.radius.id);
-//        }
-//        ;
-//        view.setColumns(columns);
-
             chart.draw(data,
-                    {title: config.title,
+                    {title: configuration.title,
                         width: 600, height: 400}
             );
         });
@@ -94,8 +78,6 @@ var bubblechart = function() { // bubble chart module (js module pattern)
     }
 
     return {
-        structureOptions: structureOptions,
-        tuningOptions: tuningOptions,
         draw: draw,
         tune: tune
     };

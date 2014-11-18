@@ -11,6 +11,9 @@ App.DroppableAreaComponent = Ember.Component.extend({
         console.dir(JSON.parse(droppableJSON));
         var droppable = JSON.parse(droppableJSON);
         var inArea = this.get('inArea');
+        console.log('inArea');
+        console.dir(inArea);
+        
         for (var i = 0; i < inArea.length; i++) {
             if (inArea[i].id === droppable.id) {
                 return;

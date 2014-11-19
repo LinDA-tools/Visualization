@@ -423,6 +423,37 @@ app.get('/visualizations', function(req, res) {
                     }                    
                 },
                 datasource: ds_model
+            }, {
+                id: 34223494,
+                name: "Map",
+                thumbnail: "http://localhost:3002/thumbnails/map.png",
+                structureOptions: {
+                    dimensions: {
+                        label: {
+                            label: "Label",
+                            value: [],
+                            metadata:  ["number", "string", "date"]
+                        },
+                        lat: {
+                            label: "Latitude",
+                            value: [],
+                            metadata: ["number"]
+                        },
+                        long: {
+                            label: "Longitude",
+                            value: [],
+                            metadata: ["number"]
+                        },
+                        indicator: {
+                            label: "Indicator",
+                            value: [],
+                            metadata: ["number"]
+                        }
+                    }
+                },
+                layoutOptions: {            
+                },
+                datasource: ds_model
             }
         ]
     };

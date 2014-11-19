@@ -1,37 +1,38 @@
 var map = function() { // map/openstreetmap module (js module pattern)
 
-    var structureOptions = {
-        axis: {label: "Map options", template: 'treeView', suboptions: {
-                label: {label: 'Set label', template: 'area'},
-                lat: {label: 'Set latitude', template: 'area'},
-                long: {label: 'Set longitude', template: 'area'},
-                indicator: {label: 'Set indicator', template: 'area'}
-            }
-        }
-    };
-    var tuningOptions = {}
-
-
     var map = null;
-    function draw(config, visualisationContainer) {
+    function draw(configuration, visualisationContainer) {
+        console.log("### INITIALIZE VISUALISATION - MAP");
+
+        $('#' + visualisationContainer).empty();
         // Remove if 'draw' was called before
         if (map) {
-            $(visualisationContainer).empty();
             map.remove();
         }
+
+        if (!(configuration.dataModule && configuration.datasourceLocation
+                && configuration.label && configuration.lat
+                && configuration.long && configuration.indicator)) {
+            console.log("Illegal configuration");
+            return;
+        }
+        if ((configuration.lat.length === 0) || (configuration.long.length === 0)) {
+            console.log("Incomplete configuration");
+            return;
+        }
+        
         map = L.map(visualisationContainer)
         // create a map in the "visualization" div
         L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
             maxZoom: 18
         }).addTo(map);
-        console.log("### INITIALIZE VISUALISATION");
-        var dataModule = config.dataModule;
+        var dataModule = configuration.dataModule;
 
-        var labelPropertyInfo = config.axis.label[0];
-        var latPropertyInfo = config.axis.lat[0];
-        var longPropertyInfo = config.axis.long[0];
-        var indicatorPropertyInfos = config.axis.indicator;
+        var labelPropertyInfo = configuration.label[0];
+        var latPropertyInfo = configuration.lat[0];
+        var longPropertyInfo = configuration.long[0];
+        var indicatorPropertyInfos = configuration.indicator;
 
         var currColumn = 0;
         var latColumn = currColumn++;
@@ -48,7 +49,7 @@ var map = function() { // map/openstreetmap module (js module pattern)
         console.dir(labelPropertyInfo);
         console.dir(indicatorPropertyInfos);
         console.log("VISUALISATION CONFIGURATION");
-        console.dir(config);
+        console.dir(configuration);
         var selection = {};
         var dimensions = [];
         var indicators = [];
@@ -72,7 +73,7 @@ var map = function() { // map/openstreetmap module (js module pattern)
         selection.group = group;
         console.log("SELECTION");
         console.dir(selection);
-        var location = config.datasourceInfo.location;
+        var location = configuration.datasourceLocation;
         dataModule.parse(location, selection).then(function(data) {
             console.log("CONVERTED INPUT DATA");
             console.dir(data);
@@ -169,8 +170,6 @@ var map = function() { // map/openstreetmap module (js module pattern)
 
 
     return {
-        structureOptions: structureOptions,
-        tuningOptions: tuningOptions,
         draw: draw,
         tune: tune
     };

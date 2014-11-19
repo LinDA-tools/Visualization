@@ -30,12 +30,21 @@ h6 {
 }
 
 h7 {
-    font-size: 12pt;
+    font-size: 10pt;
     font-weight: bold;
 }
 
 a{
     color: #909090 !important;
+}
+
+
+img{
+    height: 80px !important;
+}
+
+.top-bar{
+   background:  #505050 ; 
 }
 
 .top-bar .name h1 a:before {
@@ -51,8 +60,9 @@ a{
 }
 
 .top-bar .name h1 a {
-    font-size: 20pt;
+    font-size: 14pt;
     font-weight: bold;
+    color: white !important
 }
 
 .workflow{
@@ -92,6 +102,7 @@ a{
     padding: 1px;
     padding-left: 10px;
     margin-top: 1px;
+    margin-bottom: 10px;  
 }
 
 .inner_title_box + .inner_box {

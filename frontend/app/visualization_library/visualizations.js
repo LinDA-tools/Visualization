@@ -20,7 +20,6 @@ visualizationRegistry = {
             case 'Map':
                 return map;
         }
-        console.error("Unknown visualization: '" + widgetName + "'");
         return null;
     }
 }

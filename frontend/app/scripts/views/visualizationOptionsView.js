@@ -31,7 +31,6 @@ App.VisualizationOptionsView = Ember.ContainerView.extend({
             
             var view = Ember.View.extend({
                 tagName: "li",
-                classNames: ['dim-area'],
                 templateName: "vistemplates/" +
                         optionTemplate.template,
                 name: optionName,

@@ -1,7 +1,27 @@
+// UBONN TESTSETS
+
+// RDF
 http://localhost:9001/#/visualization/World%20Bank%20GDP%20per%20capita/http%3A%2F%2Flocalhost%3A8890%2Fsparql/http%3A%2F%2Fwww.linda-project.org%2Fexamples%2Fworldbank-slice-5000/rdf
-http://localhost:9001/#/visualization/Ubitech%20Testset%201/http%3A%2F%2Flocalhost%3A8890%2Fsparql/http%3A%2F%2Fubitech%2Ftestset1/rdf
+
+http://localhost:9001/#/visualization/Healthcare%20Analysis/http%3A%2F%2Flocalhost%3A8890%2Fsparql/http%3A%2F%2Fwww.hospitals_reviewer.com%2F2014/rdf
+
+http://localhost:9001/#/visualization/Water%20Quality%20Analysis/http%3A%2F%2Flocalhost%3A8890%2Fsparql/http%3A%2F%2Fwater_quality_check.it%2Finfo/rdf
+
+http://localhost:9001/#/visualization/Newspaper%20Articles%20Analysis/http%3A%2F%2Flocalhost%3A8890%2Fsparql/http%3A%2F%2Fnewspaper.org%2Farticles_2007/rdf
+
+// CSV
 http://localhost:9001/#/visualization/Drug%20Price%20Analysis/http%3A%2F%2Flocalhost%3A3002%2Ftestsets%2FUC1_Drug_Price_Analysis.csv/-/csv
 
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+// UBITECH TESTSETS
+
+//RDF
+http://localhost:9001/#/visualization/Ubitech%20Testset%201/http%3A%2F%2Flocalhost%3A8890%2Fsparql/http%3A%2F%2Fubitech%2Ftestset1/rdf
+
+
+//CSV
 http://localhost:9001/#/visualization/ubitech_testset2/http%3A%2F%2Flocalhost%3A3002%2Ftestsets%2FionosphereToTrain_J48_resultdocument.csv/-/csv
 
 http://localhost:9001/#/visualization/ubitech_testset3/http%3A%2F%2Flocalhost%3A3002%2Ftestsets%2FairlineToForecast_5xQ3Xie_Arima_resultdocument.csv/-/csv

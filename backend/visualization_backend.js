@@ -59,7 +59,48 @@ app.get('/visualizations', function(req, res) {
     }
 
     var recommendation_mock = {
-        visualization: [{
+        visualization: [
+            {
+                id: 34223494,
+                name: "Map",
+                thumbnail: "http://localhost:3002/thumbnails/map.png",
+                structureOptions: {
+                    dimensions: {
+                        label: {
+                            label: "Label",
+                            value: [],
+                            metadata: { 
+                                types: ["number, ", "string or ", "date"]
+                            }
+                        },
+                        lat: {
+                            label: "Latitude",
+                            value: [],
+                            metadata: { 
+                                types: ["number"]
+                            }
+                        },
+                        long: {
+                            label: "Longitude",
+                            value: [],
+                            metadata: { 
+                                types:["number"]
+                            }
+                        },
+                        indicator: {
+                            label: "Indicator",
+                            value: [],
+                            metadata: { 
+                                types:["number"]
+                            }
+                        }
+                    }
+                },
+                layoutOptions: {
+                },
+                datasource: ds_model
+            },
+            {
                 id: 5345342,
                 name: "Line Chart",
                 thumbnail: "http://localhost:3002/thumbnails/line_chart.png",
@@ -69,7 +110,7 @@ app.get('/visualizations', function(req, res) {
                             label: "Horizontal Axis",
                             value: [],
                             metadata: {
-                                types: ["date", "number"]
+                                types: ["date or ", "number"]
                             }
                         },
                         yAxis: {
@@ -80,15 +121,15 @@ app.get('/visualizations', function(req, res) {
                             }
                         },
                         group: {
-                            label: "Groups (optional)",
+                            label: "Groups",
                             value: [],
                             metadata: {
-                                types: ["date", "number", "string"]
+                                types: ["date, ", "number or ", "string"]
                             }
                         }
                     }
                 },
-                layoutOptions: {                                     
+                layoutOptions: {
                     axis: {
                         hLabel: {
                             label: "Horizontal Label",
@@ -104,13 +145,6 @@ app.get('/visualizations', function(req, res) {
                                 types: ["string"]
                             }
                         },
-                        gridlines: {
-                            label: "Gridlines",
-                            value: true,
-                            metadata: {
-                                types: ["boolean"]
-                            }
-                        },                     
                         ticks: {
                             label: "Ticks",
                             value: 10,
@@ -121,6 +155,13 @@ app.get('/visualizations', function(req, res) {
                         tooltip: {
                             label: "Show Tooltip",
                             value: false,
+                            metadata: {
+                                types: ["boolean"]
+                            }
+                        },
+                        gridlines: {
+                            label: "Gridlines",
+                            value: true,
                             metadata: {
                                 types: ["boolean"]
                             }
@@ -137,18 +178,20 @@ app.get('/visualizations', function(req, res) {
                         slice: {
                             label: "Slice",
                             value: [],
-                            metadata: ["number"]
+                            metadata: {
+                                types: ["number"]
+                            }
                         }
                     }
                 },
                 layoutOptions: {
                     tooltip: {
-                            label: "Show Tooltip",
-                            value: false,
-                            metadata: {
-                                types: ["boolean"]
-                            }
+                        label: "Show Tooltip",
+                        value: false,
+                        metadata: {
+                            types: ["boolean"]
                         }
+                    }
                 },
                 datasource: ds_model
             }, {
@@ -156,16 +199,20 @@ app.get('/visualizations', function(req, res) {
                 name: "Column Chart",
                 thumbnail: "http://localhost:3002/thumbnails/column_chart.png",
                 structureOptions: {
-                    dimensions: {                      
+                    dimensions: {
                         xAxis: {
                             label: "Horizontal Axis",
                             value: [],
-                            metadata: ["number", "string", "date"]
+                            metadata: {
+                                types: ["number, ", "string or ", "date"]
+                            }
                         },
                         yAxis: {
                             label: "Vertical Axis",
                             value: [],
-                            metadata: ["number"]
+                            metadata: {
+                                types: ["number"]
+                            }
                         }
                     }
                 },
@@ -191,7 +238,7 @@ app.get('/visualizations', function(req, res) {
                             metadata: {
                                 types: ["boolean"]
                             }
-                        },                     
+                        },
                         widthRatio: {
                             label: "Columns Width Ratio",
                             value: 0.5,
@@ -206,7 +253,7 @@ app.get('/visualizations', function(req, res) {
                                 types: ["boolean"]
                             }
                         }
-                    } 
+                    }
                 },
                 datasource: ds_model
             },
@@ -219,33 +266,43 @@ app.get('/visualizations', function(req, res) {
                         label: {
                             label: "Label",
                             value: [],
-                            metadata: ["string"]
+                            metadata: {
+                                types: ["string"]
+                            }
                         },
                         xAxis: {
                             label: "Horizontal Axis",
                             value: [],
-                            metadata: ["number"]
+                            metadata:{
+                                types: ["number"]
+                            }
                         },
                         yAxis: {
                             label: "Vertical Axis",
                             value: [],
-                            metadata: ["number"]
+                            metadata:{
+                                types: ["number"]
+                            }
                         },
                         color: {
                             label: "Color",
                             value: [],
-                            metadata: ["string"]
+                            metadata: {
+                                types:["string"]
+                            }
                         },
                         radius: {
                             label: "Radius",
                             value: [],
-                            metadata: ["number"]
+                            metadata: {
+                                types:["number"]
+                            }
                         }
-                        
+
                     }
                 },
                 layoutOptions: {
-                 // TODO
+                    // TODO
                 },
                 datasource: ds_model
             }, {
@@ -257,17 +314,21 @@ app.get('/visualizations', function(req, res) {
                         yAxis: {
                             label: "Vertical Axis",
                             value: [],
-                            metadata: ["number"]
+                            metadata:{
+                                types: ["number"]
+                            }
                         },
                         xAxis: {
                             label: "Horizontal Axis",
                             value: [],
-                            metadata: ["number", "string", "date"]
+                            metadata: {
+                                types:["number, ", "string or ", "date"]
+                            }
                         }
                     }
                 },
                 layoutOptions: {
-                  axis: {
+                    axis: {
                         hLabel: {
                             label: "Horizontal Label",
                             value: "X Name",
@@ -288,7 +349,7 @@ app.get('/visualizations', function(req, res) {
                             metadata: {
                                 types: ["boolean"]
                             }
-                        },                     
+                        },
                         ticks: {
                             label: "Ticks",
                             value: 5,
@@ -303,11 +364,11 @@ app.get('/visualizations', function(req, res) {
                                 types: ["boolean"]
                             }
                         }
-                    }                 
+                    }
                 },
                 datasource: ds_model
             },
-             {
+            {
                 id: 382774,
                 name: "Scatter Chart",
                 thumbnail: "http://localhost:3002/thumbnails/scatter_chart.png",
@@ -316,12 +377,16 @@ app.get('/visualizations', function(req, res) {
                         yAxis: {
                             label: "Vertical Axis",
                             value: [],
-                            metadata: ["number"]
+                            metadata: {
+                                types:["number"]
+                            }
                         },
                         xAxis: {
                             label: "Horizontal Axis",
                             value: [],
-                            metadata: ["number", "string", "date"]
+                            metadata: {
+                                types:["number, ", "string or ", "date"]
+                            }
                         }
                     }
                 },
@@ -347,7 +412,7 @@ app.get('/visualizations', function(req, res) {
                             metadata: {
                                 types: ["boolean"]
                             }
-                        },                     
+                        },
                         ticks: {
                             label: "Ticks",
                             value: 5,
@@ -374,17 +439,21 @@ app.get('/visualizations', function(req, res) {
                         yAxis: {
                             label: "Vertical Axis",
                             value: [],
-                            metadata: ["number"]
+                            metadata: {
+                                types:["number"]
+                            }
                         },
                         xAxis: {
                             label: "Horizontal Axis",
                             value: [],
-                            metadata: ["number", "string", "date"]
+                            metadata: {
+                                types:["number, ", "string or ", "date"]
+                            }
                         }
                     }
                 },
                 layoutOptions: {
-                   axis: {
+                    axis: {
                         hLabel: {
                             label: "Horizontal Label",
                             value: "X Name",
@@ -405,7 +474,7 @@ app.get('/visualizations', function(req, res) {
                             metadata: {
                                 types: ["boolean"]
                             }
-                        },                     
+                        },
                         widthRatio: {
                             label: "Columns Width Ratio",
                             value: 0.5,
@@ -420,7 +489,7 @@ app.get('/visualizations', function(req, res) {
                                 types: ["boolean"]
                             }
                         }
-                    }                    
+                    }
                 },
                 datasource: ds_model
             }

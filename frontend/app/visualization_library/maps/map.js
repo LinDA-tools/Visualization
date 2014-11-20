@@ -1,37 +1,44 @@
 var map = function() { // map/openstreetmap module (js module pattern)
 
-    var structureOptions = {
-        axis: {label: "Map options", template: 'treeView', suboptions: {
-                label: {label: 'Set label', template: 'area'},
-                lat: {label: 'Set latitude', template: 'area'},
-                long: {label: 'Set longitude', template: 'area'},
-                indicator: {label: 'Set indicator', template: 'area'}
-            }
-        }
-    };
-    var tuningOptions = {}
-
-
     var map = null;
-    function draw(config, visualisationContainer) {
-        // Remove if 'draw' was called before
-        if (map) {
-            $(visualisationContainer).empty();
+
+    function draw(configuration, visualisationContainer) {
+        console.log("### INITIALIZE VISUALISATION - MAP");
+        
+       
+
+       if (map) {
             map.remove();
         }
-        map = L.map(visualisationContainer)
-        // create a map in the "visualization" div
-        L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
-            maxZoom: 18
-        }).addTo(map);
-        console.log("### INITIALIZE VISUALISATION");
-        var dataModule = config.dataModule;
+        
+         $('#' + visualisationContainer).empty();
 
-        var labelPropertyInfo = config.axis.label[0];
-        var latPropertyInfo = config.axis.lat[0];
-        var longPropertyInfo = config.axis.long[0];
-        var indicatorPropertyInfos = config.axis.indicator;
+        if (!(configuration.dataModule && configuration.datasourceLocation
+                && configuration.label && configuration.lat
+                && configuration.long && configuration.indicator)) {
+            console.log("Illegal configuration");
+            return;
+        }
+        if ((configuration.lat.length === 0) || (configuration.long.length === 0)) {
+            console.log("Incomplete configuration");
+            return;
+        }
+
+
+         map = new L.Map(visualisationContainer);
+        // create a map in the "visualization" div
+        L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+            zoom: 8
+        }).addTo(map);
+
+
+        var dataModule = configuration.dataModule;
+
+        var labelPropertyInfo = configuration.label[0];
+        var latPropertyInfo = configuration.lat[0];
+        var longPropertyInfo = configuration.long[0];
+        var indicatorPropertyInfos = configuration.indicator;
 
         var currColumn = 0;
         var latColumn = currColumn++;
@@ -42,13 +49,7 @@ var map = function() { // map/openstreetmap module (js module pattern)
         }
         var indicatorColumns = _.range(3, 3 + indicatorPropertyInfos.length)
 
-        console.log("lat, long, label, indicators:");
-        console.dir(latPropertyInfo);
-        console.dir(longPropertyInfo);
-        console.dir(labelPropertyInfo);
-        console.dir(indicatorPropertyInfos);
-        console.log("VISUALISATION CONFIGURATION");
-        console.dir(config);
+
         var selection = {};
         var dimensions = [];
         var indicators = [];
@@ -70,11 +71,10 @@ var map = function() { // map/openstreetmap module (js module pattern)
         selection.dimension = dimensions;
         selection.multidimension = indicators;
         selection.group = group;
-        console.log("SELECTION");
-        console.dir(selection);
-        var location = config.datasourceInfo.location;
+
+        var location = configuration.datasourceLocation;
         dataModule.parse(location, selection).then(function(data) {
-            console.log("CONVERTED INPUT DATA");
+            console.log("CONVERTED INPUT DATA FOR MAP VISUALIZATION");
             console.dir(data);
             var minLat = 90;
             var maxLat = -90;
@@ -150,9 +150,9 @@ var map = function() { // map/openstreetmap module (js module pattern)
                 var marker = new L.BarChartMarker(new L.LatLng(lat, long), markeroptions);
                 //var marker = L.marker({lat: lat, lng: long}, {title: label});
                 marker.addTo(map);
-                console.log("Point: [" + lat + ", " + long + ", " + label + "]")
+                console.log("Point: [" + lat + ", " + long + ", " + label + "]");
             }
-            console.log("Bounds: [" + minLat + ", " + maxLat + "], [" + minLong + ", " + maxLong + "]")
+            console.log("Bounds: [" + minLat + ", " + maxLat + "], [" + minLong + ", " + maxLong + "]");
             if (minLat !== null && minLong !== null && maxLat !== null && maxLong !== null) {
                 map.fitBounds([
                     [minLat, minLong],
@@ -160,8 +160,8 @@ var map = function() { // map/openstreetmap module (js module pattern)
                 ]);
             }
         });
-    }
 
+    }
 
 
     function tune(config) {
@@ -169,8 +169,6 @@ var map = function() { // map/openstreetmap module (js module pattern)
 
 
     return {
-        structureOptions: structureOptions,
-        tuningOptions: tuningOptions,
         draw: draw,
         tune: tune
     };

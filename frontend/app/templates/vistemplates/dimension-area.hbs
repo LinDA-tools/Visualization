@@ -1,8 +1,8 @@
 <div class="col-xs-6 area-box">
-    <h7>{{view.label}}</h7>
-    {{#droppable-area inArea=view.content metadata=view.metadata}}
+    {{#droppable-area inArea=view.content metadata=view.metadata label=view.label}}
         <div class="dim-metadata">
-            Drag & drop: {{#each type in view.metadata}}{{type}} {{/each}}
+            For <h7>{{view.label}}</h7> drag & drop: <br>
+            {{#each type in view.metadata}}{{type}}{{/each}}
         </div>
         <div class="dim-area-item">
             {{#each areaItem in view.inArea}}

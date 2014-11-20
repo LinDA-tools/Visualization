@@ -26,15 +26,14 @@
             <div class="inner_title_box">
                 <h7>CUSTOMIZE VISUALIZATION</h7>
             </div>
-            <div class="row">
-                
-            <ul class="small-block-grid-2">
+            <div class="row">               
+          
             {{view App.VisualizationOptionsView 
                         options=controller.layoutOptions 
                         config=controller.visualizationConfiguration
-                        tagName="li"}}
-            </ul>
-                
+                        tagName="ul"
+                        class="small-block-grid-2 medium-block-grid-3 large-block-grid-5" }}
+                   
             </div>
         </div>
     </div>

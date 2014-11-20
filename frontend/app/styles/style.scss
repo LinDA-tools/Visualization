@@ -30,17 +30,13 @@ h6 {
 }
 
 h7 {
-    font-size: 10pt;
+    font-size: 8pt;
     font-weight: bold;
+    color: #303030 ;
 }
 
 a{
     color: #909090 !important;
-}
-
-
-img{
-    height: 80px !important;
 }
 
 .top-bar{
@@ -63,6 +59,12 @@ img{
     font-size: 14pt;
     font-weight: bold;
     color: white !important
+}
+
+.truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .workflow{
@@ -102,7 +104,7 @@ img{
     padding: 1px;
     padding-left: 10px;
     margin-top: 1px;
-    margin-bottom: 10px;  
+    margin-bottom: 4px;  
 }
 
 .inner_title_box + .inner_box {
@@ -125,7 +127,7 @@ img{
     border-style:solid;
     border-width: 1px;
     border-color:darkgray;
-    padding: 10px;
+    padding: 4px;
     margin-top: 1px;
     box-shadow: 5px 5px 2px darkgray
 }
@@ -145,11 +147,10 @@ img{
 }
 
 #visualization {
-    min-height: 37rem;
+    min-height: 510px;
 }
 
 .save-visualization {
-    margin-left: 16px;
     font-size: 16pt;
 }
 
@@ -167,7 +168,12 @@ img{
     border: 1px solid #909090;
     background-color:  #F8F8F8; 
     padding: 5px 10px 5px 10px;
-    min-height: 6rem;
+    min-height: 5rem;
+    margin-bottom: 14px;
+}
+
+textarea {
+    min-height: 4.5ex;
 }
 
 .consumption h7{
@@ -196,10 +202,7 @@ img{
     padding: 0.5rem;
     padding-top: 0.1rem;
     text-align: center;
-}
-
-.dim-area + .dim-area{
-    margin-top: 10px;   
+    margin-bottom: 10px;
 }
 
 .dim-area-item{  
@@ -209,14 +212,14 @@ img{
 .dim-metadata{  
     color:#888888; 
     border: 1px dotted #909090;
-    font-size:9pt; 
+    font-size:8pt; 
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
     margin-top: 5px;
 }
 
 .dimensions{
-    margin-top: 15px; 
+    margin-top: 4px; 
 }
 
 .area-item{  
@@ -286,14 +289,16 @@ img{
     text-decoration: none;
 }
 .tree-content {
-    margin-top: 15px;
+    margin-top: 4px;
     background-color: #F8F8F8;
     overflow-y: auto;
-    height: 20rem;
+    height: 21rem;
     padding:15px;
 }
 
-
+.configurationOption {
+    font-size: 8pt;
+}
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -391,6 +396,11 @@ img{
     /*padding-top: 0.5rem;*/
 }
 
+/* Remove block grid padding-bottom */
+[class*="block-grid-"] > li {
+    padding-bottom: 0px;
+}
+
 .textfield{
     height: 1px;
 }
@@ -414,10 +424,12 @@ img{
 }
 
 .row {
-
     width: 100%;
     max-width: none;
-    margin-bottom: 20px !important;
+}
+
+.row + .row {
+    margin-top: 15px;
 }
 
 // div after a div inside a .row

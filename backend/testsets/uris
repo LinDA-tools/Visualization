@@ -10,6 +10,8 @@ http://localhost:9001/#/visualization/Water%20Quality%20Analysis/http%3A%2F%2Flo
 http://localhost:9001/#/visualization/Newspaper%20Articles%20Analysis/http%3A%2F%2Flocalhost%3A8890%2Fsparql/http%3A%2F%2Fnewspaper.org%2Farticles_2007/rdf
 
 // CSV
+http://localhost:9001/#/visualization/Newspaper%20Articles%20Analysis/http%3A%2F%2Flocalhost%3A3002%2Ftestsets%2FUC2_Newspaper-Articles-Analysis.csv/-/csv
+
 http://localhost:9001/#/visualization/Drug%20Price%20Analysis/http%3A%2F%2Flocalhost%3A3002%2Ftestsets%2FUC1_Drug_Price_Analysis.csv/-/csv
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

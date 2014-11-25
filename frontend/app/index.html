@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <title>LinDA Visualisation Prototype</title>
 
-        <!-- leaflet -->
+        <!-- <link rel="stylesheet" href="bower_components/nvd3/nv.d3.css" />-->
         <link rel="stylesheet" href="bower_components/c3/c3.css">   
         <link rel="stylesheet" href="bower_components/leaflet/dist/leaflet.css">  
 
@@ -21,10 +21,14 @@
         <script src="bower_components/underscore/underscore.js"></script>          
         <script src="bower_components/leaflet/dist/leaflet-src.js"></script> 
         <script src="bower_components/datatables/media/js/jquery.dataTables.js"></script> 
+        
+        <script src="bower_components/canvg/lib/rgbcolor.js"></script>
+        <script src="bower_components/canvg/lib/StackBlur.js"></script>
+        <script src="bower_components/canvg/lib/canvg.js"></script>
 
-
-        <script src="bower_components/c3/c3.js"></script>  
         <script src="bower_components/d3/d3.js"></script>  
+        <!--<script src="bower_components/nvd3/nv.d3.js"></script>-->
+        <script src="bower_components/c3/c3.js"></script>  
 
         <script src="bower_components/foundation/js/foundation.js"></script>    
         <script src="bower_components/foundation/js/foundation/foundation.equalizer.js"></script>           
@@ -33,12 +37,12 @@
         <script src="bower_components/slick.js/slick/slick.js"></script>
         <script src="visualization_library/external_libraries/leaflet-dvf/leaflet-dvf.js"></script>  
         <script src="visualization_library/external_libraries/leaflet-dvf/leaflet-dvf.markers.js"></script>  
+        <script src="visualization_library/external_libraries/leaflet-image/leaflet-image.js"></script>  
         <script type="text/javascript" src="//www.google.com/jsapi"></script>
 
         <script src="@@ember" ></script>
         <script src="@@ember_data"></script>
-
-
+        
         <script src="data_modules/csv_data_module.js"></script> 
         <script src="data_modules/sparql_data_module.js"></script> 
         <script src="data_modules/tree_data_module.js"></script>
@@ -57,8 +61,8 @@
         <script src="visualization_library/charts/bubblechart.js"></script>
         <script src="visualization_library/charts/piechart.js"></script>    
         <script src="visualization_library/visualizations.js"></script> 
-
-        <script src="visualization_library/maps/map.js"></script>
+        <script src="visualization_library/maps/map.js"></script>        
+        <script src="visualization_library/c3export.js"></script> 
 
         <script src="bower_components/jquery-csv/src/jquery.csv.js"></script>  
 

@@ -3,6 +3,7 @@ App.VisualizationController = Ember.ArrayController.extend({
     structureOptions: {},
     datasource: Ember.computed.alias("selectedVisualization.datasource"),
     visualizationConfiguration: [{}],
+    visualizationSVG: '',
     recommendations: Ember.computed.alias("model"), // each recommendation is an instance of the visualization model
     createVisualization: function() {
         var selectedVisualization = this.get('selectedVisualization');
@@ -10,8 +11,7 @@ App.VisualizationController = Ember.ArrayController.extend({
         console.dir(selectedVisualization);
 
         var mapping = {
-            structureOptions: {
-            },
+            structureOptions: {},
             layoutOptions: {}
         };
 
@@ -34,16 +34,16 @@ App.VisualizationController = Ember.ArrayController.extend({
         console.dir(config);
 
         var selectedVisualization = this.get('selectedVisualization');
-        console.log("selectedVisualization")
+        console.log("selectedVisualization");
         console.dir(selectedVisualization);
-     
+
         var datasource = selectedVisualization.get('datasource');
         console.log("datasource");
         console.dir(datasource);
-        
+
         var format = datasource.format;
         config.datasourceLocation = datasource.location;
-        
+
         switch (format) {
             case 'rdf':
                 config.dataModule = sparql_data_module;
@@ -59,9 +59,14 @@ App.VisualizationController = Ember.ArrayController.extend({
         var visualization = visualizationRegistry.getVisualization(name);
         console.log("Visualization " + name);
         console.dir(visualization);
-        console.dir(config);        
-        visualization.draw(config, "visualization");
-        //visualization.tune(config);
+        console.dir(config);
+        var self = this;
+
+        visualization.draw(config, "visualization").then(function() {
+            var svg = visualization.get_SVG();
+            self.set('visualizationSVG', svg);
+
+        });
     }.observes('visualizationConfiguration.@each'),
     setSuggestedVisualization: function() {
         var topSuggestion = this.get('firstObject');
@@ -70,13 +75,18 @@ App.VisualizationController = Ember.ArrayController.extend({
         this.set('selectedVisualization', topSuggestion);
     }.observes('model'),
     actions: {
-        export: function() {
+        exportPNG: function() {
+            var visualization = visualizationRegistry.getVisualization(this.get('selectedVisualization').get("name"));
+            visualization.export_as_PNG().then(function(pngURL) {
+                window.open(pngURL);
+            });
         },
-        publish: function() {
+        exportSVG: function() {
+            var visualization = visualizationRegistry.getVisualization(this.get('selectedVisualization').get("name"));
+            var svgURL = visualization.export_as_SVG();
+            window.open(svgURL);
         },
         save: function() {
-        },
-        share: function() {
         },
         chooseVisualization: function(visualization) {
             this.set('selectedVisualization', visualization);

@@ -5,17 +5,17 @@ var scatterchart = function() {
 
     function draw(configuration, visualisationContainer) {
         console.log("### INITIALIZE VISUALISATION - SCATTER CHART");
-        
+
         $('#' + visualisationContainer).empty();
 
         if (!(configuration.dataModule && configuration.datasourceLocation
                 && configuration.xAxis && configuration.yAxis
                 && configuration.group)) {
-            return;
+            return $.Deferred().resolve().promise();
         }
 
         if ((configuration.xAxis.length === 0) || (configuration.yAxis.length === 0)) {
-            return;
+            return $.Deferred().resolve().promise();
         }
 
         var dataModule = configuration.dataModule;
@@ -35,7 +35,7 @@ var scatterchart = function() {
         console.log("VISUALIZATION SELECTION FOR SCATTER CHART:");
         console.dir(selection);
 
-        dataModule.parse(location, selection).then(function(inputData) {
+        return dataModule.parse(location, selection).then(function(inputData) {
             console.log("GENERATE INPUT DATA FORMAT FOR SCATTER CHART");
             console.dir(inputData);
             seriesHeaders = inputData[0];
@@ -47,7 +47,7 @@ var scatterchart = function() {
                     x: seriesHeaders[0],
                     type: 'scatter'
                 },
-                axis:{
+                axis: {
                     x: {
                         label: selection.hLabel,
                         tick: {
@@ -71,11 +71,11 @@ var scatterchart = function() {
                 grid: {
                     x: {
                         show: selection.gridlines,
-                        lines: [{value:0}]
+                        lines: [{value: 0}]
                     },
                     y: {
                         show: selection.gridlines,
-                        lines: [{value:0}]
+                        lines: [{value: 0}]
                     }
                 },
                 tooltip: {
@@ -83,8 +83,6 @@ var scatterchart = function() {
                 }
             });
         });
-
-        console.log("###########");
     }
 
     function tune(config) {
@@ -105,11 +103,24 @@ var scatterchart = function() {
             x: config.hLabel,
             y: config.vLabel
         });
+    }
 
-        console.log("###########");
+    function export_as_PNG() {
+       return exportC3.export_PNG();
+    }
+
+    function export_as_SVG() {
+       return exportC3.export_SVG();
+    }
+    
+    function get_SVG(){
+        return exportC3.get_SVG();
     }
 
     return {
+        export_as_PNG: export_as_PNG,
+        export_as_SVG: export_as_SVG,
+        get_SVG: get_SVG,
         draw: draw,
         tune: tune
     };

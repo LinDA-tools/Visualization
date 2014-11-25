@@ -11,13 +11,13 @@ var linechart = function() {
         if (!(configuration.dataModule && configuration.datasourceLocation
                 && configuration.xAxis && configuration.yAxis
                 && configuration.group)) {
-            return;
+            return $.Deferred().resolve().promise();
         }
-        
+
         if ((configuration.xAxis.length === 0) || (configuration.yAxis.length === 0)) {
-            return;
+            return $.Deferred().resolve().promise();
         }
-        
+
         var dataModule = configuration.dataModule;
         var location = configuration.datasourceLocation;
 
@@ -27,15 +27,15 @@ var linechart = function() {
             group: configuration.group,
             hLabel: configuration.hLabel,
             vLabel: configuration.vLabel,
-            gridlines : configuration.gridlines,
+            gridlines: configuration.gridlines,
             ticks: configuration.ticks,
             tooltip: configuration.tooltip
         };
-        
+
         console.log("VISUALISATION CONFIGURATION FOR LINE CHART:");
         console.dir(selection);
 
-        dataModule.parse(location, selection).then(function(inputData) {
+        return dataModule.parse(location, selection).then(function(inputData) {
             console.log("GENERATE INPUT DATA FORMAT FOR LINE CHART");
             console.dir(inputData);
             seriesHeaders = inputData[0];
@@ -62,7 +62,6 @@ var linechart = function() {
                             }
                         },
                         label: selection.vLabel
-                        
                     },
                     x: {
                         tick: {
@@ -84,7 +83,7 @@ var linechart = function() {
                 grid: {
                     x: {
                         show: selection.gridlines,
-                        lines: [{value:0}]
+                        lines: [{value: 0}]
                     },
                     y: {
                         show: selection.gridlines,
@@ -93,11 +92,10 @@ var linechart = function() {
                 },
                 tooltip: {
                     show: selection.tooltip
-                }
+                },
+                transition: {}
             });
         });
-
-        console.log("###########");
     }
 
     function tune(config) {
@@ -118,11 +116,26 @@ var linechart = function() {
             x: config.hLabel,
             y: config.vLabel
         });
+    }
 
-        console.log("###########");
+    function export_as_PNG() {
+        return exportC3.export_PNG();
+    }
+
+    function export_as_SVG() {
+        return exportC3.export_SVG();
+    }
+
+    function get_SVG() {
+        setTimeout(function() {
+            return exportC3.get_SVG();
+        }, 2000);
     }
 
     return {
+        export_as_PNG: export_as_PNG,
+        export_as_SVG: export_as_SVG,
+        get_SVG: get_SVG,
         draw: draw,
         tune: tune
     };

@@ -5,17 +5,17 @@ var areachart = function() {
 
     function draw(configuration, visualisationContainer) {
         console.log("### INITIALIZE VISUALISATION - AREA CHART");
-        
+
         $('#' + visualisationContainer).empty();
 
         if (!(configuration.dataModule && configuration.datasourceLocation
                 && configuration.xAxis && configuration.yAxis
                 && configuration.group)) {
-            return;
+            return $.Deferred().resolve().promise();
         }
 
         if ((configuration.xAxis.length === 0) || (configuration.yAxis.length === 0)) {
-            return;
+            return $.Deferred().resolve().promise();
         }
 
         var dataModule = configuration.dataModule;
@@ -35,7 +35,7 @@ var areachart = function() {
         console.log("VISUALIZATION SELECTION FOR AREA CHART:");
         console.dir(selection);
 
-        dataModule.parse(location, selection).then(function(inputData) {
+        return dataModule.parse(location, selection).then(function(inputData) {
             console.log("GENERATE INPUT DATA FORMAT FOR AREA CHART");
             console.dir(inputData);
             seriesHeaders = inputData[0];
@@ -84,8 +84,6 @@ var areachart = function() {
                 }
             });
         });
-
-        console.log("###########");
     }
 
     function tune(config) {
@@ -106,11 +104,24 @@ var areachart = function() {
             x: config.hLabel,
             y: config.vLabel
         });
+    }
 
-        console.log("###########");
+    function export_as_PNG() {
+       return exportC3.export_PNG();
+    }
+
+    function export_as_SVG() {
+       return exportC3.export_SVG();
+    }
+    
+    function get_SVG(){
+        return exportC3.get_SVG();
     }
 
     return {
+        export_as_PNG: export_as_PNG,
+        export_as_SVG: export_as_SVG,
+        get_SVG: get_SVG,
         draw: draw,
         tune: tune
     };

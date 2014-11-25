@@ -5,16 +5,16 @@ var piechart = function() {
 
     function draw(configuration, visualisationContainer) {
         console.log("### INITIALIZE VISUALISATION - PIE CHART");
-        
+
         $('#' + visualisationContainer).empty();
 
         if (!(configuration.dataModule && configuration.datasourceLocation
                 && configuration.slice)) {
-            return;
+            return $.Deferred().resolve().promise();
         }
 
         if (configuration.slice.length === 0) {
-            return;
+            return $.Deferred().resolve().promise();
         }
 
         var dataModule = configuration.dataModule;
@@ -30,7 +30,7 @@ var piechart = function() {
         console.log("VISUALIZATION SELECTION FOR PIE CHART:");
         console.dir(selection);
 
-        dataModule.parse(location, selection).then(function(inputData) {
+        return dataModule.parse(location, selection).then(function(inputData) {
             console.log("GENERATE INPUT DATA FORMAT FOR PIE CHART");
             console.dir(inputData);
             seriesHeaders = inputData[0];
@@ -44,16 +44,13 @@ var piechart = function() {
                 tooltip: {
                     show: selection.tooltip,
                     format: {
-                        value:function(value,ratio,id){
-                            return d3.format('')(value); 
+                        value: function(value, ratio, id) {
+                            return d3.format('')(value);
+                        }
                     }
-                }
-                
                 }
             });
         });
-
-        console.log("###########");
     }
 
     function tune(config) {
@@ -74,11 +71,24 @@ var piechart = function() {
             x: config.hLabel,
             y: config.vLabel
         });
+    }
 
-        console.log("###########");
+    function export_as_PNG() {
+       return exportC3.export_PNG();
+    }
+
+    function export_as_SVG() {
+       return exportC3.export_SVG();
+    }
+    
+    function get_SVG(){
+        return exportC3.get_SVG();
     }
 
     return {
+        export_as_PNG: export_as_PNG,
+        export_as_SVG: export_as_SVG,
+        get_SVG: get_SVG,
         draw: draw,
         tune: tune
     };

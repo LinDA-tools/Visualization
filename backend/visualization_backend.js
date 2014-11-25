@@ -61,46 +61,6 @@ app.get('/visualizations', function(req, res) {
     var recommendation_mock = {
         visualization: [
             {
-                id: 34223494,
-                name: "Map",
-                thumbnail: "http://localhost:3002/thumbnails/map.png",
-                structureOptions: {
-                    dimensions: {
-                        label: {
-                            label: "Label",
-                            value: [],
-                            metadata: { 
-                                types: ["number, ", "string or ", "date"]
-                            }
-                        },
-                        lat: {
-                            label: "Latitude",
-                            value: [],
-                            metadata: { 
-                                types: ["number"]
-                            }
-                        },
-                        long: {
-                            label: "Longitude",
-                            value: [],
-                            metadata: { 
-                                types:["number"]
-                            }
-                        },
-                        indicator: {
-                            label: "Indicator",
-                            value: [],
-                            metadata: { 
-                                types:["number"]
-                            }
-                        }
-                    }
-                },
-                layoutOptions: {
-                },
-                datasource: ds_model
-            },
-            {
                 id: 5345342,
                 name: "Line Chart",
                 thumbnail: "http://localhost:3002/thumbnails/line_chart.png",
@@ -169,7 +129,47 @@ app.get('/visualizations', function(req, res) {
                     }
                 },
                 datasource: ds_model
-            }, {
+            },{
+                id: 34223494,
+                name: "Map",
+                thumbnail: "http://localhost:3002/thumbnails/map.png",
+                structureOptions: {
+                    dimensions: {
+                        label: {
+                            label: "Label",
+                            value: [],
+                            metadata: { 
+                                types: ["number, ", "string or ", "date"]
+                            }
+                        },
+                        lat: {
+                            label: "Latitude",
+                            value: [],
+                            metadata: { 
+                                types: ["number"]
+                            }
+                        },
+                        long: {
+                            label: "Longitude",
+                            value: [],
+                            metadata: { 
+                                types:["number"]
+                            }
+                        },
+                        indicator: {
+                            label: "Indicator",
+                            value: [],
+                            metadata: { 
+                                types:["number"]
+                            }
+                        }
+                    }
+                },
+                layoutOptions: {
+                },
+                datasource: ds_model
+            },
+            {
                 id: 351574,
                 name: "Pie Chart",
                 thumbnail: "http://localhost:3002/thumbnails/pie_chart.png",
@@ -232,18 +232,18 @@ app.get('/visualizations', function(req, res) {
                                 types: ["string"]
                             }
                         },
+                        widthRatio: {
+                            label: "Bar Width",
+                            value: 0.5,
+                            metadata: {
+                                types: ["number"]
+                            }
+                        },
                         gridlines: {
                             label: "Show Gridlines",
                             value: true,
                             metadata: {
                                 types: ["boolean"]
-                            }
-                        },
-                        widthRatio: {
-                            label: "Columns Width Ratio",
-                            value: 0.5,
-                            metadata: {
-                                types: ["number"]
                             }
                         },
                         tooltip: {

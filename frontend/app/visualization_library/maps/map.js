@@ -4,52 +4,44 @@ var map = function() { // map/openstreetmap module (js module pattern)
 
     function draw(configuration, visualisationContainer) {
         console.log("### INITIALIZE VISUALISATION - MAP");
-        
-       
 
-       if (map) {
+        if (map) {
             map.remove();
         }
-        
-         $('#' + visualisationContainer).empty();
+
+        $('#' + visualisationContainer).empty();
 
         if (!(configuration.dataModule && configuration.datasourceLocation
                 && configuration.label && configuration.lat
                 && configuration.long && configuration.indicator)) {
-            console.log("Illegal configuration");
-            return;
+            return $.Deferred().resolve().promise();
         }
+
         if ((configuration.lat.length === 0) || (configuration.long.length === 0)) {
-            console.log("Incomplete configuration");
-            return;
+            return $.Deferred().resolve().promise();
         }
 
+        map = new L.Map(visualisationContainer);
 
-         map = new L.Map(visualisationContainer);
-        // create a map in the "visualization" div
         L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
             zoom: 8
         }).addTo(map);
 
-
         var dataModule = configuration.dataModule;
-
         var labelPropertyInfo = configuration.label[0];
         var latPropertyInfo = configuration.lat[0];
         var longPropertyInfo = configuration.long[0];
         var indicatorPropertyInfos = configuration.indicator;
-
         var currColumn = 0;
         var latColumn = currColumn++;
         var longColumn = currColumn++;
         var labelColumn = -1;
+
         if (labelPropertyInfo) {
             labelColumn = currColumn++;
         }
-        var indicatorColumns = _.range(3, 3 + indicatorPropertyInfos.length)
-
-
+        var indicatorColumns = _.range(3, 3 + indicatorPropertyInfos.length);
         var selection = {};
         var dimensions = [];
         var indicators = [];
@@ -73,7 +65,8 @@ var map = function() { // map/openstreetmap module (js module pattern)
         selection.group = group;
 
         var location = configuration.datasourceLocation;
-        dataModule.parse(location, selection).then(function(data) {
+
+        return dataModule.parse(location, selection).then(function(data) {
             console.log("CONVERTED INPUT DATA FOR MAP VISUALIZATION");
             console.dir(data);
             var minLat = 90;
@@ -96,7 +89,6 @@ var map = function() { // map/openstreetmap module (js module pattern)
                 maxIndicatorValues.push(maxIndicatorValue || 100);
             }
 
-
             for (var i = 1; i < data.length; ++i) {
                 var row = data[i];
                 var lat = parseFloat(row[latColumn]);
@@ -113,16 +105,12 @@ var map = function() { // map/openstreetmap module (js module pattern)
                 var label = labelColumn >= 0 ? row[labelColumn] : '';
                 console.log("LatLong: " + lat + ", " + long);
                 var markeroptions = {
-                    data: {
-                    },
-                    chartOptions: {
-                    },
-                    displayOptions: {
-                    },
+                    data: {},
+                    chartOptions: {},
+                    displayOptions: {},
                     weight: 1,
                     color: '#000000'
-                }
-
+                };
 
                 for (var j = 0; j < indicatorColumns.length; j++) {
                     var indicatorColumn = indicatorColumns[j]; // spaltenindex
@@ -160,15 +148,31 @@ var map = function() { // map/openstreetmap module (js module pattern)
                 ]);
             }
         });
-
     }
-
 
     function tune(config) {
     }
 
+    function get_SVG() {
+        return '';
+    }
+
+    function export_as_PNG() {
+        var dfd = new jQuery.Deferred();
+        
+        leafletImage(map, function(err, canvas) {
+            var pngURL = canvas.toDataURL();
+            var downloadURL = pngURL.replace(/^data:image\/png/, 'data:application/octet-stream');
+            dfd.resolve(downloadURL);
+        });
+
+        return dfd.promise();
+    }
+
 
     return {
+        export_as_PNG: export_as_PNG,
+        get_SVG: get_SVG,
         draw: draw,
         tune: tune
     };

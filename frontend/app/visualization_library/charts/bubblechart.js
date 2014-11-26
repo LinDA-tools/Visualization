@@ -27,6 +27,10 @@ var bubblechart = function() { // bubble chart module (js module pattern)
         var multidimensions = [configuration.label[0], configuration.xAxis[0], configuration.yAxis[0]];
         if (configuration.color.length > 0) {
             multidimensions.push(configuration.color[0]);
+        } else if (configuration.radius.length > 0) {
+            // Bubble Chart doesn't allow specifying "radius" without specifying a "color"
+            // Use a different color for every label in this case
+            multidimensions.push(configuration.label[0]);
         }
         if (configuration.radius.length > 0) {
             multidimensions.push(configuration.radius[0]);

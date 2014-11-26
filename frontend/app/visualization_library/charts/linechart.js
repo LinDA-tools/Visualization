@@ -40,12 +40,44 @@ var linechart = function() {
             console.dir(inputData);
             seriesHeaders = inputData[0];
             series = transpose(inputData);
+            var xAxisType;
+            var xAxisTickFormat;
+            var firstXValue = series[0][1];
+            if (firstXValue instanceof Date) {
+                console.log("Treating X Values as DATE")
+                xAxisType = 'timeseries';
+                var hours = firstXValue.getUTCHours();
+                var minutes = firstXValue.getUTCMinutes();
+                var seconds = firstXValue.getUTCSeconds();
+                var year = firstXValue.getUTCFullYear();
+                var month = firstXValue.getUTCMonth();
+                var day = firstXValue.getUTCDay();
+                if (hours === 0 && minutes === 0 && seconds === 0) {
+                    xAxisTickFormat = "%Y-%m-%d"
+                } else if (year === 1970 && month === 0 && day === 1) {
+                    xAxisTickFormat = "%H:%M:%S"
+                } else {
+                    xAxisTickFormat = "%Y-%m-%d %H:%M:%S"
+                }
+                console.log("xAxisTickFormat: " + xAxisTickFormat);
+            } else {
+                console.log("Treating X Values as INDEXED")
+                xAxisType = 'indexed';
+                xAxisTickFormat = function(val) {
+                    if (!val && val !== 0) {
+                        return '';
+                    }
+                    return val.toLocaleString([], {
+                        useGrouping: false,
+                        maximumFractionDigits: 2
+                    });
+                }
+            }
             chart = c3.generate({
                 bindto: '#' + visualisationContainer,
                 data: {
                     columns: series,
-                    x: seriesHeaders[0],
-                    type: 'line'
+                    x: seriesHeaders[0]
                 },
                 axis: {
                     y: {
@@ -67,17 +99,10 @@ var linechart = function() {
                         tick: {
                             fit: true,
                             count: selection.ticks,
-                            format: function(val) {
-                                if (!val && val !== 0) {
-                                    return '';
-                                }
-                                return val.toLocaleString([], {
-                                    useGrouping: false,
-                                    maximumFractionDigits: 2
-                                });
-                            }
+                            format: xAxisTickFormat
                         },
-                        label: selection.hLabel
+                        label: selection.hLabel,
+                        type: xAxisType
                     }
                 },
                 grid: {

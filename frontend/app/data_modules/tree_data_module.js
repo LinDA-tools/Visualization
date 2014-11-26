@@ -20,7 +20,7 @@ var tree_data = function() {
 
         var node = Ember.Object.create({
             label: datasource.name,
-            expanded: false,
+            expanded: true,
             draggable: "false",
             children: [],
             type: "datasource",
@@ -49,6 +49,7 @@ var tree_data = function() {
             var subset = subsets[i];
             children.push(Ember.Object.create({
                 label: subset.label,
+                expanded: (subsets.length === 1),
                 draggable: (parent.length > 0) ? "true" : "false", // only properties are draggable, classes are not
                 children: [],
                 type: "item",

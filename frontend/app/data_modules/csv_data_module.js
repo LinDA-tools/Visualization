@@ -86,10 +86,37 @@ var csv_data_module = function() {
 
         return result;
     }
+    
+    var floatPattern = /^-?[0-9]+\.[0-9]+$/;
+    var intPattern = /^-?[0-9]+$/;
+    function toScalar(value, state) {
+        if (floatPattern.test(value)) {
+            var float = parseFloat(value);
+            if(isNaN(float)) {
+                return value;
+            } else {
+                return float;
+            }
+        } else if(intPattern.test(value)) {
+            var integer = parseInt(value);
+            if (isNaN(integer)) {
+                return value;
+            } else {
+                return integer;
+            }
+        } else {
+            var date = Date.parse(value);
+            if (isNaN(date)) {
+                return value;
+            } else {
+                return new Date(date);
+            }
+        }
+    }
 
     function query(location, dimensions) {
         return  $.get(location).then(function(data) {
-            return $.csv.toArrays(data, {onParseValue: $.csv.hooks.castToScalar});
+            return $.csv.toArrays(data, {onParseValue: toScalar});
         }).then(function(dataArray) {
             return convert(dataArray, dimensions);
         });
@@ -110,7 +137,7 @@ var csv_data_module = function() {
             return dfd.promise();
         } else {
             return  $.get(location).then(function(data) {
-                return $.csv.toArrays(data, {onParseValue: $.csv.hooks.castToScalar});
+                return $.csv.toArrays(data, {onParseValue: toScalar});
             }).then(function(dataArray) {
                 var names = dataArray[0];
                 var columns = [];

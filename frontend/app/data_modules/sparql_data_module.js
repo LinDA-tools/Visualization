@@ -146,7 +146,7 @@ var sparql_data_module = function() {
     }
 
     function query_group(location, dimension, multidimension, group) {
-       var graph = location.graph;
+        var graph = location.graph;
         var endpoint = encodeURIComponent(location.endpoint);
         var dimension = dimension[0];
         var multidimension = multidimension[0];
@@ -198,19 +198,32 @@ var sparql_data_module = function() {
         var columnHeaders = [];
         var optionals = "";
         var selectVariables = "";
-        var selectedVariablesArray = [];               
+        var selectedVariablesArray = [];
         var class_ = dimensions[0].parent[0];
 
         for (var i = 0; i < dimensions.length; i++) {
             var dimension = dimensions[i];
+            var path = dimension.parent;
+            console.log('DIMENSIONS SPARQL DATA MODULE');
+            console.dir(dimension);
 
             selectVariables += " ?z" + i;
             columnHeaders.push(dimension.label);
             selectedVariablesArray.push("z" + i);
 
+          
 
-            optionals += '\n\
-                    ?x' + ' <' + dimension.id + '> ?z' + i + '.\n';
+            for (var j = 1; j < path.length; j++) {
+                if (j < path.length - 1) {
+                    optionals += '\n\
+                    ?x'+ (j-1) + ' <' + path[j] + '> ?x' + j + '.\n';
+                } else {
+                    optionals += '\n\
+                    ?x'+ (j-1) + ' <' + path[j] + '> ?z' + i + '.\n';
+                }
+            }
+
+        
         }
 
         var query = '\n\
@@ -219,7 +232,7 @@ var sparql_data_module = function() {
             SELECT DISTINCT ' + selectVariables + '\n\
             WHERE {\n\
                 GRAPH <' + graph + '> {\n\
-                     ?x' + ' rdf:type <' + class_ + '>.\n\
+                     ?x0' + ' rdf:type <' + class_ + '>.\n\
                      ' + optionals + '\n\
                 }\n\
             }';
@@ -261,7 +274,7 @@ var sparql_data_module = function() {
                 });
             }
             return groupInstances;
-        })
+        });
     }
 
 
@@ -286,7 +299,7 @@ var sparql_data_module = function() {
                 record.push(parsedValue);
             }
             result.push(record);
-       }
+        }
         return result;
     }
 

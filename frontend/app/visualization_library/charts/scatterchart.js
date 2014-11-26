@@ -24,12 +24,7 @@ var scatterchart = function() {
         var selection = {
             dimension: configuration.xAxis,
             multidimension: configuration.yAxis,
-            group: configuration.group,
-            hLabel: configuration.hLabel,
-            vLabel: configuration.vLabel,
-            tooltip: configuration.tooltip,
-            gridlines: configuration.gridlines,
-            ticks: configuration.ticks
+            group: configuration.group
         };
 
         console.log("VISUALIZATION SELECTION FOR SCATTER CHART:");
@@ -39,20 +34,30 @@ var scatterchart = function() {
             console.log("GENERATE INPUT DATA FORMAT FOR SCATTER CHART");
             console.dir(inputData);
             seriesHeaders = inputData[0];
+            var pairs = {};
+
+            for (var i = 0; i < seriesHeaders.length / 2; i++) {
+                pairs[seriesHeaders[2 * i]] = seriesHeaders[2 * i + 1];
+            }
+            
             series = transpose(inputData);
+            console.dir(pairs);
+            console.dir(series);
+            
             chart = c3.generate({
                 bindto: '#' + visualisationContainer,
+              
                 data: {
+                    xs: pairs,
                     columns: series,
-                    x: seriesHeaders[0],
                     type: 'scatter'
                 },
                 axis: {
                     x: {
-                        label: selection.hLabel,
+                        label: configuration.hLabel,
                         tick: {
                             fit: true,
-                            count: selection.ticks,
+                            count: configuration.ticks,
                             format: function(val) {
                                 if (!val && val !== 0) {
                                     return '';
@@ -65,21 +70,21 @@ var scatterchart = function() {
                         }
                     },
                     y: {
-                        label: selection.vLabel
+                        label: configuration.vLabel
                     }
                 },
                 grid: {
                     x: {
-                        show: selection.gridlines,
+                        show: configuration.gridlines,
                         lines: [{value: 0}]
                     },
                     y: {
-                        show: selection.gridlines,
+                        show: configuration.gridlines,
                         lines: [{value: 0}]
                     }
                 },
                 tooltip: {
-                    show: selection.tooltip
+                    show: configuration.tooltip
                 }
             });
         });
@@ -106,14 +111,14 @@ var scatterchart = function() {
     }
 
     function export_as_PNG() {
-       return exportC3.export_PNG();
+        return exportC3.export_PNG();
     }
 
     function export_as_SVG() {
-       return exportC3.export_SVG();
+        return exportC3.export_SVG();
     }
-    
-    function get_SVG(){
+
+    function get_SVG() {
         return exportC3.get_SVG();
     }
 

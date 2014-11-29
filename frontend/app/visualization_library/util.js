@@ -19,7 +19,8 @@ function rows(table) {
         var columns = {};
         var row = table[i];
         for (var j = 0; j < row.length; j++) {
-            columns[columnHeaders[j]] = row[j];
+            var name = columnHeaders[j];
+            columns[name] = row[j];
         }
         rows.push(columns);
     }

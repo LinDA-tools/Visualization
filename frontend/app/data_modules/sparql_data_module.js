@@ -1,6 +1,6 @@
 var sparql_data_module = function() {
 
-    function sparqlProxyQuery(endpoint, query) {       
+    function sparqlProxyQuery(endpoint, query) {
         var promise = Ember.$.getJSON('http://localhost:3002/sparql-proxy/' + endpoint + "/" + encodeURIComponent(query));
         return promise.then(function(result) {
             console.log("SPARQL DATA MODULE - SPARQL QUERY RESULT");
@@ -48,7 +48,7 @@ var sparql_data_module = function() {
         query += ' }';
         query += '}';
         query += 'ORDER BY DESC(?classSize)';
-        
+
         console.log("SPARQL DATA MODULE - QUERY CLASSES");
         console.dir(query);
 
@@ -100,7 +100,7 @@ var sparql_data_module = function() {
 
         query += '  }';
         query += '}';
-        
+
         console.log("SPARQL DATA MODULE - QUERY PROPERTIES: ");
         console.dir(query);
 
@@ -190,18 +190,18 @@ var sparql_data_module = function() {
                     ' + optionals + '\n\
                 }\n\
             }';
-            
+
             console.log('SPARQL DATA MODULE - QUERY FOR GROUPES');
             console.dir(query);
-            
+
             return sparqlProxyQuery(endpoint, query);
         }).then(function(queryResult) {
             return convert(queryResult, columnHeaders, selectedVariablesArray);
         });
 
     }
-    
-     function group_by(endpoint, graph, groupProperty) {
+
+    function group_by(endpoint, graph, groupProperty) {
         var class_ = groupProperty.parent[0];
 
         var groupValuesQuery = '\n\
@@ -235,7 +235,7 @@ var sparql_data_module = function() {
             return groupInstances;
         });
     }
-    
+
     function query(location, dimensions) {
         var graph = location.graph;
         var endpoint = encodeURIComponent(location.endpoint);
@@ -245,23 +245,32 @@ var sparql_data_module = function() {
         var selectedVariablesArray = [];
         var class_ = dimensions[0].parent[0];
 
+        var nameExists = {}
+
         for (var i = 0; i < dimensions.length; i++) {
             var dimension = dimensions[i];
             var path = dimension.parent;
-       
+
             selectVariables += " ?z" + i;
-            columnHeaders.push(dimension.label);
+            var header;
+            if (!nameExists[dimension.label]) {
+                header = dimension.label;
+            } else {
+                header = dimension.label + " " + i;
+            }
+            nameExists[header] = true;
+            columnHeaders.push(header);
             selectedVariablesArray.push("z" + i);
 
             for (var j = 1; j < path.length; j++) {
                 if (j < path.length - 1) {
                     optionals += '\n\
-                    ?x'+ (j-1) + ' <' + path[j] + '> ?x' + j + '.\n';
+                    ?x' + (j - 1) + ' <' + path[j] + '> ?x' + j + '.\n';
                 } else {
                     optionals += '\n\
-                    ?x'+ (j-1) + ' <' + path[j] + '> ?z' + i + '.\n';
+                    ?x' + (j - 1) + ' <' + path[j] + '> ?z' + i + '.\n';
                 }
-            }       
+            }
         }
 
         var query = '\n\
@@ -274,9 +283,9 @@ var sparql_data_module = function() {
                      ' + optionals + '\n\
                 }\n\
             }';
-        
-          console.log('SPARQL DATA MODULE - DATA QUERY FOR VISUALIZATION CONFIGURATION');
-          console.dir(query);
+
+        console.log('SPARQL DATA MODULE - DATA QUERY FOR VISUALIZATION CONFIGURATION');
+        console.dir(query);
 
         return sparqlProxyQuery(endpoint, query).then(function(queryResult) {
             return convert(queryResult, columnHeaders, selectedVariablesArray);

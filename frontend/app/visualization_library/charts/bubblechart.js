@@ -1,123 +1,102 @@
-google.load('visualization', '1', {packages: ['corechart']});
+/*
+ * DIMPLE CHART LIBRARY
+ * DATA FORMAT: [{"column1":"value1", "column2":"value2", ...}, {"column1":"value3", "column2":"value4", ...}, ...]
+ * 
+ */
 
-var bubblechart = function() { // bubble chart module (js module pattern)
-
+var bubblechart = function() {
     var chart = null;
-    var data = null;
-
+    var seriesHeaders = [];
+    var series = [];
 
     function draw(configuration, visualisationContainer) {
-        console.log("### INITIALIZE VISUALISATION - BUBBLE CHART");
+        console.log("### INITIALIZE VISUALISATION - COLUMN CHART");
 
         $('#' + visualisationContainer).empty();
 
         if (!(configuration.dataModule && configuration.datasourceLocation
-                && configuration.label && configuration.xAxis && configuration.yAxis
-                && configuration.color && configuration.radius)) {
+                && configuration.xAxis && configuration.yAxis
+                && configuration.label)) {
             return $.Deferred().resolve().promise();
         }
-        if (configuration.label.length <= 0 || configuration.xAxis.length <= 0 || configuration.yAxis.length <= 0) {
+
+        if ((configuration.label.length === 0) || (configuration.xAxis.length === 0) || (configuration.yAxis.length === 0)) {
             return $.Deferred().resolve().promise();
         }
 
         var dataModule = configuration.dataModule;
         var location = configuration.datasourceLocation;
 
-        var dimensions = [];
-        var multidimensions = [configuration.label[0], configuration.xAxis[0], configuration.yAxis[0]];
-        if (configuration.color.length > 0) {
-            multidimensions.push(configuration.color[0]);
-        } else if (configuration.radius.length > 0) {
-            // Bubble Chart doesn't allow specifying "radius" without specifying a "color"
-            // Use a different color for every label in this case
-            multidimensions.push(configuration.label[0]);
-        }
-        if (configuration.radius.length > 0) {
-            multidimensions.push(configuration.radius[0]);
-        }
-
         var selection = {
-            dimension: dimensions,
-            multidimension: multidimensions,
+            dimension: [],
+            multidimension: configuration.label.concat(configuration.xAxis).concat(configuration.yAxis).concat(configuration.radius).concat(configuration.color),
             group: []
         };
 
-        return dataModule.parse(location, selection).then(function(input) {
-            data = google.visualization.arrayToDataTable(input);
-            console.log("Data:");
-            console.dir(data);
+        console.log("VISUALIZATION SELECTION FOR COLUMN CHART:");
+        console.dir(selection);
 
-            chart = new google.visualization.BubbleChart(document.getElementById(visualisationContainer));
-            chart.draw(data, { title: configuration.title });
+        var svg = dimple.newSvg('#' + visualisationContainer, "100%", "400px");
+
+        return dataModule.parse(location, selection).then(function(inputData) {
+            console.log("GENERATE INPUT DATA FORMAT FOR COLUMN CHART - INPUT DATA");
+            console.dir(inputData);
+            seriesHeaders = inputData[0];
+            series = rows(inputData);
+            console.log("GENERATE INPUT DATA FORMAT FOR COLUMN CHART - OUTPUT DATA");
+            console.dir(series);
+
+            var chart = new dimple.chart(svg, series);
+
+            var labelAxisName = seriesHeaders[0];
+            var xAxisName = seriesHeaders[1];
+            var yAxisName = seriesHeaders[2];
+            
+            var radiusAxisName;
+            if (configuration.radius.length > 0) {
+                radiusAxisName = seriesHeaders[3];
+            }
+
+            var colorAxisName;
+            if (configuration.color.length > 0) {
+                colorAxisName = seriesHeaders[3 + configuration.radius.length];
+            }
+
+            chart.addMeasureAxis("x", xAxisName);
+            chart.addMeasureAxis("y", yAxisName);
+
+            if (radiusAxisName) {
+                chart.addMeasureAxis("z", radiusAxisName);
+            }
+
+            var series = [labelAxisName];
+
+            if (colorAxisName) {
+                series.push(colorAxisName);
+            }
+            
+            console.log("SERIES:");
+            console.dir(series);
+
+            chart.addSeries(series, dimple.plot.bubble);
+            chart.addLegend("50%", "10%", 500, 20, "right");
+            chart.draw();
         });
     }
 
     function tune(config) {
-        // Tune the visualization.
-        chart.draw(data,
-                {title: config["title"],
-                    width: 600, height: 400,
-                    vAxis: {title: config.axes.vLabel,
-                        gridlines: {
-                            count: config.axes.vGrid
-                        }
-                    },
-                    hAxis: {title: config.axes.hLabel,
-                        gridlines: {
-                            count: config.axes.hGrid
-                        }
-                    },
-                    bubble: {textStyle: {fontSize: 11}}
-                }
-
-        );
     }
-    
+
     function export_as_PNG() {
-        var dfd = new jQuery.Deferred();
-        var pngURL = chart.getImageURI();
-        var downloadURL = pngURL.replace(/^data:image\/png/, 'data:application/octet-stream');
-
-        dfd.resolve(downloadURL);
-
-        return dfd.promise();
+        return exportC3.export_PNG();
     }
-    
-   function export_as_SVG() {       
-        var svg = $("#visualization").find('svg');
-        console.log("google chart api - CHART SVG");
-        console.dir(svg);
-        
-        svg.attr('version', "1.1");
-        svg.attr('xmlns', "http://www.w3.org/2000/svg");
-        svg.attr('xmlns:xlink', "http://www.w3.org/1999/xlink");
-        
-        var serializer = new XMLSerializer();
-        var svg_ = serializer.serializeToString(svg[0]);
-        
-        var svgURL = 'data:application/octet-stream,' + escape(svg_);
-        console.log("google chart api- SVG URL");
-        console.dir(svgURL);
 
-        return(svgURL);
+    function export_as_SVG() {
+        return exportC3.export_SVG();
     }
 
     function get_SVG() {
-        var svg = $("#visualization").find('svg');
-        console.log("google chart api - CHART SVG");
-        console.dir(svg);
-        
-         if (svg.length === 0) {
-            return;
-        }
-        
-        svg.attr('version', "1.1");
-        svg.attr('xmlns', "http://www.w3.org/2000/svg");
-        svg.attr('xmlns:xlink', "http://www.w3.org/1999/xlink");
-        
-        var serializer = new XMLSerializer();
-        var svg_ = serializer.serializeToString(svg[0]);
-        return svg_ ;
+        return exportC3.get_SVG();
     }
 
     return {

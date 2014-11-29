@@ -29,48 +29,32 @@ var piechart = function() {
 
         console.log("VISUALIZATION SELECTION FOR PIE CHART:");
         console.dir(selection);
+        
+        var svg = dimple.newSvg('#' + visualisationContainer, "100%", "100%");
 
         return dataModule.parse(location, selection).then(function(inputData) {
             console.log("GENERATE INPUT DATA FORMAT FOR PIE CHART");
             console.dir(inputData);
             seriesHeaders = inputData[0];
-            series = transpose(inputData);
-            chart = c3.generate({
-                bindto: '#' + visualisationContainer,
-                data: {
-                    columns: series,
-                    type: 'pie'
-                },
-                tooltip: {
-                    show: selection.tooltip,
-                    format: {
-                        value: function(value, ratio, id) {
-                            return d3.format('')(value);
-                        }
-                    }
-                }
-            });
+            series = rows(inputData);
+            
+            console.log("GENERATE INPUT DATA FORMAT FOR PIE CHART - OUTPUT DATA");
+            console.dir(series);
+            
+            var chart = new dimple.chart(svg,series);
+            
+            chart.addMeasureAxis("p", seriesHeaders[0]);
+            
+            chart.addSeries(seriesHeaders[seriesHeaders.length-1], dimple.plot.pie);
+            chart.addLegend(500,20,90,300,'left');
+            chart.draw();
+        
         });
     }
 
     function tune(config) {
         console.log("### TUNE PIE CHART");
-        console.dir(chart);
-
-        var groups;
-        if (config.style.id === "stacked") {
-            groups = [seriesHeaders.slice(1)];
-            console.dir(groups);
-        } else {
-            groups = [];
-        }
-
-        chart.groups(groups);
-
-        chart.labels({
-            x: config.hLabel,
-            y: config.vLabel
-        });
+        
     }
 
     function export_as_PNG() {

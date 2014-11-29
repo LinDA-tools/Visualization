@@ -1,8 +1,6 @@
 visualizationRegistry = {
     getVisualization: function(widgetName) {
-        switch (widgetName) {
-            case 'Bar Chart':
-                return barchart;
+        switch (widgetName) {           
             case 'Column Chart':
                 return columnchart;
             case 'Line Chart':

@@ -38,12 +38,10 @@ var columnchart = function() {
 
         var svg = dimple.newSvg('#' + visualisationContainer, "100%", "100%");
 
-        return dataModule.parse(location, selection).then(function(inputData) {
-            console.log("GENERATE INPUT DATA FORMAT FOR COLUMN CHART - INPUT DATA");
-            console.dir(inputData);
+        return dataModule.parse(location, selection).then(function(inputData) {            
             seriesHeaders = inputData[0];
             series = rows(inputData);
-            console.log("GENERATE INPUT DATA FORMAT FOR COLUMN CHART - OUTPUT DATA");
+            console.log("GENERATE INPUT DATA FORMAT FOR COLUMN CHART");
             console.dir(series);
 
             var chart = new dimple.chart(svg, series);
@@ -68,29 +66,13 @@ var columnchart = function() {
             } else {
                 chart.addSeries(null, dimple.plot.bar);
             }
-             chart.addLegend("50%", "10%", 500, 20, "right");
+            chart.addLegend("10%", "5%", "80%", 20, "right");
             chart.draw();
         });
     }
 
     function tune(config) {
-        console.log("### TUNE COLUMN CHART");
-        console.dir(chart);
-
-        var groups;
-        if (config.style.id === "stacked") {
-            groups = [seriesHeaders.slice(1)];
-            console.dir(groups);
-        } else {
-            groups = [];
-        }
-
-        chart.groups(groups);
-
-        chart.labels({
-            x: config.hLabel,
-            y: config.vLabel
-        });
+        console.log("### TUNE COLUMN CHART");     
     }
 
     function export_as_PNG() {

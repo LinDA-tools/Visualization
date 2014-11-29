@@ -26,13 +26,15 @@ var barchart = function() {
         var selection = {
             dimension: configuration.yAxis,
             multidimension: configuration.xAxis,
-            group: []
+            group: configuration.group
         };
 
         console.log("VISUALIZATION SELECTION FOR COLUMN CHART:");
         console.dir(selection);
 
         return dataModule.parse(location, selection).then(function(input) {
+            console.log('INPUT DATA FOR COLUMN CHART: ');
+            console.dir(input);
             data = google.visualization.arrayToDataTable(input);
             chart = new google.visualization.BarChart(document.getElementById(visualisationContainer));
             chart.draw(data, {title: configuration.title});

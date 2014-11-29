@@ -110,8 +110,8 @@ var exportC3 = function() {
         var serializer = new XMLSerializer();
         var svg_ = serializer.serializeToString(svg[0]);
         svg_ = svg_.replace('</style>', '<![CDATA[' + c3CSS + ']]></style>');
-        console.log("C3 CHART SVG - TWEAKED");
-         console.dir(svg_);
+        /*console.log("C3 CHART SVG - TWEAKED");
+         console.dir(svg_);*/
 
         return svg_;
     }

@@ -6,6 +6,7 @@ var csv_data_module = function() {
 // location: location of the input dataset  
 
     function parse(location, selection) {
+        console.log('CSV DATA MODULE - ');
         var dimension = selection.dimension;
         var multidimension = selection.multidimension;
         var group = selection.group;
@@ -51,7 +52,6 @@ var csv_data_module = function() {
         }
 
         var columns = [];
-
         columns.push(dimension_[0]);
 
         for (var i = 1; i < group_.length; i++) {
@@ -59,7 +59,6 @@ var csv_data_module = function() {
         }
 
         var result = [];
-
         result.push(columns);
 
         var multidimension__ = multidimension_.reverse();
@@ -68,7 +67,6 @@ var csv_data_module = function() {
 
         while (multidimension__.length > 0) {
             var row = [];
-
             row.push(dimension_[dim_counter]);
 
             if (dim_counter === dimension_) {
@@ -87,32 +85,6 @@ var csv_data_module = function() {
         return result;
     }
     
-    var floatPattern = /^-?[0-9]+\.[0-9]+$/;
-    var intPattern = /^-?[0-9]+$/;
-    function toScalar(value, state) {
-        if (floatPattern.test(value)) {
-            var float = parseFloat(value);
-            if(isNaN(float)) {
-                return value;
-            } else {
-                return float;
-            }
-        } else if(intPattern.test(value)) {
-            var integer = parseInt(value);
-            if (isNaN(integer)) {
-                return value;
-            } else {
-                return integer;
-            }
-        } else {
-            var date = Date.parse(value);
-            if (isNaN(date)) {
-                return value;
-            } else {
-                return new Date(date);
-            }
-        }
-    }
 
     function query(location, dimensions) {
         return  $.get(location).then(function(data) {
@@ -123,7 +95,6 @@ var csv_data_module = function() {
     }
 
     function queryData(location, _class, _properties) {
-
         var dfd = new jQuery.Deferred();
 
         if (!_class) {

@@ -20,6 +20,7 @@ function templateMapping(editObject) {
             "vLabel":"textField",
             "gridlines":"tuning-check",
             "tooltip":"tuning-check",
+            "horizontal":"tuning-check",
             "ticks":"tuning-numinput",
             "widthPx":"tuning-numinput",
             "widthRatio":"tuning-numinput"

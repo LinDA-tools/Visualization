@@ -21,19 +21,12 @@ http://localhost:9001/#/visualization/Drug%20Price%20Analysis/http%3A%2F%2Flocal
 
 //RDF
 TS-1
-ENC: http://localhost:9001/#/visualization/TS1_LinearRegression_Result/http%3A%2F%2Flocalhost%3A8890%2Fsparql/http%3A%2F%2Fwww.linda-project.org%2FTS1_LinearRegression_Result/rdf
-DEC: http://localhost:9001/#/visualization/TS1_LinearRegression_Result/http://localhost:8890/sparql/http://www.linda-project.org/TS1_LinearRegression_Result/rdf
-
-ENC: http://localhost:9001/#/visualization/TS1_Original/http%3A%2F%2Flocalhost%3A8890%2Fsparql/http%3A%2F%2Fwww.linda-project.org%2FTS1_Original/rdf
-DEC: http://localhost:9001/#/visualization/TS1_Original/http://localhost:8890/sparql/http://www.linda-project.org/TS1_Original/rdf
-
 ENC: http://localhost:9001/#/visualization/TS1_LinearRegression_Result_And_Original/http%3A%2F%2Flocalhost%3A8890%2Fsparql/http%3A%2F%2Fwww.linda-project.org%2FTS1_LinearRegression_Result_Original/rdf
-DEC: http://localhost:9001/#/visualization/TS1_LinearRegression_Result/http://localhost:8890/sparql/http://www.linda-project.org/TS1_LinearRegression_Result/rdf
+DEC: http://localhost:9001/#/visualization/TS1_LinearRegression_Result/http://localhost:8890/sparql/http://www.linda-project.org/TS1_LinearRegression_Result_Original/rdf
 
 //CSV
-http://localhost:9001/#/visualization/ubitech_testset2/http%3A%2F%2Flocalhost%3A3002%2Ftestsets%2FionosphereToTrain_J48_resultdocument.csv/-/csv
-
-http://localhost:9001/#/visualization/ubitech_testset3/http%3A%2F%2Flocalhost%3A3002%2Ftestsets%2FairlineToForecast_5xQ3Xie_Arima_resultdocument.csv/-/csv
+ENC: http://localhost:9001/#/visualization/ubitech_testset2/http%3A%2F%2Flocalhost%3A3002%2Ftestsets%2FionosphereToTrain_J48_resultdocument.csv/-/csv
+ENC: http://localhost:9001/#/visualization/ubitech_testset3/http%3A%2F%2Flocalhost%3A3002%2Ftestsets%2FairlineToForecast_5xQ3Xie_Arima_resultdocument.csv/-/csv
 
 
 

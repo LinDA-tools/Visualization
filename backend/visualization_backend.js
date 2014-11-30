@@ -253,11 +253,18 @@ app.get('/visualizations', function(req, res) {
                 thumbnail: "http://localhost:3002/thumbnails/pie_chart.png",
                 structureOptions: {
                     dimensions: {
-                        slice: {
-                            label: "Slice",
+                        measure: {
+                            label: "Drag & drop measure",
                             value: [],
                             metadata: {
                                 types: ["number"]
+                            }
+                        },
+                        slice: {
+                            label: "Drag & drop series",
+                            value: [],
+                            metadata: {
+                                types: ["any"]
                             }
                         }
                     }

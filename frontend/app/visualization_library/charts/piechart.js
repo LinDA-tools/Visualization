@@ -4,28 +4,27 @@ var piechart = function() {
     var series = [];
 
     function draw(configuration, visualisationContainerID) {
-        console.log("### INITIALIZE VISUALISATION - PIE CHART");
+       console.log("### INITIALIZE VISUALISATION - PIE CHART");
 
-        var container = $('#' + visualisationContainerID);
-        container.empty();
+       var container = $('#' + visualisationContainerID);
+           container.empty();
 
         if (!(configuration.dataModule && configuration.datasourceLocation
-                && configuration.slice)) {
+                && configuration.measure && configuration.slice)) {
             return $.Deferred().resolve().promise();
         }
 
-        if (configuration.slice.length === 0) {
+        if (configuration.measure.length === 0 || configuration.slice.length === 0) {
             return $.Deferred().resolve().promise();
         }
 
         var dataModule = configuration.dataModule;
         var location = configuration.datasourceLocation;
-
+        
         var selection = {
-            dimension: [],
+            dimension: configuration.measure,
             multidimension: configuration.slice,
-            group: [],
-            tooltip: configuration.tooltip
+            group: []
         };
 
         console.log("VISUALIZATION SELECTION FOR PIE CHART:");
@@ -34,22 +33,17 @@ var piechart = function() {
         var svg = dimple.newSvg('#' + visualisationContainerID, container.width(), container.height());
 
         return dataModule.parse(location, selection).then(function(inputData) {
-            console.log("GENERATE INPUT DATA FORMAT FOR PIE CHART");
-            console.dir(inputData);
             seriesHeaders = inputData[0];
-            series = rows(inputData);
-            
-            console.log("GENERATE INPUT DATA FORMAT FOR PIE CHART - OUTPUT DATA");
+            series = rows(inputData);            
+            console.log("GENERATE INPUT DATA FORMAT FOR PIE CHART");
             console.dir(series);
             
-            var chart = new dimple.chart(svg,series);
-            
-            chart.addMeasureAxis("p", seriesHeaders[0]);
-            
-            chart.addSeries(seriesHeaders[seriesHeaders.length-1], dimple.plot.pie);
-            chart.addLegend(500,20,90,300,'left');
-            chart.draw();
-        
+            var chart = new dimple.chart(svg, series);           
+                chart.addMeasureAxis("p", seriesHeaders[0]);                                                
+                chart.addSeries(seriesHeaders.slice(1), dimple.plot.pie);           
+                chart.addLegend("10%", "5%", "80%", 20, "right");
+                
+                chart.draw();       
         });
     }
 

@@ -9,10 +9,11 @@ var bubblechart = function() {
     var seriesHeaders = [];
     var series = [];
 
-    function draw(configuration, visualisationContainer) {
+    function draw(configuration, visualisationContainerID) {
         console.log("### INITIALIZE VISUALISATION - COLUMN CHART");
 
-        $('#' + visualisationContainer).empty();
+        var container = $('#' + visualisationContainerID);
+        container.empty();
 
         if (!(configuration.dataModule && configuration.datasourceLocation
                 && configuration.xAxis && configuration.yAxis
@@ -36,7 +37,7 @@ var bubblechart = function() {
         console.log("VISUALIZATION SELECTION FOR COLUMN CHART:");
         console.dir(selection);
 
-        var svg = dimple.newSvg('#' + visualisationContainer, "100%", "400px");
+        var svg = dimple.newSvg('#' + visualisationContainerID, container.width(), container.height());
 
         return dataModule.parse(location, selection).then(function(inputData) {
             console.log("GENERATE INPUT DATA FORMAT FOR COLUMN CHART - INPUT DATA");

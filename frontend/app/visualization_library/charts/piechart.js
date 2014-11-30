@@ -3,10 +3,11 @@ var piechart = function() {
     var seriesHeaders = [];
     var series = [];
 
-    function draw(configuration, visualisationContainer) {
+    function draw(configuration, visualisationContainerID) {
         console.log("### INITIALIZE VISUALISATION - PIE CHART");
 
-        $('#' + visualisationContainer).empty();
+        var container = $('#' + visualisationContainerID);
+        container.empty();
 
         if (!(configuration.dataModule && configuration.datasourceLocation
                 && configuration.slice)) {
@@ -30,7 +31,7 @@ var piechart = function() {
         console.log("VISUALIZATION SELECTION FOR PIE CHART:");
         console.dir(selection);
         
-        var svg = dimple.newSvg('#' + visualisationContainer, "100%", "100%");
+        var svg = dimple.newSvg('#' + visualisationContainerID, container.width(), container.height());
 
         return dataModule.parse(location, selection).then(function(inputData) {
             console.log("GENERATE INPUT DATA FORMAT FOR PIE CHART");

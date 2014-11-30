@@ -3,10 +3,11 @@ var scatterchart = function() {
     var seriesHeaders = [];
     var series = [];
 
-    function draw(configuration, visualisationContainer) {
+    function draw(configuration, visualisationContainerID) {
         console.log("### INITIALIZE VISUALISATION - SCATTER CHART");
 
-        $('#' + visualisationContainer).empty();
+        var container = $('#' + visualisationContainerID);
+        container.empty();
 
         if (!(configuration.dataModule && configuration.datasourceLocation
                 && configuration.xAxis && configuration.yAxis
@@ -45,7 +46,7 @@ var scatterchart = function() {
             console.dir(series);
             
             chart = c3.generate({
-                bindto: '#' + visualisationContainer,
+                bindto: '#' + visualisationContainerID,
               
                 data: {
                     xs: pairs,

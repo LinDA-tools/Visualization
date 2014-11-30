@@ -6,10 +6,11 @@
 
 var linechart = function() {
 
-    function draw(configuration, visualisationContainer) {
+    function draw(configuration, visualisationContainerID) {
         console.log("### INITIALIZE VISUALISATION - LINE CHART");
 
-        $('#' + visualisationContainer).empty();
+        var container = $('#' + visualisationContainerID);
+        container.empty();
 
         if (!(configuration.dataModule && configuration.datasourceLocation
                 && configuration.xAxis && configuration.yAxis
@@ -30,10 +31,10 @@ var linechart = function() {
             group: []
         };
 
-        console.log("VISUALISATION CONFIGURATION FOR LINE CHART:");
+        console.log("VISUALISATION SELECTION FOR LINE CHART:");
         console.dir(selection);
 
-        var svg = dimple.newSvg('#' + visualisationContainer, "100%", "100%");
+        var svg = dimple.newSvg('#' + visualisationContainerID, container.width(), container.height());
 
         return dataModule.parse(location, selection).then(function(inputData) {
             var columnsHeaders = inputData[0];

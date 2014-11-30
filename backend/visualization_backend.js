@@ -363,18 +363,32 @@ app.get('/visualizations', function(req, res) {
                 thumbnail: "http://localhost:3002/thumbnails/area_chart.png",
                 structureOptions: {
                     dimensions: {
+                        xAxis: {
+                            label: "Drag & drop a ordinal value",
+                            value: [],
+                            metadata: {
+                                types: ["dates or ", "other continuous values such as distances"]
+                            }
+                        },
                         yAxis: {
-                            label: "Vertical Axis",
+                            label: "Drag & drop a measure",
                             value: [],
                             metadata: {
                                 types: ["number"]
                             }
                         },
-                        xAxis: {
-                            label: "Horizontal Axis",
+                        orderBy: {
+                            label: "Order by",
                             value: [],
                             metadata: {
-                                types: ["number, ", "string or ", "date"]
+                                types: ["ordinal value "]
+                            }
+                        },
+                        addedSeries: {
+                            label: "Drag & drop additional series",
+                            value: [],
+                            metadata: {
+                                types: ["any"]
                             }
                         }
                     }
@@ -383,35 +397,31 @@ app.get('/visualizations', function(req, res) {
                     axis: {
                         hLabel: {
                             label: "Horizontal Label",
-                            value: "X Name",
+                            value: "",
                             metadata: {
                                 types: ["string"]
                             }
-                        },
-                        vLabel: {
+                        }, vLabel: {
                             label: "Vertical Label",
-                            value: "Y Name",
+                            value: "",
                             metadata: {
                                 types: ["string"]
                             }
-                        },
-                        gridlines: {
-                            label: "Show Gridlines",
-                            value: true,
-                            metadata: {
-                                types: ["boolean"]
-                            }
-                        },
-                        ticks: {
+                        }, ticks: {
                             label: "Ticks",
-                            value: 5,
+                            value: 10,
                             metadata: {
                                 types: ["number"]
                             }
-                        },
-                        tooltip: {
+                        }, tooltip: {
                             label: "Show Tooltip",
                             value: false,
+                            metadata: {
+                                types: ["boolean"]
+                            }
+                        }, gridlines: {
+                            label: "Gridlines",
+                            value: true,
                             metadata: {
                                 types: ["boolean"]
                             }

@@ -1,16 +1,20 @@
-var areachart = function() {
-    var chart = null;
-    var seriesHeaders = [];
-    var series = [];
+/*
+ * DIMPLE CHART LIBRARY
+ * DATA FORMAT: [{"column1":"value1", "column2":"value2", ...}, {"column1":"value3", "column2":"value4", ...}, ...]
+ * 
+ */
 
-    function draw(configuration, visualisationContainer) {
+var areachart = function() {
+
+    function draw(configuration, visualisationContainerID) {
         console.log("### INITIALIZE VISUALISATION - AREA CHART");
 
-        $('#' + visualisationContainer).empty();
+        var container = $('#' + visualisationContainerID);
+        container.empty();
 
         if (!(configuration.dataModule && configuration.datasourceLocation
                 && configuration.xAxis && configuration.yAxis
-                && configuration.group)) {
+                && configuration.orderBy)) {
             return $.Deferred().resolve().promise();
         }
 
@@ -22,100 +26,57 @@ var areachart = function() {
         var location = configuration.datasourceLocation;
 
         var selection = {
-            dimension: configuration.xAxis,
-            multidimension: configuration.yAxis,
-            group: configuration.group,
-            hLabel: configuration.hLabel,
-            vLabel: configuration.vLabel,
-            tooltip: configuration.tooltip,
-            gridlines: configuration.gridlines,
-            ticks: configuration.ticks
+            dimension: configuration.yAxis, // measure
+            multidimension: configuration.xAxis.concat(configuration.addedSeries).concat(configuration.orderBy),
+            group: []
         };
 
-        console.log("VISUALIZATION SELECTION FOR AREA CHART:");
+        console.log("VISUALISATION SELECTION FOR AREA CHART:");
         console.dir(selection);
+        
+        var svg = dimple.newSvg('#' + visualisationContainerID, container.width(), container.height());
 
         return dataModule.parse(location, selection).then(function(inputData) {
+            var columnsHeaders = inputData[0];
+            var data = rows(inputData);
             console.log("GENERATE INPUT DATA FORMAT FOR AREA CHART");
-            console.dir(inputData);
-            seriesHeaders = inputData[0];
-            series = transpose(inputData);
-            chart = c3.generate({
-                bindto: '#' + visualisationContainer,
-                data: {
-                    columns: series,
-                    x: seriesHeaders[0],
-                    type: 'area-spline'
-                },
-                axis: {
-                    x: {
-                        label: selection.hLabel,
-                        tick: {
-                            fit: true,
-                            count: selection.ticks,
-                            format: function(val) {
-                                if (!val && val !== 0) {
-                                    return '';
-                                }
-                                return val.toLocaleString([], {
-                                    useGrouping: false,
-                                    maximumFractionDigits: 2
-                                });
-                            }
-                        }
-                    },
-                    y: {
-                        label: selection.vLabel,
-                        tick: {
-                            count: selection.ticks
-                        }
-                    }
-                },
-                grid: {
-                    x: {
-                        show: selection.gridlines
-                    },
-                    y: {
-                        show: selection.gridlines
-                    }
-                },
-                tooltip: {
-                    show: selection.tooltip
-                }
-            });
+            console.dir(data);
+
+            var chart = new dimple.chart(svg, data);
+
+            var x = chart.addCategoryAxis("x", columnsHeaders[1]); // x axis: ordinal values
+            chart.addMeasureAxis("y", columnsHeaders[0]); // y axis: one measure (scale)  
+
+            var series = null;
+
+            if (configuration.orderBy.length > 0) {
+                x.addOrderRule(columnsHeaders[columnsHeaders.length - 1]); // ordered values on x axis 
+            } else if (configuration.addedSeries.length > 0) {
+                series = columnsHeaders.slice(2);
+            }
+
+            chart.addSeries(series, dimple.plot.area);
+            chart.addLegend("10%", "5%", "80%", 20, "right");
+            chart.draw();
         });
     }
 
     function tune(config) {
         console.log("### TUNE AREA CHART");
-        console.dir(chart);
-
-        var groups;
-        if (config.style.id === "stacked") {
-            groups = [seriesHeaders.slice(1)];
-            console.dir(groups);
-        } else {
-            groups = [];
-        }
-
-        chart.groups(groups);
-
-        chart.labels({
-            x: config.hLabel,
-            y: config.vLabel
-        });
     }
 
     function export_as_PNG() {
-       return exportC3.export_PNG();
+        return exportC3.export_PNG();
     }
 
     function export_as_SVG() {
-       return exportC3.export_SVG();
+        return exportC3.export_SVG();
     }
-    
-    function get_SVG(){
-        return exportC3.get_SVG();
+
+    function get_SVG() {
+        setTimeout(function() {
+            return exportC3.get_SVG();
+        }, 2000);
     }
 
     return {

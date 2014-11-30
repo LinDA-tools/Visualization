@@ -95,7 +95,7 @@ var bubblechart = function() {
                 selection.hLabel = seriesHeaders[1]; 
             }
             if (selection.vLabel ===""){
-                selection.vLabel = seriesHeaders[0];
+                selection.vLabel = seriesHeaders[2];
             }
             x.title = selection.hLabel;
             y.title = selection.vLabel;

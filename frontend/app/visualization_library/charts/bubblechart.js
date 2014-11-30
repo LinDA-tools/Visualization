@@ -31,7 +31,12 @@ var bubblechart = function() {
         var selection = {
             dimension: [],
             multidimension: configuration.label.concat(configuration.xAxis).concat(configuration.yAxis).concat(configuration.radius).concat(configuration.color),
-            group: []
+            group: [],
+            gridlines: configuration.gridlines,
+            hLabel: configuration.hLabel,
+            vLabel: configuration.vLabel,
+            ticks : configuration.ticks,
+            tooltip: configuration.tooltip
         };
 
         console.log("VISUALIZATION SELECTION FOR COLUMN CHART:");
@@ -63,8 +68,8 @@ var bubblechart = function() {
                 colorAxisName = seriesHeaders[3 + configuration.radius.length];
             }
 
-            chart.addMeasureAxis("x", xAxisName);
-            chart.addMeasureAxis("y", yAxisName);
+            var x = chart.addMeasureAxis("x", xAxisName);
+            var y = chart.addMeasureAxis("y", yAxisName);
 
             if (radiusAxisName) {
                 chart.addMeasureAxis("z", radiusAxisName);
@@ -81,6 +86,27 @@ var bubblechart = function() {
 
             chart.addSeries(series, dimple.plot.bubble);
             chart.addLegend("50%", "10%", 500, 20, "right");
+            
+            //gridlines tuning
+            x.showGridlines = selection.gridlines;
+            y.showGridlines = selection.gridlines;
+            //titles
+            if (selection.hLabel ===""){
+                selection.hLabel = seriesHeaders[1]; 
+            }
+            if (selection.vLabel ===""){
+                selection.vLabel = seriesHeaders[0];
+            }
+            x.title = selection.hLabel;
+            y.title = selection.vLabel;
+            //ticks
+            x.ticks = selection.ticks;
+            y.ticks = selection.ticks;
+            //tooltip
+            if (selection.tooltip === false){
+                chart.addSeries(series, dimple.plot.bubble).addEventHandler("mouseover",function(){});
+            }
+            
             chart.draw();
         });
     }

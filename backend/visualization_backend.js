@@ -272,7 +272,7 @@ app.get('/visualizations', function(req, res) {
                 layoutOptions: {
                     tooltip: {
                         label: "Show Tooltip",
-                        value: false,
+                        value: true,
                         metadata: {
                             types: ["boolean"]
                         }

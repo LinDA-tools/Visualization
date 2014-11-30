@@ -31,7 +31,12 @@ var columnchart = function() {
         var selection = {
             dimension: configuration.yAxis, // measure
             multidimension: configuration.xAxis.concat(configuration.group).concat(configuration.stackedGroup), // categories
-            group: []
+            group: [],
+            gridlines: configuration.gridlines,
+            hLabel: configuration.hLabel,
+            vLabel: configuration.vLabel,
+            
+            tooltip: configuration.tooltip
         };
 
         console.log("VISUALIZATION SELECTION FOR COLUMN CHART:");
@@ -57,8 +62,8 @@ var columnchart = function() {
                 measureAxis = "y";
             }
             
-            chart.addCategoryAxis(categoryAxis, seriesHeaders.slice(1, 1 + configuration.xAxis.length + configuration.group.length));  // x axis: more categories        
-            chart.addMeasureAxis(measureAxis, seriesHeaders[0]);  // y axis: one measure (scale)                       
+            var dim1 = chart.addCategoryAxis(categoryAxis, seriesHeaders.slice(1, 1 + configuration.xAxis.length + configuration.group.length));  // x axis: more categories        
+            var dim2 = chart.addMeasureAxis(measureAxis, seriesHeaders[0]);  // y axis: one measure (scale)                       
 
             if (configuration.group.length > 0) { // simple column groups 
                 chart.addSeries(seriesHeaders[seriesHeaders.length - 1], dimple.plot.bar);
@@ -68,6 +73,25 @@ var columnchart = function() {
                 chart.addSeries(null, dimple.plot.bar);
             }
             chart.addLegend("10%", "5%", "80%", 20, "right");
+            
+            //gridlines tuning
+            dim1.showGridlines = selection.gridlines;
+            dim2.showGridlines = selection.gridlines;
+            //titles
+            if (selection.hLabel ===""){
+                selection.hLabel = seriesHeaders[1]; 
+            }
+            if (selection.vLabel ===""){
+                selection.vLabel = seriesHeaders[0];
+            }
+            dim1.title = selection.hLabel;
+            dim2.title = selection.vLabel;
+
+            //tooltip
+            if (selection.tooltip === false){
+                chart.addSeries(series, dimple.plot.bar).addEventHandler("mouseover",function(){});
+            }
+            
             chart.draw();
         });
     }

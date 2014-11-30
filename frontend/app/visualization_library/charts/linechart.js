@@ -28,7 +28,12 @@ var linechart = function() {
         var selection = {
             dimension: configuration.yAxis, // measure
             multidimension: configuration.xAxis.concat(configuration.addedSeries).concat(configuration.orderBy),
-            group: []
+            group: [],
+            gridlines: configuration.gridlines,
+            hLabel: configuration.hLabel,
+            vLabel: configuration.vLabel,
+            ticks: configuration.ticks,
+            tooltip: configuration.tooltip
         };
 
         console.log("VISUALISATION SELECTION FOR LINE CHART:");
@@ -45,7 +50,7 @@ var linechart = function() {
             var chart = new dimple.chart(svg, data);
 
             var x = chart.addCategoryAxis("x", columnsHeaders[1]); // x axis: ordinal values
-            chart.addMeasureAxis("y", columnsHeaders[0]); // y axis: one measure (scale)  
+            var y=chart.addMeasureAxis("y", columnsHeaders[0]); // y axis: one measure (scale)  
 
             var series = null;
 
@@ -57,6 +62,27 @@ var linechart = function() {
 
             chart.addSeries(series, dimple.plot.line);
             chart.addLegend("10%", "5%", "80%", 20, "right");
+            
+            //gridlines tuning
+            x.showGridlines = selection.gridlines;
+            y.showGridlines = selection.gridlines;
+            //titles
+            if (selection.hLabel ===""){
+                selection.hLabel = columnsHeaders[1]; 
+            }
+            if (selection.vLabel ===""){
+                selection.vLabel = columnsHeaders[0];
+            }
+            x.title = selection.hLabel;
+            y.title = selection.vLabel;
+            //ticks
+            x.ticks = selection.ticks;
+            y.ticks = selection.ticks;
+            //tooltip
+            if (selection.tooltip === false){
+                chart.addSeries(series, dimple.plot.line).addEventHandler("mouseover",function(){});
+            }
+            
             chart.draw();
         });
     }

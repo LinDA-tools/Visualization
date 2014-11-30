@@ -24,7 +24,8 @@ var piechart = function() {
         var selection = {
             dimension: configuration.measure,
             multidimension: configuration.slice,
-            group: []
+            group: [],
+            tooltip: configuration.tooltip
         };
 
         console.log("VISUALIZATION SELECTION FOR PIE CHART:");
@@ -42,6 +43,11 @@ var piechart = function() {
                 chart.addMeasureAxis("p", seriesHeaders[0]);                                                
                 chart.addSeries(seriesHeaders.slice(1), dimple.plot.pie);           
                 chart.addLegend("10%", "5%", "80%", 20, "right");
+                
+                //tooltip
+            if (selection.tooltip === false){
+                chart.addSeries(series, dimple.plot.pie).addEventHandler("mouseover",function(){});
+            }
                 
                 chart.draw();       
         });

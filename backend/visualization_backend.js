@@ -35,6 +35,7 @@ app.get('/visualizations', function(req, res) {
     var ds_location = decodeURIComponent(req.query.location);
     var ds_graph = decodeURIComponent(req.query.graph); // if rdf data source
     var ds_format = req.query.format;
+	var host = req.headers.host;
 
     console.log('VISUALIZATION BACKEND: Retrieving recommendations for data source: ' + ds_name + ' ' + ds_location + ' ' + ds_format);
 
@@ -63,7 +64,7 @@ app.get('/visualizations', function(req, res) {
             {
                 id: 5345342,
                 name: "Line Chart",
-                thumbnail: "http://localhost:3002/thumbnails/line_chart.png",
+                thumbnail: "http://" + host + "/thumbnails/line_chart.png",
                 structureOptions: {
                     dimensions: {
                         xAxis: {
@@ -135,7 +136,7 @@ app.get('/visualizations', function(req, res) {
             }, {
                 id: 282534,
                 name: "Column Chart",
-                thumbnail: "http://localhost:3002/thumbnails/column_chart.png",
+                thumbnail: "http://" + host + "/thumbnails/column_chart.png",
                 structureOptions: {
                     dimensions: {
                         xAxis: {
@@ -210,7 +211,7 @@ app.get('/visualizations', function(req, res) {
             }, {
                 id: 34223494,
                 name: "Map",
-                thumbnail: "http://localhost:3002/thumbnails/map.png",
+                thumbnail: "http://" + host + "/thumbnails/map.png",
                 structureOptions: {
                     dimensions: {
                         label: {
@@ -250,7 +251,7 @@ app.get('/visualizations', function(req, res) {
             {
                 id: 351574,
                 name: "Pie Chart",
-                thumbnail: "http://localhost:3002/thumbnails/pie_chart.png",
+                thumbnail: "http://" + host + "/thumbnails/pie_chart.png",
                 structureOptions: {
                     dimensions: {
                         measure: {
@@ -283,7 +284,7 @@ app.get('/visualizations', function(req, res) {
             {
                 id: 3144372,
                 name: "Bubble Chart",
-                thumbnail: "http://localhost:3002/thumbnails/bubble_chart.png",
+                thumbnail: "http://" + host + "/thumbnails/bubble_chart.png",
                 structureOptions: {
                     dimensions: {
                         label: {
@@ -367,7 +368,7 @@ app.get('/visualizations', function(req, res) {
             }, {
                 id: 386595,
                 name: "Area Chart",
-                thumbnail: "http://localhost:3002/thumbnails/area_chart.png",
+                thumbnail: "http://" + host + "/thumbnails/area_chart.png",
                 structureOptions: {
                     dimensions: {
                         xAxis: {
@@ -440,7 +441,7 @@ app.get('/visualizations', function(req, res) {
             {
                 id: 382774,
                 name: "Scatter Chart",
-                thumbnail: "http://localhost:3002/thumbnails/scatter_chart.png",
+                thumbnail: "http://" + host + "/thumbnails/scatter_chart.png",
                 structureOptions: {
                     dimensions: {
                         yAxis: {

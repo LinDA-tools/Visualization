@@ -1,0 +1,269 @@
+{ <urn:ac544b00-4d27-47b4-8065-ae0b6fd361fd>
+          a       <http://purl.org/eis/vocab/daq#QualityGraph> ;
+          <http://purl.org/linked-data/cube#structure>
+                  <http://purl.org/eis/vocab/daq#dsd> .
+}
+
+<urn:ac544b00-4d27-47b4-8065-ae0b6fd361fd> {
+    <urn:e3e58987-dd46-4d4b-bdae-bc3aee398b4d>
+            a       <http://purl.org/linked-data/cube#Observation> ;
+            <http://purl.org/dc/elements/1.1/date>
+                    "2014-09-11T11:30:41.501Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+            <http://purl.org/eis/vocab/daq#computedOn>
+                    </Users/jeremy/Documents/Workspaces/eis/diachron/examples/efo-2.34.rdf> ;
+            <http://purl.org/eis/vocab/daq#metric>
+                    <urn:feebe4b9-ad4c-4759-82bf-23d1053fdba1> ;
+            <http://purl.org/eis/vocab/daq#value>
+                    "0.0"^^<http://www.w3.org/2001/XMLSchema#double> ;
+            <http://purl.org/linked-data/cube#dataSet>
+                    <urn:ac544b00-4d27-47b4-8065-ae0b6fd361fd> .
+    
+    <urn:cf168d37-43bb-49ab-a6e1-72f8610c5d10>
+            a       <http://purl.org/linked-data/cube#Observation> ;
+            <http://purl.org/dc/elements/1.1/date>
+                    "2014-09-11T11:30:40.812Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+            <http://purl.org/eis/vocab/daq#computedOn>
+                    </Users/jeremy/Documents/Workspaces/eis/diachron/examples/efo-2.34.rdf> ;
+            <http://purl.org/eis/vocab/daq#metric>
+                    <urn:b9395cfb-72f8-498a-ab67-0d09134f52f8> ;
+            <http://purl.org/eis/vocab/daq#value>
+                    "0.5772895366543398"^^<http://www.w3.org/2001/XMLSchema#double> ;
+            <http://purl.org/linked-data/cube#dataSet>
+                    <urn:ac544b00-4d27-47b4-8065-ae0b6fd361fd> .
+    
+    <urn:f027ba66-aa4d-4425-bbc6-08283978a842>
+            a       <http://www.diachron-fp7.eu/dqm#TimelinessOfResourceMetric> ;
+            <http://purl.org/eis/vocab/daq#hasObservation>
+                    <urn:fe103e99-f3bc-47f5-b058-704bba134203> .
+    
+    <urn:9ea0f7ea-0434-437c-8f74-cc513c84c1dc>
+            a       <http://purl.org/linked-data/cube#Observation> ;
+            <http://purl.org/dc/elements/1.1/date>
+                    "2014-09-11T11:30:59.863Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+            <http://purl.org/eis/vocab/daq#computedOn>
+                    </Users/jeremy/Documents/Workspaces/eis/diachron/examples/efo-2.34.rdf> ;
+            <http://purl.org/eis/vocab/daq#metric>
+                    <urn:c1343c46-3ff2-4991-9a8b-512a1e7c4ff1> ;
+            <http://purl.org/eis/vocab/daq#value>
+                    "0.0"^^<http://www.w3.org/2001/XMLSchema#double> ;
+            <http://purl.org/linked-data/cube#dataSet>
+                    <urn:ac544b00-4d27-47b4-8065-ae0b6fd361fd> .
+    
+    <urn:6201ccac-aca4-4fe2-b4a7-14fb30deb9dd>
+            a       <http://purl.org/linked-data/cube#Observation> ;
+            <http://purl.org/dc/elements/1.1/date>
+                    "2014-09-11T11:30:40.109Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+            <http://purl.org/eis/vocab/daq#computedOn>
+                    </Users/jeremy/Documents/Workspaces/eis/diachron/examples/efo-2.34.rdf> ;
+            <http://purl.org/eis/vocab/daq#metric>
+                    <urn:cea3688a-bd88-4219-9fff-3f944319e200> ;
+            <http://purl.org/eis/vocab/daq#value>
+                    "1.0"^^<http://www.w3.org/2001/XMLSchema#double> ;
+            <http://purl.org/linked-data/cube#dataSet>
+                    <urn:ac544b00-4d27-47b4-8065-ae0b6fd361fd> .
+    
+    <urn:053ae665-108b-4646-8def-1c32bb308004>
+            a       <http://www.diachron-fp7.eu/dqm#Dynamicity> ;
+            <http://www.diachron-fp7.eu/dqm#hasTimelinessDimension>
+                    <urn:16630fcd-9930-4ea6-aabe-99d2c2253748> .
+    
+    <urn:35540feb-7bbf-4405-a00b-31f849435270>
+            a       <http://www.diachron-fp7.eu/dqm#EntitiesAsMembersOfDisjointClassesMetric> ;
+            <http://purl.org/eis/vocab/daq#hasObservation>
+                    <urn:6035ae3c-2698-4398-9230-05e3803102de> .
+    
+    <urn:ddfb5a1f-6bb6-427b-b0f2-066912afe829>
+            a       <http://www.diachron-fp7.eu/dqm#Consistency> ;
+            <http://www.diachron-fp7.eu/dqm#hasEntitiesAsMembersOfDisjointClassesMetric>
+                    <urn:35540feb-7bbf-4405-a00b-31f849435270> ;
+            <http://www.diachron-fp7.eu/dqm#hasHomogeneousDatatypesMetric>
+                    <urn:c1343c46-3ff2-4991-9a8b-512a1e7c4ff1> .
+    
+    <urn:cfe0737a-9510-4343-8b00-e53a8c8a0d6a>
+            a       <http://purl.org/linked-data/cube#Observation> ;
+            <http://purl.org/dc/elements/1.1/date>
+                    "2014-09-11T11:30:40.149Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+            <http://purl.org/eis/vocab/daq#computedOn>
+                    </Users/jeremy/Documents/Workspaces/eis/diachron/examples/efo-2.34.rdf> ;
+            <http://purl.org/eis/vocab/daq#metric>
+                    <urn:8e60ff38-8f61-4993-bb21-2137fd944377> ;
+            <http://purl.org/eis/vocab/daq#value>
+                    "1.0"^^<http://www.w3.org/2001/XMLSchema#double> ;
+            <http://purl.org/linked-data/cube#dataSet>
+                    <urn:ac544b00-4d27-47b4-8065-ae0b6fd361fd> .
+    
+    <urn:0da1bfb9-01c3-41e2-8e77-fcafa2ef9ae6>
+            a       <http://purl.org/linked-data/cube#Observation> ;
+            <http://purl.org/dc/elements/1.1/date>
+                    "2014-09-11T11:30:38.881Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+            <http://purl.org/eis/vocab/daq#computedOn>
+                    </Users/jeremy/Documents/Workspaces/eis/diachron/examples/efo-2.34.rdf> ;
+            <http://purl.org/eis/vocab/daq#metric>
+                    <urn:7f4a0e68-5ed3-4400-85db-91f2decbd347> ;
+            <http://purl.org/eis/vocab/daq#value>
+                    "0.0021156025689459765"^^<http://www.w3.org/2001/XMLSchema#double> ;
+            <http://purl.org/linked-data/cube#dataSet>
+                    <urn:ac544b00-4d27-47b4-8065-ae0b6fd361fd> .
+    
+    <urn:fe103e99-f3bc-47f5-b058-704bba134203>
+            a       <http://purl.org/linked-data/cube#Observation> ;
+            <http://purl.org/dc/elements/1.1/date>
+                    "2014-09-11T11:30:41.126Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+            <http://purl.org/eis/vocab/daq#computedOn>
+                    </Users/jeremy/Documents/Workspaces/eis/diachron/examples/efo-2.34.rdf> ;
+            <http://purl.org/eis/vocab/daq#metric>
+                    <urn:f027ba66-aa4d-4425-bbc6-08283978a842> ;
+            <http://purl.org/eis/vocab/daq#value>
+                    "0.0"^^<http://www.w3.org/2001/XMLSchema#double> ;
+            <http://purl.org/linked-data/cube#dataSet>
+                    <urn:ac544b00-4d27-47b4-8065-ae0b6fd361fd> .
+    
+    <urn:6035ae3c-2698-4398-9230-05e3803102de>
+            a       <http://purl.org/linked-data/cube#Observation> ;
+            <http://purl.org/dc/elements/1.1/date>
+                    "2014-09-11T11:30:41.624Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+            <http://purl.org/eis/vocab/daq#computedOn>
+                    </Users/jeremy/Documents/Workspaces/eis/diachron/examples/efo-2.34.rdf> ;
+            <http://purl.org/eis/vocab/daq#metric>
+                    <urn:35540feb-7bbf-4405-a00b-31f849435270> ;
+            <http://purl.org/eis/vocab/daq#value>
+                    "0.0"^^<http://www.w3.org/2001/XMLSchema#double> ;
+            <http://purl.org/linked-data/cube#dataSet>
+                    <urn:ac544b00-4d27-47b4-8065-ae0b6fd361fd> .
+    
+    <urn:16630fcd-9930-4ea6-aabe-99d2c2253748>
+            a       <http://www.diachron-fp7.eu/dqm#Timeliness> ;
+            <http://www.diachron-fp7.eu/dqm#hasTimelinessOfResourceMetric>
+                    <urn:f027ba66-aa4d-4425-bbc6-08283978a842> .
+    
+    <urn:c1343c46-3ff2-4991-9a8b-512a1e7c4ff1>
+            a       <http://www.diachron-fp7.eu/dqm#HomogeneousDatatypesMetric> ;
+            <http://purl.org/eis/vocab/daq#hasObservation>
+                    <urn:9ea0f7ea-0434-437c-8f74-cc513c84c1dc> .
+    
+    <urn:7f4a0e68-5ed3-4400-85db-91f2decbd347>
+            a       <http://www.diachron-fp7.eu/dqm#POBODefinitionUsageMetric> ;
+            <http://purl.org/eis/vocab/daq#hasObservation>
+                    <urn:0da1bfb9-01c3-41e2-8e77-fcafa2ef9ae6> .
+    
+    <urn:cea3688a-bd88-4219-9fff-3f944319e200>
+            a       <http://www.diachron-fp7.eu/dqm#OntologyVersionConcisenessMetric> ;
+            <http://purl.org/eis/vocab/daq#hasObservation>
+                    <urn:6201ccac-aca4-4fe2-b4a7-14fb30deb9dd> .
+    
+    <urn:b9395cfb-72f8-498a-ab67-0d09134f52f8>
+            a       <http://www.diachron-fp7.eu/dqm#HumanReadableLabellingMetric> ;
+            <http://purl.org/eis/vocab/daq#hasObservation>
+                    <urn:cf168d37-43bb-49ab-a6e1-72f8610c5d10> .
+    
+    <urn:120ed0fb-92d8-47f4-9477-d508c464a929>
+            a       <http://www.diachron-fp7.eu/dqm#Understandability> ;
+            <http://www.diachron-fp7.eu/dqm#hasHumanReadableLabellingMetric>
+                    <urn:b9395cfb-72f8-498a-ab67-0d09134f52f8> ;
+            <http://www.diachron-fp7.eu/dqm#hasLowBlankNodesUsageMetric>
+                    <urn:feebe4b9-ad4c-4759-82bf-23d1053fdba1> ;
+            <http://www.diachron-fp7.eu/dqm#hasObsoleteConceptsInOntologyMetric>
+                    <urn:6f17ef70-51f1-48a6-a665-ae474d873835> .
+    
+    <urn:bcbe78c5-94eb-44f9-ac85-a8cffddef144>
+            a       <http://www.diachron-fp7.eu/dqm#Intrinsic> ;
+            <http://www.diachron-fp7.eu/dqm#hasAccuracyDimension>
+                    <urn:3ae53644-9d75-4127-9750-4062de3c0d6d> ;
+            <http://www.diachron-fp7.eu/dqm#hasConcisenessDimension>
+                    <urn:5dcb6169-d992-4db1-946a-33a003e7b609> ;
+            <http://www.diachron-fp7.eu/dqm#hasConsistencyDimension>
+                    <urn:ddfb5a1f-6bb6-427b-b0f2-066912afe829> .
+    
+    <urn:443fcefb-0824-4a32-9b44-96e89ae238a3>
+            a       <http://www.diachron-fp7.eu/dqm#SynonymUsageMetric> ;
+            <http://purl.org/eis/vocab/daq#hasObservation>
+                    <urn:07bee198-e96f-482b-81c5-ef122a847164> .
+    
+    <urn:07bee198-e96f-482b-81c5-ef122a847164>
+            a       <http://purl.org/linked-data/cube#Observation> ;
+            <http://purl.org/dc/elements/1.1/date>
+                    "2014-09-11T11:30:40.489Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+            <http://purl.org/eis/vocab/daq#computedOn>
+                    </Users/jeremy/Documents/Workspaces/eis/diachron/examples/efo-2.34.rdf> ;
+            <http://purl.org/eis/vocab/daq#metric>
+                    <urn:443fcefb-0824-4a32-9b44-96e89ae238a3> ;
+            <http://purl.org/eis/vocab/daq#value>
+                    "0.4408764639214205"^^<http://www.w3.org/2001/XMLSchema#double> ;
+            <http://purl.org/linked-data/cube#dataSet>
+                    <urn:ac544b00-4d27-47b4-8065-ae0b6fd361fd> .
+    
+    <urn:3ae53644-9d75-4127-9750-4062de3c0d6d>
+            a       <http://www.diachron-fp7.eu/dqm#Accuracy> ;
+            <http://www.diachron-fp7.eu/dqm#hasDefinedOntologyAuthorMetric>
+                    <urn:8e60ff38-8f61-4993-bb21-2137fd944377> ;
+            <http://www.diachron-fp7.eu/dqm#hasPOBODefinitionUsageMetric>
+                    <urn:7f4a0e68-5ed3-4400-85db-91f2decbd347> ;
+            <http://www.diachron-fp7.eu/dqm#hasSynonymUsageMetric>
+                    <urn:443fcefb-0824-4a32-9b44-96e89ae238a3> .
+    
+    <urn:89fe5a32-b3c5-402a-b212-b8b51ac4f17b>
+            a       <http://www.diachron-fp7.eu/dqm#Representational> ;
+            <http://www.diachron-fp7.eu/dqm#hasRepresentationalConcisenessDimension>
+                    <urn:120ed0fb-92d8-47f4-9477-d508c464a929> .
+    
+    <urn:96fcddb5-0a1e-4ce1-8c1a-92a80aaddf94>
+            a       <http://www.diachron-fp7.eu/dqm#Accessibility> ;
+            <http://www.diachron-fp7.eu/dqm#hasPerformanceDimension>
+                    <urn:f4294bd7-c44b-42ae-838f-58b0fdcadf01> .
+    
+    <urn:feebe4b9-ad4c-4759-82bf-23d1053fdba1>
+            a       <http://www.diachron-fp7.eu/dqm#LowBlankNodesUsageMetric> ;
+            <http://purl.org/eis/vocab/daq#hasObservation>
+                    <urn:e3e58987-dd46-4d4b-bdae-bc3aee398b4d> .
+    
+    <urn:6a13894d-0390-4d76-ad3d-6b6d00fa3a5c>
+            a       <http://www.diachron-fp7.eu/dqm#ScalabilityOfDataSourceMetric> ;
+            <http://purl.org/eis/vocab/daq#hasObservation>
+                    <urn:87e728d4-d734-4abe-b3a6-c15917c32b91> .
+    
+    <urn:8e60ff38-8f61-4993-bb21-2137fd944377>
+            a       <http://www.diachron-fp7.eu/dqm#DefinedOntologyAuthorMetric> ;
+            <http://purl.org/eis/vocab/daq#hasObservation>
+                    <urn:cfe0737a-9510-4343-8b00-e53a8c8a0d6a> .
+    
+    <urn:f51c0595-8534-47cc-926c-c5be528e21c4>
+            a       <http://purl.org/linked-data/cube#Observation> ;
+            <http://purl.org/dc/elements/1.1/date>
+                    "2014-09-11T11:30:39.64Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+            <http://purl.org/eis/vocab/daq#computedOn>
+                    </Users/jeremy/Documents/Workspaces/eis/diachron/examples/efo-2.34.rdf> ;
+            <http://purl.org/eis/vocab/daq#metric>
+                    <urn:6f17ef70-51f1-48a6-a665-ae474d873835> ;
+            <http://purl.org/eis/vocab/daq#value>
+                    "0.020173781639591992"^^<http://www.w3.org/2001/XMLSchema#double> ;
+            <http://purl.org/linked-data/cube#dataSet>
+                    <urn:ac544b00-4d27-47b4-8065-ae0b6fd361fd> .
+    
+    <urn:f4294bd7-c44b-42ae-838f-58b0fdcadf01>
+            a       <http://www.diachron-fp7.eu/dqm#Performance> ;
+            <http://www.diachron-fp7.eu/dqm#hasScalabilityOfDataSourceMetric>
+                    <urn:6a13894d-0390-4d76-ad3d-6b6d00fa3a5c> .
+    
+    <urn:6f17ef70-51f1-48a6-a665-ae474d873835>
+            a       <http://www.diachron-fp7.eu/dqm#ObsoleteConceptsInOntologyMetric> ;
+            <http://purl.org/eis/vocab/daq#hasObservation>
+                    <urn:f51c0595-8534-47cc-926c-c5be528e21c4> .
+    
+    <urn:87e728d4-d734-4abe-b3a6-c15917c32b91>
+            a       <http://purl.org/linked-data/cube#Observation> ;
+            <http://purl.org/dc/elements/1.1/date>
+                    "2014-09-11T11:30:41.377Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+            <http://purl.org/eis/vocab/daq#computedOn>
+                    </Users/jeremy/Documents/Workspaces/eis/diachron/examples/efo-2.34.rdf> ;
+            <http://purl.org/eis/vocab/daq#metric>
+                    <urn:6a13894d-0390-4d76-ad3d-6b6d00fa3a5c> ;
+            <http://purl.org/eis/vocab/daq#value>
+                    "-1.0"^^<http://www.w3.org/2001/XMLSchema#double> ;
+            <http://purl.org/linked-data/cube#dataSet>
+                    <urn:ac544b00-4d27-47b4-8065-ae0b6fd361fd> .
+    
+    <urn:5dcb6169-d992-4db1-946a-33a003e7b609>
+            a       <http://www.diachron-fp7.eu/dqm#Conciseness> ;
+            <http://www.diachron-fp7.eu/dqm#hasOntologyVersionConcisenessMetric>
+                    <urn:cea3688a-bd88-4219-9fff-3f944319e200> .
+}

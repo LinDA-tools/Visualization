@@ -7,7 +7,7 @@
 var bubblechart = function() {
     var chart = null;
     var seriesHeaders = [];
-    var series = [];
+    var data = [];
 
     function draw(configuration, visualisationContainerID) {
         console.log("### INITIALIZE VISUALISATION - COLUMN CHART");
@@ -48,11 +48,11 @@ var bubblechart = function() {
             console.log("GENERATE INPUT DATA FORMAT FOR COLUMN CHART - INPUT DATA");
             console.dir(inputData);
             seriesHeaders = inputData[0];
-            series = rows(inputData);
+            data = rows(inputData);
             console.log("GENERATE INPUT DATA FORMAT FOR COLUMN CHART - OUTPUT DATA");
-            console.dir(series);
+            console.dir(data);
 
-            var chart = new dimple.chart(svg, series);
+            var chart = new dimple.chart(svg, data);
 
             var labelAxisName = seriesHeaders[0];
             var xAxisName = seriesHeaders[1];
@@ -115,15 +115,15 @@ var bubblechart = function() {
     }
 
     function export_as_PNG() {
-        return exportC3.export_PNG();
+        return exportVis.export_PNG();
     }
 
     function export_as_SVG() {
-        return exportC3.export_SVG();
+        return exportVis.export_SVG();
     }
 
     function get_SVG() {
-        return exportC3.get_SVG();
+        return exportVis.get_SVG();
     }
 
     return {

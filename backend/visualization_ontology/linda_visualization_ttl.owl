@@ -1,0 +1,507 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix : <http://linda-project.eu/linda-visualization#> .
+@prefix common: <http://linda-project.eu/common#> .
+@prefix terms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://linda-project.eu/linda-visualization#>
+    a owl:Ontology ;
+    rdfs:comment "LinDA Visualization Vocabulary"@de ;
+    owl:versionInfo "0.1" .
+
+:AreaChart
+    :layoutOption [
+        :optionName "Label" ;
+        :optionType xsd:string ;
+        a :Option
+    ], [
+        :optionName "Gridlines" ;
+        :optionType xsd:nonNegativeInteger ;
+        a :Option
+    ], [
+        :optionName "Tooltip" ;
+        :optionType xsd:boolean ;
+        a :Option
+    ] ;
+    :structureOption [
+        :optionName "Horizontal Axis" ;
+        :optionType [
+            :maxCardinality "1"^^xsd:nonNegativeInteger ;
+            :minCardinality "1"^^xsd:nonNegativeInteger ;
+            :scaleOfMeasurement :Interval ;
+            a :Dimension
+        ] ;
+        a :Option
+    ], [
+        :optionName "Vertical Axis" ;
+        :optionType [
+            :maxCardinality "1"^^xsd:nonNegativeInteger ;
+            :minCardinality "1"^^xsd:nonNegativeInteger ;
+            :scaleOfMeasurement :Ratio ;
+            a :Dimension
+        ] ;
+        a :Option
+    ], [
+        :optionName "Series" ;
+        :optionType [
+            :maxCardinality "1"^^xsd:nonNegativeInteger ;
+            :scaleOfMeasurement :Nominal ;
+            a :Dimension
+        ] ;
+        a :Option
+    ] ;
+    :visualizationType :PartToWhole, :TimeSeries ;
+    a :Visualization, owl:NamedIndividual ;
+    rdfs:comment "A stacked area chart is a variation of line chart and shows a filled area below the quantity line. It is used to visualize part-to-whole relationships between several time series and their cumulative values."@en .
+
+:BarChart
+    :layoutOption [
+        :optionName "Label" ;
+        :optionType xsd:string ;
+        a :Option
+    ], [
+        :optionName "Gridlines" ;
+        :optionType xsd:nonNegativeInteger ;
+        a :Option
+    ], [
+        :optionName "Tooltip" ;
+        :optionType xsd:boolean ;
+        a :Option
+    ] ;
+    :structureOption [
+        :optionName "Horizontal Axis" ;
+        :optionType [
+            :maxCardinality "1"^^xsd:nonNegativeInteger ;
+            :minCardinality "1"^^xsd:nonNegativeInteger ;
+            :scaleOfMeasurement :Nominal ;
+            a :Dimension
+        ] ;
+        a :Option
+    ], [
+        :optionName "Vertical Axis" ;
+        :optionType [
+            :maxCardinality "1"^^xsd:nonNegativeInteger ;
+            :minCardinality "1"^^xsd:nonNegativeInteger ;
+            :scaleOfMeasurement :Interval, :Ratio ;
+            a :Dimension
+        ] ;
+        a :Option
+    ], [
+        :optionName "Groups" ;
+        :optionType [
+            :maxCardinality "1"^^xsd:nonNegativeInteger ;
+            :scaleOfMeasurement :Nominal ;
+            a :Dimension
+        ] ;
+        a :Option
+    ] ;
+    :visualizationType :Comparison, :PartToWhole, :TimeSeries ;
+    a :Visualization, owl:NamedIndividual ;
+    rdfs:comment "A graph used to display and compare the number, frequency or other measure for different discrete categories of data."@en .
+
+:BubbleChart
+    :layoutOption [
+        :optionName "Label" ;
+        :optionType xsd:string ;
+        a :Option
+    ], [
+        :optionName "Gridlines" ;
+        :optionType xsd:nonNegativeInteger ;
+        a :Option
+    ], [
+        :optionName "Tooltip" ;
+        :optionType xsd:boolean ;
+        a :Option
+    ] ;
+    :structureOption [
+        :optionName "Horizontal Axis" ;
+        :optionType [
+            :maxCardinality "1"^^xsd:nonNegativeInteger ;
+            :minCardinality "1"^^xsd:nonNegativeInteger ;
+            :scaleOfMeasurement :Interval, :Ratio ;
+            a :Dimension
+        ] ;
+        a :Option
+    ], [
+        :optionName "Vertical Axis" ;
+        :optionType [
+            :maxCardinality "1"^^xsd:nonNegativeInteger ;
+            :minCardinality "1"^^xsd:nonNegativeInteger ;
+            :scaleOfMeasurement :Interval, :Ratio ;
+            a :Dimension
+        ] ;
+        a :Option
+    ], [
+        :optionName "Size" ;
+        :optionType [
+            :maxCardinality "1"^^xsd:nonNegativeInteger ;
+            :minCardinality "1"^^xsd:nonNegativeInteger ;
+            :scaleOfMeasurement :Ratio ;
+            a :Dimension
+        ] ;
+        a :Option
+    ], [
+        :optionName "Groups" ;
+        :optionType [
+            :maxCardinality "1"^^xsd:nonNegativeInteger ;
+            :scaleOfMeasurement :Nominal ;
+            a :Dimension
+        ] ;
+        a :Option
+    ], [
+        :optionName "Label" ;
+        :optionType [
+            :maxCardinality "1"^^xsd:nonNegativeInteger ;
+            :scaleOfMeasurement :Nominal ;
+            a :Dimension
+        ] ;
+        a :Option
+    ] ;
+    :visualizationType :Comparison, :Correlation ;
+    a :Visualization, owl:NamedIndividual ;
+    rdfs:comment "A graph is used to display three dimensional data, where the third dimension is a size of a bubble. The fourth dimension could be embedded as a color of bubbles."@en .
+
+:Comparison
+    a :TypeOfVisualization, owl:NamedIndividual ;
+    rdfs:comment "Type of visualization"@en ;
+    rdfs:label "Comparison"@en .
+
+:Correlation
+    a :TypeOfVisualization, owl:NamedIndividual ;
+    rdfs:comment "Type of visualization"@en ;
+    rdfs:label "Correlation"@en .
+
+:Dimension
+    a owl:Class ;
+    rdfs:comment "The type of structure options"@en ;
+    rdfs:label "Dimension"@en .
+
+:Distribution
+    a :TypeOfVisualization, owl:NamedIndividual ;
+    rdfs:comment "Type of visualization"@en ;
+    rdfs:label "Distribution"@en .
+
+:Geographical
+    a :TypeOfVisualization, owl:NamedIndividual ;
+    rdfs:comment "Type of visualization"@en ;
+    rdfs:label "Geographical"@en .
+
+:Interval
+    a :ScaleOfMeasurementForQuantitativeData, owl:NamedIndividual ;
+    rdfs:comment "Scale of measurement for quantitative data"@en ;
+    rdfs:label "Interval"@en .
+
+:LineChart
+    :layoutOption [
+        :optionName "Label" ;
+        :optionType xsd:string ;
+        a :Option
+    ], [
+        :optionName "Gridlines" ;
+        :optionType xsd:nonNegativeInteger ;
+        a :Option
+    ], [
+        :optionName "Tooltip" ;
+        :optionType xsd:boolean ;
+        a :Option
+    ] ;
+    :structureOption [
+        :optionName "Horizontal Axis" ;
+        :optionType [
+            :maxCardinality "1"^^xsd:nonNegativeInteger ;
+            :minCardinality "1"^^xsd:nonNegativeInteger ;
+            :scaleOfMeasurement :Interval ;
+            a :Dimension
+        ] ;
+        a :Option
+    ], [
+        :optionName "Vertical Axis" ;
+        :optionType [
+            :maxCardinality "1"^^xsd:nonNegativeInteger ;
+            :minCardinality "1"^^xsd:nonNegativeInteger ;
+            :scaleOfMeasurement :Interval, :Ratio ;
+            a :Dimension
+        ] ;
+        a :Option
+    ], [
+        :optionName "Series" ;
+        :optionType [
+            :maxCardinality "1"^^xsd:nonNegativeInteger ;
+            :scaleOfMeasurement :Nominal ;
+            a :Dimension
+        ] ;
+        a :Option
+    ] ;
+    :visualizationType :TimeSeries ;
+    a :Visualization, owl:NamedIndividual ;
+    rdfs:comment "A graph used to visualize a trend in data over intervals of time. Line charts emphasize time flow and rate of change rather than the amount of change."@en .
+
+:Map
+    :structureOption [
+        :optionName "Latitude" ;
+        :optionType [
+            :maxCardinality "1"^^xsd:nonNegativeInteger ;
+            :minCardinality "1"^^xsd:nonNegativeInteger ;
+            :scaleOfMeasurement :Spatial ;
+            a :Dimension
+        ] ;
+        a :Option
+    ], [
+        :optionName "Longitude" ;
+        :optionType [
+            :maxCardinality "1"^^xsd:nonNegativeInteger ;
+            :minCardinality "1"^^xsd:nonNegativeInteger ;
+            :scaleOfMeasurement :Spatial ;
+            a :Dimension
+        ] ;
+        a :Option
+    ], [
+        :optionName "Label" ;
+        :optionType [
+            :maxCardinality "1"^^xsd:nonNegativeInteger ;
+            :minCardinality "1"^^xsd:nonNegativeInteger ;
+            :scaleOfMeasurement :Nominal ;
+            a :Dimension
+        ] ;
+        a :Option
+    ], [
+        :optionName "Indicator" ;
+        :optionType [
+            :scaleOfMeasurement :Ratio ;
+            a :Dimension
+        ] ;
+        a :Option
+    ] ;
+    :visualizationType :Comparison, :Geographical ;
+    a :Visualization, owl:NamedIndividual ;
+    rdfs:comment "A visualization used for displaying geographical data on a map."@en .
+
+:Nominal
+    a :ScaleOfMeasurementForCategoricalData, owl:NamedIndividual ;
+    rdfs:comment "Scale of measurement for categorical data"@en ;
+    rdfs:label "Nominal"@en .
+
+:Option
+    a owl:Class ;
+    rdfs:comment ""@en ;
+    rdfs:label "Option"@en .
+
+:Ordinal
+    a :ScaleOfMeasurementForCategoricalData, owl:NamedIndividual ;
+    rdfs:comment "Scale of measurement for categorical data"@en ;
+    rdfs:label "Ordinal"@en .
+
+:PartToWhole
+    a :TypeOfVisualization, owl:NamedIndividual ;
+    rdfs:comment "Type of visualization"@en ;
+    rdfs:label "Part-To-Whole"@en .
+
+:PieChart
+    :layoutOption [
+        :optionName "Label" ;
+        :optionType xsd:string ;
+        a :Option
+    ], [
+        :optionName "Tooltip" ;
+        :optionType xsd:boolean ;
+        a :Option
+    ] ;
+    :structureOption [
+        :optionName "Measure Axis" ;
+        :optionType [
+            :maxCardinality "1"^^xsd:nonNegativeInteger ;
+            :minCardinality "1"^^xsd:nonNegativeInteger ;
+            :scaleOfMeasurement :Ratio ;
+            a :Dimension
+        ] ;
+        a :Option
+    ], [
+        :optionName "Series" ;
+        :optionType [
+            :maxCardinality "6"^^xsd:nonNegativeInteger ;
+            :minCardinality "1"^^xsd:nonNegativeInteger ;
+            :scaleOfMeasurement :Nominal ;
+            a :Dimension
+        ] ;
+        a :Option
+    ] ;
+    :visualizationType :PartToWhole ;
+    a :Visualization, owl:NamedIndividual ;
+    rdfs:comment "A graph used for visualizing the relative contribution that different categories contribute to an overall total."@en .
+
+:Ratio
+    a :ScaleOfMeasurementForQuantitativeData, owl:NamedIndividual ;
+    rdfs:comment "Scale of measurement for quantitative data"@en ;
+    rdfs:label "Ratio"@en .
+
+:ScaleOfMeasurement
+    a owl:Class ;
+    rdfs:comment "Scale Of Measurement: Categorical (nominal, ordinal), Quantitative (Interval) data"@en ;
+    rdfs:label "Scale Of Measurement"@en .
+
+:ScaleOfMeasurementForCategoricalData
+    a owl:Class ;
+    rdfs:comment "Scale Of Measurement for categorical data: nominal, ordinal"@en ;
+    rdfs:label "SoM Categorical Data"@en ;
+    rdfs:subClassOf :ScaleOfMeasurement .
+
+:ScaleOfMeasurementForQuantitativeData
+    a owl:Class ;
+    rdfs:comment "Scale Of Measurement for quantitative data: interval, ratio"@en ;
+    rdfs:label "SoM Quantitative Data"@en ;
+    rdfs:subClassOf :ScaleOfMeasurement .
+
+:ScaleOfMeasurementForSpatialData
+    a owl:Class ;
+    rdfs:comment "Scale Of Measurement for spatial data: latitude, longitude"@en ;
+    rdfs:label "SoM Spatial Data"@en ;
+    rdfs:subClassOf :ScaleOfMeasurement .
+
+:ScatterChart
+    :layoutOption [
+        :optionName "Label" ;
+        :optionType xsd:string ;
+        a :Option
+    ], [
+        :optionName "Gridlines" ;
+        :optionType xsd:nonNegativeInteger ;
+        a :Option
+    ], [
+        :optionName "Tooltip" ;
+        :optionType xsd:boolean ;
+        a :Option
+    ] ;
+    :structureOption [
+        :optionName "Horizontal Axis" ;
+        :optionType [
+            :maxCardinality "1"^^xsd:nonNegativeInteger ;
+            :minCardinality "1"^^xsd:nonNegativeInteger ;
+            :scaleOfMeasurement :Inerval, :Ratio ;
+            a :Dimension
+        ] ;
+        a :Option
+    ], [
+        :optionName "Vertical Axis" ;
+        :optionType [
+            :maxCardinality "1"^^xsd:nonNegativeInteger ;
+            :minCardinality "1"^^xsd:nonNegativeInteger ;
+            :scaleOfMeasurement :Inerval, :Ratio ;
+            a :Dimension
+        ] ;
+        a :Option
+    ], [
+        :optionName "Groups" ;
+        :optionType [
+            :maxCardinality "1"^^xsd:nonNegativeInteger ;
+            :scaleOfMeasurement :Nominal ;
+            a :Dimension
+        ] ;
+        a :Option
+    ] ;
+    :visualizationType :Comparision, :Correlation ;
+    a :Visualization, owl:NamedIndividual ;
+    rdfs:comment "A graph used to show the relationship between pairs of quantitative measurements."@en .
+
+:Spatial
+    a :ScaleOfMeasurementForSpatialData, owl:NamedIndividual ;
+    rdfs:comment "Scale of measurement for spatial data"@en ;
+    rdfs:label "Spatial"@en .
+
+:TimeSeries
+    a :TypeOfVisualization, owl:NamedIndividual ;
+    rdfs:comment "Type of visualization"@en ;
+    rdfs:label "Time Series"@en .
+
+:TypeOfVisualization
+    a owl:Class ;
+    rdfs:comment "Type of visualization: Comparision, Time Series, Part-To-Whole, Distribution, Correlation"@en ;
+    rdfs:label "Type Of Visualization"@en .
+
+:Visualization
+    a owl:Class ;
+    rdfs:comment ""@en ;
+    rdfs:label "Visualization"@en .
+
+:VisualizationConfiguration
+    a owl:Class ;
+    rdfs:comment ""@en ;
+    rdfs:label "Visualization Configuration"@en .
+
+:datasource
+    a owl:DatatypeProperty ;
+    rdfs:comment ""@en ;
+    rdfs:domain :VisualizationConfiguration ;
+    rdfs:label "Visualization Configuration Datasource"@en ;
+    rdfs:range xsd:anyURI .
+
+:hasVisualization
+    a owl:ObjectProperty ;
+    rdfs:comment ""@en ;
+    rdfs:domain :VisualizationConfiguration ;
+    rdfs:label "Visualization"@en ;
+    rdfs:range :Visualization .
+
+:layoutOptions
+    a owl:ObjectProperty ;
+    rdfs:comment ""@en ;
+    rdfs:domain :Visualization ;
+    rdfs:label "Layout_Options"@en ;
+    rdfs:range :Option .
+
+:maxCardinality
+    a owl:DatatypeProperty ;
+    rdfs:comment "The maximum number of properties mapped to the dimension. "@en ;
+    rdfs:domain :Dimension ;
+    rdfs:label "Maximum cardinality"@en ;
+    rdfs:range xsd:nonNegativeInteger .
+
+:minCardinality
+    a owl:DatatypeProperty ;
+    rdfs:comment "The minimum number of properties mapped to the dimension. "@en ;
+    rdfs:domain :Dimension ;
+    rdfs:label "Minimum cardinality"@en ;
+    rdfs:range xsd:nonNegativeInteger .
+
+:optionName
+    a owl:DatatypeProperty ;
+    rdfs:comment ""@en ;
+    rdfs:domain :Option ;
+    rdfs:label "Option Name"@en ;
+    rdfs:range xsd:string .
+
+:optionType
+    a owl:ObjectProperty ;
+    rdfs:comment "Can be a Dimension (structure option), or xsd:string, xsd:number, xsd:boolean (layout options) "@en ;
+    rdfs:domain :Option ;
+    rdfs:label "Option_Type"@en .
+
+:scaleOfMeasurement
+    a owl:ObjectProperty ;
+    rdfs:comment "The scale of measurement of a dimension. "@en ;
+    rdfs:domain :Dimension ;
+    rdfs:label "Scale of measurement"@en ;
+    rdfs:range :ScaleOfMeasurement .
+
+:structureOption
+    a owl:ObjectProperty ;
+    rdfs:comment ""@en ;
+    rdfs:domain :Visualization ;
+    rdfs:label "Structure_Option"@en ;
+    rdfs:range :Option .
+
+:visualizationID
+    a owl:DatatypeProperty ;
+    rdfs:comment ""@en ;
+    rdfs:domain :VisualizationConfiguration ;
+    rdfs:label "Visualization_ID"@en ;
+    rdfs:range xsd:nonNegativeInteger .
+
+:visualizationName
+    a owl:DatatypeProperty ;
+    rdfs:comment ""@en ;
+    rdfs:domain :Visualization ;
+    rdfs:label "Visualization Name"@en ;
+    rdfs:range xsd:string .
+

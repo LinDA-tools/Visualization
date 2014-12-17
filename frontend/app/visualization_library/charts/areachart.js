@@ -13,8 +13,7 @@ var areachart = function() {
         container.empty();
 
         if (!(configuration.dataModule && configuration.datasourceLocation
-                && configuration.xAxis && configuration.yAxis
-                && configuration.orderBy)) {
+                && configuration.xAxis && configuration.yAxis)) {
             return $.Deferred().resolve().promise();
         }
 
@@ -27,18 +26,13 @@ var areachart = function() {
 
         var selection = {
             dimension: configuration.yAxis, // measure
-            multidimension: configuration.xAxis.concat(configuration.addedSeries).concat(configuration.orderBy),
-            group: [],
-            gridlines: configuration.gridlines,
-            hLabel: configuration.hLabel,
-            vLabel: configuration.vLabel,
-            ticks: configuration.ticks,
-            tooltip: configuration.tooltip
+            multidimension: configuration.xAxis.concat(configuration.addedSeries),
+            group: []
         };
 
         console.log("VISUALISATION SELECTION FOR AREA CHART:");
         console.dir(selection);
-        
+
         var svg = dimple.newSvg('#' + visualisationContainerID, container.width(), container.height());
 
         return dataModule.parse(location, selection).then(function(inputData) {
@@ -48,15 +42,13 @@ var areachart = function() {
             console.dir(data);
 
             var chart = new dimple.chart(svg, data);
-
+            
             var x = chart.addCategoryAxis("x", columnsHeaders[1]); // x axis: ordinal values
             var y = chart.addMeasureAxis("y", columnsHeaders[0]); // y axis: one measure (scale)  
 
             var series = null;
 
-            if (configuration.orderBy.length > 0) {
-                x.addOrderRule(columnsHeaders[columnsHeaders.length - 1]); // ordered values on x axis 
-            } else if (configuration.addedSeries.length > 0) {
+            if (configuration.addedSeries.length > 0) {
                 series = columnsHeaders.slice(2);
             }
 
@@ -92,17 +84,15 @@ var areachart = function() {
     }
 
     function export_as_PNG() {
-        return exportC3.export_PNG();
+        return exportVis.export_PNG();
     }
 
     function export_as_SVG() {
-        return exportC3.export_SVG();
+        return exportVis.export_SVG();
     }
 
     function get_SVG() {
-        setTimeout(function() {
-            return exportC3.get_SVG();
-        }, 2000);
+        return exportVis.get_SVG();
     }
 
     return {

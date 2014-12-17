@@ -101,15 +101,15 @@ var columnchart = function() {
     }
 
     function export_as_PNG() {
-        return exportC3.export_PNG();
+        return exportVis.export_PNG();
     }
 
     function export_as_SVG() {
-        return exportC3.export_SVG();
+        return exportVis.export_SVG();
     }
 
     function get_SVG() {
-        return exportC3.get_SVG();
+        return exportVis.get_SVG();
     }
 
     return {

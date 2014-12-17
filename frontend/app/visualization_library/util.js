@@ -50,7 +50,7 @@ function toScalar(value, state) {
         if (isNaN(date)) {
             return value;
         } else {
-            return new Date(date);
+            return new Date(date).toISOString();
         }
     }
 }

@@ -36,7 +36,7 @@ App.VisualizationOptionsView = Ember.ContainerView.extend({
                 name: optionName,
                 label: optionTemplate.label,
                 content: optionTemplate.value,
-                metadata: optionTemplate.metadata.types,
+                metadata: optionTemplate.metadata ? optionTemplate.metadata.types : "",
                 contentObserver: function() {
                     var content = this.get('content');                  
                     var name = this.get('name');
@@ -46,6 +46,7 @@ App.VisualizationOptionsView = Ember.ContainerView.extend({
                     var configMap = config[0];
                     configMap[name] = content;
                     config.setObjects([configMap]);
+                    optionTemplate.value = content;
                 }.observes('content.@each').on('init')
             }).create();
             this.pushObject(view);

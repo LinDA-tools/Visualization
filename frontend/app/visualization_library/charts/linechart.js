@@ -13,8 +13,7 @@ var linechart = function() {
         container.empty();
 
         if (!(configuration.dataModule && configuration.datasourceLocation
-                && configuration.xAxis && configuration.yAxis
-                && configuration.orderBy)) {
+                && configuration.xAxis && configuration.yAxis)) {
             return $.Deferred().resolve().promise();
         }
 
@@ -27,13 +26,8 @@ var linechart = function() {
 
         var selection = {
             dimension: configuration.yAxis, // measure
-            multidimension: configuration.xAxis.concat(configuration.addedSeries).concat(configuration.orderBy),
-            group: [],
-            gridlines: configuration.gridlines,
-            hLabel: configuration.hLabel,
-            vLabel: configuration.vLabel,
-            ticks: configuration.ticks,
-            tooltip: configuration.tooltip
+            multidimension: configuration.xAxis.concat(configuration.addedSeries),
+            group: []
         };
 
         console.log("VISUALISATION SELECTION FOR LINE CHART:");
@@ -54,9 +48,7 @@ var linechart = function() {
 
             var series = null;
 
-            if (configuration.orderBy.length > 0) {
-                x.addOrderRule(columnsHeaders[columnsHeaders.length - 1]); // ordered values on x axis 
-            } else if (configuration.addedSeries.length > 0) {
+            if (configuration.addedSeries.length > 0) {
                 series = columnsHeaders.slice(2);
             }
 
@@ -92,17 +84,15 @@ var linechart = function() {
     }
 
     function export_as_PNG() {
-        return exportC3.export_PNG();
+        return exportVis.export_PNG();
     }
 
     function export_as_SVG() {
-        return exportC3.export_SVG();
+        return exportVis.export_SVG();
     }
 
     function get_SVG() {
-        setTimeout(function() {
-            return exportC3.get_SVG();
-        }, 2000);
+        return exportVis.get_SVG();
     }
 
     return {

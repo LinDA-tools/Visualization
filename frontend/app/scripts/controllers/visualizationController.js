@@ -1,10 +1,17 @@
 App.VisualizationController = Ember.ArrayController.extend({
     layoutOptions: {},
     structureOptions: {},
+    slideShowContainer: Ember.ContainerView.create(),
     datasource: Ember.computed.alias("selectedVisualization.datasource"),
     visualizationConfiguration: [{}],
     visualizationSVG: '',
     recommendations: Ember.computed.alias("model"), // each recommendation is an instance of the visualization model
+    refreshSlideshow: function() {
+        var container = this.get('slideShowContainer');
+        container.removeAllChildren();
+        var slideshow = App.SlideShowView.create({slides:this.get("model")}); 
+        container.pushObject(slideshow);
+    }.observes("model"),
     createVisualization: function() {
         var selectedVisualization = this.get('selectedVisualization');
         console.log("Creating visualization: ");

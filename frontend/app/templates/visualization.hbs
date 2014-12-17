@@ -4,10 +4,10 @@
         <div class="row inner_box">
             <div class="inner_title_box">
                 <h7>SELECT VISUALIZATION</h7>
-            </div> 
+            </div>
             <div class="sliderWrapper">
-                {{view App.SlideShowView slides=controller.recommendations}}
-            </div>    
+                {{view controller.slideShowContainer}}
+            </div>
         </div>                    
         <!-- Visualization Configuration - Left: Tree with data source; Right: dimension mapping -->        
         <div class="row inner_box">
@@ -34,7 +34,7 @@
             </div>      
         </div>  
     </div>                                          
-          
+
     <div class="large-7 medium-9 columns">       
         <div class="inner_box">
             <!-- Visualization -->

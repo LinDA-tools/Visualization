@@ -1,6 +1,10 @@
 var http = require('http');
 var GraphStoreClient = require('graph-store-client');
 var express = require('express');
+var store_visualization = require('./visualization_modules/store_visualization_config.js');
+var query_visualization = require('./visualization_modules/query_visualization_config.js');
+var query_patterns = require('./visualization_modules/query_visualization_patterns.js');
+var query_visualizations = require('./visualization_modules/query_visualizations.js');
 
 var Q = require('q');
 Q.longStackSupport = true;
@@ -67,50 +71,57 @@ app.get('/visualizations', function(req, res) {
                 thumbnail: "http://" + host + "/thumbnails/line_chart.png",
                 structureOptions: {
                     xAxis: {
-                        label: "Drag & drop a ordinal value",
+                        label: "Horizontal Axis",
+                        id: "xAxis",
                         value: [],
-                        type:"dimension",
+                        type: "dimension",
                         metadata: {
-                            types: ["dates or ", "other continuous values"]
+                            types: ["date"]
                         }
                     },
                     yAxis: {
-                        label: "Drag & drop a measure",
+                        label: "Vertical Axis",
+                        id: "yAxis",
                         value: [],
-                        type:"dimension",
+                        type: "dimension",
                         metadata: {
                             types: ["number"]
                         }
                     },
                     addedSeries: {
-                        label: "Drag & drop additional series",
+                        label: "Series",
+                        id: "addedSeries",
                         value: [],
-                        type:"dimension",
+                        type: "dimension",
                         metadata: {
-                            types: ["any"]
+                            types: [""]
                         }
                     }
-
                 },
                 layoutOptions: {
                     hLabel: {
                         label: "Horizontal Label",
+                        id: 'hLabel',
                         value: "",
                         type: "string"
                     }, vLabel: {
                         label: "Vertical Label",
+                        id: 'vLabel',
                         value: "",
                         type: "string"
                     }, ticks: {
                         label: "Ticks",
+                        id: 'ticks',
                         value: 10,
                         type: "number"
                     }, tooltip: {
                         label: "Show Tooltip",
+                        id: 'tooltip',
                         value: false,
                         type: "boolean"
                     }, gridlines: {
                         label: "Gridlines",
+                        id: 'gridlines',
                         value: true,
                         type: "boolean"
                     }
@@ -123,30 +134,30 @@ app.get('/visualizations', function(req, res) {
                 thumbnail: "http://" + host + "/thumbnails/column_chart.png",
                 structureOptions: {
                     xAxis: {
-                        label: "Drag & drop categories",
+                        label: "Horizontal Axis",
                         value: [],
-                        type:"dimension",
+                        type: "dimension",
                         metadata: {
-                            types: ["string"]
+                            types: ["categorical data"]
                         }
                     }, yAxis: {
-                        label: "Drag & drop a measure",
+                        label: "Vertical Axis",
                         value: [],
-                        type:"dimension",
+                        type: "dimension",
                         metadata: {
-                            types: ["number"]
+                            types: ["measures (numbers)"]
                         }
                     }, group: {
                         label: "Group by",
                         value: [],
-                        type:"dimension",
+                        type: "dimension",
                         metadata: {
                             types: ["any"]
                         }
                     }, stackedGroup: {
-                        label: "Build stacked groups by",
+                        label: "Stacked groups",
                         value: [],
-                        type:"dimension",
+                        type: "dimension",
                         metadata: {
                             types: ["any"]
                         }
@@ -189,15 +200,15 @@ app.get('/visualizations', function(req, res) {
                     label: {
                         label: "Label",
                         value: [],
-                        type:"dimension",
+                        type: "dimension",
                         metadata: {
-                            types: ["number, ", "string or ", "date"]
+                            types: [""]
                         }
                     },
                     lat: {
                         label: "Latitude",
                         value: [],
-                        type:"dimension",
+                        type: "dimension",
                         metadata: {
                             types: ["number"]
                         }
@@ -205,7 +216,7 @@ app.get('/visualizations', function(req, res) {
                     long: {
                         label: "Longitude",
                         value: [],
-                        type:"dimension",
+                        type: "dimension",
                         metadata: {
                             types: ["number"]
                         }
@@ -213,7 +224,7 @@ app.get('/visualizations', function(req, res) {
                     indicator: {
                         label: "Indicator",
                         value: [],
-                        type:"dimension",
+                        type: "dimension",
                         metadata: {
                             types: ["number"]
                         }
@@ -229,17 +240,17 @@ app.get('/visualizations', function(req, res) {
                 thumbnail: "http://" + host + "/thumbnails/pie_chart.png",
                 structureOptions: {
                     measure: {
-                        label: "Drag & drop measure",
+                        label: "Measure",
                         value: [],
-                        type:"dimension",
+                        type: "dimension",
                         metadata: {
                             types: ["number"]
                         }
                     },
                     slice: {
-                        label: "Drag & drop series",
+                        label: "Slice",
                         value: [],
-                        type:"dimension",
+                        type: "dimension",
                         metadata: {
                             types: ["any"]
                         }
@@ -262,7 +273,7 @@ app.get('/visualizations', function(req, res) {
                     label: {
                         label: "Label",
                         value: [],
-                        type:"dimension",
+                        type: "dimension",
                         metadata: {
                             types: ["string"]
                         }
@@ -270,7 +281,7 @@ app.get('/visualizations', function(req, res) {
                     xAxis: {
                         label: "Horizontal Axis",
                         value: [],
-                        type:"dimension",
+                        type: "dimension",
                         metadata: {
                             types: ["number"]
                         }
@@ -278,7 +289,7 @@ app.get('/visualizations', function(req, res) {
                     yAxis: {
                         label: "Vertical Axis",
                         value: [],
-                        type:"dimension",
+                        type: "dimension",
                         metadata: {
                             types: ["number"]
                         }
@@ -286,7 +297,7 @@ app.get('/visualizations', function(req, res) {
                     color: {
                         label: "Color",
                         value: [],
-                        type:"dimension",
+                        type: "dimension",
                         metadata: {
                             types: ["string"]
                         }
@@ -294,7 +305,7 @@ app.get('/visualizations', function(req, res) {
                     radius: {
                         label: "Radius",
                         value: [],
-                        type:"dimension",
+                        type: "dimension",
                         metadata: {
                             types: ["number"]
                         }
@@ -334,25 +345,25 @@ app.get('/visualizations', function(req, res) {
                 thumbnail: "http://" + host + "/thumbnails/area_chart.png",
                 structureOptions: {
                     xAxis: {
-                        label: "Drag & drop a ordinal value",
+                        label: "Drag & drop a interval data",
                         value: [],
-                        type:"dimension",
+                        type: "dimension",
                         metadata: {
-                            types: ["dates or ", "other continuous values"]
+                            types: [""]
                         }
                     },
                     yAxis: {
                         label: "Drag & drop a measure",
                         value: [],
-                        type:"dimension",
+                        type: "dimension",
                         metadata: {
                             types: ["number"]
-                        }                    
+                        }
                     },
                     addedSeries: {
                         label: "Drag & drop additional series",
                         value: [],
-                        type:"dimension",
+                        type: "dimension",
                         metadata: {
                             types: ["any"]
                         }
@@ -391,7 +402,7 @@ app.get('/visualizations', function(req, res) {
                     yAxis: {
                         label: "Vertical Axis",
                         value: [],
-                        type:"dimension",
+                        type: "dimension",
                         metadata: {
                             types: ["number"]
                         }
@@ -399,7 +410,7 @@ app.get('/visualizations', function(req, res) {
                     xAxis: {
                         label: "Horizontal Axis",
                         value: [],
-                        type:"dimension",
+                        type: "dimension",
                         metadata: {
                             types: ["number, ", "string or ", "date"]
                         }
@@ -407,7 +418,7 @@ app.get('/visualizations', function(req, res) {
                     group: {
                         label: "Groups",
                         value: [],
-                        type:"dimension",
+                        type: "dimension",
                         metadata: {
                             types: ["date, ", "number or ", "string"]
                         }
@@ -464,10 +475,26 @@ app.get('/sparql-proxy/:endpoint/:query', function(req, res) {
     }, printError);
 });
 
+//visualization configuration
 app.put('/visualizations/:id', function(req, res) {
-    var id = req.param("id");
-    console.log('VISUALIZATION MODEL');
-    console.dir(req.body);
+    var vis_config = req.body;
+    var config_id = 123;//req.param("id");
+    var config_name = "";
+    var config_graph = "http://www.linda-project.org/visualization-configuration";
+    var endpoint = "http://localhost:8890/sparql";
+    var ontology_graph = "http://linda-project.eu/linda-visualization";
+
+    // store_visualization.store(vis_config, config_id, config_name, config_graph);
+
+    // query_visualization.query(config_id, config_graph, endpoint);
+    
+    // query_patterns.query(ontology_graph, endpoint);
+    
+       query_visualizations.query(ontology_graph, endpoint);
+
+    //console.log('VISUALIZATION CONFIGURATION FE');
+    //console.log(JSON.stringify(req.body));
+
     //res.send('hello world');
 });
 

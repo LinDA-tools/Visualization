@@ -93,13 +93,13 @@ App.VisualizationController = Ember.ArrayController.extend({
             window.open(svgURL);
         },
         save: function() {
-            // send actual vis model to backend
+            // send actual visualization model to backend
             var selectedVisualization = this.get('selectedVisualization');
                 console.log("Saved visualization");
                 console.dir(selectedVisualization);
                 
-                selectedVisualization.save(); // send current visualization configuration to backend
-            
+            // send current visualization configuration to backend    
+                selectedVisualization.save();             
         },
         chooseVisualization: function(visualization) {
             this.set('selectedVisualization', visualization);

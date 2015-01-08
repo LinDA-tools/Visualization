@@ -1,7 +1,7 @@
 var sparql_data_module = function() {
 
     function sparqlProxyQuery(endpoint, query) {
-        var promise = Ember.$.getJSON('http://' + window.location.hostname + ':3002/sparql-proxy/' + endpoint + "/" + encodeURIComponent(query));
+        var promise = Ember.$.getJSON('http://' + window.location.hostname + ':3002/sparql-proxy/' + encodeURIComponent(endpoint) + "/" + encodeURIComponent(query));
         return promise.then(function(result) {
             console.log("SPARQL DATA MODULE - SPARQL QUERY RESULT");
             console.dir(result);
@@ -14,17 +14,7 @@ var sparql_data_module = function() {
         return splits[splits.length - 1];
     }
 
-    function queryData(_location, _class, _properties) {
-        if (_class) {
-            return queryProperties(_location, _class, _properties);
-        } else {
-            return queryClasses(_location);
-        }
-    }
-
-    function queryClasses(_location) {
-        var graph = _location.graph;
-        var endpoint = encodeURIComponent(_location.endpoint);
+    function queryClasses(endpoint, graph) {
         var query = "";
 
         query += 'PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>';
@@ -49,7 +39,7 @@ var sparql_data_module = function() {
         query += '}';
         query += 'ORDER BY DESC(?classSize)';
 
-        console.log("SPARQL DATA MODULE - QUERY CLASSES");
+        console.log("SPARQL DATA MODULE - CLASSES QUERY");
         console.dir(query);
 
         return sparqlProxyQuery(endpoint, query).then(function(result) {
@@ -62,71 +52,141 @@ var sparql_data_module = function() {
                     classLabel = simplifyURI(classURI);
                 }
 
-                classes.push({
+                var dataInfo = {
                     id: classURI,
-                    label: classLabel
-                });
+                    label: classLabel,
+                    type: "Class",
+                    grandchildren: true
+                };
+
+                classes.push(dataInfo);
 
             }
             return classes;
         });
     }
 
-    function queryProperties(_location, _class, _properties) {
-        var graph = _location.graph;
-        var endpoint = encodeURIComponent(_location.endpoint);
-
+    function queryProperties(endpoint, graph, _class, _properties) {
         var query = "";
 
-        query += 'PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> ';
-        query += 'PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> ';
+        query += 'PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n';
+        query += 'PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n';
 
-        query += 'SELECT DISTINCT ?property ?propertyLabel ';
-        query += 'WHERE ';
-        query += '{';
-        query += ' GRAPH <' + graph + '>';
-        query += ' {';
-        query += '  ?x0 rdf:type <' + _class + '> .';
+        query += 'SELECT DISTINCT ?property ';
+        query += ' SAMPLE(?propertyLabel_) as ?propertyLabel ';
+        query += ' SAMPLE(?propertyType_) as ?propertyType ';
+        query += ' SAMPLE(?propertyValue) as ?sampleValue ';
+        query += ' COUNT(?grandchildProperty) as ?numChildren\n';
+        query += 'WHERE\n';
+        query += '{\n';
+        query += ' GRAPH <' + graph + '>\n';
+        query += ' {\n';
+        query += '  ?x0 rdf:type <' + _class + '> .\n';
 
         for (var i = 0; i < _properties.length; i++) {
-            query += '  ?x' + i + ' <' + _properties[i] + '> ?x' + (i + 1) + ' .';
+            query += '  ?x' + i + ' <' + _properties[i] + '> ?x' + (i + 1) + ' .\n';
         }
 
-        query += '  ?x' + _properties.length + ' ?property ?z .';
-        query += '  OPTIONAL';
-        query += '  {';
-        query += '   ?property rdfs:label ?propertyLabel .';
-        query += '  }';
+        query += '  ?x' + _properties.length + ' ?property ?propertyValue .\n';
+        query += '  OPTIONAL\n';
+        query += '  {\n';
+        query += '   ?property rdfs:label ?propertyLabel_ .\n';
+        query += '  }\n';
+        query += '  OPTIONAL\n';
+        query += '  {\n';
+        query += '   ?property a ?propertyType_ .\n';
+        query += '  }\n';
+        query += '  OPTIONAL\n';
+        query += '  {\n';
+        query += '   ?propertyValue ?grandchildProperty ?grandchildValue.\n';
+        query += '  }\n';
+        query += ' }\n';
+        query += '} GROUP BY ?property';
 
-        query += '  }';
-        query += '}';
-
-        console.log("SPARQL DATA MODULE - QUERY PROPERTIES: ");
+        console.log("SPARQL DATA MODULE - PROPERTIES QUERY: ");
         console.dir(query);
 
-        return sparqlProxyQuery(endpoint, query).then(function(result) {
+        return sparqlProxyQuery(endpoint, query).then(function(results) {
             var properties = [];
-            for (var i = 0; i < result.length; i++) {
 
-                if (!result[i].property) {
-                    continue;
-                }
-
-                var propertyURI = result[i].property.value;
-                var propertyLabel = (result[i].propertyLabel || {}).value;
+            for (var i = 0; i < results.length; i++) {
+                var result = results[i];
+                var propertyURI = result.property.value;
+                var propertyLabel = (result.propertyLabel || {}).value;
+                var propertyType = (result.propertyType || {}).value;
+                var grandchildren = (result.numChildren || {}).value;
+                var sampleValueType = (result.sampleValue || {}).type;
 
                 if (!propertyLabel) {
                     propertyLabel = simplifyURI(propertyURI);
                 }
+                
+                console.log ("GRANDCHILDREN");
+                console.log(parseInt(grandchildren));
+                console.log(parseInt(grandchildren) > 0 ? true : false);
 
-                properties.push({
+                var dataInfo = {
                     id: propertyURI,
-                    label: propertyLabel
-                });
+                    label: propertyLabel,
+                    grandchildren: parseInt(grandchildren) > 0 ? true : false
+                };
+
+                switch (sampleValueType) {
+                    case "literal":
+                    case "typed-literal":
+                        var datatype = result.sampleValue.datatype;
+                        if (datatype) {
+                            dataInfo.type = predictRDFDatatypeSOM(datatype);
+                        } else {
+                            // Plain literal or language literal
+                            dataInfo.type = "Nominal";
+                        }
+                        break;
+                    case "uri":
+                    case "bnode":
+                        dataInfo.type = "Resource";
+                        break;
+                    default:
+                        dataInfo.type = "Nothing";
+                        break;
+                }
+
+                properties.push(dataInfo);
             }
 
             return properties;
         });
+    }
+
+    function predictRDFDatatypeSOM(datatype) {
+        switch (datatype) {
+            case "http://www.w3.org/2001/XMLSchema#float":
+            case "http://www.w3.org/2001/XMLSchema#double":
+            case "http://www.w3.org/2001/XMLSchema#decimal":
+            case "http://www.w3.org/2001/XMLSchema#integer":
+            case "http://www.w3.org/2001/XMLSchema#nonPositiveInteger":
+            case "http://www.w3.org/2001/XMLSchema#negativeInteger":
+            case "http://www.w3.org/2001/XMLSchema#long":
+            case "http://www.w3.org/2001/XMLSchema#int":
+            case "http://www.w3.org/2001/XMLSchema#short":
+            case "http://www.w3.org/2001/XMLSchema#byte":
+            case "http://www.w3.org/2001/XMLSchema#nonNegativeInteger":
+            case "http://www.w3.org/2001/XMLSchema#unsignedLong":
+            case "http://www.w3.org/2001/XMLSchema#unsignedInt":
+            case "http://www.w3.org/2001/XMLSchema#unsignedShort":
+            case "http://www.w3.org/2001/XMLSchema#unsignedByte":
+            case "http://www.w3.org/2001/XMLSchema#positiveInteger":
+                return "Quantitative";
+            case "http://www.w3.org/2001/XMLSchema#dateTime":
+            case "http://www.w3.org/2001/XMLSchema#date":
+            case "http://www.w3.org/2001/XMLSchema#gYear":
+            case "http://www.w3.org/2001/XMLSchema#gYearMonth":
+                return "Interval";
+            case "http://www.w3.org/2001/XMLSchema#string":
+                return "Nominal";
+            default:
+                return "Categorical";
+        }
     }
 
     function parse(location, selection) {
@@ -245,7 +305,7 @@ var sparql_data_module = function() {
         var selectedVariablesArray = [];
         var class_ = dimensions[0].parent[0];
 
-        var nameExists = {}
+        var nameExists = {};
 
         for (var i = 0; i < dimensions.length; i++) {
             var dimension = dimensions[i];
@@ -314,7 +374,8 @@ var sparql_data_module = function() {
     }
 
     return {
-        queryData: queryData,
+        queryClasses: queryClasses,
+        queryProperties: queryProperties,
         parse: parse
     };
 }(); 

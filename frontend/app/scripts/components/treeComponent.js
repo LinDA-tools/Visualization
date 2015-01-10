@@ -24,7 +24,7 @@ App.TreeNodeComponent = Ember.Component.extend({
         this.toggleProperty('isExpanded');
     },
     dragStart: function(event) {
-        console.log("DRAG START")
+        console.log("DRAG START");
         if (!this.get('node.draggable')) {
             return;
         }

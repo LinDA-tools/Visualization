@@ -5,13 +5,11 @@ App.DatasourceController = Ember.ObjectController.extend({
             return{};
         console.log("dataInfo");
         console.dir(dataInfo);
+        this.set('selectedDatasource', dataInfo);
         return treeselection_data.initialize(dataInfo);
     }.property('model'),
-    tableContent: [],
-    dataselection: [],
+    dataSelection: [],
     selectedDatasource: null,
-    selectedClass: null,
-    selectedPaths: [],
     actions: {
         visualize: function() {
             var self = this;

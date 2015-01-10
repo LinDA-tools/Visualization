@@ -5,7 +5,7 @@ var treeselection_data = function() {
     var _data_module = "";    
 
     function initialize(dataInfo) {
-        console.log('INITIALIZING SELECTION TREE');
+        console.log('SELECTION TREE COMPONENT - INITIALIZING TREE');
         console.dir(dataInfo);
 
         _location = decodeURIComponent(dataInfo.get('location'));
@@ -19,29 +19,24 @@ var treeselection_data = function() {
     }
 
     function createTreeContent(data) {
-        console.log('CREATING TREE CONTENT');
+        console.log('SELECTION TREE COMPONENT - CREATING TREE CONTENT');
         var treeContent = [];
 
         for (var i = 0; i < data.length; i++) {
-            var record = data[i];
-            
+            var record = data[i];           
             var id = record.id;
             var label = record.label;
             var type = record.type;
             var grandchildren = record.grandchildren;
             
-            console.log("RECORD");
-            console.dir(record);
-
             treeContent.push({
                 title: label,
                 key: id,
                 lazy: grandchildren,
-                icon: categorize(type),
+                icon: getCategory(type),
+                hideCheckbox: showCheckbox(type),
                 _children: {
                     loadChildren: function(node_path) {
-                        console.log('LOADING CHILDREN');
-
                         var _class = "";
                         var _properties = "";
 
@@ -51,7 +46,7 @@ var treeselection_data = function() {
                         } else {
                             _class = node_path.pop();
                             _properties = [];
-                        }
+                        }                      
 
                         return _data_module.queryProperties(_location, _graph, _class, _properties).then(function(data) {
                             console.dir(data);
@@ -61,26 +56,45 @@ var treeselection_data = function() {
                 }
             });
         }
-        console.log('TREE CONTENT:');
+        console.log('SELECTION TREE COMPONENT - TREE CONTENT:');
         console.dir(treeContent);
 
         return treeContent;
     }
         
-    function categorize(record) {
-        switch (record) {
-            case "Class":
-                return '../images/Class.png';
+    function getCategory(record) {
+        switch (record) {           
             case "Quantitative":
-                return '../images/Number.png';
+                return '../images/quantitative_.png';
             case "Interval":
-                return '../images/Date.png';
-            case "Nominal":               
-            case "Categorical":
-                 return '../images/String.png';
+                return '../images/interval_.png';
+            case "Categorical":    
+            case "Nominal":                          
+                 return '../images/categorical_.png';
+            case "Class":
+                 return '../images/class_.png';
             case "Resource":                
             case "Nothing":
-                return '../images/Resource.png';
+                return '../images/resource.png';
+        }
+        console.error("Unknown category of record  '" + record + "'");
+        return null;
+    } 
+    
+    function showCheckbox(record) {
+        switch (record) {           
+            case "Quantitative":
+                return false;
+            case "Interval":
+                return false;
+            case "Categorical":    
+            case "Nominal":                          
+                 return false;
+            case "Class":
+                 return false;
+            case "Resource":                
+            case "Nothing":
+                return true;
         }
         console.error("Unknown category of record  '" + record + "'");
         return null;

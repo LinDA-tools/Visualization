@@ -120,10 +120,6 @@ var sparql_data_module = function() {
                 if (!propertyLabel) {
                     propertyLabel = simplifyURI(propertyURI);
                 }
-                
-                console.log ("GRANDCHILDREN");
-                console.log(parseInt(grandchildren));
-                console.log(parseInt(grandchildren) > 0 ? true : false);
 
                 var dataInfo = {
                     id: propertyURI,
@@ -202,7 +198,7 @@ var sparql_data_module = function() {
         } else {
             //CASES 2: dimension and/or multidimension -> 1 dim; 1..n mdim; 
             var dimension_ = dimension.concat(multidimension);
-            result = query(location, dimension_);
+            result = queryInstances(location, dimension_);
         }
         console.log('SPARQL DATA MODULE - PARSED RESULT');
         console.dir(result);
@@ -296,42 +292,45 @@ var sparql_data_module = function() {
         });
     }
 
-    function query(location, dimensions) {
-        var graph = location.graph;
-        var endpoint = encodeURIComponent(location.endpoint);
+    function queryInstances(endpoint, graph, properties) {
         var columnHeaders = [];
         var optionals = "";
         var selectVariables = "";
         var selectedVariablesArray = [];
-        var class_ = dimensions[0].parent[0];
+        var class_ = properties[0].parent[0];
+        var path = [];
 
         var nameExists = {};
 
-        for (var i = 0; i < dimensions.length; i++) {
-            var dimension = dimensions[i];
-            var path = dimension.parent;
+        for (var i = 0; i < properties.length; i++) {
+            var property = properties[i];
+            path = property.parent;
 
             selectVariables += " ?z" + i;
             var header;
-            if (!nameExists[dimension.label]) {
-                header = dimension.label;
+            if (!nameExists[property.label]) {
+                header = property.label;
             } else {
-                header = dimension.label + " " + i;
+                header = property.label + " " + i;
             }
             nameExists[header] = true;
             columnHeaders.push(header);
             selectedVariablesArray.push("z" + i);
 
             for (var j = 1; j < path.length; j++) {
+                var variable_s = simplifyURI(path[j - 1]) + (j - 1);
                 if (j < path.length - 1) {
+                    var variable_t = simplifyURI(path[j]) + j;
                     optionals += '\n\
-                    ?x' + (j - 1) + ' <' + path[j] + '> ?x' + j + '.\n';
+                    ?' + variable_s + ' <' + path[j] + '> ?' + variable_t + '.\n';
                 } else {
                     optionals += '\n\
-                    ?x' + (j - 1) + ' <' + path[j] + '> ?z' + i + '.\n';
+                    ?' + variable_s + ' <' + path[j] + '> ?z' + i + '.\n';
                 }
             }
         }
+
+        var variable_s = simplifyURI(path[0]) + '0';
 
         var query = '\n\
             PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n\
@@ -339,7 +338,7 @@ var sparql_data_module = function() {
             SELECT DISTINCT ' + selectVariables + '\n\
             WHERE {\n\
                 GRAPH <' + graph + '> {\n\
-                     ?x0' + ' rdf:type <' + class_ + '>.\n\
+                     ?' + variable_s + ' rdf:type <' + class_ + '>.\n\
                      ' + optionals + '\n\
                 }\n\
             }';
@@ -376,6 +375,7 @@ var sparql_data_module = function() {
     return {
         queryClasses: queryClasses,
         queryProperties: queryProperties,
+        queryInstances: queryInstances,
         parse: parse
     };
 }(); 

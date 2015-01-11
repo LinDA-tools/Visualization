@@ -2,7 +2,7 @@ var treeselection_data = function() {
     var _location = "";
     var _graph = "";
     var _format = "";
-    var _data_module = "";    
+    var _data_module = "";
 
     function initialize(dataInfo) {
         console.log('SELECTION TREE COMPONENT - INITIALIZING TREE');
@@ -23,12 +23,12 @@ var treeselection_data = function() {
         var treeContent = [];
 
         for (var i = 0; i < data.length; i++) {
-            var record = data[i];           
+            var record = data[i];
             var id = record.id;
             var label = record.label;
             var type = record.type;
             var grandchildren = record.grandchildren;
-            
+
             treeContent.push({
                 title: label,
                 key: id,
@@ -47,7 +47,7 @@ var treeselection_data = function() {
                         } else {
                             _class = node_path.pop();
                             _properties = [];
-                        }                      
+                        }
 
                         return _data_module.queryProperties(_location, _graph, _class, _properties).then(function(data) {
                             console.dir(data);
@@ -62,44 +62,61 @@ var treeselection_data = function() {
 
         return treeContent;
     }
-        
+
+    function getDataSelection(selection, datasource) {
+        var dataSelection = {datasource: datasource, propertyInfos: []};
+
+        for (var i = 0; i < selection.length; i++) {
+            var record = selection[i];
+
+            dataSelection['propertyInfos'].push({
+                id: record.key,
+                label: record.label,
+                parent: record.parent_labels,
+                scaleOfMeasurement: record.type
+            });
+        }
+
+        return dataSelection;
+    }
+
     function getCategory(record) {
-        switch (record) {           
+        switch (record) {
             case "Quantitative":
                 return '../images/quantitative_.png';
             case "Interval":
                 return '../images/interval_.png';
-            case "Categorical":    
-            case "Nominal":                          
-                 return '../images/categorical_.png';
+            case "Categorical":
+            case "Nominal":
+                return '../images/categorical_.png';
             case "Class":
-                 return '../images/class_.png';
-            case "Resource":                
+                return '../images/class_.png';
+            case "Resource":
             case "Nothing":
                 return '../images/resource.png';
         }
         console.error("Unknown category of record  '" + record + "'");
         return null;
-    } 
-    
+    }
+
     function showCheckbox(record) {
-        switch (record) {           
+        switch (record) {
             case "Quantitative":
                 return false;
             case "Interval":
                 return false;
-            case "Categorical":    
-            case "Nominal":                          
-                 return false;
+            case "Categorical":
+            case "Nominal":
+                return false;
             case "Class":
-                 return false;
-            case "Resource":                
+                return false;
+            case "Resource":
             case "Nothing":
                 return true;
         }
         console.error("Unknown category of record  '" + record + "'");
         return null;
-    } 
+    }
 
     function getDataModule(format) {
         switch (format) {
@@ -113,7 +130,8 @@ var treeselection_data = function() {
     }
 
     return {
-        initialize: initialize
+        initialize: initialize,
+        getDataSelection: getDataSelection
     };
 }();
 

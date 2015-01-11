@@ -13,14 +13,7 @@ App.DatasourceController = Ember.ObjectController.extend({
     actions: {
         visualize: function() {
             var selection = this.get('dataSelection');
-            var datasource = this.get('selectedDatasource');
-
-            console.log('SELECTION');
-            console.dir(selection);
-
-            console.log('DATASOURCE');
-            console.dir(datasource);
-
+            var datasource = this.get('selectedDatasource');          
             var selected = treeselection_data.getDataSelection(selection, datasource);
             console.dir('FORMATTED DATA SELECTION');
             console.dir(selected);

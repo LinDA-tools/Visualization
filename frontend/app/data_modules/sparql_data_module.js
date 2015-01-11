@@ -317,6 +317,8 @@ var sparql_data_module = function() {
             columnHeaders.push(header);
             selectedVariablesArray.push("z" + i);
 
+            optionals += ' OPTIONAL ';
+            optionals += ' { ';
             for (var j = 1; j < path.length; j++) {
                 var variable_s = simplifyURI(path[j - 1]) + (j - 1);
                 if (j < path.length - 1) {
@@ -328,6 +330,7 @@ var sparql_data_module = function() {
                     ?' + variable_s + ' <' + path[j] + '> ?z' + i + '.\n';
                 }
             }
+            optionals += ' } ';
         }
 
         var variable_s = simplifyURI(path[0]) + '0';

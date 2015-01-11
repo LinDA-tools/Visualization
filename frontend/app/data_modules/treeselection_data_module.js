@@ -34,6 +34,7 @@ var treeselection_data = function() {
                 key: id,
                 lazy: grandchildren,
                 icon: getCategory(type),
+                type: type,
                 hideCheckbox: showCheckbox(type),
                 _children: {
                     loadChildren: function(node_path) {

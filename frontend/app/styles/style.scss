@@ -39,7 +39,7 @@ h7 {
 }
 
 a{  font-size: 11pt !important;
-     color:  	#181818 !important;
+    color:  	#181818 !important;
 }
 
 .visualize a:before{
@@ -52,7 +52,7 @@ a{  font-size: 11pt !important;
     position: relative;
     background-size: contain;
     border-bottom-color: blue;
-    
+    top: 2px;
 }
 
 .visualize{
@@ -312,7 +312,16 @@ table.dataTable tbody tr:hover {
     background-color: #E8E8E8;
 }
 
+table.dataTable thead {
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+}
+
 // TREE VIEW
+
+ul.fancytree-container {
+    height: 520px !important;
+}
 
 span.fancytree-title {
     font-size:10pt;

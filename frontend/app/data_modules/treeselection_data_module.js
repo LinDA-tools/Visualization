@@ -72,7 +72,7 @@ var treeselection_data = function() {
             dataSelection['propertyInfos'].push({
                 id: record.key,
                 label: record.label,
-                parent: record.parent_labels,
+                parent: record.parent,
                 scaleOfMeasurement: record.type
             });
         }

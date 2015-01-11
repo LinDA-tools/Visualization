@@ -5,6 +5,9 @@ App.TreeSelectionComponent = Ember.Component.extend({
         console.log("TREE SELECTION COMPONENT - CREATING SELECTION TREE");
         var content = this.get('treedata');
         var selection = this.get('selection');
+        selection = [];
+        this.set('selection', selection);
+
         var self = this;
 
         $(this.get('element')).fancytree({
@@ -21,7 +24,7 @@ App.TreeSelectionComponent = Ember.Component.extend({
                 console.log("DATA");
                 console.dir(data);
                 var node = data.node;
-                var node_path = self.getNodePath(node).path;
+                var node_path = self.getNodePath(node);
 
                 data.result = data.node.data._children.loadChildren(node_path);
             },
@@ -49,8 +52,8 @@ App.TreeSelectionComponent = Ember.Component.extend({
 
                     for (var i = 0; i < selected.length; i++) {
                         var node_ = selected[i];
-                        var node_path = self.getNodePath(node_).path.reverse();
-                        var path_labels = self.getNodePath(node_).path_with_labels.reverse();
+                        var node_path = self.getNodePath(node_).reverse();
+                        var path_labels = self.getNodePath(node_).reverse();
                         var node_label = node_.title;
                         var node_key = node_.key;
                         var node_type = node_.data.type;
@@ -68,11 +71,11 @@ App.TreeSelectionComponent = Ember.Component.extend({
                                         label: node_label,
                                         key: node_key,
                                         type: node_type,
-                                        parent: node_path,
-                                        parent_labels: path_labels
+                                        parent: path_labels
                                     }
                             );
                         }
+
                     }
                 } else {
                     var selected = tree.getSelectedNodes();
@@ -82,7 +85,7 @@ App.TreeSelectionComponent = Ember.Component.extend({
 
                         for (var i = 0; i < selected.length; i++) {
                             var node_ = selected[i];
-                            var node_path = self.getNodePath(node_).path.reverse();
+                            var node_path = self.getNodePath(node_).reverse();
 
                             if (!is_selected) {
                                 is_selected = _.isEqual(item.parent, node_path);
@@ -104,31 +107,26 @@ App.TreeSelectionComponent = Ember.Component.extend({
 
                 console.log('DATA SELECTION');
                 console.dir(selection);
-
+                
                 self.set('selection', selection);
             }
         });
     }.observes('treedata').on('didInsertElement'),
     getNodePath: function(node) {
         var node_path_with_labels = [];
-        var node_path = [];
-
-        node_path.push(node.key);
         node_path_with_labels.push({id: node.key, label: node.title});
 
         while (node.parent !== null) {
-            node_path.push(node.parent.key);
             node_path_with_labels.push({id: node.parent.key, label: node.parent.title});
             node = node.parent;
         }
 
-        node_path.pop(); // root id is not relevant
-        node_path_with_labels.pop();
+        node_path_with_labels.pop(); // root id is not relevant
 
-        return {path: node_path, path_with_labels: node_path_with_labels};
+        return  node_path_with_labels;
     },
     getBranchRoot: function(node) {
-        while (node.parent.key !== "root_1") {
+        while (node.parent.title !== "root") {
             node = node.parent;
         }
         return node;

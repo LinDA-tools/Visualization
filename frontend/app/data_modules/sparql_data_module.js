@@ -1,8 +1,8 @@
-var sparql_data_module = function() {
+var sparql_data_module = function () {
 
     function sparqlProxyQuery(endpoint, query) {
         var promise = Ember.$.getJSON('http://' + window.location.hostname + ':3002/sparql-proxy/' + encodeURIComponent(endpoint) + "/" + encodeURIComponent(query));
-        return promise.then(function(result) {
+        return promise.then(function (result) {
             console.log("SPARQL DATA MODULE - SPARQL QUERY RESULT");
             console.dir(result);
             return result;
@@ -42,7 +42,7 @@ var sparql_data_module = function() {
         console.log("SPARQL DATA MODULE - CLASSES QUERY");
         console.dir(query);
 
-        return sparqlProxyQuery(endpoint, query).then(function(result) {
+        return sparqlProxyQuery(endpoint, query).then(function (result) {
             var classes = [];
             for (var i = 0; i < result.length; i++) {
                 var classURI = result[i].class.value;
@@ -66,6 +66,37 @@ var sparql_data_module = function() {
         });
     }
 
+    function predictRDFDatatypeSOM(datatype) {
+        switch (datatype) {
+            case "http://www.w3.org/2001/XMLSchema#float":
+            case "http://www.w3.org/2001/XMLSchema#double":
+            case "http://www.w3.org/2001/XMLSchema#decimal":
+            case "http://www.w3.org/2001/XMLSchema#integer":
+            case "http://www.w3.org/2001/XMLSchema#nonPositiveInteger":
+            case "http://www.w3.org/2001/XMLSchema#negativeInteger":
+            case "http://www.w3.org/2001/XMLSchema#long":
+            case "http://www.w3.org/2001/XMLSchema#int":
+            case "http://www.w3.org/2001/XMLSchema#short":
+            case "http://www.w3.org/2001/XMLSchema#byte":
+            case "http://www.w3.org/2001/XMLSchema#nonNegativeInteger":
+            case "http://www.w3.org/2001/XMLSchema#unsignedLong":
+            case "http://www.w3.org/2001/XMLSchema#unsignedInt":
+            case "http://www.w3.org/2001/XMLSchema#unsignedShort":
+            case "http://www.w3.org/2001/XMLSchema#unsignedByte":
+            case "http://www.w3.org/2001/XMLSchema#positiveInteger":
+                return "Quantitative";
+            case "http://www.w3.org/2001/XMLSchema#dateTime":
+            case "http://www.w3.org/2001/XMLSchema#date":
+            case "http://www.w3.org/2001/XMLSchema#gYear":
+            case "http://www.w3.org/2001/XMLSchema#gYearMonth":
+                return "Interval";
+            case "http://www.w3.org/2001/XMLSchema#string":
+                return "Nominal";
+            default:
+                return "Categorical";
+        }
+    }
+
     function queryProperties(endpoint, graph, _class, _properties) {
         var query = "";
 
@@ -81,10 +112,10 @@ var sparql_data_module = function() {
         query += '{\n';
         query += ' GRAPH <' + graph + '>\n';
         query += ' {\n';
-        query += '  ?x0 rdf:type <' + _class + '> .\n';
+        query += '  ?x0 rdf:type <' + _class.id + '> .\n';
 
         for (var i = 0; i < _properties.length; i++) {
-            query += '  ?x' + i + ' <' + _properties[i] + '> ?x' + (i + 1) + ' .\n';
+            query += '  ?x' + i + ' <' + _properties[i].id + '> ?x' + (i + 1) + ' .\n';
         }
 
         query += '  ?x' + _properties.length + ' ?property ?propertyValue .\n';
@@ -106,7 +137,7 @@ var sparql_data_module = function() {
         console.log("SPARQL DATA MODULE - PROPERTIES QUERY: ");
         console.dir(query);
 
-        return sparqlProxyQuery(endpoint, query).then(function(results) {
+        return sparqlProxyQuery(endpoint, query).then(function (results) {
             var properties = [];
 
             for (var i = 0; i < results.length; i++) {
@@ -121,31 +152,33 @@ var sparql_data_module = function() {
                     propertyLabel = simplifyURI(propertyURI);
                 }
 
-                var dataInfo = {
-                    id: propertyURI,
-                    label: propertyLabel,
-                    grandchildren: parseInt(grandchildren) > 0 ? true : false
-                };
-
+                var scaleOfMeasurement;
                 switch (sampleValueType) {
                     case "literal":
                     case "typed-literal":
                         var datatype = result.sampleValue.datatype;
                         if (datatype) {
-                            dataInfo.type = predictRDFDatatypeSOM(datatype);
+                            scaleOfMeasurement = predictRDFDatatypeSOM(datatype);
                         } else {
                             // Plain literal or language literal
-                            dataInfo.type = "Nominal";
+                            scaleOfMeasurement = "Nominal"
                         }
                         break;
                     case "uri":
                     case "bnode":
-                        dataInfo.type = "Resource";
+                        scaleOfMeasurement = "Resource";
                         break;
                     default:
-                        dataInfo.type = "Nothing";
+                        scaleOfMeasurement = "Nothing";
                         break;
                 }
+
+                var dataInfo = {
+                    id: propertyURI,
+                    label: propertyLabel,
+                    grandchildren: parseInt(grandchildren) > 0 ? true : false,
+                    type: scaleOfMeasurement
+                };
 
                 properties.push(dataInfo);
             }
@@ -185,7 +218,7 @@ var sparql_data_module = function() {
         }
     }
 
-    function parse(location, selection) {
+    function parse(endpoint, graph, selection) {
         var dimension = selection.dimension;
         var multidimension = selection.multidimension;
         var group = selection.group;
@@ -193,32 +226,28 @@ var sparql_data_module = function() {
 
         if (group.length > 0) {
             //CASE 1: dimension and grouped multidimension -> 1 dim; 1 mdim; just 1 group value;
-            result = query_group(location, dimension, multidimension, group);
+            result = query_group(endpoint, graph, dimension, multidimension, group);
 
         } else {
-            //CASES 2: dimension and/or multidimension -> 1 dim; 1..n mdim; 
+            //CASES 2: dimension and/or multidimension -> 1 dim; 1..n mdim;
             var dimension_ = dimension.concat(multidimension);
-            result = queryInstances(location, dimension_);
+            result = queryInstances(endpoint, graph, dimension_);
         }
-        console.log('SPARQL DATA MODULE - PARSED RESULT');
-        console.dir(result);
 
         return result;
     }
 
-    function query_group(location, dimension, multidimension, group) {
-        var graph = location.graph;
-        var endpoint = encodeURIComponent(location.endpoint);
+    function query_group(endpoint, graph, dimension, multidimension, group) {
         var dimension = dimension[0];
         var multidimension = multidimension[0];
         var group = group[0];
-        var class_ = multidimension.parent[0];
+        var class_ = multidimension.parent[0].id;
         var columnHeaders = [];
         var selectedVariablesArray = [];
         var optionals = "";
         var selectVariables = "";
 
-        return group_by(endpoint, graph, group).then(function(groupInstances) {
+        return group_by(endpoint, graph, group).then(function (groupInstances) {
             selectVariables += " ?d";
             selectedVariablesArray.push("d");
             columnHeaders.push(dimension.label);
@@ -251,14 +280,14 @@ var sparql_data_module = function() {
             console.dir(query);
 
             return sparqlProxyQuery(endpoint, query);
-        }).then(function(queryResult) {
+        }).then(function (queryResult) {
             return convert(queryResult, columnHeaders, selectedVariablesArray);
         });
 
     }
 
     function group_by(endpoint, graph, groupProperty) {
-        var class_ = groupProperty.parent[0];
+        var class_ = groupProperty.parent[0].id;
 
         var groupValuesQuery = '\n\
             PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n\
@@ -275,7 +304,7 @@ var sparql_data_module = function() {
              }\n\
             } ORDER BY ASC(?instance)';
 
-        return sparqlProxyQuery(endpoint, groupValuesQuery).then(function(result) {
+        return sparqlProxyQuery(endpoint, groupValuesQuery).then(function (result) {
             var groupInstances = [];
 
             for (var i = 0; i < result.length; i++) {
@@ -297,7 +326,7 @@ var sparql_data_module = function() {
         var optionals = "";
         var selectVariables = "";
         var selectedVariablesArray = [];
-        var class_ = properties[0].parent[0];
+        var class_ = properties[0].parent[0].id;
         var path = [];
 
         var nameExists = {};
@@ -320,20 +349,20 @@ var sparql_data_module = function() {
             optionals += ' OPTIONAL ';
             optionals += ' { ';
             for (var j = 1; j < path.length; j++) {
-                var variable_s = simplifyURI(path[j - 1]) + (j - 1);
+                var variable_s = simplifyURI(path[j - 1].id) + (j - 1);
                 if (j < path.length - 1) {
-                    var variable_t = simplifyURI(path[j]) + j;
+                    var variable_t = simplifyURI(path[j].id) + j;
                     optionals += '\n\
-                    ?' + variable_s + ' <' + path[j] + '> ?' + variable_t + '.\n';
+                    ?' + variable_s + ' <' + path[j].id + '> ?' + variable_t + '.\n';
                 } else {
                     optionals += '\n\
-                    ?' + variable_s + ' <' + path[j] + '> ?z' + i + '.\n';
+                    ?' + variable_s + ' <' + path[j].id + '> ?z' + i + '.\n';
                 }
             }
             optionals += ' } ';
         }
 
-        var variable_s = simplifyURI(path[0]) + '0';
+        var variable_s = simplifyURI(path[0].id) + '0';
 
         var query = '\n\
             PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n\
@@ -349,7 +378,7 @@ var sparql_data_module = function() {
         console.log('SPARQL DATA MODULE - DATA QUERY FOR VISUALIZATION CONFIGURATION');
         console.dir(query);
 
-        return sparqlProxyQuery(endpoint, query).then(function(queryResult) {
+        return sparqlProxyQuery(endpoint, query).then(function (queryResult) {
             return convert(queryResult, columnHeaders, selectedVariablesArray);
         });
     }
@@ -372,6 +401,9 @@ var sparql_data_module = function() {
             }
             result.push(record);
         }
+
+        console.log("SPARQL DATA MODULE - CONVERSION RESULT");
+        console.dir(result);
         return result;
     }
 
@@ -381,4 +413,6 @@ var sparql_data_module = function() {
         queryInstances: queryInstances,
         parse: parse
     };
-}(); 
+}();
+
+

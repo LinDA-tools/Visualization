@@ -4,7 +4,7 @@
  * 
  */
 
-var areachart = function() {
+var areachart = function () {
 
     function draw(configuration, visualisationContainerID) {
         console.log("### INITIALIZE VISUALISATION - AREA CHART");
@@ -12,21 +12,26 @@ var areachart = function() {
         var container = $('#' + visualisationContainerID);
         container.empty();
 
+        var xAxis = configuration['Horizontal Axis'];
+        var yAxis = configuration['Vertical Axis'];
+        var group = configuration['Series'];
+
         if (!(configuration.dataModule && configuration.datasourceLocation
-                && configuration.xAxis && configuration.yAxis)) {
+                && xAxis && yAxis && group)) {
             return $.Deferred().resolve().promise();
         }
 
-        if ((configuration.xAxis.length === 0) || (configuration.yAxis.length === 0)) {
+        if ((xAxis.length === 0) || (yAxis.length === 0)) {
             return $.Deferred().resolve().promise();
         }
 
         var dataModule = configuration.dataModule;
         var location = configuration.datasourceLocation;
+        var graph = configuration.datasourceGraph;
 
         var selection = {
-            dimension: configuration.yAxis, // measure
-            multidimension: configuration.xAxis.concat(configuration.addedSeries),
+            dimension: yAxis, // measure
+            multidimension: xAxis.concat(group),
             group: []
         };
 
@@ -35,34 +40,34 @@ var areachart = function() {
 
         var svg = dimple.newSvg('#' + visualisationContainerID, container.width(), container.height());
 
-        return dataModule.parse(location, selection).then(function(inputData) {
+        return dataModule.parse(location, graph, selection).then(function (inputData) {
             var columnsHeaders = inputData[0];
             var data = rows(inputData);
             console.log("GENERATE INPUT DATA FORMAT FOR AREA CHART");
             console.dir(data);
 
             var chart = new dimple.chart(svg, data);
-            
+
             var x = chart.addCategoryAxis("x", columnsHeaders[1]); // x axis: ordinal values
             var y = chart.addMeasureAxis("y", columnsHeaders[0]); // y axis: one measure (scale)  
 
             var series = null;
 
-            if (configuration.addedSeries.length > 0) {
+            if (group.length > 0) {
                 series = columnsHeaders.slice(2);
             }
 
             chart.addSeries(series, dimple.plot.area);
             chart.addLegend("10%", "5%", "80%", 20, "right");
-            
+
             //gridlines tuning
             x.showGridlines = selection.gridlines;
             y.showGridlines = selection.gridlines;
             //titles
-            if (selection.hLabel ===""){
-                selection.hLabel = columnsHeaders[1]; 
+            if (selection.hLabel === "") {
+                selection.hLabel = columnsHeaders[1];
             }
-            if (selection.vLabel ===""){
+            if (selection.vLabel === "") {
                 selection.vLabel = columnsHeaders[0];
             }
             x.title = selection.hLabel;
@@ -71,10 +76,11 @@ var areachart = function() {
             x.ticks = selection.ticks;
             y.ticks = selection.ticks;
             //tooltip
-            if (selection.tooltip === false){
-                chart.addSeries(series, dimple.plot.area).addEventHandler("mouseover",function(){});
+            if (selection.tooltip === false) {
+                chart.addSeries(series, dimple.plot.area).addEventHandler("mouseover", function () {
+                });
             }
-            
+
             chart.draw();
         });
     }

@@ -8,7 +8,7 @@ function query(graph, endpoint) {
 
     var visualizations = {};
 
-    client.query(visualizationQuery(graph)).then(function(results, err) {
+    return client.query(visualizationQuery(graph)).then(function(results, err) {
 
         // console.log("SPARQL RESULT VISUALIZATION TYPE");
         // console.dir(results);
@@ -29,7 +29,7 @@ function query(graph, endpoint) {
             }
         }
 
-        client.query(structureOptionsQuery(graph)).then(function(results, err) {
+        return client.query(structureOptionsQuery(graph)).then(function(results, err) {
 
             //console.log("SPARQL RESULT VISUALIZATIONS STRUCTURE OPTIONS");
             //console.dir(results);
@@ -48,16 +48,17 @@ function query(graph, endpoint) {
                 } else {
                     visualizations[visualizationName_]['structureOptions'][structureOptionName_] = {
                         optionName: structureOptionName_,
+                        type: 'dimension',
                         metadata: [option['scaleOfMeasurement']['value']],
-                        minCardinality: parseInt(option['minCardinality']['value']),
-                        maxCardinality: parseInt(option['maxCardinality']['value']),
+                        minCardinality: parseInt((option['minCardinality']||{})['value']),
+                        maxCardinality: parseInt((option['maxCardinality']||{})['value']),
                         value:[]
                     };
                 }
 
             }
 
-            client.query(layoutOptionsQuery(graph)).then(function(results, err) {
+            return client.query(layoutOptionsQuery(graph)).then(function(results, err) {
 
                 //console.log("SPARQL RESULT VISUALIZATIONS LAYOUT OPTIONS");
                 //console.dir(results);
@@ -72,7 +73,7 @@ function query(graph, endpoint) {
                     }
 
                     visualizations[visualizationName_]['layoutOptions'][layoutOptionName_] = {
-                        label: layoutOptionName_,
+                        optionName: layoutOptionName_,
                         type: simplifyURI(option['layoutOptionType']['value']),
                         value: option['layoutOptionValue']['value']
                     };
@@ -80,7 +81,7 @@ function query(graph, endpoint) {
 
                 console.log("VISUALIZATIONS LIST ");
                 console.dir(JSON.stringify(visualizations));
-
+                return visualizations;
             });
         });
     });
@@ -136,8 +137,8 @@ function structureOptionsQuery(graph) {
     query += "?visualization vis:structureOption ?structureOption .\n ";
     query += "?structureOption vis:optionName ?structureOptionName .\n ";
     query += "?structureOption vis:optionType ?structureOptionType .\n ";
-    query += "?structureOptionType vis:minCardinality ?minCardinality .\n ";
-    query += "?structureOptionType vis:maxCardinality ?maxCardinality .\n ";
+    query += "OPTIONAL {?structureOptionType vis:minCardinality ?minCardinality} .\n ";
+    query += "OPTIONAL {?structureOptionType vis:maxCardinality ?maxCardinality} .\n ";
     query += "?structureOptionType vis:scaleOfMeasurement ?scale .\n ";
     query += "?scale rdfs:label ?scaleOfMeasurement .\n ";
 

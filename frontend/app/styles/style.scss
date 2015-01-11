@@ -218,8 +218,11 @@ a{  font-size: 11pt !important;
     margin-bottom: 14px;
 }
 
-textarea {
+.consumption textarea {
+    display:block;
     min-height: 4.5ex;
+    width: 100%;
+    
 }
 
 .consumption h7{
@@ -230,11 +233,16 @@ textarea {
     color: #404040 !important;
 }
 
-.droparea {
+.droppable-area {
 }
 
-.droparea-active {
+.droppable-area.active {
     background: #c8c8c8;
+    font-weight: bold;
+}
+
+.droppable-area.active.full * {
+    background: #f20000 !important;
     font-weight: bold;
 }
 
@@ -269,11 +277,12 @@ textarea {
 }
 
 .area-item{  
-    height: 4ex;
+    border: 1px solid #909090;
 }
 
 .area-item-label{  
-    border: 1px solid #909090;
+    border-right: 1px solid #909090;
+    border-collapse: collapse;
     background-color: #E0E0E0; 
     text-align: center;
     padding:3px;
@@ -282,9 +291,6 @@ textarea {
     font-style: bold;
 }
 .area-item-remove{  
-    border-right: 1px solid #909090;
-    border-top: 1px solid #909090;
-    border-bottom: 1px solid #909090;
     background-color: white; 
     padding:3px !important;
     text-align: center;
@@ -375,9 +381,68 @@ span.fancytree-title {
 }
 
 .configurationOption {
-    font-size: 8pt;
+    font-size: 10pt;
 }
 
+.dimensions {
+    margin-top: 4px;
+    overflow-y: auto;
+    min-height: 21rem;
+    padding:15px;
+}
+
+.properties-list-content {
+    margin-top: 4px;
+    background-color: #F8F8F8;
+    overflow-y: auto;
+    min-height: 21rem;
+    padding:15px;
+}
+
+.properties-list {
+    line-height: 1;
+}
+
+.properties-list li{
+    margin-bottom: 1.2ex;
+    margin-left: 1ex;
+}
+
+.categorized-list-category {
+    font-size:12pt;
+    font-weight: bold;
+}
+
+.categorized-property {
+    font-size:11pt;
+    line-height: 1;
+    margin-top: 0.2ex;
+}
+
+.categorized-property li {
+    margin-bottom: 0.5ex;
+}
+
+.categorized-property-parent {
+    font-size: 8pt;
+    font-style: italic;
+    color: darkslategray;
+}
+
+.categorized-property-parent:last-of-type {
+    display: none;
+}
+
+.categorized-property-parents {
+    padding: 0px;
+    margin: 0px;
+}
+
+.categorized-property-name {
+    padding: 0px;
+    margin: 0px;
+    padding-left: 1em;
+}
 ////////////////////////////////////////////////////////////////////////////////
 
 #structureOptionsView {

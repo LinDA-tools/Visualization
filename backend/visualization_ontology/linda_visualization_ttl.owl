@@ -333,7 +333,7 @@
         a :Option
     ] ;
     :structureOption [
-        :optionName "Measure Axis" ;
+        :optionName "Measure" ;
         :optionType [
             :maxCardinality "1"^^xsd:nonNegativeInteger ;
             :minCardinality "1"^^xsd:nonNegativeInteger ;
@@ -342,7 +342,7 @@
         ] ;
         a :Option
     ], [
-        :optionName "Series" ;
+        :optionName "Slices" ;
         :optionType [
             :maxCardinality "6"^^xsd:nonNegativeInteger ;
             :minCardinality "1"^^xsd:nonNegativeInteger ;

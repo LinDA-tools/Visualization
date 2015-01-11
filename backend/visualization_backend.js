@@ -3,19 +3,18 @@ var GraphStoreClient = require('graph-store-client');
 var express = require('express');
 var store_visualization = require('./visualization_modules/store_visualization_config.js');
 var query_visualization = require('./visualization_modules/query_visualization_config.js');
-var query_patterns = require('./visualization_modules/query_visualization_patterns.js');
-var query_visualizations = require('./visualization_modules/query_visualizations.js');
-
+var visualization_recommendation = require('./visualization_recommendation.js');
+var _ = require('lodash');
 var Q = require('q');
 Q.longStackSupport = true;
 
-var printError = function(error) {
+var printError = function (error) {
     console.error("ERROR: " + error.stack);
     res.status(500).send({error: 'Internal error'});
 };
 
 //CORS middleware
-var allowCrossDomain = function(req, res, next) {
+var allowCrossDomain = function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
     res.header('Access-Control-Allow-Headers', 'Content-Type');
@@ -26,7 +25,7 @@ var allowCrossDomain = function(req, res, next) {
 // Web Server
 var app = express();
 
-app.configure(function() {
+app.configure(function () {
     app.use(express.bodyParser());
     app.use(express.methodOverride());
     app.use(allowCrossDomain);
@@ -34,12 +33,43 @@ app.configure(function() {
     app.use('/testsets', express.static(__dirname + '/testsets'));
 });
 
-app.get('/sparql-proxy/:endpoint/:query', function(req, res) {
+var datasources = {};
+app.post('/datasources', function (req, res) {
+    var datasource = req.body.datasource;
+    var id = Math.floor(Math.random() * 1000000000).toString();
+    datasource.id = id;
+    datasources[id] = datasource;
+
+    console.dir(datasource);
+    res.send({datasource: datasource});
+});
+
+var dataselections = {};
+app.post('/dataselections', function (req, res) {
+    var dataselection = req.body.dataselection;
+    var datasource = datasources[dataselection.datasource];
+    var id = Math.floor(Math.random() * 1000000000).toString();
+
+    var dataselection = {
+        id: id,
+        datasource: datasource.id,
+        subset: dataselection.subset,
+        propertyInfos: dataselection.propertyInfos,
+    };
+
+    dataselections[id] = dataselection;
+    console.dir(JSON.stringify(dataselection));
+    res.send({
+        dataselection: dataselection
+    });
+});
+
+app.get('/sparql-proxy/:endpoint/:query', function (req, res) {
     var query = req.param("query");
     var endpoint = req.param("endpoint");
     var client = new GraphStoreClient(endpoint, null);
 
-    client.query(query).then(function(result, err) {
+    client.query(query).then(function (result, err) {
         if (err) {
             console.log('visualization_backend: Could not execute query: ' + err);
             return;
@@ -52,29 +82,28 @@ app.get('/sparql-proxy/:endpoint/:query', function(req, res) {
 });
 
 //visualization configuration
-app.put('/visualizations/:id', function(req, res) {
-    var vis_config = req.body;
-    var config_id = 123;//req.param("id");
-    var config_name = "";
-    var config_graph = "http://www.linda-project.org/visualization-configuration";
-    var endpoint = "http://localhost:8890/sparql";
-    var ontology_graph = "http://linda-project.eu/linda-visualization";
+app.get('/visualizations', function (req, res) {
+    var source_type = req.param("source_type");
+    var id = req.param("id");
 
-    // store_visualization.store(vis_config, config_id, config_name, config_graph);
-
-    // query_visualization.query(config_id, config_graph, endpoint);
-
-    // query_patterns.query(ontology_graph, endpoint);
-
-    query_visualizations.query(ontology_graph, endpoint);
-
-    //console.log('VISUALIZATION CONFIGURATION FE');
-    //console.log(JSON.stringify(req.body));
-
-    //res.send('hello world');
+    switch (source_type) {
+        case "dataselection":
+            var dataselection = dataselections[id];
+            var endpoint = "http://localhost:8890/sparql";
+            var ontology_graph = "http://linda-project.eu/linda-visualization";
+            console.log("Calculating suggestions for dataselection: ")
+            console.log(JSON.stringify(dataselection));
+            visualization_recommendation.recommendForDataselection(dataselection, endpoint, ontology_graph).then(function (visualizations) {
+                console.log(JSON.stringify(visualizations));
+                res.send({
+                    visualization: visualizations
+                });
+            }, printError);
+            break;
+    }
 });
 
-http.createServer(app).listen(3002, function() {
+http.createServer(app).listen(3002, function () {
     console.log("visualisation_backend: Express server listening on port 3002");
 });
 

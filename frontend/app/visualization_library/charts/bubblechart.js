@@ -10,46 +10,47 @@ var bubblechart = function() {
     var data = [];
 
     function draw(configuration, visualisationContainerID) {
-        console.log("### INITIALIZE VISUALISATION - COLUMN CHART");
+        console.log("### INITIALIZE VISUALISATION - BUBBLE CHART");
 
         var container = $('#' + visualisationContainerID);
         container.empty();
 
+        var xAxis = configuration['Horizontal Axis'];
+        var yAxis = configuration['Vertical Axis'];
+        var size = configuration['Size'];
+        var label = configuration['Label'];
+        var group = configuration['Groups'];
+        
         if (!(configuration.dataModule && configuration.datasourceLocation
-                && configuration.xAxis && configuration.yAxis
-                && configuration.label)) {
+                && xAxis && yAxis && size && label && group)) {
             return $.Deferred().resolve().promise();
         }
 
-        if ((configuration.label.length === 0) || (configuration.xAxis.length === 0) || (configuration.yAxis.length === 0)) {
+        if ((label.length === 0) || (xAxis.length === 0) || (yAxis.length === 0)) {
             return $.Deferred().resolve().promise();
         }
 
         var dataModule = configuration.dataModule;
         var location = configuration.datasourceLocation;
+        var graph = configuration.datasourceGraph;
 
         var selection = {
             dimension: [],
-            multidimension: configuration.label.concat(configuration.xAxis).concat(configuration.yAxis).concat(configuration.radius).concat(configuration.color),
-            group: [],
-            gridlines: configuration.gridlines,
-            hLabel: configuration.hLabel,
-            vLabel: configuration.vLabel,
-            ticks : configuration.ticks,
-            tooltip: configuration.tooltip
+            multidimension: label.concat(xAxis).concat(yAxis).concat(size).concat(color),
+            group: []
         };
 
-        console.log("VISUALIZATION SELECTION FOR COLUMN CHART:");
+        console.log("VISUALIZATION SELECTION FOR BUBBLE CHART:");
         console.dir(selection);
 
         var svg = dimple.newSvg('#' + visualisationContainerID, container.width(), container.height());
 
-        return dataModule.parse(location, selection).then(function(inputData) {
-            console.log("GENERATE INPUT DATA FORMAT FOR COLUMN CHART - INPUT DATA");
+        return dataModule.parse(location, graph, selection).then(function(inputData) {
+            console.log("GENERATE INPUT DATA FORMAT FOR BUBBLE CHART - INPUT DATA");
             console.dir(inputData);
             seriesHeaders = inputData[0];
             data = rows(inputData);
-            console.log("GENERATE INPUT DATA FORMAT FOR COLUMN CHART - OUTPUT DATA");
+            console.log("GENERATE INPUT DATA FORMAT FOR BUBBLE CHART - OUTPUT DATA");
             console.dir(data);
 
             var chart = new dimple.chart(svg, data);
@@ -58,21 +59,21 @@ var bubblechart = function() {
             var xAxisName = seriesHeaders[1];
             var yAxisName = seriesHeaders[2];
             
-            var radiusAxisName;
-            if (configuration.radius.length > 0) {
-                radiusAxisName = seriesHeaders[3];
+            var sizeAxisName;
+            if (size.length > 0) {
+                sizeAxisName = seriesHeaders[3];
             }
 
             var colorAxisName;
-            if (configuration.color.length > 0) {
-                colorAxisName = seriesHeaders[3 + configuration.radius.length];
+            if (color.length > 0) {
+                colorAxisName = seriesHeaders[3 + size.length];
             }
 
             var x = chart.addMeasureAxis("x", xAxisName);
             var y = chart.addMeasureAxis("y", yAxisName);
 
-            if (radiusAxisName) {
-                chart.addMeasureAxis("z", radiusAxisName);
+            if (sizeAxisName) {
+                chart.addMeasureAxis("z", sizeAxisName);
             }
 
             var series = [labelAxisName];

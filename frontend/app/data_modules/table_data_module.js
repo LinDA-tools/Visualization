@@ -1,8 +1,8 @@
-var table_data = function() {
+var table_data = function () {
     var list = [];
     function getContent(selection, datasource) {
-        var _location = decodeURIComponent(datasource.get('location'));
-        var _graph = decodeURIComponent(datasource.get('graph'));
+        var _location = datasource.get('location');
+        var _graph = datasource.get('graph');
         var _format = datasource.get('format');
 
         var data_module = getDataModule(_format);
@@ -29,7 +29,7 @@ var table_data = function() {
         console.error("Unknown data format '" + format + "'");
         return null;
     }
-    
+
     return {
         list: list,
         getContent: getContent,

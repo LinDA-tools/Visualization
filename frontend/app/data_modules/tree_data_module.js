@@ -51,6 +51,7 @@ var tree_data = function() {
                 label: subset.label,
                 expanded: (subsets.length === 1),
                 draggable: (parent.length > 0) ? "true" : "false", // only properties are draggable, classes are not
+                isLeaf: subset.grandchildren === false,
                 children: [],
                 type: "item",
                 parentNode: node,
@@ -68,7 +69,8 @@ var tree_data = function() {
                     id: subset.id,
                     label: subset.label,
                     format: format,
-                    location: location
+                    location: location,
+                    datatype: subset.datatype
                 }
             }));
         }
@@ -94,13 +96,17 @@ var tree_data = function() {
 
         return data_module.queryData(node.data.location, _class, _properties).then(function(subsetInfo) {
             if (subsetInfo.length === 0) {
-                node.isLeaf = true;
                 return [];
             } else {
                 var children = branch(node, subsetInfo, node.data.parent, node.data.format, node.data.location);
                 return children;
             }
         });
+    }
+
+    function simplifyURI(uri) {
+        var splits = uri.split(/[#/:]/);
+        return splits[splits.length - 1];
     }
 
     return {

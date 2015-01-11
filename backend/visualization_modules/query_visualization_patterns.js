@@ -3,9 +3,9 @@ var _ = require('lodash');
 
 function query(ontology_graph, ontology_endpoint) {
     console.log("QUERY VISUALIZATION PATTERNS");
-    
+
     var client = new GraphStoreClient(ontology_endpoint, null);
-    
+
     var query = "";
 
     query += 'PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> \n';
@@ -25,8 +25,8 @@ function query(ontology_graph, ontology_endpoint) {
     query += "?visualization vis:structureOption ?structureOption .\n ";
     query += "?structureOption vis:optionName ?optionName .\n ";
     query += "?structureOption vis:optionType ?optionType .\n ";
-    query += "?optionType vis:minCardinality ?minCardinality .\n ";
-    query += "?optionType vis:maxCardinality ?maxCardinality .\n ";
+    query += "OPTIONAL { ?optionType vis:minCardinality ?minCardinality .}\n ";
+    query += "OPTIONAL { ?optionType vis:maxCardinality ?maxCardinality .}\n ";
     query += "?optionType vis:scaleOfMeasurement ?scale .\n ";
     query += "?scale rdfs:label ?scaleOfMeasurement .\n ";
 
@@ -38,7 +38,7 @@ function query(ontology_graph, ontology_endpoint) {
 
     var patterns = {};
 
-    client.query(query).then(function(results, err) {
+    return client.query(query).then(function (results, err) {
 
         console.log("SPARQL RESULT VISUALIZATION PATTERNS");
         console.dir(results);
@@ -50,31 +50,30 @@ function query(ontology_graph, ontology_endpoint) {
             var optionName_ = option['optionName']['value'];
 
             if (patterns[visualizationName_]) {
-                
                 if (patterns[visualizationName_][optionName_]) {
-                    patterns[visualizationName_][optionName_]['scaleOfMeasurement'].push(option['scaleOfMeasurement']['value']);
+                    patterns[visualizationName_][optionName_]['scalesOfMeasurement'].push(option['scaleOfMeasurement']['value']);
                 } else {
                     patterns[visualizationName_][optionName_] = {
                         optionName: option['optionName']['value'],
                         scalesOfMeasurement: [option['scaleOfMeasurement']['value']],
-                        minCardinality: option['minCardinality']['value'],
-                        maxCardinality: option['maxCardinality']['value']
+                        minCardinality: parseInt(option['minCardinality'] || {})['value'],
+                        maxCardinality: parseInt(option['maxCardinality'] || {})['value']
                     };
                 }
             } else {
-                patterns[visualizationName_] = { };
-
+                patterns[visualizationName_] = {};
                 patterns[visualizationName_][optionName_] = {
                     optionName: option['optionName']['value'],
                     scalesOfMeasurement: [option['scaleOfMeasurement']['value']],
-                    minCardinality: option['minCardinality']['value'],
-                    maxCardinality: option['maxCardinality']['value']
+                    minCardinality: parseInt(option['minCardinality'] || {})['value'],
+                    maxCardinality: parseInt(option['maxCardinality'] || {})['value']
                 };
             }
         }
 
         console.log("VISUALIZATION PATTERNS ");
         console.dir(JSON.stringify(patterns));
+        return patterns;
     });
 }
 

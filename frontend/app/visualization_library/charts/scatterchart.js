@@ -15,21 +15,27 @@ var scatterchart = function() {
         var container = $('#' + visualisationContainerID);
         container.empty();
 
+        var xAxis = configuration['Horizontal Axis'];
+        var yAxis = configuration['Vertical Axis'];
+        var group = configuration['Groups'];
+
+
         if (!(configuration.dataModule && configuration.datasourceLocation
-                && configuration.xAxis && configuration.yAxis)) {
+                && xAxis && yAxis)) {
             return $.Deferred().resolve().promise();
         }
 
-        if ((configuration.xAxis.length === 0) || (configuration.yAxis.length === 0)) {
+        if ((xAxis.length === 0) || (yAxis.length === 0)) {
             return $.Deferred().resolve().promise();
         }
 
         var dataModule = configuration.dataModule;
         var location = configuration.datasourceLocation;
+        var graph = configuration.datasourceGraph;
 
         var selection = {
             dimension: [],
-            multidimension: configuration.xAxis.concat(configuration.yAxis).concat(configuration.group),
+            multidimension: xAxis.concat(yAxis).concat(group),
             group: []
         };
 
@@ -38,7 +44,7 @@ var scatterchart = function() {
 
         var svg = dimple.newSvg('#' + visualisationContainerID, container.width(), container.height());
 
-        return dataModule.parse(location, selection).then(function(inputData) {
+        return dataModule.parse(location, graph, selection).then(function(inputData) {
             console.log("GENERATE INPUT DATA FORMAT FOR COLUMN CHART - INPUT DATA");
             console.dir(inputData);
             seriesHeaders = inputData[0];
@@ -56,7 +62,7 @@ var scatterchart = function() {
             var yAxisName = seriesHeaders[1];
 
             var groupAxisName;
-            if (configuration.group.length > 0) {
+            if (group.length > 0) {
                 groupAxisName = seriesHeaders[2];
             }
 

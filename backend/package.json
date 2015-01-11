@@ -22,6 +22,7 @@
     "express": "3.5.0",
     "q": "1.0.1",
     "graph-store-client": "0.0.1",
-    "lodash": "^2.4.1"
+    "lodash": "^2.4.1",
+    "munkres-js": "^1.1.2"
   }
 }

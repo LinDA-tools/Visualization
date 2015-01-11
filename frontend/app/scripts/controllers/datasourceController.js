@@ -17,6 +17,14 @@ App.DatasourceController = Ember.ObjectController.extend({
             var selected = treeselection_data.getDataSelection(selection, datasource);
             console.dir('FORMATTED DATA SELECTION');
             console.dir(selected);
+
+            var self = this;
+            var dataselection = this.store.createRecord('dataselection', selected);
+            dataselection.save().then(function (responseDataselection) {
+                console.log("Saved data selection. Transition to Visualization.");
+                console.dir(responseDataselection);
+                self.transitionToRoute('visualization', 'dataselection', responseDataselection.id);
+            });
         }
     }
 });

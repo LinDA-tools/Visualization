@@ -8,8 +8,8 @@ var treeselection_data = function() {
         console.log('SELECTION TREE COMPONENT - INITIALIZING TREE');
         console.dir(dataInfo);
 
-        _location = decodeURIComponent(dataInfo.get('location'));
-        _graph = decodeURIComponent(dataInfo.get('graph'));
+        _location = dataInfo.get('location');
+        _graph = dataInfo.get('graph');
         _format = dataInfo.get('format');
         _data_module = getDataModule(_format);
 

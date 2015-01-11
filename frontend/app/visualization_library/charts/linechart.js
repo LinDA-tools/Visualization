@@ -11,22 +11,27 @@ var linechart = function() {
 
         var container = $('#' + visualisationContainerID);
         container.empty();
+        
+        var xAxis = configuration['Horizontal Axis'];
+        var yAxis = configuration['Vertical Axis'];
+        var group = configuration['Series'];
 
         if (!(configuration.dataModule && configuration.datasourceLocation
-                && configuration.xAxis && configuration.yAxis)) {
+                && xAxis && yAxis && group)) {
             return $.Deferred().resolve().promise();
         }
 
-        if ((configuration.xAxis.length === 0) || (configuration.yAxis.length === 0)) {
+        if ((xAxis.length === 0) || (yAxis.length === 0)) {
             return $.Deferred().resolve().promise();
         }
 
         var dataModule = configuration.dataModule;
         var location = configuration.datasourceLocation;
+        var graph = configuration.datasourceGraph;
 
         var selection = {
-            dimension: configuration.yAxis, // measure
-            multidimension: configuration.xAxis.concat(configuration.addedSeries),
+            dimension: yAxis, // measure
+            multidimension: xAxis.concat(group),
             group: []
         };
 
@@ -35,7 +40,7 @@ var linechart = function() {
 
         var svg = dimple.newSvg('#' + visualisationContainerID, container.width(), container.height());
 
-        return dataModule.parse(location, selection).then(function(inputData) {
+        return dataModule.parse(location, graph, selection).then(function(inputData) {
             var columnsHeaders = inputData[0];
             var data = rows(inputData);
             console.log("GENERATE INPUT DATA FORMAT FOR LINE CHART");
@@ -48,7 +53,7 @@ var linechart = function() {
 
             var series = null;
 
-            if (configuration.addedSeries.length > 0) {
+            if (group.length > 0) {
                 series = columnsHeaders.slice(2);
             }
 

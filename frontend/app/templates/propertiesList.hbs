@@ -1,6 +1,6 @@
 {{#each category in view.categories}}
     <li>
-        <h7 class="categorized-list-category">{{category.name}}</h7>
+       <div class="category"> {{category.name}} </div>
         <ul class="categorized-property">
             {{#each item in category.items}}
                 {{#draggable-item data=item tagName='li'}}

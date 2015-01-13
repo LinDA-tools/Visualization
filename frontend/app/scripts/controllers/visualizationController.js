@@ -3,13 +3,14 @@ App.VisualizationController = Ember.ArrayController.extend({
     structureOptions: {},
     slideShowContainer: Ember.ContainerView.create(),
     datasource: Ember.computed.alias("selectedVisualization.datasource"),
-    visualizationConfigurationArray: [{}],
+    visualizationConfiguration: [{}],
     visualizationSVG: '',
+    exportFormats: ['SVG', 'PNG'],
+    selectedFormat:'PNG',
     categorizedProperties: function () {
         var categorizedProperties = {};
-
         var selectedVisualization = this.get('selectedVisualization');
-        var dataselection = selectedVisualization.get('dataselection')
+        var dataselection = selectedVisualization.get('dataselection');
         var propertyInfos = dataselection.get('propertyInfos');
 
         for (var i = 0; i < propertyInfos.length; i++) {
@@ -20,25 +21,25 @@ App.VisualizationController = Ember.ArrayController.extend({
                 categorizedProperties[category] = {
                     name: category,
                     items: []
-                }
+                };
             }
-
             categorizedProperties[category].items.push(propertyInfo);
         }
 
         return _.values(categorizedProperties);
     }.property('selectedVisualization'),
-    createVisualization: function () {
+    initializeVisualization: function () {
+        console.log("VISUALIZATION CONTROLLER - INITIALIZE VISUALIZATION ... ");
         this.set('drawnVisualization', null);
 
         var selectedVisualization = this.get('selectedVisualization');
-        console.log("Visualization changed: ");
+        console.log('SELECTED VISUALIZATION');
         console.dir(selectedVisualization);
 
         // Reset configuration map
         var configArray = [{}];
-        this.set('visualizationConfigurationArray', configArray);
-
+        this.set('visualizationConfiguration', configArray);
+                
         if (!selectedVisualization) {
             return;
         }
@@ -52,10 +53,11 @@ App.VisualizationController = Ember.ArrayController.extend({
 
         mapping.structureOptions = customMapping.structureOptions;
         mapping.layoutOptions = customMapping.layoutOptions;
-        console.log('mapping.structureOptions');
+        
+        console.log('MAPPING - STRUCTURE OPTIONS');
         console.dir(mapping.structureOptions);
 
-        console.log('mapping.layoutOptions');
+        console.log('MAPPING - LAYOUT OPTIONS');
         console.dir(mapping.layoutOptions);
 
         this.set('structureOptions', mapping.structureOptions);
@@ -65,16 +67,13 @@ App.VisualizationController = Ember.ArrayController.extend({
         this.set('drawnVisualization', selectedVisualization);
     }.observes('selectedVisualization'),
     refreshSlideshow: function () {
-        console.log("Refreshing slideshow");
         var container = this.get('slideShowContainer');
         container.removeAllChildren();
         var slideshow = App.SlideShowView.create({slides: this.get("model")});
         container.pushObject(slideshow);
     }.observes("model"),
     setSuggestedVisualization: function () {
-        var topSuggestion = this.get('firstObject');
-        console.log("Setting top suggestion");
-        console.dir(topSuggestion);
+        var topSuggestion = this.get('firstObject');     
         this.set('selectedVisualization', topSuggestion);
     }.observes('model'),
     actions: {

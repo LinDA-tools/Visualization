@@ -1,7 +1,7 @@
 App.DrawVisualizationView = Ember.View.extend({
     drawVisualization: function () {
         var visualization = this.get('visualization');
-        console.log("Visualization");
+        console.log("DRAW VISUALIZATION VIEW - DRAW ...");
         console.dir(visualization);
 
         if (!visualization) {
@@ -9,20 +9,16 @@ App.DrawVisualizationView = Ember.View.extend({
         }
 
         var config = this.get('configurationArray')[0];
-        console.log("Configuration changed");
+        
+        console.log("VISUALIZATION CONFIGURATION");
         console.dir(JSON.stringify(config));
 
         if (!config) {
             return;
         }
 
-        var dataselection = visualization.get('dataselection');
-        console.log("dataselection");
-        console.dir(dataselection);
+        var dataselection = visualization.get('dataselection');              
         var datasource = dataselection.get('datasource');
-        console.log("datasource");
-        console.dir(datasource);
-
         var format = datasource.get('format');
         config.datasourceLocation = datasource.get('location');
         config.datasourceGraph = datasource.get('graph');
@@ -38,11 +34,9 @@ App.DrawVisualizationView = Ember.View.extend({
                 console.error("Unknown DS format: " + format);
                 return;
         }
+        
         var name = visualization.get("visualizationName");
-        var visualization = visualizationRegistry.getVisualization(name);
-        console.log("Visualization " + name);
-        console.dir(visualization);
-        console.dir(config);
+        var visualization = visualizationRegistry.getVisualization(name);       
         var self = this;
 
         var element = this.get('element');

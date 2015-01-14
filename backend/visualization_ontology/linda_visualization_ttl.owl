@@ -34,6 +34,7 @@
             :maxCardinality "1"^^xsd:nonNegativeInteger ;
             :minCardinality "1"^^xsd:nonNegativeInteger ;
             :scaleOfMeasurement :Interval ;
+            :dimensionRole :Domain ;
             a :Dimension
         ] ;
         a :Option
@@ -43,6 +44,7 @@
             :maxCardinality "1"^^xsd:nonNegativeInteger ;
             :minCardinality "1"^^xsd:nonNegativeInteger ;
             :scaleOfMeasurement :Ratio ;
+            :dimensionRole :Range ;
             a :Dimension
         ] ;
         a :Option
@@ -51,6 +53,7 @@
         :optionType [
             :maxCardinality "1"^^xsd:nonNegativeInteger ;
             :scaleOfMeasurement :Nominal ;
+            :dimensionRole :Domain ;
             a :Dimension
         ] ;
         a :Option
@@ -84,6 +87,7 @@
             :maxCardinality "1"^^xsd:nonNegativeInteger ;
             :minCardinality "1"^^xsd:nonNegativeInteger ;
             :scaleOfMeasurement :Nominal ;
+            :dimensionRole :Domain ;
             a :Dimension
         ] ;
         a :Option
@@ -93,6 +97,7 @@
             :maxCardinality "1"^^xsd:nonNegativeInteger ;
             :minCardinality "1"^^xsd:nonNegativeInteger ;
             :scaleOfMeasurement :Interval, :Ratio ;
+            :dimensionRole :Range ;
             a :Dimension
         ] ;
         a :Option
@@ -101,6 +106,7 @@
         :optionType [
             :maxCardinality "1"^^xsd:nonNegativeInteger ;
             :scaleOfMeasurement :Nominal ;
+            :dimensionRole :Domain ;
             a :Dimension
         ] ;
         a :Option
@@ -134,6 +140,7 @@
             :maxCardinality "1"^^xsd:nonNegativeInteger ;
             :minCardinality "1"^^xsd:nonNegativeInteger ;
             :scaleOfMeasurement :Interval, :Ratio ;
+            :dimensionRole :Range ;
             a :Dimension
         ] ;
         a :Option
@@ -143,6 +150,7 @@
             :maxCardinality "1"^^xsd:nonNegativeInteger ;
             :minCardinality "1"^^xsd:nonNegativeInteger ;
             :scaleOfMeasurement :Interval, :Ratio ;
+            :dimensionRole :Range ;
             a :Dimension
         ] ;
         a :Option
@@ -152,6 +160,7 @@
             :maxCardinality "1"^^xsd:nonNegativeInteger ;
             :minCardinality "1"^^xsd:nonNegativeInteger ;
             :scaleOfMeasurement :Ratio ;
+            :dimensionRole :Range ;
             a :Dimension
         ] ;
         a :Option
@@ -168,6 +177,7 @@
         :optionType [
             :maxCardinality "1"^^xsd:nonNegativeInteger ;
             :scaleOfMeasurement :Nominal ;
+            :dimensionRole :Domain ;
             a :Dimension
         ] ;
         a :Option
@@ -231,6 +241,7 @@
             :maxCardinality "1"^^xsd:nonNegativeInteger ;
             :minCardinality "1"^^xsd:nonNegativeInteger ;
             :scaleOfMeasurement :Interval ;
+            :dimensionRole :Domain ;
             a :Dimension
         ] ;
         a :Option
@@ -240,6 +251,7 @@
             :maxCardinality "1"^^xsd:nonNegativeInteger ;
             :minCardinality "1"^^xsd:nonNegativeInteger ;
             :scaleOfMeasurement :Interval, :Ratio ;
+            :dimensionRole :Range ;
             a :Dimension
         ] ;
         a :Option
@@ -248,6 +260,7 @@
         :optionType [
             :maxCardinality "1"^^xsd:nonNegativeInteger ;
             :scaleOfMeasurement :Nominal ;
+            :dimensionRole :Domain ;
             a :Dimension
         ] ;
         a :Option
@@ -265,6 +278,7 @@
             :maxCardinality "1"^^xsd:nonNegativeInteger ;
             :minCardinality "1"^^xsd:nonNegativeInteger ;
             :scaleOfMeasurement :Spatial ;
+            :associatedProperty <http://www.w3.org/2003/01/geo/wgs84_pos#lat> ;
             a :Dimension
         ] ;
         a :Option
@@ -274,6 +288,7 @@
             :maxCardinality "1"^^xsd:nonNegativeInteger ;
             :minCardinality "1"^^xsd:nonNegativeInteger ;
             :scaleOfMeasurement :Spatial ;
+            :associatedProperty <http://www.w3.org/2003/01/geo/wgs84_pos#long> ;
             a :Dimension
         ] ;
         a :Option
@@ -290,6 +305,7 @@
         :optionName "Indicator" ;
         :optionType [
             :scaleOfMeasurement :Ratio ;
+            :dimensionRole :Range ;
             a :Dimension
         ] ;
         a :Option
@@ -338,6 +354,7 @@
             :maxCardinality "1"^^xsd:nonNegativeInteger ;
             :minCardinality "1"^^xsd:nonNegativeInteger ;
             :scaleOfMeasurement :Ratio ;
+            :dimensionRole :Range ;
             a :Dimension
         ] ;
         a :Option
@@ -346,7 +363,8 @@
         :optionType [
             :maxCardinality "6"^^xsd:nonNegativeInteger ;
             :minCardinality "1"^^xsd:nonNegativeInteger ;
-            :scaleOfMeasurement :Nominal ;
+            :scaleOfMeasurement :Nominal 
+            :dimensionRole :Domain ;
             a :Dimension
         ] ;
         a :Option
@@ -385,6 +403,10 @@
     rdfs:label "SoM Spatial Data"@en ;
     rdfs:subClassOf :ScaleOfMeasurement .
 
+:DimensionRole
+    a owl:Class ;
+    rdfs:comment "The role a dimension plays in the functional description of its visualization: Domain (called Dimension in Data Cube) or Range (Measure in Data Cube)"@en .
+
 :ScatterChart
     :layoutOption [
         :optionName "Label" ;
@@ -407,7 +429,8 @@
         :optionType [
             :maxCardinality "1"^^xsd:nonNegativeInteger ;
             :minCardinality "1"^^xsd:nonNegativeInteger ;
-            :scaleOfMeasurement :Inerval, :Ratio ;
+            :scaleOfMeasurement :Interval, :Ratio ;
+            :dimensionRole :Range ;
             a :Dimension
         ] ;
         a :Option
@@ -417,6 +440,7 @@
             :maxCardinality "1"^^xsd:nonNegativeInteger ;
             :minCardinality "1"^^xsd:nonNegativeInteger ;
             :scaleOfMeasurement :Inerval, :Ratio ;
+            :dimensionRole :Range ;
             a :Dimension
         ] ;
         a :Option
@@ -439,6 +463,16 @@
     a :ScaleOfMeasurementForSpatialData, owl:NamedIndividual ;
     rdfs:comment "Scale of measurement for spatial data"@en ;
     rdfs:label "Spatial"@en .
+
+:Domain
+    a :DimensionRole, owl:NamedIndividual ;
+    rdfs:comment "'Domain' dimension role, also known as 'dimension' in Data Cube, or as 'independent variable'"@en ;
+    rdfs:label "Domain"@en .
+
+:Range
+    a :DimensionRole, owl:NamedIndividual ;
+    rdfs:comment "'Range' dimension role, also known as 'measure' in Data Cube, or as 'dependent variable'"@en ;
+    rdfs:label "Range"@en .
 
 :TimeSeries
     a :TypeOfVisualization, owl:NamedIndividual ;
@@ -515,6 +549,20 @@
     rdfs:domain :Dimension ;
     rdfs:label "Scale of measurement"@en ;
     rdfs:range :ScaleOfMeasurement .
+
+:dimensionRole
+    a owl:ObjectProperty ;
+    rdfs:comment "The role of a dimension"@en ;
+    rdfs:domain :Dimension ;
+    rdfs:label "Role"@en ;
+    rdfs:range :DimensionRole .
+
+:associatedProperty
+    a owl:ObjectProperty ;
+    rdfs:comment "An RDF property associated with a dimension, e.g. wgs84:lat for a map's latitude"@en ;
+    rdfs:domain :Dimension ;
+    rdfs:label "Associated property"@en ;
+    rdfs:range owl:DatatypeProperty .
 
 :structureOption
     a owl:ObjectProperty ;

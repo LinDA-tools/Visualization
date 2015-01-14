@@ -74,8 +74,8 @@ app.get('/sparql-proxy/:endpoint/:query', function (req, res) {
             console.log('visualization_backend: Could not execute query: ' + err);
             return;
         }
-        console.log("SPARQL_RESULT");
-        console.dir(result);
+//        console.log("SPARQL_RESULT");
+//        console.dir(result);
 
         res.send(result);
     }, printError);

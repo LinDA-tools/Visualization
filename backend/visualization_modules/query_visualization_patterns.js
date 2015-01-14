@@ -15,7 +15,7 @@ function query(ontology_graph, ontology_endpoint) {
     query += 'PREFIX visconf: <http://www.linda-project.org/visualization-configuration#> \n';
 
     query += "SELECT  ";
-    query += "?visualizationName ?optionName ?minCardinality ?maxCardinality ?scaleOfMeasurement \n ";
+    query += "?visualizationName ?optionName ?minCardinality ?maxCardinality ?scaleOfMeasurement ?dimensionRole ?associatedProperty \n ";
     query += "WHERE \n";
     query += "{ \n";
     query += "GRAPH <" + ontology_graph + "> \n";
@@ -29,7 +29,11 @@ function query(ontology_graph, ontology_endpoint) {
     query += "OPTIONAL { ?optionType vis:maxCardinality ?maxCardinality .}\n ";
     query += "?optionType vis:scaleOfMeasurement ?scale .\n ";
     query += "?scale rdfs:label ?scaleOfMeasurement .\n ";
-
+    query += "OPTIONAL {\n";
+    query += " ?optionType vis:dimensionRole ?dimensionRole_ . \n"
+    query += " ?dimensionRole_ rdfs:label ?dimensionRole . \n"
+    query += "} \n ";
+    query += "OPTIONAL { ?optionType vis:associatedProperty ?associatedProperty . } \n ";
     query += "} \n";
     query += "} \n";
 
@@ -56,6 +60,8 @@ function query(ontology_graph, ontology_endpoint) {
                     patterns[visualizationName_][optionName_] = {
                         optionName: option['optionName']['value'],
                         scalesOfMeasurement: [option['scaleOfMeasurement']['value']],
+                        dimensionRole: (option['dimensionRole'] || {})['value'],
+                        associatedProperty: (option['associatedProperty'] || {})['value'],
                         minCardinality: parseInt(option['minCardinality'] || {})['value'],
                         maxCardinality: parseInt(option['maxCardinality'] || {})['value']
                     };
@@ -65,6 +71,8 @@ function query(ontology_graph, ontology_endpoint) {
                 patterns[visualizationName_][optionName_] = {
                     optionName: option['optionName']['value'],
                     scalesOfMeasurement: [option['scaleOfMeasurement']['value']],
+                    dimensionRole: (option['dimensionRole'] || {})['value'],
+                    associatedProperty: (option['associatedProperty'] || {})['value'],
                     minCardinality: parseInt(option['minCardinality'] || {})['value'],
                     maxCardinality: parseInt(option['maxCardinality'] || {})['value']
                 };

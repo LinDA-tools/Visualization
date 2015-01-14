@@ -9,27 +9,38 @@ var query_visualizations = require('./visualization_modules/query_visualizations
 // Defines how well dimensions and properties match according to their scales of measurement
 function calculateCost(dimension, property) {
     var pType = property.scaleOfMeasurement;
-    var weight = 4;
+    var scaleWeight = 100;
     // A dimension may be able to handle more than one scale of measurement
     // => Take the minimum weight
     for (var i = 0; i < dimension.scalesOfMeasurement.length; i++) {
         var dType = dimension.scalesOfMeasurement[i];
         if (pType === dType) {
-            weight = Math.min(0, weight);
+            scaleWeight = Math.min(0, scaleWeight);
         } else if (pType === "Quantitative" && dType === "Ratio" || dType === "Quantitative" && pType === "Ratio") {
-            weight = Math.min(1, weight);
+            scaleWeight = Math.min(1, scaleWeight);
         } else if (pType === "Quantitative" && dType === "Spatial" || dType === "Quantitative" && pType === "Spatial") {
-            weight = Math.min(1, weight);
+            scaleWeight = Math.min(1, scaleWeight);
         } else if (pType === "Ratio" && dType === "Spatial") {
-            weight = Math.min(1, weight);
+            scaleWeight = Math.min(1, scaleWeight);
         } else if (pType === "Quantitative" && dType === "Interval" || dType === "Quantitative" && pType === "Interval") {
-            weight = Math.min(2, weight);
+            scaleWeight = Math.min(2, scaleWeight);
         } else if (pType === "Categorical" && dType === "Nominal" || dType === "Categorical" && pType === "Nominal") {
-            weight = Math.min(1, weight);
+            scaleWeight = Math.min(1, scaleWeight);
         } else if (pType === "Categorical" && dType === "Ordinal" || dType === "Categorical" && pType === "Ordinal") {
-            weight = Math.min(2, weight);
+            scaleWeight = Math.min(2, scaleWeight);
         }
     }
+    
+    var optionalWeight;
+    if(dimension.optional) {
+        // Prefer mapping required dimensions over mapping optional dimensions
+        optionalWeight = 2;
+    } else {
+        optionalWeight = 0;
+    }
+    
+    var weight = scaleWeight + optionalWeight;
+    
     return weight;
 }
 
@@ -55,12 +66,23 @@ function addRecommendation(visualizationPattern, properties, visualizationDescri
     var dimensions = [];
     for (var dimensionName in visualizationPattern) {
         var dimension = visualizationPattern[dimensionName];
+        var descDimension = visualizationDescription.structureOptions[dimensionName];
+        if(!descDimension.minCardinality) {
+            console.log("optional: " + dimensionName);
+            dimension.optional = true;
+        }
         dimensions.push(dimension);
     }
 
     var costs = calculateCostMatrix(dimensions, properties, calculateCost);
     var mk = new m.Munkres();
     var solution = mk.compute(costs);
+    
+    if(visualizationDescription.visualizationName === 'Map') {
+        console.log(JSON.stringify(dimensions));
+        console.log(JSON.stringify(properties));
+        console.log(JSON.stringify(costs));
+    }
 
     var result = {
         pattern: visualizationPattern,
@@ -79,7 +101,7 @@ function addRecommendation(visualizationPattern, properties, visualizationDescri
         var cost = costs[dimension_index][property_index];
 
         result.cost += cost;
-        if (cost >= 4) {
+        if (cost >= 100) {
             console.log('Bad match: ' + dimension.optionName + " -> " + property.label);
             result.valid = false;
         }

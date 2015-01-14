@@ -363,7 +363,7 @@
         :optionType [
             :maxCardinality "6"^^xsd:nonNegativeInteger ;
             :minCardinality "1"^^xsd:nonNegativeInteger ;
-            :scaleOfMeasurement :Nominal 
+            :scaleOfMeasurement :Nominal ; 
             :dimensionRole :Domain ;
             a :Dimension
         ] ;

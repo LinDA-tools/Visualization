@@ -30,17 +30,32 @@ function calculateCost(dimension, property) {
             scaleWeight = Math.min(2, scaleWeight);
         }
     }
-    
+
     var optionalWeight;
-    if(dimension.optional) {
+    if (dimension.optional) {
         // Prefer mapping required dimensions over mapping optional dimensions
         optionalWeight = 2;
     } else {
         optionalWeight = 0;
     }
-    
-    var weight = scaleWeight + optionalWeight;
-    
+
+    // TODO: Allow more than 1 associated property per dimension? (For different vocabularies with equivalent properties)
+    var propertyFactor;
+    if (!dimension.associatedProperty) {
+        // Don't know how well the property matches to the dimension => no change
+        propertyFactor = 1.0;
+    } else if (dimension.associatedProperty === property) {
+        // Reward matching properties
+        console.log("Property " + property + " matches with dimension " + dimension);
+        propertyFactor = 0.5;
+    } else {
+        // Penalize non-matching properties
+        console.log("Property " + property + " doesn't match with dimension " + dimension);
+        propertyFactor = 2.0;
+    }
+
+    var weight = propertyFactor * (scaleWeight + optionalWeight);
+
     return weight;
 }
 
@@ -67,7 +82,7 @@ function addRecommendation(visualizationPattern, properties, visualizationDescri
     for (var dimensionName in visualizationPattern) {
         var dimension = visualizationPattern[dimensionName];
         var descDimension = visualizationDescription.structureOptions[dimensionName];
-        if(!descDimension.minCardinality) {
+        if (!descDimension.minCardinality) {
             console.log("optional: " + dimensionName);
             dimension.optional = true;
         }
@@ -77,8 +92,8 @@ function addRecommendation(visualizationPattern, properties, visualizationDescri
     var costs = calculateCostMatrix(dimensions, properties, calculateCost);
     var mk = new m.Munkres();
     var solution = mk.compute(costs);
-    
-    if(visualizationDescription.visualizationName === 'Map') {
+
+    if (visualizationDescription.visualizationName === 'Map') {
         console.log(JSON.stringify(dimensions));
         console.log(JSON.stringify(properties));
         console.log(JSON.stringify(costs));

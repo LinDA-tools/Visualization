@@ -7,6 +7,7 @@ var map = function () { // map/openstreetmap module (js module pattern)
 
         if (map) {
             map.remove();
+            map = null;
         }
 
         $('#' + visualisationContainer).empty();
@@ -110,39 +111,46 @@ var map = function () { // map/openstreetmap module (js module pattern)
                 maxLong = Math.max(maxLong, long);
                 var label = labelColumn >= 0 ? row[labelColumn] : '';
                 console.log("LatLong: " + lat + ", " + long);
-                var markeroptions = {
-                    data: {},
-                    chartOptions: {},
-                    displayOptions: {},
-                    weight: 1,
-                    color: '#000000'
-                };
 
-                for (var j = 0; j < indicatorColumns.length; j++) {
-                    var indicatorColumn = indicatorColumns[j]; // spaltenindex
-                    var indicatorValue = row[indicatorColumn];
-                    var name = 'datapoint' + j;
-                    console.log("indicator [j]: " + indicatorColumn + " name: " + name + " value: " + indicatorValue);
-                    markeroptions.data[name] = indicatorValue;
-                    markeroptions.chartOptions[name] = {
-                        color: 'hsl(240,100%,55%)',
-                        fillColor: 'hsl(240,80%,55%)',
-                        minValue: 0,
-                        maxValue: maxIndicatorValues[j],
-                        maxHeight: 20,
-                        title: label,
-                        displayText: function (value) {
-                            return value.toFixed(2);
-                        }
+                var marker;
+                if (indicatorColumns.length > 0) {
+                    var markeroptions = {
+                        data: {},
+                        chartOptions: {},
+                        displayOptions: {},
+                        weight: 1,
+                        color: '#000000'
                     };
-                    markeroptions.displayOptions[name] = {
-                        color: new L.HSLHueFunction(new L.Point(0, minHue), new L.Point(100, maxHue), {outputSaturation: '100%', outputLuminosity: '25%'}),
-                        fillColor: new L.HSLHueFunction(new L.Point(0, minHue), new L.Point(100, maxHue), {outputSaturation: '100%', outputLuminosity: '50%'})
+                    for (var j = 0; j < indicatorColumns.length; j++) {
+                        var indicatorColumn = indicatorColumns[j]; // spaltenindex
+                        var indicatorValue = row[indicatorColumn];
+                        var name = 'datapoint' + j;
+                        console.log("indicator [j]: " + indicatorColumn + " name: " + name + " value: " + indicatorValue);
+                        markeroptions.data[name] = indicatorValue;
+                        markeroptions.chartOptions[name] = {
+                            color: 'hsl(240,100%,55%)',
+                            fillColor: 'hsl(240,80%,55%)',
+                            minValue: 0,
+                            maxValue: maxIndicatorValues[j],
+                            maxHeight: 20,
+                            title: label,
+                            displayText: function (value) {
+                                return value.toFixed(2);
+                            }
+                        };
+                        markeroptions.displayOptions[name] = {
+                            color: new L.HSLHueFunction(new L.Point(0, minHue), new L.Point(100, maxHue), {outputSaturation: '100%', outputLuminosity: '25%'}),
+                            fillColor: new L.HSLHueFunction(new L.Point(0, minHue), new L.Point(100, maxHue), {outputSaturation: '100%', outputLuminosity: '50%'})
+                        };
+                    }
+                    console.dir(markeroptions);
+                    marker = new L.BarChartMarker(new L.LatLng(lat, long), markeroptions);
+                } else {
+                    var markeroptions = {
+                        title: label
                     };
+                    marker = new L.Marker(new L.LatLng(lat, long), markeroptions);
                 }
-                console.dir(markeroptions);
-                var marker = new L.BarChartMarker(new L.LatLng(lat, long), markeroptions);
-                //var marker = L.marker({lat: lat, lng: long}, {title: label});
                 marker.addTo(map);
                 console.log("Point: [" + lat + ", " + long + ", " + label + "]");
             }

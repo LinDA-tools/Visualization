@@ -88,6 +88,17 @@ App.VisualizationController = Ember.ArrayController.extend({
             var svgURL = visualization.export_as_SVG();
             window.open(svgURL);
         },
+        export: function() {
+            var visualization = visualizationRegistry.getVisualization(this.get('selectedVisualization').get("visualizationName"));
+            if (this.get('selectedFormat')==='PNG'){
+                visualization.export_as_PNG().then(function (pngURL) {
+                    window.open(pngURL);
+                });
+            } else {
+                var svgURL = visualization.export_as_SVG();
+                window.open(svgURL);
+            }
+        },
         save: function () {
             // send actual visualization model to backend
             var selectedVisualization = this.get('selectedVisualization');

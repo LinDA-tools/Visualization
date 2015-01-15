@@ -36,7 +36,7 @@ var bubblechart = function() {
 
         var selection = {
             dimension: [],
-            multidimension: label.concat(xAxis).concat(yAxis).concat(size).concat(color),
+            multidimension: label.concat(xAxis).concat(yAxis).concat(size).concat(group),
             group: []
         };
 
@@ -64,9 +64,9 @@ var bubblechart = function() {
                 sizeAxisName = seriesHeaders[3];
             }
 
-            var colorAxisName;
-            if (color.length > 0) {
-                colorAxisName = seriesHeaders[3 + size.length];
+            var groupAxisName;
+            if (group.length > 0) {
+                groupAxisName = seriesHeaders[3 + size.length];
             }
 
             var x = chart.addMeasureAxis("x", xAxisName);
@@ -78,8 +78,8 @@ var bubblechart = function() {
 
             var series = [labelAxisName];
 
-            if (colorAxisName) {
-                series.push(colorAxisName);
+            if (groupAxisName) {
+                series.push(groupAxisName);
             }
             
             console.log("SERIES:");

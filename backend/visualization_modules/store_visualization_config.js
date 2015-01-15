@@ -20,8 +20,8 @@ function store(vis_config, config_id, config_name, config_graph, config_endpoint
 
     query += "visconf:VISCONFIG-" + config_id + " a vis:VisualizationConfiguration ; \n";
     query += " vis:configurationName '" + config_name + "' ; \n";
-    query += " vis:visualizationName '" + vis_config['visualization']['name'] + "' ; \n";
-    query += " vis:visualizationThumbnail '" + vis_config['visualization']['thumbnail'] + "'^^xsd:anyURI ; \n";
+    query += " vis:visualizationName '" + vis_config['visualization']['visualizationName'] + "' ; \n";
+    query += " vis:visualizationThumbnail '" + vis_config['visualization']['visualizationThumbnail'] + "'^^xsd:anyURI ; \n";
     query += " vis:datasource ";
 
     query += '[ \n';
@@ -41,8 +41,8 @@ function store(vis_config, config_id, config_name, config_graph, config_endpoint
 
         query += "[ \n";
         query += "  a vis:Option ; \n";
-        query += "  vis:optionName '" + structure_options[option]['label'] + "' ; \n";
-        query += "  vis:optionId '" + structure_options[option]['id'] + "' ; \n";
+        query += "  vis:optionName '" + structure_options[option]['optionName'] + "' ; \n";
+        
 
         query += "  vis:optionValue  ";
 
@@ -55,11 +55,12 @@ function store(vis_config, config_id, config_name, config_graph, config_endpoint
 
             query += "[ \n";
             query += "   vis:propertyName '"+property_name+"' ; \n";
+            query += "   vis:propertyId '" + structure_options[option]['value'][v]['id'] + "' ; \n";
             query += "   vis:contents ";
             query += "( ";
 
             for (var p = 0; p < option_value_path.length; p++) {
-                query += "'" + option_value_path[p] + "' ";
+                query += "'" + option_value_path[p]['id'] + "' ";
             }
 
             query += ") \n";
@@ -89,8 +90,8 @@ function store(vis_config, config_id, config_name, config_graph, config_endpoint
 
         query += "[ \n";
         query += "  a vis:Option ; \n";
-        query += "  vis:optionName '" + layout_options[option]['label'] + "' ; \n";
-        query += "  vis:optionId '" + layout_options[option]['id'] + "' ; \n";
+        query += "  vis:optionName '" + layout_options[option]['optionName'] + "' ; \n";
+        //query += "  vis:optionId '" + layout_options[option]['id'] + "' ; \n";
         query += "  vis:optionValue '" + layout_options[option]['value'] + "' ; \n";
 
         if (option_count === _.size(layout_options)) {
@@ -115,7 +116,7 @@ function store(vis_config, config_id, config_name, config_graph, config_endpoint
         console.log("SPARQL_RESULT");
         console.dir(result);
 
-    }, printError);
+    });
 }
 
 exports.store = store;

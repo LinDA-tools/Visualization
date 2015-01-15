@@ -134,6 +134,15 @@ app.get('/visualizations', function(req, res) {
     }
 });
 
+app.put('/visualizations/:id',function(req,res){
+    var vis_configuration = req.body;
+    var vis_configurationID = req.param('id');
+    var vis_configurationGraph = "http://linda-project.org/visualization-configuration";
+    var vis_configurationEndpoint = "http://localhost:8890/sparql";
+    var vis_configurationName = vis_configuration['visualization']['visualizationConfigName'];
+    
+    store_visualization.store(vis_configuration, vis_configurationID, vis_configurationName, vis_configurationGraph, vis_configurationEndpoint);
+});
 http.createServer(app).listen(3002, function() {
     console.log("visualisation_backend: Express server listening on port 3002");
 });

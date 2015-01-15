@@ -4,9 +4,9 @@ var map = function () { // map/openstreetmap module (js module pattern)
 
     function draw(configuration, visualisationContainer) {
         console.log("### INITIALIZE VISUALISATION - MAP");
-
+       
         if (map) {
-            map.remove();
+            map = map.remove();
             map = null;
         }
 

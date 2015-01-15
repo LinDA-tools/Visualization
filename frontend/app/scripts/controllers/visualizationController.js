@@ -62,7 +62,7 @@ App.VisualizationController = Ember.ArrayController.extend({
 
         this.set('structureOptions', mapping.structureOptions);
         this.set('layoutOptions', mapping.layoutOptions);
-
+        
         // Ensures that bindings on drawnVisualizations are triggered only now
         this.set('drawnVisualization', selectedVisualization);
     }.observes('selectedVisualization'),
@@ -98,6 +98,10 @@ App.VisualizationController = Ember.ArrayController.extend({
                 var svgURL = visualization.export_as_SVG();
                 window.open(svgURL);
             }
+        },
+        publish: function() {
+            var visualization = visualizationRegistry.getVisualization(this.get('selectedVisualization').get("visualizationName"));
+            this.set('visualizationSVG',visualization.get_SVG());
         },
         save: function () {
             // send actual visualization model to backend

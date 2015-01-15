@@ -1,0 +1,524 @@
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry33> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#DataEntry> .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry33> <http://data-gov.tw.rpi.edu/vocab/p/961/source> "CENSUS" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry33> <http://data-gov.tw.rpi.edu/vocab/p/961/year> "2007" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry33> <http://data-gov.tw.rpi.edu/vocab/p/961/frequency> "END OF DEC" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry33> <http://data-gov.tw.rpi.edu/vocab/p/961/location> "STATE" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry33> <http://data-gov.tw.rpi.edu/vocab/p/961/state> "NORTH CAROLINA" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry33> <http://data-gov.tw.rpi.edu/vocab/p/961/state_fips> "37" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry33> <http://data-gov.tw.rpi.edu/vocab/p/961/data_item> "GEESE - INVENTORY" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry33> <http://data-gov.tw.rpi.edu/vocab/p/961/value> "4197" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry5> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#DataEntry> .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry5> <http://data-gov.tw.rpi.edu/vocab/p/961/source> "CENSUS" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry5> <http://data-gov.tw.rpi.edu/vocab/p/961/year> "2007" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry5> <http://data-gov.tw.rpi.edu/vocab/p/961/frequency> "END OF DEC" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry5> <http://data-gov.tw.rpi.edu/vocab/p/961/location> "STATE" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry5> <http://data-gov.tw.rpi.edu/vocab/p/961/state> "CALIFORNIA" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry5> <http://data-gov.tw.rpi.edu/vocab/p/961/state_fips> "6" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry5> <http://data-gov.tw.rpi.edu/vocab/p/961/data_item> "GEESE - INVENTORY" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry5> <http://data-gov.tw.rpi.edu/vocab/p/961/value> "8084" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry46> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#DataEntry> .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry46> <http://data-gov.tw.rpi.edu/vocab/p/961/source> "CENSUS" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry46> <http://data-gov.tw.rpi.edu/vocab/p/961/year> "2007" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry46> <http://data-gov.tw.rpi.edu/vocab/p/961/frequency> "END OF DEC" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry46> <http://data-gov.tw.rpi.edu/vocab/p/961/location> "STATE" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry46> <http://data-gov.tw.rpi.edu/vocab/p/961/state> "VIRGINIA" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry46> <http://data-gov.tw.rpi.edu/vocab/p/961/state_fips> "51" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry46> <http://data-gov.tw.rpi.edu/vocab/p/961/data_item> "GEESE - INVENTORY" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry46> <http://data-gov.tw.rpi.edu/vocab/p/961/value> "3032" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry18> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#DataEntry> .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry18> <http://data-gov.tw.rpi.edu/vocab/p/961/source> "CENSUS" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry18> <http://data-gov.tw.rpi.edu/vocab/p/961/year> "2007" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry18> <http://data-gov.tw.rpi.edu/vocab/p/961/frequency> "END OF DEC" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry18> <http://data-gov.tw.rpi.edu/vocab/p/961/location> "STATE" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry18> <http://data-gov.tw.rpi.edu/vocab/p/961/state> "LOUISIANA" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry18> <http://data-gov.tw.rpi.edu/vocab/p/961/state_fips> "22" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry18> <http://data-gov.tw.rpi.edu/vocab/p/961/data_item> "GEESE - INVENTORY" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry18> <http://data-gov.tw.rpi.edu/vocab/p/961/value> "1938" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry40> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#DataEntry> .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry40> <http://data-gov.tw.rpi.edu/vocab/p/961/source> "CENSUS" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry40> <http://data-gov.tw.rpi.edu/vocab/p/961/year> "2007" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry40> <http://data-gov.tw.rpi.edu/vocab/p/961/frequency> "END OF DEC" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry40> <http://data-gov.tw.rpi.edu/vocab/p/961/location> "STATE" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry40> <http://data-gov.tw.rpi.edu/vocab/p/961/state> "SOUTH CAROLINA" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry40> <http://data-gov.tw.rpi.edu/vocab/p/961/state_fips> "45" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry40> <http://data-gov.tw.rpi.edu/vocab/p/961/data_item> "GEESE - INVENTORY" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry40> <http://data-gov.tw.rpi.edu/vocab/p/961/value> "2099" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry12> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#DataEntry> .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry12> <http://data-gov.tw.rpi.edu/vocab/p/961/source> "CENSUS" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry12> <http://data-gov.tw.rpi.edu/vocab/p/961/year> "2007" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry12> <http://data-gov.tw.rpi.edu/vocab/p/961/frequency> "END OF DEC" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry12> <http://data-gov.tw.rpi.edu/vocab/p/961/location> "STATE" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry12> <http://data-gov.tw.rpi.edu/vocab/p/961/state> "IDAHO" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry12> <http://data-gov.tw.rpi.edu/vocab/p/961/state_fips> "16" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry12> <http://data-gov.tw.rpi.edu/vocab/p/961/data_item> "GEESE - INVENTORY" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry12> <http://data-gov.tw.rpi.edu/vocab/p/961/value> "922" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry25> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#DataEntry> .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry25> <http://data-gov.tw.rpi.edu/vocab/p/961/source> "CENSUS" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry25> <http://data-gov.tw.rpi.edu/vocab/p/961/year> "2007" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry25> <http://data-gov.tw.rpi.edu/vocab/p/961/frequency> "END OF DEC" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry25> <http://data-gov.tw.rpi.edu/vocab/p/961/location> "STATE" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry25> <http://data-gov.tw.rpi.edu/vocab/p/961/state> "MISSOURI" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry25> <http://data-gov.tw.rpi.edu/vocab/p/961/state_fips> "29" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry25> <http://data-gov.tw.rpi.edu/vocab/p/961/data_item> "GEESE - INVENTORY" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry25> <http://data-gov.tw.rpi.edu/vocab/p/961/value> "5866" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry38> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#DataEntry> .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry38> <http://data-gov.tw.rpi.edu/vocab/p/961/source> "CENSUS" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry38> <http://data-gov.tw.rpi.edu/vocab/p/961/year> "2007" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry38> <http://data-gov.tw.rpi.edu/vocab/p/961/frequency> "END OF DEC" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry38> <http://data-gov.tw.rpi.edu/vocab/p/961/location> "STATE" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry38> <http://data-gov.tw.rpi.edu/vocab/p/961/state> "PENNSYLVANIA" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry38> <http://data-gov.tw.rpi.edu/vocab/p/961/state_fips> "42" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry38> <http://data-gov.tw.rpi.edu/vocab/p/961/data_item> "GEESE - INVENTORY" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry38> <http://data-gov.tw.rpi.edu/vocab/p/961/value> "7311" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry32> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#DataEntry> .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry32> <http://data-gov.tw.rpi.edu/vocab/p/961/source> "CENSUS" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry32> <http://data-gov.tw.rpi.edu/vocab/p/961/year> "2007" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry32> <http://data-gov.tw.rpi.edu/vocab/p/961/frequency> "END OF DEC" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry32> <http://data-gov.tw.rpi.edu/vocab/p/961/location> "STATE" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry32> <http://data-gov.tw.rpi.edu/vocab/p/961/state> "NEW YORK" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry32> <http://data-gov.tw.rpi.edu/vocab/p/961/state_fips> "36" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry32> <http://data-gov.tw.rpi.edu/vocab/p/961/data_item> "GEESE - INVENTORY" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry32> <http://data-gov.tw.rpi.edu/vocab/p/961/value> "5628" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry4> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#DataEntry> .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry4> <http://data-gov.tw.rpi.edu/vocab/p/961/source> "CENSUS" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry4> <http://data-gov.tw.rpi.edu/vocab/p/961/year> "2007" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry4> <http://data-gov.tw.rpi.edu/vocab/p/961/frequency> "END OF DEC" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry4> <http://data-gov.tw.rpi.edu/vocab/p/961/location> "STATE" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry4> <http://data-gov.tw.rpi.edu/vocab/p/961/state> "ARKANSAS" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry4> <http://data-gov.tw.rpi.edu/vocab/p/961/state_fips> "5" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry4> <http://data-gov.tw.rpi.edu/vocab/p/961/data_item> "GEESE - INVENTORY" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry4> <http://data-gov.tw.rpi.edu/vocab/p/961/value> "3095" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry45> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#DataEntry> .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry45> <http://data-gov.tw.rpi.edu/vocab/p/961/source> "CENSUS" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry45> <http://data-gov.tw.rpi.edu/vocab/p/961/year> "2007" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry45> <http://data-gov.tw.rpi.edu/vocab/p/961/frequency> "END OF DEC" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry45> <http://data-gov.tw.rpi.edu/vocab/p/961/location> "STATE" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry45> <http://data-gov.tw.rpi.edu/vocab/p/961/state> "VERMONT" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry45> <http://data-gov.tw.rpi.edu/vocab/p/961/state_fips> "50" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry45> <http://data-gov.tw.rpi.edu/vocab/p/961/data_item> "GEESE - INVENTORY" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry45> <http://data-gov.tw.rpi.edu/vocab/p/961/value> "556" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry17> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#DataEntry> .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry17> <http://data-gov.tw.rpi.edu/vocab/p/961/source> "CENSUS" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry17> <http://data-gov.tw.rpi.edu/vocab/p/961/year> "2007" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry17> <http://data-gov.tw.rpi.edu/vocab/p/961/frequency> "END OF DEC" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry17> <http://data-gov.tw.rpi.edu/vocab/p/961/location> "STATE" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry17> <http://data-gov.tw.rpi.edu/vocab/p/961/state> "KENTUCKY" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry17> <http://data-gov.tw.rpi.edu/vocab/p/961/state_fips> "21" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry17> <http://data-gov.tw.rpi.edu/vocab/p/961/data_item> "GEESE - INVENTORY" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry17> <http://data-gov.tw.rpi.edu/vocab/p/961/value> "3549" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry11> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#DataEntry> .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry11> <http://data-gov.tw.rpi.edu/vocab/p/961/source> "CENSUS" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry11> <http://data-gov.tw.rpi.edu/vocab/p/961/year> "2007" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry11> <http://data-gov.tw.rpi.edu/vocab/p/961/frequency> "END OF DEC" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry11> <http://data-gov.tw.rpi.edu/vocab/p/961/location> "STATE" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry11> <http://data-gov.tw.rpi.edu/vocab/p/961/state> "HAWAII" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry11> <http://data-gov.tw.rpi.edu/vocab/p/961/state_fips> "15" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry11> <http://data-gov.tw.rpi.edu/vocab/p/961/data_item> "GEESE - INVENTORY" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry11> <http://data-gov.tw.rpi.edu/vocab/p/961/value> "371" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry24> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#DataEntry> .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry24> <http://data-gov.tw.rpi.edu/vocab/p/961/source> "CENSUS" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry24> <http://data-gov.tw.rpi.edu/vocab/p/961/year> "2007" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry24> <http://data-gov.tw.rpi.edu/vocab/p/961/frequency> "END OF DEC" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry24> <http://data-gov.tw.rpi.edu/vocab/p/961/location> "STATE" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry24> <http://data-gov.tw.rpi.edu/vocab/p/961/state> "MISSISSIPPI" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry24> <http://data-gov.tw.rpi.edu/vocab/p/961/state_fips> "28" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry24> <http://data-gov.tw.rpi.edu/vocab/p/961/data_item> "GEESE - INVENTORY" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry24> <http://data-gov.tw.rpi.edu/vocab/p/961/value> "2501" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry37> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#DataEntry> .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry37> <http://data-gov.tw.rpi.edu/vocab/p/961/source> "CENSUS" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry37> <http://data-gov.tw.rpi.edu/vocab/p/961/year> "2007" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry37> <http://data-gov.tw.rpi.edu/vocab/p/961/frequency> "END OF DEC" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry37> <http://data-gov.tw.rpi.edu/vocab/p/961/location> "STATE" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry37> <http://data-gov.tw.rpi.edu/vocab/p/961/state> "OREGON" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry37> <http://data-gov.tw.rpi.edu/vocab/p/961/state_fips> "41" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry37> <http://data-gov.tw.rpi.edu/vocab/p/961/data_item> "GEESE - INVENTORY" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry37> <http://data-gov.tw.rpi.edu/vocab/p/961/value> "2451" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry9> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#DataEntry> .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry9> <http://data-gov.tw.rpi.edu/vocab/p/961/source> "CENSUS" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry9> <http://data-gov.tw.rpi.edu/vocab/p/961/year> "2007" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry9> <http://data-gov.tw.rpi.edu/vocab/p/961/frequency> "END OF DEC" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry9> <http://data-gov.tw.rpi.edu/vocab/p/961/location> "STATE" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry9> <http://data-gov.tw.rpi.edu/vocab/p/961/state> "FLORIDA" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry9> <http://data-gov.tw.rpi.edu/vocab/p/961/state_fips> "12" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry9> <http://data-gov.tw.rpi.edu/vocab/p/961/data_item> "GEESE - INVENTORY" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry9> <http://data-gov.tw.rpi.edu/vocab/p/961/value> "4538" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry31> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#DataEntry> .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry31> <http://data-gov.tw.rpi.edu/vocab/p/961/source> "CENSUS" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry31> <http://data-gov.tw.rpi.edu/vocab/p/961/year> "2007" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry31> <http://data-gov.tw.rpi.edu/vocab/p/961/frequency> "END OF DEC" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry31> <http://data-gov.tw.rpi.edu/vocab/p/961/location> "STATE" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry31> <http://data-gov.tw.rpi.edu/vocab/p/961/state> "NEW MEXICO" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry31> <http://data-gov.tw.rpi.edu/vocab/p/961/state_fips> "35" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry31> <http://data-gov.tw.rpi.edu/vocab/p/961/data_item> "GEESE - INVENTORY" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry31> <http://data-gov.tw.rpi.edu/vocab/p/961/value> "3653" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry3> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#DataEntry> .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry3> <http://data-gov.tw.rpi.edu/vocab/p/961/source> "CENSUS" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry3> <http://data-gov.tw.rpi.edu/vocab/p/961/year> "2007" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry3> <http://data-gov.tw.rpi.edu/vocab/p/961/frequency> "END OF DEC" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry3> <http://data-gov.tw.rpi.edu/vocab/p/961/location> "STATE" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry3> <http://data-gov.tw.rpi.edu/vocab/p/961/state> "ARIZONA" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry3> <http://data-gov.tw.rpi.edu/vocab/p/961/state_fips> "4" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry3> <http://data-gov.tw.rpi.edu/vocab/p/961/data_item> "GEESE - INVENTORY" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry3> <http://data-gov.tw.rpi.edu/vocab/p/961/value> "858" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry44> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#DataEntry> .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry44> <http://data-gov.tw.rpi.edu/vocab/p/961/source> "CENSUS" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry44> <http://data-gov.tw.rpi.edu/vocab/p/961/year> "2007" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry44> <http://data-gov.tw.rpi.edu/vocab/p/961/frequency> "END OF DEC" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry44> <http://data-gov.tw.rpi.edu/vocab/p/961/location> "STATE" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry44> <http://data-gov.tw.rpi.edu/vocab/p/961/state> "UTAH" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry44> <http://data-gov.tw.rpi.edu/vocab/p/961/state_fips> "49" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry44> <http://data-gov.tw.rpi.edu/vocab/p/961/data_item> "GEESE - INVENTORY" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry44> <http://data-gov.tw.rpi.edu/vocab/p/961/value> "1451" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry16> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#DataEntry> .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry16> <http://data-gov.tw.rpi.edu/vocab/p/961/source> "CENSUS" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry16> <http://data-gov.tw.rpi.edu/vocab/p/961/year> "2007" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry16> <http://data-gov.tw.rpi.edu/vocab/p/961/frequency> "END OF DEC" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry16> <http://data-gov.tw.rpi.edu/vocab/p/961/location> "STATE" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry16> <http://data-gov.tw.rpi.edu/vocab/p/961/state> "KANSAS" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry16> <http://data-gov.tw.rpi.edu/vocab/p/961/state_fips> "20" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry16> <http://data-gov.tw.rpi.edu/vocab/p/961/data_item> "GEESE - INVENTORY" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry16> <http://data-gov.tw.rpi.edu/vocab/p/961/value> "2318" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry29> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#DataEntry> .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry29> <http://data-gov.tw.rpi.edu/vocab/p/961/source> "CENSUS" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry29> <http://data-gov.tw.rpi.edu/vocab/p/961/year> "2007" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry29> <http://data-gov.tw.rpi.edu/vocab/p/961/frequency> "END OF DEC" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry29> <http://data-gov.tw.rpi.edu/vocab/p/961/location> "STATE" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry29> <http://data-gov.tw.rpi.edu/vocab/p/961/state> "NEW HAMPSHIRE" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry29> <http://data-gov.tw.rpi.edu/vocab/p/961/state_fips> "33" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry29> <http://data-gov.tw.rpi.edu/vocab/p/961/data_item> "GEESE - INVENTORY" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry29> <http://data-gov.tw.rpi.edu/vocab/p/961/value> "1003" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry10> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#DataEntry> .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry10> <http://data-gov.tw.rpi.edu/vocab/p/961/source> "CENSUS" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry10> <http://data-gov.tw.rpi.edu/vocab/p/961/year> "2007" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry10> <http://data-gov.tw.rpi.edu/vocab/p/961/frequency> "END OF DEC" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry10> <http://data-gov.tw.rpi.edu/vocab/p/961/location> "STATE" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry10> <http://data-gov.tw.rpi.edu/vocab/p/961/state> "GEORGIA" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry10> <http://data-gov.tw.rpi.edu/vocab/p/961/state_fips> "13" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry10> <http://data-gov.tw.rpi.edu/vocab/p/961/data_item> "GEESE - INVENTORY" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry10> <http://data-gov.tw.rpi.edu/vocab/p/961/value> "2307" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry23> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#DataEntry> .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry23> <http://data-gov.tw.rpi.edu/vocab/p/961/source> "CENSUS" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry23> <http://data-gov.tw.rpi.edu/vocab/p/961/year> "2007" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry23> <http://data-gov.tw.rpi.edu/vocab/p/961/frequency> "END OF DEC" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry23> <http://data-gov.tw.rpi.edu/vocab/p/961/location> "STATE" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry23> <http://data-gov.tw.rpi.edu/vocab/p/961/state> "MINNESOTA" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry23> <http://data-gov.tw.rpi.edu/vocab/p/961/state_fips> "27" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry23> <http://data-gov.tw.rpi.edu/vocab/p/961/data_item> "GEESE - INVENTORY" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry23> <http://data-gov.tw.rpi.edu/vocab/p/961/value> "12774" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry36> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#DataEntry> .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry36> <http://data-gov.tw.rpi.edu/vocab/p/961/source> "CENSUS" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry36> <http://data-gov.tw.rpi.edu/vocab/p/961/year> "2007" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry36> <http://data-gov.tw.rpi.edu/vocab/p/961/frequency> "END OF DEC" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry36> <http://data-gov.tw.rpi.edu/vocab/p/961/location> "STATE" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry36> <http://data-gov.tw.rpi.edu/vocab/p/961/state> "OKLAHOMA" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry36> <http://data-gov.tw.rpi.edu/vocab/p/961/state_fips> "40" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry36> <http://data-gov.tw.rpi.edu/vocab/p/961/data_item> "GEESE - INVENTORY" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry36> <http://data-gov.tw.rpi.edu/vocab/p/961/value> "3314" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry8> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#DataEntry> .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry8> <http://data-gov.tw.rpi.edu/vocab/p/961/source> "CENSUS" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry8> <http://data-gov.tw.rpi.edu/vocab/p/961/year> "2007" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry8> <http://data-gov.tw.rpi.edu/vocab/p/961/frequency> "END OF DEC" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry8> <http://data-gov.tw.rpi.edu/vocab/p/961/location> "STATE" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry8> <http://data-gov.tw.rpi.edu/vocab/p/961/state> "DELAWARE" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry8> <http://data-gov.tw.rpi.edu/vocab/p/961/state_fips> "10" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry8> <http://data-gov.tw.rpi.edu/vocab/p/961/data_item> "GEESE - INVENTORY" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry8> <http://data-gov.tw.rpi.edu/vocab/p/961/value> "122" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry49> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#DataEntry> .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry49> <http://data-gov.tw.rpi.edu/vocab/p/961/source> "CENSUS" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry49> <http://data-gov.tw.rpi.edu/vocab/p/961/year> "2007" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry49> <http://data-gov.tw.rpi.edu/vocab/p/961/frequency> "END OF DEC" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry49> <http://data-gov.tw.rpi.edu/vocab/p/961/location> "STATE" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry49> <http://data-gov.tw.rpi.edu/vocab/p/961/state> "WISCONSIN" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry49> <http://data-gov.tw.rpi.edu/vocab/p/961/state_fips> "55" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry49> <http://data-gov.tw.rpi.edu/vocab/p/961/data_item> "GEESE - INVENTORY" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry49> <http://data-gov.tw.rpi.edu/vocab/p/961/value> "8737" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry30> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#DataEntry> .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry30> <http://data-gov.tw.rpi.edu/vocab/p/961/source> "CENSUS" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry30> <http://data-gov.tw.rpi.edu/vocab/p/961/year> "2007" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry30> <http://data-gov.tw.rpi.edu/vocab/p/961/frequency> "END OF DEC" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry30> <http://data-gov.tw.rpi.edu/vocab/p/961/location> "STATE" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry30> <http://data-gov.tw.rpi.edu/vocab/p/961/state> "NEW JERSEY" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry30> <http://data-gov.tw.rpi.edu/vocab/p/961/state_fips> "34" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry30> <http://data-gov.tw.rpi.edu/vocab/p/961/data_item> "GEESE - INVENTORY" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry30> <http://data-gov.tw.rpi.edu/vocab/p/961/value> "3770" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry2> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#DataEntry> .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry2> <http://data-gov.tw.rpi.edu/vocab/p/961/source> "CENSUS" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry2> <http://data-gov.tw.rpi.edu/vocab/p/961/year> "2007" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry2> <http://data-gov.tw.rpi.edu/vocab/p/961/frequency> "END OF DEC" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry2> <http://data-gov.tw.rpi.edu/vocab/p/961/location> "STATE" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry2> <http://data-gov.tw.rpi.edu/vocab/p/961/state> "ALASKA" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry2> <http://data-gov.tw.rpi.edu/vocab/p/961/state_fips> "2" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry2> <http://data-gov.tw.rpi.edu/vocab/p/961/data_item> "GEESE - INVENTORY" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry2> <http://data-gov.tw.rpi.edu/vocab/p/961/value> "92" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry43> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#DataEntry> .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry43> <http://data-gov.tw.rpi.edu/vocab/p/961/source> "CENSUS" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry43> <http://data-gov.tw.rpi.edu/vocab/p/961/year> "2007" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry43> <http://data-gov.tw.rpi.edu/vocab/p/961/frequency> "END OF DEC" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry43> <http://data-gov.tw.rpi.edu/vocab/p/961/location> "STATE" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry43> <http://data-gov.tw.rpi.edu/vocab/p/961/state> "TEXAS" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry43> <http://data-gov.tw.rpi.edu/vocab/p/961/state_fips> "48" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry43> <http://data-gov.tw.rpi.edu/vocab/p/961/data_item> "GEESE - INVENTORY" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry43> <http://data-gov.tw.rpi.edu/vocab/p/961/value> "14054" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry15> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#DataEntry> .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry15> <http://data-gov.tw.rpi.edu/vocab/p/961/source> "CENSUS" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry15> <http://data-gov.tw.rpi.edu/vocab/p/961/year> "2007" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry15> <http://data-gov.tw.rpi.edu/vocab/p/961/frequency> "END OF DEC" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry15> <http://data-gov.tw.rpi.edu/vocab/p/961/location> "STATE" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry15> <http://data-gov.tw.rpi.edu/vocab/p/961/state> "IOWA" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry15> <http://data-gov.tw.rpi.edu/vocab/p/961/state_fips> "19" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry15> <http://data-gov.tw.rpi.edu/vocab/p/961/data_item> "GEESE - INVENTORY" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry15> <http://data-gov.tw.rpi.edu/vocab/p/961/value> "5866" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry28> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#DataEntry> .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry28> <http://data-gov.tw.rpi.edu/vocab/p/961/source> "CENSUS" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry28> <http://data-gov.tw.rpi.edu/vocab/p/961/year> "2007" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry28> <http://data-gov.tw.rpi.edu/vocab/p/961/frequency> "END OF DEC" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry28> <http://data-gov.tw.rpi.edu/vocab/p/961/location> "STATE" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry28> <http://data-gov.tw.rpi.edu/vocab/p/961/state> "NEVADA" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry28> <http://data-gov.tw.rpi.edu/vocab/p/961/state_fips> "32" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry28> <http://data-gov.tw.rpi.edu/vocab/p/961/data_item> "GEESE - INVENTORY" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry28> <http://data-gov.tw.rpi.edu/vocab/p/961/value> "190" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry50> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#DataEntry> .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry50> <http://data-gov.tw.rpi.edu/vocab/p/961/source> "CENSUS" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry50> <http://data-gov.tw.rpi.edu/vocab/p/961/year> "2007" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry50> <http://data-gov.tw.rpi.edu/vocab/p/961/frequency> "END OF DEC" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry50> <http://data-gov.tw.rpi.edu/vocab/p/961/location> "STATE" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry50> <http://data-gov.tw.rpi.edu/vocab/p/961/state> "WYOMING" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry50> <http://data-gov.tw.rpi.edu/vocab/p/961/state_fips> "56" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry50> <http://data-gov.tw.rpi.edu/vocab/p/961/data_item> "GEESE - INVENTORY" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry50> <http://data-gov.tw.rpi.edu/vocab/p/961/value> "950" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry22> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#DataEntry> .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry22> <http://data-gov.tw.rpi.edu/vocab/p/961/source> "CENSUS" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry22> <http://data-gov.tw.rpi.edu/vocab/p/961/year> "2007" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry22> <http://data-gov.tw.rpi.edu/vocab/p/961/frequency> "END OF DEC" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry22> <http://data-gov.tw.rpi.edu/vocab/p/961/location> "STATE" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry22> <http://data-gov.tw.rpi.edu/vocab/p/961/state> "MICHIGAN" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry22> <http://data-gov.tw.rpi.edu/vocab/p/961/state_fips> "26" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry22> <http://data-gov.tw.rpi.edu/vocab/p/961/data_item> "GEESE - INVENTORY" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry22> <http://data-gov.tw.rpi.edu/vocab/p/961/value> "8708" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry35> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#DataEntry> .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry35> <http://data-gov.tw.rpi.edu/vocab/p/961/source> "CENSUS" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry35> <http://data-gov.tw.rpi.edu/vocab/p/961/year> "2007" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry35> <http://data-gov.tw.rpi.edu/vocab/p/961/frequency> "END OF DEC" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry35> <http://data-gov.tw.rpi.edu/vocab/p/961/location> "STATE" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry35> <http://data-gov.tw.rpi.edu/vocab/p/961/state> "OHIO" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry35> <http://data-gov.tw.rpi.edu/vocab/p/961/state_fips> "39" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry35> <http://data-gov.tw.rpi.edu/vocab/p/961/data_item> "GEESE - INVENTORY" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry35> <http://data-gov.tw.rpi.edu/vocab/p/961/value> "4215" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry7> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#DataEntry> .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry7> <http://data-gov.tw.rpi.edu/vocab/p/961/source> "CENSUS" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry7> <http://data-gov.tw.rpi.edu/vocab/p/961/year> "2007" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry7> <http://data-gov.tw.rpi.edu/vocab/p/961/frequency> "END OF DEC" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry7> <http://data-gov.tw.rpi.edu/vocab/p/961/location> "STATE" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry7> <http://data-gov.tw.rpi.edu/vocab/p/961/state> "CONNECTICUT" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry7> <http://data-gov.tw.rpi.edu/vocab/p/961/state_fips> "9" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry7> <http://data-gov.tw.rpi.edu/vocab/p/961/data_item> "GEESE - INVENTORY" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry7> <http://data-gov.tw.rpi.edu/vocab/p/961/value> "913" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry48> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#DataEntry> .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry48> <http://data-gov.tw.rpi.edu/vocab/p/961/source> "CENSUS" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry48> <http://data-gov.tw.rpi.edu/vocab/p/961/year> "2007" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry48> <http://data-gov.tw.rpi.edu/vocab/p/961/frequency> "END OF DEC" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry48> <http://data-gov.tw.rpi.edu/vocab/p/961/location> "STATE" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry48> <http://data-gov.tw.rpi.edu/vocab/p/961/state> "WEST VIRGINIA" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry48> <http://data-gov.tw.rpi.edu/vocab/p/961/state_fips> "54" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry48> <http://data-gov.tw.rpi.edu/vocab/p/961/data_item> "GEESE - INVENTORY" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry48> <http://data-gov.tw.rpi.edu/vocab/p/961/value> "1076" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#DataEntry> .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry1> <http://data-gov.tw.rpi.edu/vocab/p/961/source> "CENSUS" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry1> <http://data-gov.tw.rpi.edu/vocab/p/961/year> "2007" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry1> <http://data-gov.tw.rpi.edu/vocab/p/961/frequency> "END OF DEC" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry1> <http://data-gov.tw.rpi.edu/vocab/p/961/location> "STATE" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry1> <http://data-gov.tw.rpi.edu/vocab/p/961/state> "ALABAMA" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry1> <http://data-gov.tw.rpi.edu/vocab/p/961/state_fips> "1" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry1> <http://data-gov.tw.rpi.edu/vocab/p/961/data_item> "GEESE - INVENTORY" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry1> <http://data-gov.tw.rpi.edu/vocab/p/961/value> "3231" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry42> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#DataEntry> .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry42> <http://data-gov.tw.rpi.edu/vocab/p/961/source> "CENSUS" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry42> <http://data-gov.tw.rpi.edu/vocab/p/961/year> "2007" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry42> <http://data-gov.tw.rpi.edu/vocab/p/961/frequency> "END OF DEC" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry42> <http://data-gov.tw.rpi.edu/vocab/p/961/location> "STATE" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry42> <http://data-gov.tw.rpi.edu/vocab/p/961/state> "TENNESSEE" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry42> <http://data-gov.tw.rpi.edu/vocab/p/961/state_fips> "47" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry42> <http://data-gov.tw.rpi.edu/vocab/p/961/data_item> "GEESE - INVENTORY" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry42> <http://data-gov.tw.rpi.edu/vocab/p/961/value> "4517" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry14> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#DataEntry> .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry14> <http://data-gov.tw.rpi.edu/vocab/p/961/source> "CENSUS" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry14> <http://data-gov.tw.rpi.edu/vocab/p/961/year> "2007" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry14> <http://data-gov.tw.rpi.edu/vocab/p/961/frequency> "END OF DEC" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry14> <http://data-gov.tw.rpi.edu/vocab/p/961/location> "STATE" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry14> <http://data-gov.tw.rpi.edu/vocab/p/961/state> "INDIANA" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry14> <http://data-gov.tw.rpi.edu/vocab/p/961/state_fips> "18" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry14> <http://data-gov.tw.rpi.edu/vocab/p/961/data_item> "GEESE - INVENTORY" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry14> <http://data-gov.tw.rpi.edu/vocab/p/961/value> "2234" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry27> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#DataEntry> .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry27> <http://data-gov.tw.rpi.edu/vocab/p/961/source> "CENSUS" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry27> <http://data-gov.tw.rpi.edu/vocab/p/961/year> "2007" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry27> <http://data-gov.tw.rpi.edu/vocab/p/961/frequency> "END OF DEC" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry27> <http://data-gov.tw.rpi.edu/vocab/p/961/location> "STATE" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry27> <http://data-gov.tw.rpi.edu/vocab/p/961/state> "NEBRASKA" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry27> <http://data-gov.tw.rpi.edu/vocab/p/961/state_fips> "31" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry27> <http://data-gov.tw.rpi.edu/vocab/p/961/data_item> "GEESE - INVENTORY" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry27> <http://data-gov.tw.rpi.edu/vocab/p/961/value> "2835" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry21> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#DataEntry> .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry21> <http://data-gov.tw.rpi.edu/vocab/p/961/source> "CENSUS" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry21> <http://data-gov.tw.rpi.edu/vocab/p/961/year> "2007" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry21> <http://data-gov.tw.rpi.edu/vocab/p/961/frequency> "END OF DEC" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry21> <http://data-gov.tw.rpi.edu/vocab/p/961/location> "STATE" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry21> <http://data-gov.tw.rpi.edu/vocab/p/961/state> "MASSACHUSETTS" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry21> <http://data-gov.tw.rpi.edu/vocab/p/961/state_fips> "25" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry21> <http://data-gov.tw.rpi.edu/vocab/p/961/data_item> "GEESE - INVENTORY" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry21> <http://data-gov.tw.rpi.edu/vocab/p/961/value> "1348" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry34> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#DataEntry> .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry34> <http://data-gov.tw.rpi.edu/vocab/p/961/source> "CENSUS" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry34> <http://data-gov.tw.rpi.edu/vocab/p/961/year> "2007" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry34> <http://data-gov.tw.rpi.edu/vocab/p/961/frequency> "END OF DEC" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry34> <http://data-gov.tw.rpi.edu/vocab/p/961/location> "STATE" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry34> <http://data-gov.tw.rpi.edu/vocab/p/961/state> "NORTH DAKOTA" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry34> <http://data-gov.tw.rpi.edu/vocab/p/961/state_fips> "38" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry34> <http://data-gov.tw.rpi.edu/vocab/p/961/data_item> "GEESE - INVENTORY" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry34> <http://data-gov.tw.rpi.edu/vocab/p/961/value> "3885" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry6> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#DataEntry> .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry6> <http://data-gov.tw.rpi.edu/vocab/p/961/source> "CENSUS" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry6> <http://data-gov.tw.rpi.edu/vocab/p/961/year> "2007" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry6> <http://data-gov.tw.rpi.edu/vocab/p/961/frequency> "END OF DEC" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry6> <http://data-gov.tw.rpi.edu/vocab/p/961/location> "STATE" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry6> <http://data-gov.tw.rpi.edu/vocab/p/961/state> "COLORADO" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry6> <http://data-gov.tw.rpi.edu/vocab/p/961/state_fips> "8" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry6> <http://data-gov.tw.rpi.edu/vocab/p/961/data_item> "GEESE - INVENTORY" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry6> <http://data-gov.tw.rpi.edu/vocab/p/961/value> "2603" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Document> .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf> <http://purl.org/dc/terms/date> "2010-03-27T09:50:32Z" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf> <http://purl.org/dc/terms/creator> <http://tw.rpi.edu> .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf> <http://purl.org/dc/terms/description> "generated by csv2rdf CSV2RDF (v1.1, 2009-01-28). http://data-gov.tw.rpi.edu/wiki/Source_Code_of_Data.gov_Wiki#Source_Code_of_Demos_and_Applications. " .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://data-gov.tw.rpi.edu/raw/961/index.rdf#me> .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf> <http://purl.org/dc/terms/identifier> "/work/data-gov/data/input/data.gov/961/06066A91-ECC0-3C2C-84B3-D38310FEEEF3.csv" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry47> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#DataEntry> .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry47> <http://data-gov.tw.rpi.edu/vocab/p/961/source> "CENSUS" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry47> <http://data-gov.tw.rpi.edu/vocab/p/961/year> "2007" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry47> <http://data-gov.tw.rpi.edu/vocab/p/961/frequency> "END OF DEC" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry47> <http://data-gov.tw.rpi.edu/vocab/p/961/location> "STATE" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry47> <http://data-gov.tw.rpi.edu/vocab/p/961/state> "WASHINGTON" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry47> <http://data-gov.tw.rpi.edu/vocab/p/961/state_fips> "53" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry47> <http://data-gov.tw.rpi.edu/vocab/p/961/data_item> "GEESE - INVENTORY" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry47> <http://data-gov.tw.rpi.edu/vocab/p/961/value> "3371" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry19> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#DataEntry> .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry19> <http://data-gov.tw.rpi.edu/vocab/p/961/source> "CENSUS" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry19> <http://data-gov.tw.rpi.edu/vocab/p/961/year> "2007" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry19> <http://data-gov.tw.rpi.edu/vocab/p/961/frequency> "END OF DEC" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry19> <http://data-gov.tw.rpi.edu/vocab/p/961/location> "STATE" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry19> <http://data-gov.tw.rpi.edu/vocab/p/961/state> "MAINE" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry19> <http://data-gov.tw.rpi.edu/vocab/p/961/state_fips> "23" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry19> <http://data-gov.tw.rpi.edu/vocab/p/961/data_item> "GEESE - INVENTORY" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry19> <http://data-gov.tw.rpi.edu/vocab/p/961/value> "814" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry41> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#DataEntry> .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry41> <http://data-gov.tw.rpi.edu/vocab/p/961/source> "CENSUS" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry41> <http://data-gov.tw.rpi.edu/vocab/p/961/year> "2007" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry41> <http://data-gov.tw.rpi.edu/vocab/p/961/frequency> "END OF DEC" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry41> <http://data-gov.tw.rpi.edu/vocab/p/961/location> "STATE" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry41> <http://data-gov.tw.rpi.edu/vocab/p/961/state> "SOUTH DAKOTA" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry41> <http://data-gov.tw.rpi.edu/vocab/p/961/state_fips> "46" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry41> <http://data-gov.tw.rpi.edu/vocab/p/961/data_item> "GEESE - INVENTORY" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry41> <http://data-gov.tw.rpi.edu/vocab/p/961/value> "10818" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry13> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#DataEntry> .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry13> <http://data-gov.tw.rpi.edu/vocab/p/961/source> "CENSUS" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry13> <http://data-gov.tw.rpi.edu/vocab/p/961/year> "2007" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry13> <http://data-gov.tw.rpi.edu/vocab/p/961/frequency> "END OF DEC" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry13> <http://data-gov.tw.rpi.edu/vocab/p/961/location> "STATE" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry13> <http://data-gov.tw.rpi.edu/vocab/p/961/state> "ILLINOIS" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry13> <http://data-gov.tw.rpi.edu/vocab/p/961/state_fips> "17" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry13> <http://data-gov.tw.rpi.edu/vocab/p/961/data_item> "GEESE - INVENTORY" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry13> <http://data-gov.tw.rpi.edu/vocab/p/961/value> "2907" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry26> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#DataEntry> .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry26> <http://data-gov.tw.rpi.edu/vocab/p/961/source> "CENSUS" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry26> <http://data-gov.tw.rpi.edu/vocab/p/961/year> "2007" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry26> <http://data-gov.tw.rpi.edu/vocab/p/961/frequency> "END OF DEC" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry26> <http://data-gov.tw.rpi.edu/vocab/p/961/location> "STATE" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry26> <http://data-gov.tw.rpi.edu/vocab/p/961/state> "MONTANA" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry26> <http://data-gov.tw.rpi.edu/vocab/p/961/state_fips> "30" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry26> <http://data-gov.tw.rpi.edu/vocab/p/961/data_item> "GEESE - INVENTORY" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry26> <http://data-gov.tw.rpi.edu/vocab/p/961/value> "5955" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry39> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#DataEntry> .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry39> <http://data-gov.tw.rpi.edu/vocab/p/961/source> "CENSUS" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry39> <http://data-gov.tw.rpi.edu/vocab/p/961/year> "2007" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry39> <http://data-gov.tw.rpi.edu/vocab/p/961/frequency> "END OF DEC" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry39> <http://data-gov.tw.rpi.edu/vocab/p/961/location> "STATE" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry39> <http://data-gov.tw.rpi.edu/vocab/p/961/state> "RHODE ISLAND" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry39> <http://data-gov.tw.rpi.edu/vocab/p/961/state_fips> "44" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry39> <http://data-gov.tw.rpi.edu/vocab/p/961/data_item> "GEESE - INVENTORY" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry39> <http://data-gov.tw.rpi.edu/vocab/p/961/value> "63" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry20> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#DataEntry> .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry20> <http://data-gov.tw.rpi.edu/vocab/p/961/source> "CENSUS" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry20> <http://data-gov.tw.rpi.edu/vocab/p/961/year> "2007" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry20> <http://data-gov.tw.rpi.edu/vocab/p/961/frequency> "END OF DEC" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry20> <http://data-gov.tw.rpi.edu/vocab/p/961/location> "STATE" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry20> <http://data-gov.tw.rpi.edu/vocab/p/961/state> "MARYLAND" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry20> <http://data-gov.tw.rpi.edu/vocab/p/961/state_fips> "24" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry20> <http://data-gov.tw.rpi.edu/vocab/p/961/data_item> "GEESE - INVENTORY" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf#entry20> <http://data-gov.tw.rpi.edu/vocab/p/961/value> "722" .
+<http://data-gov.tw.rpi.edu/vocab/p/961/value> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://data-gov.tw.rpi.edu/vocab/p/961/value> <http://www.w3.org/2000/01/rdf-schema#label> "Value" .
+<http://data-gov.tw.rpi.edu/raw/961/index.rdf#me> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#uses_property> <http://data-gov.tw.rpi.edu/vocab/p/961/watershed> .
+<http://data-gov.tw.rpi.edu/raw/961/index.rdf#me> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#complete_data> <http://data-gov.tw.rpi.edu/raw/961/data-961.nt.gz> .
+<http://data-gov.tw.rpi.edu/raw/961/index.rdf#me> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#uses_property> <http://data-gov.tw.rpi.edu/vocab/p/961/state_fips> .
+<http://data-gov.tw.rpi.edu/raw/961/index.rdf#me> <http://purl.org/dc/terms/source> <http://quickstats.nass.usda.gov/> .
+<http://data-gov.tw.rpi.edu/raw/961/index.rdf#me> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#uses_property> <http://data-gov.tw.rpi.edu/vocab/p/961/ag_district> .
+<http://data-gov.tw.rpi.edu/raw/961/index.rdf#me> <http://purl.org/dc/terms/type> "USDA" .
+<http://data-gov.tw.rpi.edu/raw/961/index.rdf#me> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#uses_property> <http://data-gov.tw.rpi.edu/vocab/p/961/zip_code> .
+<http://data-gov.tw.rpi.edu/raw/961/index.rdf#me> <http://xmlns.com/foaf/0.1/homepage> <http://data-gov.tw.rpi.edu/wiki/Dataset_961> .
+<http://data-gov.tw.rpi.edu/raw/961/index.rdf#me> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#number_of_entries> "50" .
+<http://data-gov.tw.rpi.edu/raw/961/index.rdf#me> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#uses_property> <http://data-gov.tw.rpi.edu/vocab/p/961/source> .
+<http://data-gov.tw.rpi.edu/raw/961/index.rdf#me> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#uses_property> <http://data-gov.tw.rpi.edu/vocab/p/961/state> .
+<http://data-gov.tw.rpi.edu/raw/961/index.rdf#me> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#Dataset> .
+<http://data-gov.tw.rpi.edu/raw/961/index.rdf#me> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#number_of_triples> "461" .
+<http://data-gov.tw.rpi.edu/raw/961/index.rdf#me> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#uses_property> <http://data-gov.tw.rpi.edu/vocab/p/961/frequency> .
+<http://data-gov.tw.rpi.edu/raw/961/index.rdf#me> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#uses_property> <http://data-gov.tw.rpi.edu/vocab/p/961/region> .
+<http://data-gov.tw.rpi.edu/raw/961/index.rdf#me> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#uses_property> <http://data-gov.tw.rpi.edu/vocab/p/961/data_item> .
+<http://data-gov.tw.rpi.edu/raw/961/index.rdf#me> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#uses_property> <http://data-gov.tw.rpi.edu/vocab/p/961/county_code> .
+<http://data-gov.tw.rpi.edu/raw/961/index.rdf#me> <http://www.w3.org/2002/07/owl#sameAs> <http://data-gov.tw.rpi.edu/vocab/Dataset_961> .
+<http://data-gov.tw.rpi.edu/raw/961/index.rdf#me> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#uses_property> <http://data-gov.tw.rpi.edu/vocab/p/961/location> .
+<http://data-gov.tw.rpi.edu/raw/961/index.rdf#me> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#uses_property> <http://data-gov.tw.rpi.edu/vocab/p/961/county> .
+<http://data-gov.tw.rpi.edu/raw/961/index.rdf#me> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#number_of_properties> "14" .
+<http://data-gov.tw.rpi.edu/raw/961/index.rdf#me> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#link_data> <http://data-gov.tw.rpi.edu/raw/961/link00001.rdf> .
+<http://data-gov.tw.rpi.edu/raw/961/index.rdf#me> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#uses_property> <http://data-gov.tw.rpi.edu/vocab/p/961/value> .
+<http://data-gov.tw.rpi.edu/raw/961/index.rdf#me> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#uses_property> <http://data-gov.tw.rpi.edu/vocab/p/961/year> .
+<http://data-gov.tw.rpi.edu/vocab/p/961/watershed> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://data-gov.tw.rpi.edu/vocab/p/961/watershed> <http://www.w3.org/2000/01/rdf-schema#label> "Watershed" .
+<http://data-gov.tw.rpi.edu/vocab/p/961/location> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://data-gov.tw.rpi.edu/vocab/p/961/location> <http://www.w3.org/2000/01/rdf-schema#label> "Location" .
+<http://data-gov.tw.rpi.edu/raw/961/index.rdf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Document> .
+<http://data-gov.tw.rpi.edu/raw/961/index.rdf> <http://purl.org/dc/terms/date> "2010-03-27T09:50:32Z" .
+<http://data-gov.tw.rpi.edu/raw/961/index.rdf> <http://purl.org/dc/terms/creator> <http://tw.rpi.edu> .
+<http://data-gov.tw.rpi.edu/raw/961/index.rdf> <http://purl.org/dc/terms/description> "generated by csv2rdf CSV2RDF (v1.1, 2009-01-28). http://data-gov.tw.rpi.edu/wiki/Source_Code_of_Data.gov_Wiki#Source_Code_of_Demos_and_Applications. " .
+<http://data-gov.tw.rpi.edu/vocab/p/961/state> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://data-gov.tw.rpi.edu/vocab/p/961/state> <http://www.w3.org/2000/01/rdf-schema#label> "State" .
+<http://data-gov.tw.rpi.edu/vocab/p/961/state_fips> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://data-gov.tw.rpi.edu/vocab/p/961/state_fips> <http://www.w3.org/2000/01/rdf-schema#label> "State Fips" .
+<http://data-gov.tw.rpi.edu/vocab/p/961/year> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://data-gov.tw.rpi.edu/vocab/p/961/year> <http://www.w3.org/2000/01/rdf-schema#label> "Year" .
+<http://data-gov.tw.rpi.edu/vocab/p/961/data_item> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://data-gov.tw.rpi.edu/vocab/p/961/data_item> <http://www.w3.org/2000/01/rdf-schema#label> "Data Item" .
+<http://data-gov.tw.rpi.edu/vocab/p/961/zip_code> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://data-gov.tw.rpi.edu/vocab/p/961/zip_code> <http://www.w3.org/2000/01/rdf-schema#label> "Zip Code" .
+<http://data-gov.tw.rpi.edu/vocab/p/961/source> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://data-gov.tw.rpi.edu/vocab/p/961/source> <http://www.w3.org/2000/01/rdf-schema#label> "Source" .
+<http://data-gov.tw.rpi.edu/vocab/p/961/county_code> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://data-gov.tw.rpi.edu/vocab/p/961/county_code> <http://www.w3.org/2000/01/rdf-schema#label> "County Code" .
+<http://data-gov.tw.rpi.edu/vocab/p/961/region> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://data-gov.tw.rpi.edu/vocab/p/961/region> <http://www.w3.org/2000/01/rdf-schema#label> "Region" .
+<http://data-gov.tw.rpi.edu/vocab/p/961/county> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://data-gov.tw.rpi.edu/vocab/p/961/county> <http://www.w3.org/2000/01/rdf-schema#label> "County" .
+<http://data-gov.tw.rpi.edu/vocab/p/961/ag_district> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://data-gov.tw.rpi.edu/vocab/p/961/ag_district> <http://www.w3.org/2000/01/rdf-schema#label> "Ag. District" .
+<http://data-gov.tw.rpi.edu/vocab/p/961/frequency> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://data-gov.tw.rpi.edu/vocab/p/961/frequency> <http://www.w3.org/2000/01/rdf-schema#label> "Frequency" .
+<http://data-gov.tw.rpi.edu/raw/961/index.rdf#me> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#partial_data> <http://data-gov.tw.rpi.edu/raw/961/data-961-00001.rdf> .
+<http://data-gov.tw.rpi.edu/raw/961/index.rdf#me> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#partial_data> <http://data-gov.tw.rpi.edu/raw/961/data-961-00002.rdf> .
+<http://data-gov.tw.rpi.edu/raw/961/link00001.rdf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Document> .
+<http://data-gov.tw.rpi.edu/raw/961/link00001.rdf> <http://purl.org/dc/terms/date> "2010-03-27T09:50:32Z" .
+<http://data-gov.tw.rpi.edu/raw/961/link00001.rdf> <http://purl.org/dc/terms/creator> <http://tw.rpi.edu> .
+<http://data-gov.tw.rpi.edu/raw/961/link00001.rdf> <http://purl.org/dc/terms/description> "generated by csv2rdf CSV2RDF (v1.1, 2009-01-28). http://data-gov.tw.rpi.edu/wiki/Source_Code_of_Data.gov_Wiki#Source_Code_of_Demos_and_Applications. " .
+<http://data-gov.tw.rpi.edu/raw/961/link00001.rdf> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://data-gov.tw.rpi.edu/raw/961/index.rdf#me> .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00002.rdf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Document> .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00002.rdf> <http://purl.org/dc/terms/date> "2010-03-27T09:50:32Z" .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00002.rdf> <http://purl.org/dc/terms/creator> <http://tw.rpi.edu> .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00002.rdf> <http://purl.org/dc/terms/description> "generated by csv2rdf CSV2RDF (v1.1, 2009-01-28). http://data-gov.tw.rpi.edu/wiki/Source_Code_of_Data.gov_Wiki#Source_Code_of_Demos_and_Applications. " .
+<http://data-gov.tw.rpi.edu/raw/961/data-961-00002.rdf> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://data-gov.tw.rpi.edu/raw/961/index.rdf#me> .

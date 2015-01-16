@@ -97,6 +97,23 @@ var sparql_data_module = function () {
         }
     }
 
+    function predictRDFPropertyRole(propertyURI, propertyTypes) {
+        switch(propertyURI) {
+            // TODO: Are there properties that always have the role of a domain or a range?
+        }
+        for (var i = 0; i < propertyTypes.length; i++) {
+            var propertyType = propertyTypes[i];
+            switch (propertyType) {
+                case "http://purl.org/linked-data/cube#DimensionProperty":
+                    return "Domain";
+                case "http://purl.org/linked-data/cube#MeasureProperty":
+                    return "Range";
+            }
+        }
+        // undefined
+        return;
+    }
+
     function queryProperties(endpoint, graph, _class, _properties) {
         var query = "";
 
@@ -105,7 +122,7 @@ var sparql_data_module = function () {
 
         query += 'SELECT DISTINCT ?property ';
         query += ' SAMPLE(?propertyLabel_) as ?propertyLabel ';
-        query += ' SAMPLE(?propertyType_) as ?propertyType ';
+        query += ' GROUP_CONCAT(STR(?propertyType) ; separator=" ") as ?propertyTypes ';
         query += ' SAMPLE(?propertyValue) as ?sampleValue ';
         query += ' COUNT(?grandchildProperty) as ?numChildren\n';
         query += 'WHERE\n';
@@ -125,7 +142,7 @@ var sparql_data_module = function () {
         query += '  }\n';
         query += '  OPTIONAL\n';
         query += '  {\n';
-        query += '   ?property a ?propertyType_ .\n';
+        query += '   ?property a ?propertyType .\n';
         query += '  }\n';
         query += '  OPTIONAL\n';
         query += '  {\n';
@@ -144,7 +161,8 @@ var sparql_data_module = function () {
                 var result = results[i];
                 var propertyURI = result.property.value;
                 var propertyLabel = (result.propertyLabel || {}).value;
-                var propertyType = (result.propertyType || {}).value;
+                var propertyTypesString = (result.propertyTypes || {}).value || '';
+                var propertyTypes = propertyTypesString.split(' ');
                 var grandchildren = (result.numChildren || {}).value;
                 var sampleValueType = (result.sampleValue || {}).type;
 
@@ -177,6 +195,7 @@ var sparql_data_module = function () {
                     id: propertyURI,
                     label: propertyLabel,
                     grandchildren: parseInt(grandchildren) > 0 ? true : false,
+                    role: predictRDFPropertyRole(propertyURI, propertyTypes),
                     type: scaleOfMeasurement
                 };
 

@@ -54,9 +54,35 @@ function calculateCost(dimension, property) {
         propertyFactor = 2.0;
     }
 
-    var weight = propertyFactor * (scaleWeight + optionalWeight);
+    var dimensionRole = getDimensionRole(dimension.dimensionRole);
+    var propertyRole = property.role;
+    var roleFactor;
+    if (dimensionRole && propertyRole) {
+        if (dimensionRole === propertyRole) {
+            // Known good role
+            roleFactor = 0.75;
+        } else {
+            // Known false role -- probably pretty bad
+            roleFactor = 3.0;
+        }
+    } else {
+        roleFactor = 1.0;
+    }
+
+    var weight = propertyFactor * roleFactor * (scaleWeight + optionalWeight);
 
     return weight;
+}
+
+function getDimensionRole(dimensionRoleURI) {
+    switch (dimensionRoleURI) {
+        case 'http://linda-project.eu/linda-visualization#Domain':
+            return 'Domain';
+        case 'http://linda-project.eu/linda-visualization#Range':
+            return 'Range';
+        default:
+            return; // undefined
+    }
 }
 
 // Calculates a cost matrix from two arrays and a cost function by applying

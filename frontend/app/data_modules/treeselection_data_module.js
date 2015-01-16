@@ -27,6 +27,7 @@ var treeselection_data = function() {
             var id = record.id;
             var label = record.label;
             var type = record.type;
+            var role = record.role;
             var grandchildren = record.grandchildren;
 
             treeContent.push({
@@ -35,6 +36,7 @@ var treeselection_data = function() {
                 lazy: grandchildren,
                 icon: getCategory(type),
                 type: type,
+                role: role,
                 hideCheckbox: showCheckbox(type),
                 _children: {
                     loadChildren: function(node_path) {
@@ -73,6 +75,7 @@ var treeselection_data = function() {
                 id: record.key,
                 label: record.label,
                 parent: record.parent,
+                role: record.role,
                 scaleOfMeasurement: record.type
             });
         }

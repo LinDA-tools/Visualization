@@ -4,7 +4,7 @@
  * 
  */
 
-var bubblechart = function() {
+var bubblechart = function () {
     var chart = null;
     var seriesHeaders = [];
     var data = [];
@@ -20,13 +20,13 @@ var bubblechart = function() {
         var size = configuration['Size'];
         var label = configuration['Label'];
         var group = configuration['Groups'];
-        
+
         if (!(configuration.dataModule && configuration.datasourceLocation
                 && xAxis && yAxis && size && label && group)) {
             return $.Deferred().resolve().promise();
         }
 
-        if ((label.length === 0) || (xAxis.length === 0) || (yAxis.length === 0)) {
+        if (xAxis.length === 0 || yAxis.length === 0 || size.lenght == 0) {
             return $.Deferred().resolve().promise();
         }
 
@@ -45,11 +45,20 @@ var bubblechart = function() {
 
         var svg = dimple.newSvg('#' + visualisationContainerID, container.width(), container.height());
 
-        return dataModule.parse(location, graph, selection).then(function(inputData) {
+        return dataModule.parse(location, graph, selection).then(function (inputData) {
             console.log("GENERATE INPUT DATA FORMAT FOR BUBBLE CHART - INPUT DATA");
             console.dir(inputData);
             seriesHeaders = inputData[0];
             data = rows(inputData);
+
+            if (label.length === 0) {
+                seriesHeaders.splice(0, 0, "Number");
+                for (var i = 0; i < data.length; i++) {
+                    var row = data[i];
+                    row["Number"] = i;
+                }
+            }
+
             console.log("GENERATE INPUT DATA FORMAT FOR BUBBLE CHART - OUTPUT DATA");
             console.dir(data);
 
@@ -58,7 +67,7 @@ var bubblechart = function() {
             var labelAxisName = seriesHeaders[0];
             var xAxisName = seriesHeaders[1];
             var yAxisName = seriesHeaders[2];
-            
+
             var sizeAxisName;
             if (size.length > 0) {
                 sizeAxisName = seriesHeaders[3];
@@ -81,21 +90,21 @@ var bubblechart = function() {
             if (groupAxisName) {
                 series.push(groupAxisName);
             }
-            
+
             console.log("SERIES:");
             console.dir(series);
 
             chart.addSeries(series, dimple.plot.bubble);
             chart.addLegend("50%", "10%", 500, 20, "right");
-            
+
             //gridlines tuning
             x.showGridlines = selection.gridlines;
             y.showGridlines = selection.gridlines;
             //titles
-            if (selection.hLabel ===""){
-                selection.hLabel = seriesHeaders[1]; 
+            if (selection.hLabel === "") {
+                selection.hLabel = seriesHeaders[1];
             }
-            if (selection.vLabel ===""){
+            if (selection.vLabel === "") {
                 selection.vLabel = seriesHeaders[2];
             }
             x.title = selection.hLabel;
@@ -104,10 +113,11 @@ var bubblechart = function() {
             x.ticks = selection.ticks;
             y.ticks = selection.ticks;
             //tooltip
-            if (selection.tooltip === false){
-                chart.addSeries(series, dimple.plot.bubble).addEventHandler("mouseover",function(){});
+            if (selection.tooltip === false) {
+                chart.addSeries(series, dimple.plot.bubble).addEventHandler("mouseover", function () {
+                });
             }
-            
+
             chart.draw();
         });
     }

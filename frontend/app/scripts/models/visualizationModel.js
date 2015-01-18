@@ -6,5 +6,6 @@ App.Visualization = DS.Model.extend({
     structureOptions: DS.attr(),
     layoutOptions: DS.attr(),
     visualizationThumbnail: DS.attr('string'),
+    valid: DS.attr('boolean'),
     dataselection: DS.belongsTo('dataselection')
 });

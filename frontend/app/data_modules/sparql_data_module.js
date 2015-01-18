@@ -98,7 +98,7 @@ var sparql_data_module = function () {
     }
 
     function predictRDFPropertyRole(propertyURI, propertyTypes) {
-        switch(propertyURI) {
+        switch (propertyURI) {
             // TODO: Are there properties that always have the role of a domain or a range?
         }
         for (var i = 0; i < propertyTypes.length; i++) {
@@ -161,10 +161,16 @@ var sparql_data_module = function () {
                 var result = results[i];
                 var propertyURI = result.property.value;
                 var propertyLabel = (result.propertyLabel || {}).value;
-                var propertyTypesString = (result.propertyTypes || {}).value || '';
-                var propertyTypes = propertyTypesString.split(' ');
+                var propertyTypesString = (result.propertyTypes || {}).value;
+                var propertyTypes;
+                if (propertyTypesString) {
+                    propertyTypes = propertyTypesString.split(' ');
+                } else {
+                    propertyTypes = [];
+                }
                 var grandchildren = (result.numChildren || {}).value;
                 var sampleValueType = (result.sampleValue || {}).type;
+                var sampleValue = (result.sampleValue || {}).value;
 
                 if (!propertyLabel) {
                     propertyLabel = simplifyURI(propertyURI);
@@ -178,8 +184,8 @@ var sparql_data_module = function () {
                         if (datatype) {
                             scaleOfMeasurement = predictRDFDatatypeSOM(datatype);
                         } else {
-                            // Plain literal or language literal
-                            scaleOfMeasurement = "Nominal"
+                            var parsedSampleValue = toScalar(sampleValue);
+                            scaleOfMeasurement = predictValueSOM(parsedSampleValue);
                         }
                         break;
                     case "uri":
@@ -198,6 +204,9 @@ var sparql_data_module = function () {
                     role: predictRDFPropertyRole(propertyURI, propertyTypes),
                     type: scaleOfMeasurement
                 };
+                console.log('PROPERTY:');
+                console.dir(dataInfo);
+                console.log(propertyTypes);
 
                 properties.push(dataInfo);
             }
@@ -410,13 +419,13 @@ var sparql_data_module = function () {
             var record = [];
             for (var j = 0; j < selectedVariablesArray.length; j++) {
                 var p = selectedVariablesArray[j];
-                var val = (queryResult[p] || {}).value;
+                var binding = queryResult[p];
+                var val = resultToScalar(binding)
                 if (_.isUndefined(val)) {
                     record.push(null);
-                    continue;
+                } else {
+                    record.push(val);
                 }
-                var value = simplifyURI(val);
-                record.push(toScalar(value));
             }
             result.push(record);
         }
@@ -424,6 +433,67 @@ var sparql_data_module = function () {
         console.log("SPARQL DATA MODULE - CONVERSION RESULT");
         console.dir(result);
         return result;
+    }
+
+    /*
+     * Takes a variable binding from a json sparql result and converts it to a scalar
+     */
+    function resultToScalar(binding) {
+        var value = binding.value;
+        var type = binding.type;
+        switch (type) {
+            case "literal":
+            case "typed-literal":
+                var datatype = binding.datatype;
+                if (datatype) {
+                    return typedLiteralToScalar(value, datatype);
+                } else {
+                    // if no datatype is given, try same parsing algorithm as for CSV
+                    return toScalar(value);
+                }
+                break;
+            case "uri":
+            case "bnode":
+                return simplifyURI(value);
+            default:
+                return value;
+        }
+    }
+
+    function typedLiteralToScalar(value, datatype) {
+        switch (datatype) {
+            case "http://www.w3.org/2001/XMLSchema#float":
+            case "http://www.w3.org/2001/XMLSchema#double":
+            case "http://www.w3.org/2001/XMLSchema#decimal":
+                return parseFloat(value);
+            case "http://www.w3.org/2001/XMLSchema#integer":
+            case "http://www.w3.org/2001/XMLSchema#nonPositiveInteger":
+            case "http://www.w3.org/2001/XMLSchema#negativeInteger":
+            case "http://www.w3.org/2001/XMLSchema#long":
+            case "http://www.w3.org/2001/XMLSchema#int":
+            case "http://www.w3.org/2001/XMLSchema#short":
+            case "http://www.w3.org/2001/XMLSchema#byte":
+            case "http://www.w3.org/2001/XMLSchema#nonNegativeInteger":
+            case "http://www.w3.org/2001/XMLSchema#unsignedLong":
+            case "http://www.w3.org/2001/XMLSchema#unsignedInt":
+            case "http://www.w3.org/2001/XMLSchema#unsignedShort":
+            case "http://www.w3.org/2001/XMLSchema#unsignedByte":
+            case "http://www.w3.org/2001/XMLSchema#positiveInteger":
+                return parseInt(value);
+            case "http://www.w3.org/2001/XMLSchema#dateTime":
+            case "http://www.w3.org/2001/XMLSchema#date":
+            case "http://www.w3.org/2001/XMLSchema#gYear":
+            case "http://www.w3.org/2001/XMLSchema#gYearMonth":
+                // TODO: Does Date.parse understand the xsd date etc. types?
+                return Date.parse(value);
+            case "http://www.w3.org/2001/XMLSchema#string":
+                // Can plain literals be returned as xsd:string in newer 
+                // versions of RDF/SPARQL? If so, uses toScalar here to handle
+                // datasets with missing types
+                return value;
+            default:
+                return value;
+        }
     }
 
     return {

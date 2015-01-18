@@ -8,8 +8,17 @@ var query_visualizations = require('./visualization_modules/query_visualizations
 // Cost function: 
 // Defines how well dimensions and properties match according to their scales of measurement
 function calculateCost(dimension, property) {
+    if (property.dummy) {
+        if (property.dimension === dimension.optionName) {
+            return 10;
+        } else {
+            return 1000;
+        }
+    }
+
     var pType = property.type;
     var scaleWeight = 100;
+
     // A dimension may be able to handle more than one scale of measurement
     // => Take the minimum weight
     for (var i = 0; i < dimension.scalesOfMeasurement.length; i++) {
@@ -44,25 +53,29 @@ function calculateCost(dimension, property) {
     if (!dimension.associatedProperty) {
         // Don't know how well the property matches to the dimension => no change
         propertyFactor = 1.0;
-    } else if (dimension.associatedProperty === property) {
+    } else if (dimension.associatedProperty === property.id) {
         // Reward matching properties
-       // console.log("Property " + property + " matches with dimension " + dimension);
+        // console.log("Property " + property.label + " matches with dimension " + dimension.optionName);
         propertyFactor = 0.5;
     } else {
         // Penalize non-matching properties
-       // console.log("Property " + property + " doesn't match with dimension " + dimension);
+        // console.log("Property " + property.label + " doesn't match with dimension " + dimension.optionName);
         propertyFactor = 2.0;
     }
 
     var dimensionRole = getDimensionRole(dimension.dimensionRole);
     var propertyRole = property.role;
+
+//    console.log("roles: dimension: " + dimensionRole + " (" + dimension.dimensionRole + ") property " + propertyRole);
     var roleFactor;
     if (dimensionRole && propertyRole) {
         if (dimensionRole === propertyRole) {
             // Known good role
+            // console.log("Property " + property.label + " matches with role of dimension " + dimension.optionName);
             roleFactor = 0.75;
         } else {
             // Known false role -- probably pretty bad
+            // console.log("Property " + property.label + " doesn't match with role of dimension " + dimension.optionName);
             roleFactor = 3.0;
         }
     } else {
@@ -81,6 +94,9 @@ function getDimensionRole(dimensionRoleURI) {
         case 'http://linda-project.eu/linda-visualization#Range':
             return 'Range';
         default:
+            if (dimensionRoleURI) {
+                console.log("Unknown Role URI " + dimensionRoleURI);
+            }
             return; // undefined
     }
 }
@@ -105,33 +121,42 @@ function calculateCostMatrix(slots, values, costFunction) {
 // visualization description passed
 function addRecommendation(visualizationPattern, properties, visualizationDescription) {
     var dimensions = [];
+    var propertiesAndDummies = _.clone(properties);
     for (var dimensionName in visualizationPattern) {
         var dimension = visualizationPattern[dimensionName];
         var descDimension = visualizationDescription.structureOptions[dimensionName];
         if (!descDimension.minCardinality) {
-           // console.log("optional: " + dimensionName);
+            // console.log("optional: " + dimensionName);
             dimension.optional = true;
+
+            var dummy = {
+                label: "No " + dimensionName,
+                id: "DUMMY",
+                dummy: true,
+                dimension: dimensionName
+            }
+            propertiesAndDummies.push(dummy)
         }
         dimensions.push(dimension);
     }
 
-    var costs = calculateCostMatrix(dimensions, properties, calculateCost);
+    var costs = calculateCostMatrix(dimensions, propertiesAndDummies, calculateCost);
     var mk = new m.Munkres();
     var solution = mk.compute(costs);
 
-    if (visualizationDescription.visualizationName === 'Map') {
-        //console.log(JSON.stringify(dimensions));
-       // console.log(JSON.stringify(properties));
-       // console.log(JSON.stringify(costs));
-    }
+    // console.log(JSON.stringify(dimensions));
+    // console.log(JSON.stringify(properties));
+    // console.log(JSON.stringify(costs));
+    // console.log(JSON.stringify(solution));
 
     var result = {
         pattern: visualizationPattern,
         description: visualizationDescription,
-        valid: solution.length > 0,
         numAssignments: solution.length,
         cost: 0
     };
+
+    visualizationDescription.valid = (solution.length > 0);
 
     for (var i = 0; i < solution.length; i++) {
         var dimension_index = solution[i][0];
@@ -139,25 +164,39 @@ function addRecommendation(visualizationPattern, properties, visualizationDescri
 
         var dimension = dimensions[dimension_index];
         var property = properties[property_index];
-        var cost = costs[dimension_index][property_index];
 
-        result.cost += cost;
-        if (cost >= 100) {
-          //  console.log('Bad match: ' + dimension.optionName + " -> " + property.label);
-            result.valid = false;
-        }
+        // Check if property is dummy
+        if (property) {
+            var cost = costs[dimension_index][property_index];
 
-        if (!visualizationDescription.structureOptions[dimension.optionName].value) {
-            visualizationDescription.structureOptions[dimension.optionName].value = [];
+            result.cost += cost;
+            if (cost >= 100) {
+                //  console.log('Bad match: ' + dimension.optionName + " -> " + property.label);
+                visualizationDescription.valid = false;
+            }
+
+            if (!visualizationDescription.structureOptions[dimension.optionName].value) {
+                visualizationDescription.structureOptions[dimension.optionName].value = [];
+            }
+
+            visualizationDescription.structureOptions[dimension.optionName].value.push(property);
+        } else {
+            console.log("Didn't assign dummy property for optional dimension " + dimension.optionName)
         }
-        visualizationDescription.structureOptions[dimension.optionName].value.push(property);
     }
 
     for (var dimensionName in visualizationPattern) {
         var dimension = visualizationDescription.structureOptions[dimensionName];
         if (dimension.value.length < dimension.minCardinality) {
-           // console.log('Missing assignment: ' + dimensionName);
-            result.valid = false;
+            // console.log('Missing assignment: ' + dimensionName);
+            visualizationDescription.valid = false;
+        }
+    }
+
+    if (!visualizationDescription.valid) {
+        for (var dimensionName in visualizationPattern) {
+            var dimension = visualizationDescription.structureOptions[dimensionName];
+            dimension.value.splice(0, dimension.value.length);
         }
     }
 
@@ -165,7 +204,7 @@ function addRecommendation(visualizationPattern, properties, visualizationDescri
 }
 
 function ranking(visualizationPatternMap, properties, visualizationDescriptions) {
-    var validResults = [];
+    var results = [];
     for (var visualizationName in visualizationPatternMap) {
         var visualizationPattern = visualizationPatternMap[visualizationName];
         var visualizationDescription = visualizationDescriptions[visualizationName];
@@ -173,33 +212,39 @@ function ranking(visualizationPatternMap, properties, visualizationDescriptions)
             continue;
         }
 
+        console.log("\n" + visualizationName + ":");
         var result = addRecommendation(visualizationPattern, properties, visualizationDescription);
-        if (result.valid) {
-            validResults.push(result);
-        } else {
-          //  console.log("Invalid mapping: " + visualizationName);
-        }
+        results.push(result);
     }
 
     // comparator function for sort()
     function compare(a, b) {
+        // All valid results first
+        if (a.description.valid && !b.description.valid) {
+            return -1;
+        } else if (b.description.valid && !a.description.valid) {
+            return 1;
+        }
+
+        // Prefer configurations with more assignment
         var comparison = b.numAssignments - a.numAssignments;
         if (comparison !== 0) {
             return comparison;
         }
 
+        // For configurations with same number of assignments, prefer less cost
         return a.cost - b.cost;
     }
 
     // rank allocations
-    validResults.sort(compare);
-
-    return validResults.map(function (result) {
-        return result.description;
-    });
+    results.sort(compare);
+    return _.map(results, 'description');
 }
 
 function recommend(dataselection, endpoint, ontology_graph) {
+    console.log('RECOMMENDATION FOR SELECTION:');
+    console.log(JSON.stringify(dataselection));
+
     var visualizationPatternMap;
     return query_patterns.query(ontology_graph, endpoint).then(function (patterns) {
         visualizationPatternMap = patterns;

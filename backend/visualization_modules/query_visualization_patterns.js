@@ -30,22 +30,21 @@ function query(ontology_graph, ontology_endpoint) {
     query += "?optionType vis:scaleOfMeasurement ?scale .\n ";
     query += "?scale rdfs:label ?scaleOfMeasurement .\n ";
     query += "OPTIONAL {\n";
-    query += " ?optionType vis:dimensionRole ?dimensionRole_ . \n";
-    query += " ?dimensionRole_ rdfs:label ?dimensionRole . \n";
+    query += " ?optionType vis:dimensionRole ?dimensionRole . \n"
     query += "} \n ";
     query += "OPTIONAL { ?optionType vis:associatedProperty ?associatedProperty . } \n ";
     query += "} \n";
     query += "} \n";
 
-   // console.log("QUERY VISUALIZATIONS PATTERNS");
-   // console.log(query);
+    // console.log("QUERY VISUALIZATIONS PATTERNS");
+    // console.log(query);
 
     var patterns = {};
 
     return client.query(query).then(function (results, err) {
 
-       // console.log("SPARQL RESULT VISUALIZATION PATTERNS");
-       // console.dir(results);
+        // console.log("SPARQL RESULT VISUALIZATION PATTERNS");
+        // console.dir(results);
 
         for (var i = 0; i < results.length; i++) {
             var option = results[i];
@@ -79,8 +78,8 @@ function query(ontology_graph, ontology_endpoint) {
             }
         }
 
-       // console.log("VISUALIZATION PATTERNS ");
-       // console.dir(JSON.stringify(patterns));
+        // console.log("VISUALIZATION PATTERNS ");
+        // console.dir(JSON.stringify(patterns));
         return patterns;
     });
 }

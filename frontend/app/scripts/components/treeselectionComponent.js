@@ -60,6 +60,7 @@ App.TreeSelectionComponent = Ember.Component.extend({
                         var node_label = node_.title;
                         var node_key = node_.key;
                         var node_type = node_.data.type;
+                        var node_role = node_.data.role;
 
                         var already_selected = _.some(selection, function(value) {
                             return _.isEqual(value.parent, node_path);
@@ -74,6 +75,7 @@ App.TreeSelectionComponent = Ember.Component.extend({
                                         label: node_label,
                                         key: node_key,
                                         type: node_type,
+                                        role: node_role,
                                         parent: path_labels
                                     }
                             );

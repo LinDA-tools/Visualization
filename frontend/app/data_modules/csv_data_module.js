@@ -114,16 +114,10 @@ var csv_data_module = function() {
                 var columns = [];
 
                 for (var i = 0; i < names.length; i++) {
-                    var choice = "";
-                    if (!isNaN(values[i]) || Object.prototype.toString.call(values[i]) === '[object Date]' || Object.prototype.toString.call(values[i]) === '[invalid Date]') {
-                        choice = "Quantitative";
-                    } else {
-                        choice = "Categorical";
-                    }
                     columns.push({
                         id: i,
                         label: names[i],
-                        datatype: choice
+                        datatype: predictValueSOM(values[i])
                     });
                 }
 

@@ -8,11 +8,15 @@ App.SlideShowView = Ember.View.extend({
         console.log("Inserted slideshow: ");
         console.dir(this.get('slides'));
         
-        $('.slider').slick({
+        this.$().slick({
             infinite: true,
             slidesToShow: 3,
             slidesToScroll: 1
         });   
+    },
+    willDestroyElement: function() {
+        console.log("Removing slideshow");
+        this.$().unslick(); 
     }
 });
 

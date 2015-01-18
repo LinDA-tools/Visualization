@@ -8,13 +8,81 @@ var treeselection_data = function() {
         console.log('SELECTION TREE COMPONENT - INITIALIZING TREE');
         console.dir(dataInfo);
 
-        _location = dataInfo.get('location');
-        _graph = dataInfo.get('graph');
-        _format = dataInfo.get('format');
+        _location = dataInfo.location;
+        _graph = dataInfo.graph;
+        _format = dataInfo.format;
         _data_module = getDataModule(_format);
 
         return _data_module.queryClasses(_location, _graph).then(function(data) {
             return createTreeContent(data);
+        });
+    }
+
+    function restore(dataInfo, previousSelection) {
+        console.log('SELECTION TREE COMPONENT - RESTORING TREE');
+        //console.dir(dataInfo);
+        //console.dir(previousSelection);
+
+        _location = dataInfo.location;
+        _graph = dataInfo.graph;
+        _format = dataInfo.format;
+        _data_module = getDataModule(_format);
+
+        var _selectedClassKey = previousSelection[0].parent[0].id;
+        var _selectedClassTitle = previousSelection[0].parent[0].label;
+
+        //console.log('SELECTED CLASS');
+        //console.dir(_selectedClassKey);
+
+        return _data_module.queryClasses(_location, _graph).then(function(classes) {
+            var treecontent = createTreeContent(classes);                       
+            var branch = _.filter(treecontent, function(item) {
+                if (_.isEqual(item.key, _selectedClassKey)) {
+                    return true;
+                }
+            });
+
+            branch[0]['expanded'] = true;
+            branch[0]['selected'] = true;
+            branch[0]['lazy'] = false;
+            branch[0]['children'] = [];
+            branch[0]['parent'] = [{id: _selectedClassKey, label: _selectedClassTitle}];
+
+            return restoreTreeContent(previousSelection, branch[0]).then(function() {        
+                return treecontent;
+            });
+        });
+    }
+
+    function restoreTreeContent(previousSelection, branch) {
+        console.log('SELECTION TREE COMPONENT - RESTORING TREE CONTENT');
+      
+       return branch._children.loadChildren(branch.parent).then(function(children) {  
+            var promises = [];
+
+            for (var j = 0; j < children.length; j++) {
+                var child = children[j];
+                child['parent'] = branch.parent.concat([{id: child.key, label: child.title}]);
+
+                for (var i = 0; i < previousSelection.length; i++) {
+                    var selection = previousSelection[i];
+                    var prefix = selection.parent.slice(0, child.parent.length);
+                   
+                    if (_.isEqual(child.parent, prefix) && (selection.parent.length > child.parent.length)) {
+                        child['expanded'] = true;
+                        child['selected'] = true;
+                        child['lazy'] = false;
+                        child['children'] = [];
+                        promises.push(restoreTreeContent(previousSelection, child));
+                        break;
+                    } else if (_.isEqual(child.parent, prefix)) {
+                        child['selected'] = true;
+                        child['lazy'] = true;                      
+                    }
+                }               
+                branch.children.push(child);
+            }                   
+            return $.when.apply($, promises).then(function(content){console.log('Finished restoring tree content.'); console.dir(branch); return content;});
         });
     }
 
@@ -40,27 +108,27 @@ var treeselection_data = function() {
                 hideCheckbox: showCheckbox(type),
                 _children: {
                     loadChildren: function(node_path) {
+
                         var _class = "";
                         var _properties = "";
 
                         if (node_path.length > 1) {
-                            _class = node_path.pop();
-                            _properties = node_path.reverse();
+                            _class = _.first(node_path);                           
+                            _properties = _.rest(node_path);                          
                         } else {
-                            _class = node_path.pop();
+                            _class = _.last(node_path);                           
                             _properties = [];
                         }
 
                         return _data_module.queryProperties(_location, _graph, _class, _properties).then(function(data) {
-                            console.dir(data);
                             return createTreeContent(data);
                         });
                     }
                 }
             });
         }
-        console.log('SELECTION TREE COMPONENT - TREE CONTENT:');
-        console.dir(treeContent);
+       // console.log('SELECTION TREE COMPONENT - TREE CONTENT:');
+       // console.dir(treeContent);
 
         return treeContent;
     }
@@ -72,14 +140,14 @@ var treeselection_data = function() {
             var record = selection[i];
 
             dataSelection['propertyInfos'].push({
-                id: record.key,
+                key: record.key,
                 label: record.label,
                 parent: record.parent,
                 role: record.role,
-                scaleOfMeasurement: record.type
+                type: record.type
             });
         }
-
+        
         return dataSelection;
     }
 
@@ -134,6 +202,7 @@ var treeselection_data = function() {
 
     return {
         initialize: initialize,
+        restore: restore,
         getDataSelection: getDataSelection
     };
 }();

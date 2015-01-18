@@ -18,10 +18,10 @@ App.DrawVisualizationView = Ember.View.extend({
         }
 
         var dataselection = visualization.get('dataselection');              
-        var datasource = dataselection.get('datasource');
-        var format = datasource.get('format');
-        config.datasourceLocation = datasource.get('location');
-        config.datasourceGraph = datasource.get('graph');
+        var datasource = dataselection.get('datasource');        
+        var format = datasource.format;
+        config.datasourceLocation = datasource.location;
+        config.datasourceGraph = datasource.graph;
 
         switch (format) {
             case 'rdf':

@@ -1,0 +1,2120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:gesis="http://lod.gesis.org/vocab#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:foaf="http://xmls.com/foaf/0.1/" xmlns:qb="http://purl.org/linked-data/cube#"
+    xmlns:sdmx-measure="http://purl.org/linked-data/sdmx/2009/measure#"
+    xmlns:sdmx-attribute="http://purl.org/linked-data/sdmx/2009/attribute#"
+    xmlns:dcterms="http://purl.org/dc/terms/">
+    <rdf:Description rdf:about="">
+        <foaf:maker rdf:resource="http://www.gesis.org"/>
+        <dcterms:date>2011-01-06T08:57:06+0000</dcterms:date>
+    </rdf:Description>
+    <qb:DataSet rdf:about="#ds">
+        <rdfs:label>ZA4570 ALLBUS/GGSS 1980-2008</rdfs:label>
+        <rdfs:comment>Kumulierte Allgemeine Bevölkerungsumfrage der Sozialwissenschaften (aggregiert) / Cumulated German General Social Survey (aggregated)</rdfs:comment>
+        <rdfs:comment>Source: GESIS (http://www.gesis.org)</rdfs:comment>
+        <rdfs:seeAlso rdf:resource="http://www.gesis.org/dienstleistungen/daten/umfragedaten/allbus/"/>
+        <rdfs:seeAlso rdf:resource="http://info1.gesis.org/dbksearch13/SDESC2.asp?no=4570&amp;search=4570&amp;search2=&amp;DB=D"/>
+    </qb:DataSet>
+    <rdf:Description rdf:about="#var9">
+        <rdfs:label>WIRTSCHAFTSLAGE IN DER BRD HEUTE</rdfs:label>
+        <rdfs:comment>Variables of ZA4570</rdfs:comment>
+        <rdfs:seeAlso rdf:resource="http://info1.gesis.org/dbksearch13/SDESC2.asp?no=4570&amp;search=4570&amp;search2=&amp;DB=D"/>
+        <rdf:type rdf:resource="http://purl.org/linked-data/cube#MeasureProperty"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="#var11">
+        <rdfs:label>WIRTSCHAFTSLAGE, BEFR. HEUTE</rdfs:label>
+        <rdfs:comment>Variables of ZA4570</rdfs:comment>
+        <rdfs:seeAlso rdf:resource="http://info1.gesis.org/dbksearch13/SDESC2.asp?no=4570&amp;search=4570&amp;search2=&amp;DB=D"/>
+        <rdf:type rdf:resource="http://purl.org/linked-data/cube#MeasureProperty"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="#scale0">
+        <rdfs:label>TNZ;NICHT ERHOBEN</rdfs:label>
+        <rdfs:comment>Scale Variable 9 and 11 of ZA4570</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="#scale1">
+        <rdfs:label>SEHR GUT</rdfs:label>
+        <rdfs:comment>Scale Variable 9 and 11 of ZA4570</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="#scale2">
+        <rdfs:label>GUT</rdfs:label>
+        <rdfs:comment>Scale Variable 9 and 11 of ZA4570</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="#scale3">
+        <rdfs:label>TEILS TEILS</rdfs:label>
+        <rdfs:comment>Scale Variable 9 and 11 of ZA4570</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="#scale4">
+        <rdfs:label>SCHLECHT</rdfs:label>
+        <rdfs:comment>Scale Variable 9 and 11 of ZA4570</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="#scale5">
+        <rdfs:label>SEHR SCHLECHT</rdfs:label>
+        <rdfs:comment>Scale Variable 9 and 11 of ZA4570</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="#scale8">
+        <rdfs:label>WEISS NICHT</rdfs:label>
+        <rdfs:comment>Scale Variable 9 and 11 of ZA4570</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="#scale9">
+        <rdfs:label>KEINE ANGABE</rdfs:label>
+        <rdfs:comment>Scale Variable 9 and 11 of ZA4570</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="./time">
+        <rdf:type rdf:resource="http://purl.org/linked-data/cube#DimensionProperty"/>
+        <rdfs:label>Jahr</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="./geo">
+        <rdf:type rdf:resource="http://purl.org/linked-data/cube#DimensionProperty"/>
+        <rdfs:label>Deutschland / Nordrhein-Westfalen</rdfs:label>
+    </rdf:Description>
+    
+ <!--   <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1980-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale0"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>797</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1980-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale0"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>797</sdmx-measure:obsValue> 
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1980-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale1"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>0</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1980-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale1"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>0</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1980-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale2"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>0</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1980-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale2"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>0</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1980-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale3"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>0</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1980-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale3"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>0</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1980-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale4"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>0</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1980-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale4"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>0</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1980-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale5"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>0</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1980-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale5"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>0</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1980-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale8"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>0</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1980-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale8"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>0</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1980-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale9"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>0</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1980-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale9"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>0</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1982-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale0"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>0</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1982-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale0"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>0</sdmx-measure:obsValue>
+    </qb:Observation>-->
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1982-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale1"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>30000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1982-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale1"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>150000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1982-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale2"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>920000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1982-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale2"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>3740000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1982-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale3"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>4210000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1982-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale3"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>3340000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1982-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale4"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>2450000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1982-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale4"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>830000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1982-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale5"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>580000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1982-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale5"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>140000</sdmx-measure:obsValue>
+    </qb:Observation>
+ <!--   <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1982-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale8"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>148614</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1982-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale8"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>118891</sdmx-measure:obsValue>
+    </qb:Observation> -->
+ <!--   <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1982-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale9"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>0</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1982-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale9"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>29722</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1984-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale0"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>0</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1984-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale0"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>0</sdmx-measure:obsValue>
+    </qb:Observation>-->
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1984-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale1"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>20000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1984-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale1"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>260000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1984-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale2"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>1340000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1984-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale2"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>3930000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1984-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale3"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>4450000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1984-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale3"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>2930000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1984-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale4"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>2170000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1984-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale4"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>930000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1984-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale5"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>340000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1984-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale5"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>260000</sdmx-measure:obsValue>
+    </qb:Observation>
+ <!--   <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1984-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale8"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>0</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1984-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale8"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>267506</sdmx-measure:obsValue>
+    </qb:Observation>-->
+ <!--   <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1984-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale9"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>6</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1984-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale9"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>29722</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1986-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale0"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>0</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1986-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale0"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>0</sdmx-measure:obsValue>
+    </qb:Observation>-->
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1986-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale1"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>110000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1986-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale1"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>140000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1986-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale2"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>2390000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1986-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale2"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>4380000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1986-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale3"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>4270000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1986-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale3"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>2490000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1986-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale4"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>900000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1986-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale4"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>700000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1986-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale5"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>160000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1986-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale5"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>150000</sdmx-measure:obsValue>
+    </qb:Observation>
+ <!--   <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1986-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale8"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>208060</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1986-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale8"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>118891</sdmx-measure:obsValue>
+    </qb:Observation>-->
+ <!--   <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1986-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale9"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>0</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1986-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale9"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>0</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1988-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale0"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>850</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1988-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale0"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>17893212</sdmx-measure:obsValue>
+    </qb:Observation>-->
+ <!--   <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1988-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale1"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>0</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1988-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale1"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>0</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1988-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale2"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>0</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1988-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale2"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>0</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1988-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale3"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>0</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1988-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale3"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>0</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1988-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale4"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>0</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1988-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale4"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>0</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1988-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale5"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>0</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1988-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale5"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>0</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1988-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale8"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>0</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1988-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale8"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>0</sdmx-measure:obsValue>
+    </qb:Observation>-->
+ <!--   <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1988-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale9"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>0</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1988-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale9"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>0</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1990-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale0"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>475</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1990-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale0"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>14118398</sdmx-measure:obsValue>
+    </qb:Observation>-->
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1990-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale1"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>680000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1990-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale1"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>180000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1990-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale2"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>2400000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1990-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale2"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>2720000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1990-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale3"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>1030000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1990-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale3"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>1060000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1990-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale4"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>130000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1990-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale4"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>240000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1990-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale5"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>20000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1990-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale5"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>70000</sdmx-measure:obsValue>
+    </qb:Observation>
+ <!--   <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1990-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale8"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>59444</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1990-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale8"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>29722</sdmx-measure:obsValue>
+    </qb:Observation> -->
+ <!--   <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1990-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale9"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>1</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1990-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale9"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>29722</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1991-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale0"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>0</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1991-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale0"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>0</sdmx-measure:obsValue>
+    </qb:Observation>-->
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1991-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale1"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>750000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1991-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale1"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>220000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1991-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale2"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>1850000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1991-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale2"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>2520000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1991-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale3"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>1370000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1991-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale3"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>1040000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1991-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale4"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>70000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1991-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale4"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>250000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1991-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale5"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>20000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1991-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale5"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>50000</sdmx-measure:obsValue>
+    </qb:Observation>
+ <!--   <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1991-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale8"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>59444</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1991-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale8"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>0</sdmx-measure:obsValue>
+    </qb:Observation> -->
+ <!--   <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1991-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale9"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>1</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1991-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale9"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>29722</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1992-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale0"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>0</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1992-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale0"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>0</sdmx-measure:obsValue>
+    </qb:Observation>-->
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1992-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale1"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>310000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1992-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale1"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>240000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1992-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale2"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>2340000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1992-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale2"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>3660000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1992-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale3"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>3040000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1992-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale3"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>1900000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1992-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale4"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>550000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1992-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale4"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>430000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1992-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale5"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>150000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1992-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale5"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>170000</sdmx-measure:obsValue>
+    </qb:Observation>
+ <!--   <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1992-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale8"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>59444</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1992-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale8"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>59444</sdmx-measure:obsValue>
+    </qb:Observation> -->
+<!--    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1992-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale9"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>6</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1992-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale9"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>148610</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1994-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale0"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>0</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1994-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale0"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>0</sdmx-measure:obsValue>
+    </qb:Observation>-->
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1994-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale1"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>50000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1994-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale1"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>160000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1994-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale2"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>690000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1994-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale2"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>3780000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1994-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale3"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>3170000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1994-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale3"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>1710000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1994-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale4"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>2150000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1994-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale4"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>580000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1994-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale5"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>370000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1994-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale5"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>200000</sdmx-measure:obsValue>
+    </qb:Observation>
+ <!--   <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1994-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale8"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>29722</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1994-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale8"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>59444</sdmx-measure:obsValue>
+    </qb:Observation> -->
+<!--    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1994-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale9"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>1</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1994-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale9"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>0</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1996-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale0"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>0</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1996-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale0"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>0</sdmx-measure:obsValue>
+    </qb:Observation>-->
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1996-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale1"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>70000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1996-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale1"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>200000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1996-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale2"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>800000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1996-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale2"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>3050000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1996-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale3"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>2840000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1996-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale3"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>2450000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1996-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale4"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>2250000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1996-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale4"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>540000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1996-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale5"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>460000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1996-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale5"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>180000</sdmx-measure:obsValue>
+    </qb:Observation>
+<!--    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1996-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale8"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>89186</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1996-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale8"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>59444</sdmx-measure:obsValue>
+    </qb:Observation> -->
+<!--    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1996-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale9"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>0</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1996-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale9"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>29722</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1998-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale0"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>0</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1998-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale0"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>0</sdmx-measure:obsValue>
+    </qb:Observation>-->
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1998-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale1"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>50000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1998-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale1"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>90000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1998-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale2"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>710000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1998-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale2"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>2290000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1998-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale3"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>2510000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1998-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale3"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>2160000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1998-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale4"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>1740000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1998-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale4"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>690000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1998-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale5"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>410000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1998-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale5"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>220000</sdmx-measure:obsValue>
+    </qb:Observation>
+<!--    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1998-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale8"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>178337</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1998-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale8"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>89168</sdmx-measure:obsValue>
+    </qb:Observation> -->
+<!--    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1998-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale9"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>1</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>1998-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale9"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>29722</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>2000-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale0"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>0</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>2000-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale0"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>0</sdmx-measure:obsValue>
+    </qb:Observation>-->
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>2000-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale1"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>130000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>2000-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale1"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>280000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>2000-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale2"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>1860000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>2000-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale2"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>3100000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>2000-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale3"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>3380000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>2000-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale3"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>2050000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>2000-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale4"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>480000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>2000-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale4"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>470000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>2000-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale5"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>110000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>2000-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale5"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>80000</sdmx-measure:obsValue>
+    </qb:Observation>
+<!--    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>2000-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale8"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>148614</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>2000-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale8"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>59444</sdmx-measure:obsValue>
+    </qb:Observation> -->
+ <!--   <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>2000-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale9"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>2</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>2000-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale9"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>89168</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>2002-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale0"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>0</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>2002-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale0"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>0</sdmx-measure:obsValue>
+    </qb:Observation>-->
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>2002-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale1"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>80000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>2002-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale1"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>200000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>2002-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale2"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>760000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>2002-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale2"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>2320000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>2002-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale3"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>2470000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>2002-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale3"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>1770000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>2002-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale4"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>1280000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>2002-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale4"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>470000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>2002-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale5"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>300000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>2002-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale5"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>140000</sdmx-measure:obsValue>
+    </qb:Observation>
+ <!--   <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>2002-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale8"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>59444</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>2002-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale8"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>0</sdmx-measure:obsValue>
+    </qb:Observation> -->
+<!--    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>2002-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale9"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>0</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>2002-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale9"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>29722</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>2004-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale0"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>0</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>2004-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale0"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>0</sdmx-measure:obsValue>
+    </qb:Observation>-->
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>2004-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale1"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>20000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>2004-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale1"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>110000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>2004-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale2"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>260000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>2004-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale2"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>1890000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>2004-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale3"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>1850000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>2004-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale3"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>2100000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>2004-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale4"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>2400000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>2004-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale4"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>810000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>2004-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale5"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>550000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>2004-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale5"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>220000</sdmx-measure:obsValue>
+    </qb:Observation>
+ <!--   <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>2004-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale8"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>148614</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>2004-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale8"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>29722</sdmx-measure:obsValue>
+    </qb:Observation> -->
+<!--    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>2004-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale9"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>1</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>2004-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale9"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>0</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>2006-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale0"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>0</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>2006-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale0"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>0</sdmx-measure:obsValue>
+    </qb:Observation>-->
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>2006-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale1"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>60000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>2006-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale1"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>200000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>2006-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale2"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>700000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>2006-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale2"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>2320000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>2006-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale3"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>2820000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>2006-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale3"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>2450000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>2006-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale4"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>2090000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>2006-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale4"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>940000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>2006-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale5"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>470000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>2006-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale5"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>200000</sdmx-measure:obsValue>
+    </qb:Observation>
+ <!--   <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>2006-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale8"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>59444</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>2006-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale8"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>59444</sdmx-measure:obsValue>
+    </qb:Observation> -->
+<!--    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>2006-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale9"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>0</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>2006-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale9"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>89168</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>2008-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale0"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>0</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>2008-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale0"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>0</sdmx-measure:obsValue>
+    </qb:Observation>-->
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>2008-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale1"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>110000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>2008-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale1"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>240000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>2008-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale2"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>1430000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>2008-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale2"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>2390000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>2008-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale3"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>3100000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>2008-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale3"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>2260000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>2008-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale4"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>1140000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>2008-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale4"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>960000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>2008-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale5"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>200000</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>2008-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale5"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>170000</sdmx-measure:obsValue>
+    </qb:Observation>
+<!--    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>2008-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale8"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>148614</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>2008-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale8"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>237783</sdmx-measure:obsValue>
+    </qb:Observation> -->
+<!--    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>2008-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale9"/>
+        <gesis:variable rdf:resource="#var9"/>
+        <sdmx-measure:obsValue>0</sdmx-measure:obsValue>
+    </qb:Observation>
+    <qb:Observation>
+        <qb:dataset rdf:resource="#ds"/>
+        <dcterms:date>2008-01-01</dcterms:date>
+        <gesis:geo rdf:resource="./geo#D-NRW"/>
+        <gesis:valuelabel rdf:resource="#scale9"/>
+        <gesis:variable rdf:resource="#var11"/>
+        <sdmx-measure:obsValue>0</sdmx-measure:obsValue>
+    </qb:Observation>-->
+</rdf:RDF>

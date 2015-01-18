@@ -1,7 +1,7 @@
 var GraphStoreClient = require('graph-store-client');
 var _ = require('lodash');
 
-function store(vis_config, config_id, config_name, config_graph) {
+function store(vis_config, config_id, config_name, config_graph, config_endpoint) {
     console.log("STORE VISUALIZATION CONFIGURATION");
 
     var query = "";
@@ -106,7 +106,7 @@ function store(vis_config, config_id, config_name, config_graph) {
     console.log("STORE VISUALIZATION CONFIGURATION - INSERT QUERY");
     console.log(query);
 
-    var client = new GraphStoreClient(endpoint, null);
+    var client = new GraphStoreClient(config_endpoint, null);
     client.query(query).then(function(result, err) {
         if (err) {
             console.log('visualization_backend: Could not execute insert query: ' + err);

@@ -10,8 +10,8 @@ function query(config_id, config_graph, config_endpoint) {
 
     return client.query(datasourceQuery(config_id, config_graph)).then(function(results, err) {
 
-        console.log("SPARQL RESULT VIS DETAILS");
-        console.dir(results);
+        //console.log("SPARQL RESULT VIS DETAILS");
+       // console.dir(results);
 
         configuration['visualization']['name'] = results[0]['visualizationName']['value'];
         configuration['visualization']['thumbnail'] = results[0]['visualizationThumbnail']['value'];
@@ -24,8 +24,8 @@ function query(config_id, config_graph, config_endpoint) {
 
         return client.query(structureOptionsQuery(config_id, config_graph)).then(function(results, err) {
 
-            console.log("SPARQL RESULT STRUCTURE OPTIONS");
-            console.dir(results);
+            //console.log("SPARQL RESULT STRUCTURE OPTIONS");
+           // console.dir(results);
 
             for (var i = 0; i < results.length; i++) {
                 var option = results[i];
@@ -60,8 +60,8 @@ function query(config_id, config_graph, config_endpoint) {
             }
             return client.query(layoutOptionsQuery(config_id, config_graph)).then(function(results, err) {
 
-                console.log("SPARQL RESULT LAYOUT OPTIONS");
-                console.dir(results);
+               // console.log("SPARQL RESULT LAYOUT OPTIONS");
+               // console.dir(results);
 
                 for (var i = 0; i < results.length; i++) {
                     var option = results[i];
@@ -73,8 +73,8 @@ function query(config_id, config_graph, config_endpoint) {
                     };
                 }
 
-                console.log("VISUALIZATION CONFIGURATION");
-                console.dir(JSON.stringify(configuration));
+               // console.log("VISUALIZATION CONFIGURATION");
+               // console.dir(JSON.stringify(configuration));
 
                 return configuration;
             });
@@ -114,8 +114,8 @@ function datasourceQuery(config_id, config_graph) {
     query += "} \n";
     query += "} \n";
 
-    console.log("QUERY VISUALIZATION CONFIGURATION - QUERY DETAILS");
-    console.log(query);
+    //console.log("QUERY VISUALIZATION CONFIGURATION - QUERY DETAILS");
+    //console.log(query);
 
     return query;
 }
@@ -182,8 +182,8 @@ function structureOptionsQuery(config_id, config_graph) {
     query += "} \n";
     query += "} \n";
 
-    console.log("LOAD VISUALIZATION CONFIGURATION - QUERY STRUCTURE OPTIONS");
-    console.log(query);
+    //console.log("LOAD VISUALIZATION CONFIGURATION - QUERY STRUCTURE OPTIONS");
+    //console.log(query);
 
     return query;
 }
@@ -212,8 +212,8 @@ function layoutOptionsQuery(config_id, config_graph) {
     query += "} \n";
     query += "} \n";
 
-    console.log("QUERY VISUALIZATION CONFIGURATION - QUERY LAYOUT OPTIONS");
-    console.log(query);
+    //console.log("QUERY VISUALIZATION CONFIGURATION - QUERY LAYOUT OPTIONS");
+    //console.log(query);
 
     return query;
 }

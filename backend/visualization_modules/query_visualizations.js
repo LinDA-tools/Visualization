@@ -79,8 +79,8 @@ function query(graph, endpoint) {
                     };
                 }
 
-                console.log("VISUALIZATIONS LIST ");
-                console.dir(JSON.stringify(visualizations));
+               // console.log("VISUALIZATIONS LIST ");
+               // console.dir(JSON.stringify(visualizations));
                 return visualizations;
             });
         });
@@ -111,7 +111,7 @@ function visualizationQuery(graph) {
     query += "} \n";
     query += "} \n";
 
-    console.log("QUERY VISUALIZATION DETAILS");
+   // console.log("QUERY VISUALIZATION DETAILS");
     //console.log(query);
 
     return query;
@@ -145,7 +145,7 @@ function structureOptionsQuery(graph) {
     query += "} \n";
     query += "} \n";
 
-    console.log("QUERY VISUALIZATIONS - STRUCTURE OPTIONS");
+   // console.log("QUERY VISUALIZATIONS - STRUCTURE OPTIONS");
     //console.log(query);
 
     return query;
@@ -177,8 +177,8 @@ function layoutOptionsQuery(graph) {
     query += "} \n";
     query += "} \n";
 
-    console.log("QUERY VISUALIZATIONS - LAYOUT OPTIONS");
-    console.log(query);
+   // console.log("QUERY VISUALIZATIONS - LAYOUT OPTIONS");
+   // console.log(query);
 
     return query;
 }

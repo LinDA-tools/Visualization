@@ -4,12 +4,12 @@ App.DataTableComponent = Ember.Component.extend({
     columns: [],
     table: null,
     setContent: function () {
-        console.log("GENERATING PREVIEW");
+        //console.log("GENERATING PREVIEW");
 
         var self = this;
         var selection = this.get('preview');
         var datasource = this.get('datasource');
-
+        
         if (selection.length > 0) {
             var columns = table_data.getColumns(selection, datasource);
 
@@ -35,5 +35,5 @@ App.DataTableComponent = Ember.Component.extend({
                 $(self.get('element')).empty();
             }
         }
-    }.observes('preview.[]')
+    }.observes('preview.[]').on('didInsertElement')
 });

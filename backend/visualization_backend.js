@@ -116,7 +116,7 @@ app.get('/sparql-proxy/:endpoint/:query', function (req, res) {
 
 
 var vis_configurationGraph = "http://linda-project.org/visualization-configuration";
-var vis_configurationEndpoint = "http://localhost:8890/sparql";
+var vis_configurationEndpoint = "http://localhost:8080/openrdf-sesame/repositories/visualization-ontology";
 
 var recommendationsByDataselectionID = {};
 
@@ -134,8 +134,8 @@ app.get('/visualizations', function (req, res) {
                 });
             } else {
                 var dataselection = dataselections[id];
-                var endpoint = "http://localhost:8890/sparql";
-                var ontology_graph = "http://linda-project.eu/linda-visualization";
+                var endpoint = vis_configurationEndpoint; //"http://localhost:8890/sparql";
+                var ontology_graph = vis_configurationGraph; //"http://linda-project.eu/linda-visualization";
                 // console.log("Calculating suggestions for dataselection: ")
                 //console.log(JSON.stringify(dataselection));
                 visualization_recommendation.recommendForDataselection(dataselection, endpoint, ontology_graph).then(function (visualizations) {

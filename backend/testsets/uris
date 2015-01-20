@@ -1,3 +1,10 @@
+
+
+
+
+
+
+
 // UBONN TESTSETS
 
 // RDF
@@ -31,6 +38,247 @@ DEC: http://localhost:9001/#/visualization/TS1_LinearRegression_Result/http://lo
 //CSV
 ENC: http://localhost:9001/#/visualization/ubitech_testset2/http%3A%2F%2Flocalhost%3A3002%2Ftestsets%2FionosphereToTrain_J48_resultdocument.csv/-/csv
 ENC: http://localhost:9001/#/visualization/ubitech_testset3/http%3A%2F%2Flocalhost%3A3002%2Ftestsets%2FairlineToForecast_5xQ3Xie_Arima_resultdocument.csv/-/csv
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+http://www.linda-project.org/examples/DepartmentOfAgriculture-QuickStats.nt
+DepartmentOfAgriculture-Quick Stats
+DepartmentOfAgriculture-QuickStats.nt
+ <li>
+ {{#link-to
+'datasource'
+'DepartmentOfAgriculture-Quick%20Stats'
+'http%3A%2F%2Flocalhost%3A8890%2Fsparql'
+'http%3A%2F%2Fwww.linda-project.org%2Fexamples%2FDepartmentOfAgriculture-QuickStats.nt'
+'rdf'
+}}
+1. DepartmentOfAgriculture-Quick Stats (RDF format)
+            {{/link-to}}
+        </li>
+
+http://www.linda-project.org/examples/DepartmentOfDefense-MaterialStatus.nt
+DepartmentOfDefense-Marital Status
+DepartmentOfDefense-MaterialStatus.nt
+ <li>
+ {{#link-to
+'datasource'
+'DepartmentOfDefense-Material%20Status'
+'http%3A%2F%2Flocalhost%3A8890%2Fsparql'
+'http%3A%2F%2Fwww.linda-project.org%2Fexamples%2FDepartmentOfDefense-MaterialStatus.nt'
+'rdf'
+}}
+2. DepartmentOfDefense-Marital Status (RDF format)
+            {{/link-to}}
+        </li>
+
+
+http://www.linda-project.org/examples/DepartmentofHealthandHumanServices-OMHClaimsListedbyState.nt
+DepartmentofHealthandHumanServices-OMH Claims Listed by State
+DepartmentofHealthandHumanServices-OMHClaimsListedbyState.nt
+ <li>
+ {{#link-to
+'datasource'
+'DepartmentofHealthandHumanServices-OMHClaims%20Listed%20by%20State'
+'http%3A%2F%2Flocalhost%3A8890%2Fsparql'
+'http%3A%2F%2Fwww.linda-project.org%2Fexamples%2FDepartmentofHealthandHumanServices-OMHClaimsListedbyState.nt'
+'rdf'
+}}
+3. DepartmentofHealthandHumanServices-OMH Claims Listed by State (RDF format)
+            {{/link-to}}
+        </li>
+
+http://www.linda-project.org/examples/DepartmentOfTheInterior-WildlandFiresand1960-2008.nt
+DepartmentOfTheInterior-Wildland Fires 1960-2008
+DepartmentOfTheInterior-WildlandFiresand1960-2008.nt
+ <li> 
+{{#link-to
+'datasource'
+'DepartmentOfTheInterior-Wildl%20and%20Fires%20and%201960-2008'
+'http%3A%2F%2Flocalhost%3A8890%2Fsparql'
+'http%3A%2F%2Fwww.linda-project.org%2Fexamples%2FDepartmentOfTheInterior-WildlandFiresand1960-2008.nt'
+'rdf'
+}}
+4. DepartmentOfTheInterior-Wildland Fires 1960-2008 (RDF format)
+            {{/link-to}}
+        </li>
+
+http://www.linda-project.org/examples/DepartmentofState-AfricaConflictsWithoutBorders2009.nt
+DepartmentOfState-Africa Conflicts Without Borders 2009
+DepartmentofState-AfricaConflictsWithoutBorders2009.nt
+ <li>
+ {{#link-to
+'datasource'
+'DepartmentofState-Africa%20Conflicts%20Without%20Borders%202009'
+'http%3A%2F%2Flocalhost%3A8890%2Fsparql'
+'http%3A%2F%2Fwww.linda-project.org%2Fexamples%2FDepartmentofState-AfricaConflictsWithoutBorders2009.nt'
+'rdf'
+}}
+5. DepartmentOfState-Africa Conflicts Without Borders 2009 (RDF format)
+            {{/link-to}}
+        </li>
+
+
+http://www.linda-project.org/examples/DepartmentOfTheTreasury-QuarterlyReportonBankDerivativesActivities.nt
+DepartmentOfTheTreasury-Quarterly Report on Bank Derivatives Activities
+DepartmentOfTheTreasury-QuarterlyReportonBankDerivativesActivities.nt
+ <li>
+ {{#link-to
+'datasource'
+'DepartmentOfTheTreasury-Quarterly%20Report%20on%20Bank%20Derivatives%20Activities'
+'http%3A%2F%2Flocalhost%3A8890%2Fsparql'
+'http%3A%2F%2Fwww.linda-project.org%2Fexamples%2FDepartmentOfTheTreasury-QuarterlyReportonBankDerivativesActivities.nt'
+'rdf'
+}}
+6. DepartmentOfTheTreasury-Quarterly Report on Bank Derivatives Activities (RDF format)
+            {{/link-to}}
+        </li>
+
+http://www.linda-project.org/examples/DepartmentOfVeteransAffairs-VeteransHealthAdministration2008.nt
+DepartmentOfVeteransAffairs-Veterans Health Administration 2008 
+DepartmentOfVeteransAffairs-VeteransHealthAdministration2008.nt
+ <li>
+ {{#link-to
+'datasource'
+'DepartmentOfVeteransAffairs-Veterans%20Health%20Administration%202008'
+'http%3A%2F%2Flocalhost%3A8890%2Fsparql'
+'http%3A%2F%2Fwww.linda-project.org%2Fexamples%2FDepartmentOfVeteransAffairs-VeteransHealthAdministration2008.nt'
+'rdf'
+}}
+7. DepartmentOfVeteransAffairs-Veterans Health Administration 2008 (RDF format)
+            {{/link-to}}
+        </li>
+
+http://www.linda-project.org/examples/EnvironmentalProtectionAgency-EPAFRSFacilities.nt
+EnvironmentalProtectionAgency- EPA FRS Facilities
+EnvironmentalProtectionAgency-EPAFRSFacilities.nt
+ <li>
+ {{#link-to
+'datasource'
+'EnvironmentalProtectionAgency-EPA%20FRS%20Facilities'
+'http%3A%2F%2Flocalhost%3A8890%2Fsparql'
+'http%3A%2F%2Fwww.linda-project.org%2Fexamples%2FEnvironmentalProtectionAgency-EPAFRSFacilities.nt'
+'rdf'
+}}
+8. EnvironmentalProtectionAgency- EPA FRS Facilities (RDF format)
+            {{/link-to}}
+        </li>
+
+http://www.linda-project.org/examples/GeneralServicesAdministration-CashandPaymentsManagementData.nt
+GeneralServicesAdministration- Cash and Payments Management Data
+GeneralServicesAdministration-CashandPaymentsManagementData.nt
+ <li> 
+{{#link-to
+'datasource'
+'GeneralServicesAdministration-Cash%20and%20Payments%20Management%20Data'
+'http%3A%2F%2Flocalhost%3A8890%2Fsparql'
+'http%3A%2F%2Fwww.linda-project.org%2Fexamples%2FGeneralServicesAdministration-CashandPaymentsManagementData.nt'
+'rdf'
+}}
+9. GeneralServicesAdministration- Cash and Payments Management Data (RDF format)
+            {{/link-to}}
+        </li>
+
+http://www.linda-project.org/examples/NationalScienceFoundation-NSFResearchGrantFundingRates.nt
+NationalScienceFoundation- NSF Research Grant Funding Rates 
+NationalScienceFoundation-NSFResearchGrantFundingRates.nt
+ <li>
+ {{#link-to
+'datasource'
+'NationalScienceFoundation-NSF%20Research%20Grant%20Funding%20Rates'
+'http%3A%2F%2Flocalhost%3A8890%2Fsparql'
+'http%3A%2F%2Fwww.linda-project.org%2Fexamples%2FNationalScienceFoundation-NSFResearchGrantFundingRates.nt'
+'rdf'
+}}
+
+ 10. NationalScienceFoundation- NSF Research Grant Funding Rates (RDF format)
+            {{/link-to}}
+        </li>
+
+http://www.linda-project.org/examples/NationalTransportationSafetyBoardAviation-AccidentStatistics2008.nt
+NationalTransportationSafetyBoardAviation- Fatal Accident Statistics 2008 
+NationalTransportationSafetyBoardAviation-AccidentStatistics2008.nt
+  <li>
+{{#link-to
+'datasource'
+'NationalTransportationSafetyBoardAviation-Accident%20Statistics%202008'
+'http%3A%2F%2Flocalhost%3A8890%2Fsparql'
+'http%3A%2F%2Fwww.linda-project.org%2Fexamples%2FNationalTransportationSafetyBoardAviation-AccidentStatistics2008.nt'
+'rdf'
+}}
+ 11. NationalTransportationSafetyBoardAviation- Fatal Accident Statistics 2008 (RDF format)
+            {{/link-to}}
+        </li>
+
+http://www.linda-project.org/examples/OfficeofPersonnelManagement-FiscalYear2007EmployeeSurvivorAnnuitants.nt
+OfficeOfPersonnelManagement-Fiscal Year 2007 Employee Survivor Annuitants
+OfficeofPersonnelManagement-FiscalYear2007EmployeeSurvivorAnnuitants.nt
+ <li> 
+{{#link-to
+'datasource'
+'OfficeofPersonnelManagement-Fiscal%20Year%202007%20Employee%20Survivor%20Annuitants'
+'http%3A%2F%2Flocalhost%3A8890%2Fsparql'
+'http%3A%2F%2Fwww.linda-project.org%2Fexamples%2FOfficeofPersonnelManagement-FiscalYear2007EmployeeSurvivorAnnuitants.nt'
+'rdf'
+}}
+  12. OfficeOfPersonnelManagement-Fiscal Year 2007 Employee Survivor Annuitants (RDF format)
+            {{/link-to}}
+        </li>
+
+http://www.linda-project.org/examples/SecurityAndExchangeCommission-PublicCompanyBankruptcyCases2009.nt
+SecurityAndExchangeCommission- Public Company Bankruptcy Cases 2009
+SecurityAndExchangeCommission-PublicCompanyBankruptcyCases2009.nt
+ <li>
+ {{#link-to
+'datasource'
+'SecurityAndExchangeCommission-Public%20Company%20Bankruptcy%20Cases%202009'
+'http%3A%2F%2Flocalhost%3A8890%2Fsparql'
+'http%3A%2F%2Fwww.linda-project.org%2Fexamples%2FSecurityAndExchangeCommission-PublicCompanyBankruptcyCases2009.nt'
+'rdf'
+}}
+  13. SecurityAndExchangeCommission- Public Company Bankruptcy Cases 2009 (RDF format)
+            {{/link-to}}
+        </li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -13,7 +13,7 @@ App.DatasourceController = Ember.ObjectController.extend({
         // console.dir(dataInfo);
 
         var previousSelection = this.get('previousSelection');
-        this.set('dataSelection', []);
+        //this.set('dataSelection', []);
         
         if (previousSelection.length === 0) {
             return treeselection_data.initialize(dataInfo);

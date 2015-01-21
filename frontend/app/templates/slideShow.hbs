@@ -1,3 +1,3 @@
 {{#each visualization in view.slides}}
-<div><a {{action 'chooseVisualization' visualization}}> <img {{bind-attr src="visualization.visualizationThumbnail"}} {{bind-attr class="visualization.valid:valid-suggestion:invalid-suggestion"}} /> </a></div>
+<div><a {{action 'chooseVisualization' visualization}}> <span class="visualization-thumbnail" {{bind-attr data-visualization-name="visualization.visualizationName"}} {{bind-attr class="visualization.valid:valid-suggestion:invalid-suggestion"}}> </span> </a></div>
 {{/each}}

@@ -107,6 +107,43 @@ a{  font-size: 11pt !important;
     background-size: contain;
 }
 
+.visualization-thumbnail{ 
+    background-repeat: no-repeat;
+    width: 105px; 
+    height: 80px;
+    content: "";
+    display: inline-block;
+    background-size: contain;
+}
+
+.visualization-thumbnail[data-visualization-name="AreaChart"] { 
+    background-image: url('../thumbnails/area_chart.png');
+}
+
+.visualization-thumbnail[data-visualization-name="BarChart"] { 
+    background-image: url('../thumbnails/bar_chart.png');
+}
+
+.visualization-thumbnail[data-visualization-name="LineChart"] { 
+    background-image: url('../thumbnails/line_chart.png');
+}
+
+.visualization-thumbnail[data-visualization-name="PieChart"] { 
+    background-image: url('../thumbnails/pie_chart.png');
+}
+
+.visualization-thumbnail[data-visualization-name="ScatterChart"] { 
+    background-image: url('../thumbnails/scatter_chart.png');
+}
+
+.visualization-thumbnail[data-visualization-name="BubbleChart"] { 
+    background-image: url('../thumbnails/bubble_chart.png');
+}
+
+.visualization-thumbnail[data-visualization-name="Map"] { 
+    background-image: url('../thumbnails/map.png');
+}
+
 .truncate {
     white-space: nowrap;
     overflow: hidden;

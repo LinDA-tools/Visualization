@@ -14,7 +14,7 @@ function query(config_id, config_graph, config_endpoint) {
        // console.dir(results);
 
         configuration['visualization']['name'] = results[0]['visualizationName']['value'];
-        configuration['visualization']['thumbnail'] = results[0]['visualizationThumbnail']['value'];
+        //configuration['visualization']['thumbnail'] = results[0]['visualizationThumbnail']['value'];
         configuration['visualization']['datasource'] = {
             name: results[0]['datasourceName']['value'],
             //  location: results[0]['datasourceLocation']['value'],
@@ -94,13 +94,13 @@ function datasourceQuery(config_id, config_graph) {
     query += 'PREFIX visconf: <http://www.linda-project.org/visualization-configuration#> \n';
 
     query += "SELECT  ";
-    query += "?visualizationName ?visualizationThumbnail ?datasourceName ?datasourceFormat \n ";
+    query += "?visualizationName ?datasourceName ?datasourceFormat \n ";
     query += "WHERE \n";
     query += "{ \n";
     query += "GRAPH <" + config_graph + "> \n";
     query += "{ \n";
     query += "visconf:VISCONFIG-" + config_id + " vis:visualizationName ?visualizationName .\n ";
-    query += "visconf:VISCONFIG-" + config_id + " vis:visualizationThumbnail ?visualizationThumbnail .\n ";
+    //query += "visconf:VISCONFIG-" + config_id + " vis:visualizationThumbnail ?visualizationThumbnail .\n ";
     query += "visconf:VISCONFIG-" + config_id + " vis:datasource ?datasource .\n ";
     query += "?datasource vis:datasourceName ?datasourceName .\n ";
     query += "?datasource vis:datasourceFormat ?datasourceFormat .\n ";

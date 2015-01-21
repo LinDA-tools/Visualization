@@ -23,8 +23,8 @@ function query(graph, endpoint) {
                 visualizations[visualizationName_] = {
                     id: Math.floor(100000000 + Math.random() * 900000000),
                     visualizationName: option['visualizationName']['value'],
-                    visualizationType: [option['visualizationType']['value']],
-                    visualizationThumbnail: option['visualizationThumbnail']['value']
+                    visualizationType: [option['visualizationType']['value']]
+                   // visualizationThumbnail: option['visualizationThumbnail']['value']
                 };
             }
         }
@@ -97,7 +97,7 @@ function visualizationQuery(graph) {
     query += 'PREFIX visconf: <http://www.linda-project.org/visualization-configuration#> \n';
 
     query += "SELECT  ";
-    query += "?visualizationName ?visualizationType ?visualizationThumbnail \n ";
+    query += "?visualizationName ?visualizationType  \n ";
     query += "WHERE \n";
     query += "{ \n";
     query += "GRAPH <" + graph + "> \n";
@@ -106,7 +106,7 @@ function visualizationQuery(graph) {
     query += "?visualization vis:visualizationName ?visualizationName .\n ";
     query += "?visualization vis:visualizationType ?type .\n ";
     query += "?type rdfs:label ?visualizationType .\n ";
-    query += "?visualization vis:visualizationThumbnail ?visualizationThumbnail .\n ";
+    //query += "?visualization vis:visualizationThumbnail ?visualizationThumbnail .\n ";
 
     query += "} \n";
     query += "} \n";

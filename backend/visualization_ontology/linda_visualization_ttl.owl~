@@ -113,6 +113,7 @@
     ] ;
     :visualizationType :Comparison, :PartToWhole, :TimeSeries ;
     :visualizationName "BarChart" ;
+    :visualizationThumbnail "http://localhost:3002/thumbnails/bar_chart.png"^^<http://www.w3.org/2001/XMLSchema#anyURI> ;
     a :Visualization, owl:NamedIndividual ;
     rdfs:comment "A graph used to display and compare the number, frequency or other measure for different discrete categories of data."@en .
 
@@ -183,6 +184,7 @@
     ] ;
     :visualizationType :Comparison, :Correlation ;
     :visualizationName "BubbleChart" ;
+    :visualizationThumbnail "http://localhost:3002/thumbnails/bubble_chart.png"^^<http://www.w3.org/2001/XMLSchema#anyURI> ;
     a :Visualization, owl:NamedIndividual ;
     rdfs:comment "A graph is used to display three dimensional data, where the third dimension is a size of a bubble. The fourth dimension could be embedded as a color of bubbles."@en .
 
@@ -265,6 +267,7 @@
     ] ;
     :visualizationType :TimeSeries ;
     :visualizationName "LineChart" ;
+    :visualizationThumbnail "http://localhost:3002/thumbnails/line_chart.png"^^<http://www.w3.org/2001/XMLSchema#anyURI> ;
     a :Visualization, owl:NamedIndividual ;
     rdfs:comment "A graph used to visualize a trend in data over intervals of time. Line charts emphasize time flow and rate of change rather than the amount of change."@en .
 
@@ -309,6 +312,7 @@
     ] ;
     :visualizationType :Comparison, :Geographical ;
     :visualizationName "Map" ;
+    :visualizationThumbnail "http://localhost:3002/thumbnails/map.png"^^<http://www.w3.org/2001/XMLSchema#anyURI> ;
     a :Visualization, owl:NamedIndividual ;
     rdfs:comment "A visualization used for displaying geographical data on a map."@en .
 
@@ -367,6 +371,7 @@
     ] ;
     :visualizationType :PartToWhole ;
     :visualizationName "PieChart" ;
+    :visualizationThumbnail "http://localhost:3002/thumbnails/pie_chart.png"^^<http://www.w3.org/2001/XMLSchema#anyURI> ;
     a :Visualization, owl:NamedIndividual ;
     rdfs:comment "A graph used for visualizing the relative contribution that different categories contribute to an overall total."@en .
 
@@ -450,6 +455,7 @@
     ] ;
     :visualizationType :Comparision, :Correlation ;
     :visualizationName "ScatterChart" ;
+    :visualizationThumbnail "http://localhost:3002/thumbnails/scatter_chart.png"^^<http://www.w3.org/2001/XMLSchema#anyURI> ;
     a :Visualization, owl:NamedIndividual ;
     rdfs:comment "A graph used to show the relationship between pairs of quantitative measurements."@en .
 

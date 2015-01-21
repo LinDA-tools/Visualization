@@ -21,7 +21,7 @@ function store(vis_config, config_id, config_name, config_graph, config_endpoint
     query += "visconf:VISCONFIG-" + config_id + " a vis:VisualizationConfiguration ; \n";
     query += " vis:configurationName '" + config_name + "' ; \n";
     query += " vis:visualizationName '" + vis_config['visualization']['visualizationName'] + "' ; \n";
-    query += " vis:visualizationThumbnail '" + vis_config['visualization']['visualizationThumbnail'] + "'^^xsd:anyURI ; \n";
+    //query += " vis:visualizationThumbnail '" + vis_config['visualization']['visualizationThumbnail'] + "'^^xsd:anyURI ; \n";
     query += " vis:datasource ";
 
     query += '[ \n';

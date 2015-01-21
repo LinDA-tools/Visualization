@@ -436,6 +436,9 @@ var sparql_data_module = function () {
      * Takes a variable binding from a json sparql result and converts it to a scalar
      */
     function resultToScalar(binding) {
+        if(!binding){
+            return null;
+        }
         var value = binding.value;
         var type = binding.type;
         switch (type) {

@@ -67,12 +67,6 @@ App.VisualizationController = Ember.ArrayController.extend({
         // Ensures that bindings on drawnVisualizations are triggered only now
         this.set('drawnVisualization', selectedVisualization);
     }.observes('selectedVisualization'),
-    refreshSlideshow: function () {
-        var container = this.get('slideShowContainer');
-        container.removeAllChildren();
-        var slideshow = App.SlideShowView.create({slides: this.get("model")});
-        container.pushObject(slideshow);
-    }.observes("model"),
     setSuggestedVisualization: function () {
         var topSuggestion = this.get('firstObject');
         this.set('selectedVisualization', topSuggestion);
@@ -103,7 +97,8 @@ App.VisualizationController = Ember.ArrayController.extend({
         publish: function () {
             var visualization = visualizationRegistry.getVisualization(this.get('selectedVisualization').get("visualizationName"));
             this.set('visualizationSVG', visualization.get_SVG());
-
+        },
+        save: function() {
             console.log("SAVE VISUALIZATION");
             // send actual visualization model to backend
             var selectedVisualization = this.get('selectedVisualization');

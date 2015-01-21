@@ -150,25 +150,51 @@ app.get('/visualizations', function (req, res) {
         case "visualizationConfiguration":
             if (!id) {
                 // Load list of all stored visualizations
-                query_visualization.query(123, vis_configurationGraph, vis_configurationEndpoint).then(function (visualizations) {
+                query_visualization.queryAll(vis_configurationGraph, vis_configurationEndpoint).then(function (visualizations) {
+                    console.log("Sending visualizations:");
+                    console.dir(JSON.stringify(visualizations));
                     res.send({
                         visualization: visualizations
                     });
                 }, printError);
             } else {
                 // Load specified visualization in a recommendation array
+                query_visualization.query(id, vis_configurationGraph, vis_configurationEndpoint).then(function (visualization) {
+                    console.log("Sending visualizations:");
+                    console.dir(JSON.stringify(visualizations));
+                    
+                    var visualizations = [visualization];
+                    // TODO: 
+                    // 1. Load recommendation for the loaded visualization's dataselection
+                    // 2. Remove the computed visualization configuration for the loaded visualization type from the recommendation
+                    // 3. Push the loaded visualization configuration to the top
+                    
+                    res.send({
+                        visualization: visualization
+                    });
+                }, printError);
             }
             break;
     }
 });
 
 app.put('/visualizations/:id', function (req, res) {
-    var vis_configuration = req.body;
+    var vis_configuration = req.body['visualization'];
     var vis_configurationID = req.param('id');
-    var vis_configurationName = vis_configuration['visualization']['visualizationConfigName'];
+    var vis_configurationName = vis_configuration['visualizationConfigName'];
+    var dataselection = dataselections[vis_configuration['dataselection']];
 
-    store_visualization.store(vis_configuration, vis_configurationID, vis_configurationName, vis_configurationGraph, vis_configurationEndpoint);
+    if (!isNaN(parseInt(vis_configurationID))) {
+        return store_visualization.store(vis_configuration, dataselection, vis_configurationID, vis_configurationName, vis_configurationGraph, vis_configurationEndpoint).then(function (result) {
+            // console.log("Saved visualization")
+            res.status(200).send();
+        }, printError);
+        // store_visualization.remove(vis_configurationID, vis_configurationGraph, vis_configurationEndpoint).then(function (result) {
+        //     return store_visualization.store(vis_configuration, vis_configurationID, vis_configurationName, vis_configurationGraph, vis_configurationEndpoint);
+        // }, printError);
+    }
 });
+
 http.createServer(app).listen(3002, function () {
     console.log("visualisation_backend: Express server listening on port 3002");
 });

@@ -53,7 +53,7 @@ function calculateCost(dimension, property) {
     if (!dimension.associatedProperty) {
         // Don't know how well the property matches to the dimension => no change
         propertyFactor = 1.0;
-    } else if (dimension.associatedProperty === property.id) {
+    } else if (dimension.associatedProperty === property.key) {
         // Reward matching properties
         // console.log("Property " + property.label + " matches with dimension " + dimension.optionName);
         propertyFactor = 0.5;

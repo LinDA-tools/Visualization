@@ -496,6 +496,13 @@
     rdfs:label "Visualization Name"@en ;
     rdfs:range xsd:string .
 
+:configurationID
+    a owl:DatatypeProperty ;
+    rdfs:comment ""@en ;
+    rdfs:domain :VisualizationConfiguration ;
+    rdfs:label "Visualization_ID"@en ;
+    rdfs:range xsd:nonNegativeInteger .
+
 :datasource
     a owl:DatatypeProperty ;
     rdfs:comment ""@en ;
@@ -564,13 +571,6 @@
     rdfs:domain :Visualization ;
     rdfs:label "Structure_Option"@en ;
     rdfs:range :Option .
-
-:visualizationID
-    a owl:DatatypeProperty ;
-    rdfs:comment ""@en ;
-    rdfs:domain :VisualizationConfiguration ;
-    rdfs:label "Visualization_ID"@en ;
-    rdfs:range xsd:nonNegativeInteger .
 
 :visualizationName
     a owl:DatatypeProperty ;

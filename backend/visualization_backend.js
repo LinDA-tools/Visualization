@@ -61,7 +61,7 @@ app.post('/dataselections', function (req, res) {
     };
 
     dataselections[id] = dataselection;
-    // console.log("RETURNED DATASELECTION");
+    //console.log("RETURNED DATASELECTION");
     //console.dir(JSON.stringify(dataselection));
 
     res.send({
@@ -150,8 +150,8 @@ app.get('/visualizations', function (req, res) {
         case "visualizationConfiguration":
             if (!id) {
                 // Load list of all stored visualizations
-                query_visualization.queryAll(vis_configurationGraph, vis_configurationEndpoint).then(function (visualizations) {
-                    console.log("Sending visualizations:");
+                query_visualization.queryIDs(vis_configurationGraph, vis_configurationEndpoint).then(function (visualizations) {
+                    console.log("SENDING VISUALIZATION CONFIGURATIONS");
                     console.dir(JSON.stringify(visualizations));
                     res.send({
                         visualization: visualizations
@@ -161,15 +161,9 @@ app.get('/visualizations', function (req, res) {
                 // Load specified visualization in a recommendation array
                 query_visualization.query(id, vis_configurationGraph, vis_configurationEndpoint).then(function (visualization) {
                     console.log("Sending visualizations:");
-                    console.dir(JSON.stringify(visualizations));
+                    console.dir(JSON.stringify(visualization));
                     
-                    var visualizations = [visualization];
-                    // TODO: 
-                    // 1. Load recommendation for the loaded visualization's dataselection
-                    // 2. Remove the computed visualization configuration for the loaded visualization type from the recommendation
-                    // 3. Push the loaded visualization configuration to the top
-                    
-                    res.send({
+                    res.send({                     
                         visualization: visualization
                     });
                 }, printError);
@@ -181,8 +175,8 @@ app.get('/visualizations', function (req, res) {
 app.put('/visualizations/:id', function (req, res) {
     var vis_configuration = req.body['visualization'];
     var vis_configurationID = req.param('id');
-    var vis_configurationName = vis_configuration['visualizationConfigName'];
-    var dataselection = dataselections[vis_configuration['dataselection']];
+    var vis_configurationName = vis_configuration['configurationName'];
+    var dataselection = dataselections[vis_configuration['dataselection']];   
 
     if (!isNaN(parseInt(vis_configurationID))) {
         return store_visualization.store(vis_configuration, dataselection, vis_configurationID, vis_configurationName, vis_configurationGraph, vis_configurationEndpoint).then(function (result) {

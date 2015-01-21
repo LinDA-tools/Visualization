@@ -107,9 +107,8 @@ App.VisualizationController = Ember.ArrayController.extend({
             var configurationName = this.get('configName');
 
             // send current visualization configuration to backend
-            console.log("The value is " + selectedVisualization.get('visualizationConfigName'));
-            selectedVisualization.set('visualizationConfigName', configurationName);
-            console.log("The value is " + selectedVisualization.get('visualizationConfigName'));
+            console.log("The value is " + selectedVisualization.get('configurationName'));
+            selectedVisualization.set('configurationName', configurationName);
 
             selectedVisualization.save().then(function () {
                 console.log("SAVED SUCCESSFULLY");

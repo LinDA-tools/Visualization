@@ -8,37 +8,37 @@ function query(config_id, config_graph, config_endpoint) {
 
     var client = new GraphStoreClient(config_endpoint, null);
 
-    var configuration = {visualization: {structureOptions: {}, layoutOptions: {}}};
+    var configuration = {structureOptions: {}, layoutOptions: {}};
 
-    return client.query(datasourceQuery(config_id, config_graph)).then(function (results, err) {
+    return client.query(datasourceQuery(config_id, config_graph)).then(function(results, err) {
 
-        //console.log("SPARQL RESULT VIS DETAILS");
-        // console.dir(results);
-        
-        if(results.length === 0) {
+        console.log("SPARQL RESULT VIS DETAILS");
+        console.dir(results);
+
+        if (results.length === 0) {
             console.log("NO CONFIGURATIONS FOUND!")
             return [];
         }
 
-        configuration['visualization']['visualizationName'] = results[0]['visualizationName']['value'];
-        configuration['visualization']['visualizationConfigName'] = results[0]['visualizationConfigName']['value'];
-        //configuration['visualization']['thumbnail'] = results[0]['visualizationThumbnail']['value'];
+        configuration['visualizationName'] = results[0]['visualizationName']['value'];
+        configuration['configurationName'] = results[0]['configurationName']['value'];
         // TODO: directly store dataselection
-        configuration['visualization']['dataselection'] = {
+        configuration['dataselection'] = {
             id: Math.floor(Math.random() * 1000000000).toString(),
             propertyInfos: [],
             datasource: {
+                id: Math.floor(Math.random() * 1000000000).toString(),
                 name: results[0]['datasourceName']['value'],
                 location: results[0]['datasourceLocation']['value'],
-                graph: (results[0]['datasourceGraph']||{})['value'],
+                graph: (results[0]['datasourceGraph'] || {})['value'],
                 format: results[0]['datasourceFormat']['value']
             }
         };
 
-        return client.query(structureOptionsQuery(config_id, config_graph)).then(function (results, err) {
+        return client.query(structureOptionsQuery(config_id, config_graph)).then(function(results, err) {
 
-            //console.log("SPARQL RESULT STRUCTURE OPTIONS");
-            // console.dir(results);
+            console.log("SPARQL RESULT STRUCTURE OPTIONS");
+            console.dir(results);
 
             for (var i = 0; i < results.length; i++) {
                 var option = results[i];
@@ -52,14 +52,14 @@ function query(config_id, config_graph, config_endpoint) {
 
                 var id = option['structureOptionId']['value'];
 
-                if (configuration['visualization']['structureOptions'][id]) {
-                    configuration['visualization']['structureOptions'][id]['value'].push({
+                if (configuration['structureOptions'][id]) {
+                    configuration['structureOptions'][id]['value'].push({
                         label: option['propertyName']['value'],
                         key: option['propertyId']['value'],
                         parent: parent
                     });
                 } else {
-                    configuration['visualization']['structureOptions'][id] = {
+                    configuration['structureOptions'][id] = {
                         label: option['structureOptionName']['value'],
                         id: option['structureOptionId']['value'],
                         value: [{
@@ -70,28 +70,28 @@ function query(config_id, config_graph, config_endpoint) {
                     };
                 }
 
-                configuration['visualization']['structureOptions']['type'] = "dimension";
-                configuration['visualization']['structureOptions']['metadata'] = [];
+                configuration['structureOptions']['type'] = "dimension";
+                configuration['structureOptions']['metadata'] = [];
             }
-            return client.query(layoutOptionsQuery(config_id, config_graph)).then(function (results, err) {
+            return client.query(layoutOptionsQuery(config_id, config_graph)).then(function(results, err) {
 
-                // console.log("SPARQL RESULT LAYOUT OPTIONS");
-                // console.dir(results);
+                 console.log("SPARQL RESULT LAYOUT OPTIONS");
+                 console.dir(results);
 
                 for (var i = 0; i < results.length; i++) {
                     var option = results[i];
                     var id = option['layoutOptionId']['value'];
-                    configuration['visualization']['layoutOptions'][id] = {
+                    configuration['layoutOptions'][id] = {
                         label: option['layoutOptionName']['value'],
                         id: option['layoutOptionId']['value'],
                         value: option['layoutOptionValue']['value']
                     };
                 }
 
-                // console.log("VISUALIZATION CONFIGURATION");
-                // console.dir(JSON.stringify(configuration));
+                 console.log("VISUALIZATION CONFIGURATION");
+                 console.dir(JSON.stringify(configuration));
 
-                return configuration;
+                return [configuration];
             });
         });
     });
@@ -109,14 +109,13 @@ function datasourceQuery(config_id, config_graph) {
     query += 'PREFIX visconf: <http://www.linda-project.org/visualization-configuration#> \n';
 
     query += "SELECT  ";
-    query += "?visualizationName ?visualizationConfigName ?visualizationThumbnail ?datasourceName ?datasourceFormat ?datasourceLocation ?datasourceGraph \n ";
+    query += "?visualizationName ?configurationName ?visualizationThumbnail ?datasourceName ?datasourceFormat ?datasourceLocation ?datasourceGraph \n ";
     query += "WHERE \n";
     query += "{ \n";
     query += "GRAPH <" + config_graph + "> \n";
     query += "{ \n";
     query += "visconf:VISCONFIG-" + config_id + " vis:visualizationName ?visualizationName .\n ";
-    query += "visconf:VISCONFIG-" + config_id + " vis:configurationName ?visualizationConfigName .\n ";
-    query += "visconf:VISCONFIG-" + config_id + " vis:visualizationThumbnail ?visualizationThumbnail .\n ";
+    query += "visconf:VISCONFIG-" + config_id + " vis:configurationName ?configurationName .\n ";
     query += "visconf:VISCONFIG-" + config_id + " vis:datasource ?datasource .\n ";
     query += "?datasource vis:datasourceName ?datasourceName .\n ";
     query += "?datasource vis:datasourceFormat ?datasourceFormat .\n ";
@@ -128,8 +127,8 @@ function datasourceQuery(config_id, config_graph) {
     query += "} \n";
     query += "} \n";
 
-    //console.log("QUERY VISUALIZATION CONFIGURATION - QUERY DETAILS");
-    //console.log(query);
+    console.log("QUERY VISUALIZATION CONFIGURATION - QUERY DETAILS");
+    console.log(query);
 
     return query;
 }
@@ -239,13 +238,13 @@ function queryAll(config_graph, config_endpoint) {
 
     var client = new GraphStoreClient(config_endpoint, null);
 
-    return queryIDs(config_graph, config_endpoint).then(function (config_ids, err) {
+    return queryIDs(config_graph, config_endpoint).then(function(config_ids, err) {
         var promises = [];
 
         for (var i = 0; i < config_ids.length; i++) {
             var config_id = config_ids[i];
-            var promise = query(config_id, config_graph, config_endpoint)
-            promises.push(promise)
+            var promise = query(config_id, config_graph, config_endpoint);
+            promises.push(promise);
         }
 
         return Q.all(promises);
@@ -255,18 +254,6 @@ function queryAll(config_graph, config_endpoint) {
 function queryIDs(config_graph, config_endpoint) {
     console.log("QUERY VISUALIZATION CONFIGURATION IDS");
 
-    var client = new GraphStoreClient(config_endpoint, null);
-
-    return client.query(idQuery(config_graph)).then(function (results, err) {
-        console.log("ID RESULT");
-        console.dir(results);
-        return _.map(results, function (r) {
-            return r['configurationID']['value'];
-        });
-    });
-}
-
-function idQuery(config_graph) {
     var query = "";
 
     query += 'PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> \n';
@@ -275,16 +262,39 @@ function idQuery(config_graph) {
     query += 'PREFIX vis: <http://linda-project.eu/linda-visualization#> \n';
     query += 'PREFIX visconf: <http://www.linda-project.org/visualization-configuration#> \n';
 
-    query += "SELECT DISTINCT ?configurationID \n ";
+    query += "SELECT DISTINCT ?configurationID ?configurationName \n ";
     query += "WHERE \n";
     query += "{ \n";
     query += "GRAPH <" + config_graph + "> \n";
     query += "{ \n";
     query += "?configuration a vis:VisualizationConfiguration ; \n";
-    query += "  vis:configurationID ?configurationID .\n ";
+    query += "  vis:configurationID ?configurationID ;\n ";
+    query += "  vis:configurationName ?configurationName .\n ";
     query += "} \n";
     query += "} \n";
-    return query;
+
+    var client = new GraphStoreClient(config_endpoint, null);
+
+    return client.query(query).then(function(results, err) {
+       
+
+        var configurations = [];
+        for (var i = 0; i < results.length; i++) {
+            var option = results[i];
+            var id = option['configurationID']['value'];
+            var name = option['configurationName']['value'];
+
+            configurations.push({
+                id: id,
+                configurationName: name
+            });
+        }
+        console.log("ID RESULT");
+        console.dir(configurations);
+        
+        return configurations;
+        
+    });
 }
 
 exports.query = query;

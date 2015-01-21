@@ -25,7 +25,6 @@ function store(vis_config, dataselection, config_id, config_name, config_graph, 
     query += " vis:configurationID '" + config_id + "'^^xsd:nonNegativeInteger ; \n";
     query += " vis:configurationName '" + config_name + "' ; \n";
     query += " vis:visualizationName '" + vis_config['visualizationName'] + "' ; \n";
-    //query += " vis:visualizationThumbnail '" + vis_config['visualizationThumbnail'] + "'^^xsd:anyURI ; \n";
     query += " vis:datasource ";
 
     query += '[ \n';
@@ -37,7 +36,6 @@ function store(vis_config, dataselection, config_id, config_name, config_graph, 
     query += " vis:structureOption ";
 
     var structure_options = vis_config['structureOptions'];
-
     var option_count = 0;
 
     for (var option in structure_options) {
@@ -47,8 +45,6 @@ function store(vis_config, dataselection, config_id, config_name, config_graph, 
         query += "  a vis:Option ; \n";
         query += "  vis:optionName '" + structure_options[option]['optionName'] + "' ; \n";
         query += "  vis:optionId '" + option + "' ; \n";
-
-
 
         var option_values = structure_options[option]['value'];
 
@@ -89,7 +85,6 @@ function store(vis_config, dataselection, config_id, config_name, config_graph, 
     query += " vis:layoutOption ";
 
     var layout_options = vis_config['layoutOptions'];
-
     var option_count = 0;
 
     for (var option in layout_options) {
@@ -127,13 +122,13 @@ function store(vis_config, dataselection, config_id, config_name, config_graph, 
 }
 
 function remove(config_id, config_graph, config_endpoint) {
-    console.log("STORE VISUALIZATION CONFIGURATION");
+    console.log("REMOVE VISUALIZATION CONFIGURATION");
 
     var query = "";
 
     query += 'PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> \n';
     query += 'PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> \n';
-    query += 'PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> \n';
+    query += 'PREFIX xsd: <removehttp://www.w3.org/2001/XMLSchema#> \n';
     query += 'PREFIX vis: <http://linda-project.eu/linda-visualization#> \n';
     query += 'PREFIX visconf: <http://www.linda-project.org/visualization-configuration#> \n';
 
@@ -145,7 +140,6 @@ function remove(config_id, config_graph, config_endpoint) {
     query += " ?configuration vis:configurationID '" + config_id + "'^^xsd:nonNegativeInteger . \n";
     query += " ?configuration vis:configurationName ?configurationName . \n";
     query += " ?configuration vis:visualizationName ?visualizationName . \n";
-    query += " ?configuration vis:visualizationThumbnail ?visualizationThumbnail . \n";
     query += " ?configuration vis:datasource ?datasource. \n";
     query += " ?configuration vis:structureOption ?structureOption. \n";
     query += " ?configuration vis:layoutOption ?layoutOption . \n";
@@ -191,7 +185,6 @@ function remove(config_id, config_graph, config_endpoint) {
     query += " OPTIONAL { ?configuration vis:configurationID '" + config_id + "'^^xsd:nonNegativeInteger  } . \n";
     query += " OPTIONAL { ?configuration vis:configurationName ?configurationName  } . \n";
     query += " OPTIONAL { ?configuration vis:visualizationName ?visualizationName  } . \n";
-    query += " OPTIONAL { ?configuration vis:visualizationThumbnail ?visualizationThumbnail  } . \n";
     query += " OPTIONAL { ?configuration vis:datasource ?datasource  } . \n";
     query += " OPTIONAL { ?configuration vis:structureOption ?structureOption  } . \n";
     query += " OPTIONAL { ?configuration vis:layoutOption ?layoutOption  } . \n";

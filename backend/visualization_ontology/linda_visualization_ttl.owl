@@ -13,7 +13,12 @@
 
 :AreaChart
     :layoutOption [
-        :optionName "Label" ;
+        :optionName "Horizontal Label" ;
+        :optionType xsd:string ;
+        :optionValue "Label"^^xsd:String ;
+        a :Option
+    ], [
+        :optionName "Vertical Label" ;
         :optionType xsd:string ;
         :optionValue "Label"^^xsd:String ;
         a :Option
@@ -66,9 +71,14 @@
 
 :BarChart
     :layoutOption [
-        :optionName "Label" ;
+        :optionName "Horizontal Label" ;
         :optionType xsd:string ;
         :optionValue "Label"^^xsd:string ;
+        a :Option
+    ], [
+        :optionName "Vertical Label" ;
+        :optionType xsd:string ;
+        :optionValue "Label"^^xsd:String ;
         a :Option
     ], [
         :optionName "Gridlines" ;
@@ -118,9 +128,14 @@
 
 :BubbleChart
     :layoutOption [
-        :optionName "Label" ;
+        :optionName "Horizontal Label" ;
         :optionType xsd:string ;
         :optionValue "Label"^^xsd:string ;
+        a :Option
+    ], [
+        :optionName "Vertical Label" ;
+        :optionType xsd:string ;
+        :optionValue "Label"^^xsd:String ;
         a :Option
     ], [
         :optionName "Gridlines" ;
@@ -218,9 +233,14 @@
 
 :LineChart
     :layoutOption [
-        :optionName "Label" ;
+        :optionName "Horizontal Label" ;
         :optionType xsd:string ;
         :optionValue "Label"^^xsd:string ;
+        a :Option
+    ], [
+        :optionName "Vertical Label" ;
+        :optionType xsd:string ;
+        :optionValue "Label"^^xsd:String ;
         a :Option
     ], [
         :optionName "Gridlines" ;
@@ -334,9 +354,14 @@
 
 :PieChart
     :layoutOption [
-        :optionName "Label" ;
+        :optionName "Horizontal Label" ;
         :optionType xsd:string ;
         :optionValue "Label"^^xsd:string ;
+        a :Option
+    ], [
+        :optionName "Vertical Label" ;
+        :optionType xsd:string ;
+        :optionValue "Label"^^xsd:String ;
         a :Option
     ], [
         :optionName "Tooltip" ;
@@ -404,9 +429,14 @@
 
 :ScatterChart
     :layoutOption [
-        :optionName "Label" ;
+        :optionName "Horizontal Label" ;
         :optionType xsd:string ;
         :optionValue "Label"^^xsd:string ;
+        a :Option
+    ], [
+        :optionName "Vertical Label" ;
+        :optionType xsd:string ;
+        :optionValue "Label"^^xsd:String ;
         a :Option
     ], [
         :optionName "Gridlines" ;

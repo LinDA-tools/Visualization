@@ -27,7 +27,7 @@ function store(vis_config, dataselection, config_id, config_name, config_graph, 
     query += " vis:visualizationName '" + vis_config['visualizationName'] + "' ; \n";
     query += " vis:datasource ";
 
-    query += '[ \n';
+    query += ' [ \n';
     query += "  vis:datasourceName '" + datasource['name'] + "' ; \n";
     query += "  vis:datasourceLocation '" + datasource['location'] + "' ; \n";
     query += "  vis:datasourceGraph '" + datasource['graph'] + "' ; \n";
@@ -41,10 +41,30 @@ function store(vis_config, dataselection, config_id, config_name, config_graph, 
     for (var option in structure_options) {
         option_count++;
 
-        query += "[ \n";
+        var minCardinality = structure_options[option]['minCardinality'];
+        var maxCardinality = structure_options[option]['maxCardinality'];
+        var scaleOfMeasurement = structure_options[option]['scaleOfMeasurement'];
+        console.log('STORE scaleOfMeasurement:' + scaleOfMeasurement)
+
+        query += " [ \n";
         query += "  a vis:Option ; \n";
         query += "  vis:optionName '" + structure_options[option]['optionName'] + "' ; \n";
         query += "  vis:optionId '" + option + "' ; \n";
+
+        query += "  vis:optionType [\n ";
+        if (minCardinality) {
+            query += "   vis:minCardinality " + minCardinality + ";\n ";
+        }
+        if (maxCardinality) {
+            query += "   vis:maxCardinality " + maxCardinality + ";\n ";
+        }
+        if (scaleOfMeasurement) {
+            query += "   vis:scaleOfMeasurement [\n ";
+            query += "    rdfs:label '" + scaleOfMeasurement + "'\n ";
+            query += "   ];"
+        }
+        query += "];"
+
 
         var option_values = structure_options[option]['value'];
 
@@ -76,17 +96,19 @@ function store(vis_config, dataselection, config_id, config_name, config_graph, 
         }
 
         if (option_count === _.size(structure_options)) {
-            query += " ] ; \n";
+            query += " ] . \n";
         } else {
             query += " ] , \n";
         }
     }
 
-    query += " vis:layoutOption ";
 
     var layout_options = vis_config['layoutOptions'];
     var option_count = 0;
 
+    if (Object.keys(layout_options).length > 0) {
+        query += "visconf:VISCONFIG-" + config_id + " vis:layoutOption ";
+    }
     for (var option in layout_options) {
         option_count++;
 
@@ -94,6 +116,7 @@ function store(vis_config, dataselection, config_id, config_name, config_graph, 
         query += "  a vis:Option ; \n";
         query += "  vis:optionName '" + layout_options[option]['optionName'] + "' ; \n";
         query += "  vis:optionId '" + option + "' ; \n";
+        query += "  vis:optionType '" + layout_options[option]['type'] + "' ; \n";
         query += "  vis:optionValue '" + layout_options[option]['value'] + "' ; \n";
 
         if (option_count === _.size(layout_options)) {

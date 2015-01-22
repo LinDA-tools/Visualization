@@ -119,6 +119,7 @@ var vis_configurationGraph = "http://linda-project.org/visualization-configurati
 var vis_configurationEndpoint = "http://localhost:8890/sparql";
 
 var recommendationsByDataselectionID = {};
+var visualizationConfigurations = {};
 
 //visualization configuration
 app.get('/visualizations', function (req, res) {
@@ -159,12 +160,18 @@ app.get('/visualizations', function (req, res) {
                 }, printError);
             } else {
                 // Load specified visualization in a recommendation array
-                query_visualization.query(id, vis_configurationGraph, vis_configurationEndpoint).then(function (visualization) {
+                query_visualization.query(id, vis_configurationGraph, vis_configurationEndpoint).then(function (result) {
                     console.log("Sending visualizations:");
-                    console.dir(JSON.stringify(visualization));
-                    
-                    res.send({                     
-                        visualization: visualization
+                    console.dir(JSON.stringify(result));
+
+                    datasources[result.datasource.id] = result.datasource;
+                    dataselections[result.dataselection.id] = result.dataselection;
+                    visualizationConfigurations[result.visualization.id] = result.visualization;
+
+                    res.send({
+                        visualization: [result.visualization],
+                        dataselection: [result.dataselection],
+                        datasource: [result.datasource]
                     });
                 }, printError);
             }
@@ -176,7 +183,7 @@ app.put('/visualizations/:id', function (req, res) {
     var vis_configuration = req.body['visualization'];
     var vis_configurationID = req.param('id');
     var vis_configurationName = vis_configuration['configurationName'];
-    var dataselection = dataselections[vis_configuration['dataselection']];   
+    var dataselection = dataselections[vis_configuration['dataselection']];
 
     if (!isNaN(parseInt(vis_configurationID))) {
         return store_visualization.store(vis_configuration, dataselection, vis_configurationID, vis_configurationName, vis_configurationGraph, vis_configurationEndpoint).then(function (result) {

@@ -202,6 +202,7 @@ var sparql_data_module = function () {
                     label: propertyLabel,
                     grandchildren: parseInt(grandchildren) > 0 ? true : false,
                     role: predictRDFPropertyRole(propertyURI, propertyTypes),
+                    special: _.contains(propertyTypes, "http://linda-project.eu/linda-visualization#SpecialProperty"),
                     type: scaleOfMeasurement
                 };
                 

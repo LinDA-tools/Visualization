@@ -579,3 +579,6 @@
     rdfs:label "Visualization Name"@en ;
     rdfs:range xsd:string .
 
+
+<http://www.w3.org/2003/01/geo/wgs84_pos#lat> rdf:type :SpecialProperty .
+<http://www.w3.org/2003/01/geo/wgs84_pos#long> rdf:type :SpecialProperty .

@@ -8,7 +8,7 @@ function query(graph, endpoint) {
 
     var visualizations = {};
 
-    return client.query(visualizationQuery(graph)).then(function(results, err) {
+    return client.query(visualizationQuery(graph)).then(function (results, err) {
 
         // console.log("SPARQL RESULT VISUALIZATION TYPE");
         // console.dir(results);
@@ -23,13 +23,14 @@ function query(graph, endpoint) {
                 visualizations[visualizationName_] = {
                     id: Math.floor(100000000 + Math.random() * 900000000),
                     visualizationName: option['visualizationName']['value'],
-                    visualizationType: [option['visualizationType']['value']]
-                   // visualizationThumbnail: option['visualizationThumbnail']['value']
+                    visualizationType: [option['visualizationType']['value']],
+                    structureOptions: {},
+                    layoutOptions: {}
                 };
             }
         }
 
-        return client.query(structureOptionsQuery(graph)).then(function(results, err) {
+        return client.query(structureOptionsQuery(graph)).then(function (results, err) {
 
             //console.log("SPARQL RESULT VISUALIZATIONS STRUCTURE OPTIONS");
             //console.dir(results);
@@ -39,26 +40,23 @@ function query(graph, endpoint) {
                 var visualizationName_ = option['visualizationName']['value'];
                 var structureOptionName_ = option['structureOptionName']['value'];
 
-                if (!visualizations[visualizationName_]['structureOptions']) {
-                    visualizations[visualizationName_]['structureOptions'] = {};
-                }
-
                 if (visualizations[visualizationName_]['structureOptions'][structureOptionName_]) {
                     visualizations[visualizationName_]['structureOptions'][structureOptionName_]['metadata'].push(option['scaleOfMeasurement']['value']);
                 } else {
                     visualizations[visualizationName_]['structureOptions'][structureOptionName_] = {
                         optionName: structureOptionName_,
                         type: 'dimension',
+                        scaleOfMeasurement: option['scaleOfMeasurement']['value'],
                         metadata: [option['scaleOfMeasurement']['value']],
-                        minCardinality: parseInt((option['minCardinality']||{})['value']),
-                        maxCardinality: parseInt((option['maxCardinality']||{})['value']),
-                        value:[]
+                        minCardinality: parseInt((option['minCardinality'] || {})['value']),
+                        maxCardinality: parseInt((option['maxCardinality'] || {})['value']),
+                        value: []
                     };
                 }
 
             }
 
-            return client.query(layoutOptionsQuery(graph)).then(function(results, err) {
+            return client.query(layoutOptionsQuery(graph)).then(function (results, err) {
 
                 //console.log("SPARQL RESULT VISUALIZATIONS LAYOUT OPTIONS");
                 //console.dir(results);
@@ -68,10 +66,6 @@ function query(graph, endpoint) {
                     var visualizationName_ = option['visualizationName']['value'];
                     var layoutOptionName_ = option['layoutOptionName']['value'];
 
-                    if (!visualizations[visualizationName_]['layoutOptions']) {
-                        visualizations[visualizationName_]['layoutOptions'] = {};
-                    }
-
                     visualizations[visualizationName_]['layoutOptions'][layoutOptionName_] = {
                         optionName: layoutOptionName_,
                         type: simplifyURI(option['layoutOptionType']['value']),
@@ -79,8 +73,8 @@ function query(graph, endpoint) {
                     };
                 }
 
-               // console.log("VISUALIZATIONS LIST ");
-               // console.dir(JSON.stringify(visualizations));
+                // console.log("VISUALIZATIONS LIST ");
+                // console.dir(JSON.stringify(visualizations));
                 return visualizations;
             });
         });
@@ -111,7 +105,7 @@ function visualizationQuery(graph) {
     query += "} \n";
     query += "} \n";
 
-   // console.log("QUERY VISUALIZATION DETAILS");
+    // console.log("QUERY VISUALIZATION DETAILS");
     //console.log(query);
 
     return query;
@@ -145,7 +139,7 @@ function structureOptionsQuery(graph) {
     query += "} \n";
     query += "} \n";
 
-   // console.log("QUERY VISUALIZATIONS - STRUCTURE OPTIONS");
+    // console.log("QUERY VISUALIZATIONS - STRUCTURE OPTIONS");
     //console.log(query);
 
     return query;
@@ -177,15 +171,15 @@ function layoutOptionsQuery(graph) {
     query += "} \n";
     query += "} \n";
 
-   // console.log("QUERY VISUALIZATIONS - LAYOUT OPTIONS");
-   // console.log(query);
+    // console.log("QUERY VISUALIZATIONS - LAYOUT OPTIONS");
+    // console.log(query);
 
     return query;
 }
 
 function simplifyURI(uri) {
-        var splits = uri.split(/[#/:]/);
-        return splits[splits.length - 1];
-    }
-    
+    var splits = uri.split(/[#/:]/);
+    return splits[splits.length - 1];
+}
+
 exports.query = query;

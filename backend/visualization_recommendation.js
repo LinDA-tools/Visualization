@@ -60,7 +60,17 @@ function calculateCost(dimension, property) {
     } else {
         // Penalize non-matching properties
         // console.log("Property " + property.label + " doesn't match with dimension " + dimension.optionName);
+
         propertyFactor = 2.0;
+    }
+
+    // TODO: Make sure we get this from the ontology
+    var special = (property.special || property.key === "http://www.w3.org/2003/01/geo/wgs84_pos#lat" || property.key === "http://www.w3.org/2003/01/geo/wgs84_pos#long");
+
+    var specialPropertyPenalty = 0;
+    if (special && dimension.associatedProperty !== property.key) {
+        console.log("Special property " + property.label + " doesn't match with dimension " + dimension.optionName);
+        specialPropertyPenalty = 1000;
     }
 
     var dimensionRole = getDimensionRole(dimension.dimensionRole);
@@ -82,7 +92,7 @@ function calculateCost(dimension, property) {
         roleFactor = 1.0;
     }
 
-    var weight = propertyFactor * roleFactor * (scaleWeight + optionalWeight);
+    var weight = propertyFactor * roleFactor * (scaleWeight + optionalWeight) + specialPropertyPenalty;
 
     return weight;
 }

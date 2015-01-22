@@ -8,9 +8,11 @@ function query(config_id, config_graph, config_endpoint) {
 
     var client = new GraphStoreClient(config_endpoint, null);
 
-    var configuration = {structureOptions: {}, layoutOptions: {}};
+    var datasource = {id: Math.floor(Math.random() * 1000000000).toString()};
+    var dataselection = {id: Math.floor(Math.random() * 1000000000).toString(), datasource: datasource, propertyInfos: []};
+    var configuration = {id: config_id, structureOptions: {}, layoutOptions: {}, dataselection: dataselection.id};
 
-    return client.query(datasourceQuery(config_id, config_graph)).then(function(results, err) {
+    return client.query(datasourceQuery(config_id, config_graph)).then(function (results, err) {
 
         console.log("SPARQL RESULT VIS DETAILS");
         console.dir(results);
@@ -22,20 +24,13 @@ function query(config_id, config_graph, config_endpoint) {
 
         configuration['visualizationName'] = results[0]['visualizationName']['value'];
         configuration['configurationName'] = results[0]['configurationName']['value'];
-        // TODO: directly store dataselection
-        configuration['dataselection'] = {
-            id: Math.floor(Math.random() * 1000000000).toString(),
-            propertyInfos: [],
-            datasource: {
-                id: Math.floor(Math.random() * 1000000000).toString(),
-                name: results[0]['datasourceName']['value'],
-                location: results[0]['datasourceLocation']['value'],
-                graph: (results[0]['datasourceGraph'] || {})['value'],
-                format: results[0]['datasourceFormat']['value']
-            }
-        };
 
-        return client.query(structureOptionsQuery(config_id, config_graph)).then(function(results, err) {
+        datasource['name'] = results[0]['datasourceName']['value'];
+        datasource['location'] = results[0]['datasourceLocation']['value'];
+        datasource['graph'] = (results[0]['datasourceGraph'] || {})['value'];
+        datasource['format'] = results[0]['datasourceFormat']['value'];
+
+        return client.query(structureOptionsQuery(config_id, config_graph)).then(function (results, err) {
 
             console.log("SPARQL RESULT STRUCTURE OPTIONS");
             console.dir(results);
@@ -46,52 +41,75 @@ function query(config_id, config_graph, config_endpoint) {
                 var parent = [];
 
                 while (option['value' + value_count]) {
-                    parent.push(option['value' + value_count]['value']);
+                    var parentURI = option['value' + value_count]['value']
+                    parent.push({id: parentURI, label: simplifyURI(parentURI)});
                     value_count++;
                 }
 
                 var id = option['structureOptionId']['value'];
 
-                if (configuration['structureOptions'][id]) {
-                    configuration['structureOptions'][id]['value'].push({
+                if (option['propertyName']) {
+                    var propertyInfo = {
                         label: option['propertyName']['value'],
                         key: option['propertyId']['value'],
                         parent: parent
-                    });
+                    };
+                    dataselection.propertyInfos.push(propertyInfo);
+                    if (configuration['structureOptions'][id]) {
+                        configuration['structureOptions'][id]['value'].push(propertyInfo);
+                    } else {
+                        configuration['structureOptions'][id] = {
+                            optionName: option['structureOptionId']['value'],
+                            type: 'dimension',
+                            metadata: [],
+                            minCardinality: parseInt((option['minCardinality'] || {})['value']),
+                            maxCardinality: parseInt((option['maxCardinality'] || {})['value']),
+                            value: [propertyInfo]
+                        };
+                    }
                 } else {
                     configuration['structureOptions'][id] = {
-                        label: option['structureOptionName']['value'],
-                        id: option['structureOptionId']['value'],
-                        value: [{
-                                label: option['propertyName']['value'],
-                                key: option['propertyId']['value'],
-                                parent: parent
-                            }]
+                        optionName: option['structureOptionId']['value'],
+                        type: 'dimension',
+                        metadata: [],
+                        minCardinality: parseInt((option['minCardinality'] || {})['value']),
+                        maxCardinality: parseInt((option['maxCardinality'] || {})['value']),
+                        value: []
                     };
                 }
 
-                configuration['structureOptions']['type'] = "dimension";
-                configuration['structureOptions']['metadata'] = [];
-            }
-            return client.query(layoutOptionsQuery(config_id, config_graph)).then(function(results, err) {
+                if (option["scaleOfMeasurement"]) {
+                    var scaleOfMeasurement = option["scaleOfMeasurement"]["value"];
+                    configuration['structureOptions'][id]['scaleOfMeasurement'] = scaleOfMeasurement;
 
-                 console.log("SPARQL RESULT LAYOUT OPTIONS");
-                 console.dir(results);
+                    if (!_.contains(configuration['structureOptions'][id]['metadata'], scaleOfMeasurement)) {
+                        configuration['structureOptions'][id]['metadata'].push(scaleOfMeasurement);
+                    }
+                }
+            }
+            return client.query(layoutOptionsQuery(config_id, config_graph)).then(function (results, err) {
+
+                console.log("SPARQL RESULT LAYOUT OPTIONS");
+                console.dir(results);
 
                 for (var i = 0; i < results.length; i++) {
                     var option = results[i];
                     var id = option['layoutOptionId']['value'];
                     configuration['layoutOptions'][id] = {
-                        label: option['layoutOptionName']['value'],
-                        id: option['layoutOptionId']['value'],
+                        optionName: id,
+                        type: simplifyURI(option['layoutOptionType']['value']),
                         value: option['layoutOptionValue']['value']
                     };
                 }
 
-                 console.log("VISUALIZATION CONFIGURATION");
-                 console.dir(JSON.stringify(configuration));
+                console.log("VISUALIZATION CONFIGURATION");
+                console.dir(JSON.stringify(configuration));
 
-                return [configuration];
+                return {
+                    visualization: configuration,
+                    dataselection: dataselection,
+                    datasource: datasource
+                };
             });
         });
     });
@@ -143,7 +161,7 @@ function structureOptionsQuery(config_id, config_graph) {
     query += 'PREFIX visconf: <http://www.linda-project.org/visualization-configuration#> \n';
 
     query += "SELECT  ";
-    query += "?structureOptionName ?structureOptionId ?propertyName ?propertyId ?value1 ?value2 ?value3 ?value4 ?value5 ?value6 ?value7 ?value8 ?value9 ?value10 \n ";
+    query += "?structureOptionName ?structureOptionId ?propertyName ?propertyId ?minCardinality ?maxCardinality ?scaleOfMeasurement ?value1 ?value2 ?value3 ?value4 ?value5 ?value6 ?value7 ?value8 ?value9 ?value10 \n ";
     query += "WHERE \n";
     query += "{ \n";
     query += "GRAPH <" + config_graph + "> \n";
@@ -152,38 +170,51 @@ function structureOptionsQuery(config_id, config_graph) {
     query += "visconf:VISCONFIG-" + config_id + " vis:structureOption ?structureOption .\n ";
     query += "?structureOption vis:optionName ?structureOptionName .\n ";
     query += "?structureOption vis:optionId ?structureOptionId .\n ";
-    query += "?structureOption vis:optionValue ?structureOptionValue .\n ";
-    query += "?structureOptionValue vis:propertyName ?propertyName .\n ";
-    query += "?structureOptionValue vis:propertyId ?propertyId .\n ";
+
+    query += "OPTIONAL {\n ";
+    query += " ?structureOption vis:optionType ?structureOptionType .\n ";
+    query += " OPTIONAL {?structureOptionType vis:minCardinality ?minCardinality} .\n ";
+    query += " OPTIONAL {?structureOptionType vis:maxCardinality ?maxCardinality} .\n ";
+    query += " OPTIONAL {\n ";
+    query += "  ?structureOptionType vis:scaleOfMeasurement ?scale .\n ";
+    query += "  ?scale rdfs:label ?scaleOfMeasurement .\n ";
+    query += " } .\n ";
+    query += "} .\n ";
+
+    query += "OPTIONAL { \n ";
+    query += " ?structureOption vis:optionValue ?structureOptionValue .\n ";
+    query += " ?structureOptionValue vis:propertyName ?propertyName .\n ";
+    query += " ?structureOptionValue vis:propertyId ?propertyId .\n ";
     // Should be good enough for now but is there no standard way to query a whole list with guaranteed order in a single query?
-    query += "?structureOptionValue vis:contents/rdf:rest{0}/rdf:first ?value1 .\n ";
-    query += "OPTIONAL ";
-    query += "{ \n";
-    query += "?structureOptionValue vis:contents/rdf:rest{1}/rdf:first ?value2 .\n ";
-    query += "OPTIONAL ";
-    query += "{ \n";
-    query += "?structureOptionValue vis:contents/rdf:rest{2}/rdf:first ?value3 .\n ";
-    query += "OPTIONAL ";
-    query += "{ \n";
-    query += "?structureOptionValue vis:contents/rdf:rest{3}/rdf:first ?value4 .\n ";
-    query += "OPTIONAL ";
-    query += "{ \n";
-    query += "?structureOptionValue vis:contents/rdf:rest{4}/rdf:first ?value5 .\n ";
-    query += "OPTIONAL ";
-    query += "{ \n";
-    query += "?structureOptionValue vis:contents/rdf:rest{5}/rdf:first ?value6 .\n ";
-    query += "OPTIONAL ";
-    query += "{ \n";
-    query += "?structureOptionValue vis:contents/rdf:rest{6}/rdf:first ?value7 .\n ";
-    query += "OPTIONAL ";
-    query += "{ \n";
-    query += "?structureOptionValue vis:contents/rdf:rest{7}/rdf:first ?value8 .\n ";
-    query += "OPTIONAL ";
-    query += "{ \n";
-    query += "?structureOptionValue vis:contents/rdf:rest{8}/rdf:first ?value9 .\n ";
-    query += "OPTIONAL ";
-    query += "{ \n";
-    query += "?structureOptionValue vis:contents/rdf:rest{9}/rdf:first ?value10 .\n ";
+    query += " ?structureOptionValue vis:contents/rdf:rest{0}/rdf:first ?value1 .\n ";
+    query += " OPTIONAL ";
+    query += " { \n";
+    query += " ?structureOptionValue vis:contents/rdf:rest{1}/rdf:first ?value2 .\n ";
+    query += " OPTIONAL ";
+    query += " { \n";
+    query += " ?structureOptionValue vis:contents/rdf:rest{2}/rdf:first ?value3 .\n ";
+    query += " OPTIONAL ";
+    query += " { \n";
+    query += " ?structureOptionValue vis:contents/rdf:rest{3}/rdf:first ?value4 .\n ";
+    query += " OPTIONAL ";
+    query += " { \n";
+    query += " ?structureOptionValue vis:contents/rdf:rest{4}/rdf:first ?value5 .\n ";
+    query += " OPTIONAL ";
+    query += " { \n";
+    query += " ?structureOptionValue vis:contents/rdf:rest{5}/rdf:first ?value6 .\n ";
+    query += " OPTIONAL ";
+    query += " { \n";
+    query += " ?structureOptionValue vis:contents/rdf:rest{6}/rdf:first ?value7 .\n ";
+    query += " OPTIONAL ";
+    query += " { \n";
+    query += " ?structureOptionValue vis:contents/rdf:rest{7}/rdf:first ?value8 .\n ";
+    query += " OPTIONAL ";
+    query += " { \n";
+    query += " ?structureOptionValue vis:contents/rdf:rest{8}/rdf:first ?value9 .\n ";
+    query += " OPTIONAL ";
+    query += " { \n";
+    query += " ?structureOptionValue vis:contents/rdf:rest{9}/rdf:first ?value10 .\n ";
+    query += "} \n";
     query += "} \n";
     query += "} \n";
     query += "} \n";
@@ -213,7 +244,7 @@ function layoutOptionsQuery(config_id, config_graph) {
     query += 'PREFIX visconf: <http://www.linda-project.org/visualization-configuration#> \n';
 
     query += "SELECT  ";
-    query += "?layoutOptionName ?layoutOptionValue ?layoutOptionId \n ";
+    query += "?layoutOptionName ?layoutOptionType ?layoutOptionValue ?layoutOptionId \n ";
     query += "WHERE \n";
     query += "{ \n";
     query += "GRAPH <" + config_graph + "> \n";
@@ -222,6 +253,7 @@ function layoutOptionsQuery(config_id, config_graph) {
     query += "visconf:VISCONFIG-" + config_id + " vis:layoutOption ?layoutOption .\n ";
     query += "?layoutOption vis:optionName ?layoutOptionName .\n ";
     query += "?layoutOption vis:optionId ?layoutOptionId .\n ";
+    query += "?layoutOption vis:optionType ?layoutOptionType .\n ";
     query += "?layoutOption vis:optionValue ?layoutOptionValue .\n ";
 
     query += "} \n";
@@ -238,7 +270,7 @@ function queryAll(config_graph, config_endpoint) {
 
     var client = new GraphStoreClient(config_endpoint, null);
 
-    return queryIDs(config_graph, config_endpoint).then(function(config_ids, err) {
+    return queryIDs(config_graph, config_endpoint).then(function (config_ids, err) {
         var promises = [];
 
         for (var i = 0; i < config_ids.length; i++) {
@@ -275,8 +307,8 @@ function queryIDs(config_graph, config_endpoint) {
 
     var client = new GraphStoreClient(config_endpoint, null);
 
-    return client.query(query).then(function(results, err) {
-       
+    return client.query(query).then(function (results, err) {
+
 
         var configurations = [];
         for (var i = 0; i < results.length; i++) {
@@ -291,10 +323,15 @@ function queryIDs(config_graph, config_endpoint) {
         }
         console.log("ID RESULT");
         console.dir(configurations);
-        
+
         return configurations;
-        
+
     });
+}
+
+function simplifyURI(uri) {
+    var splits = uri.split(/[#/:]/);
+    return splits[splits.length - 1];
 }
 
 exports.query = query;

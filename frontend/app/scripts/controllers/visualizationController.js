@@ -70,7 +70,7 @@ App.VisualizationController = Ember.ArrayController.extend({
     setSuggestedVisualization: function () {
         var topSuggestion = this.get('firstObject');
         this.set('selectedVisualization', topSuggestion);
-    }.observes('model'),
+    }.observes('model.[]'),
     actions: {
         exportPNG: function () {
             var visualization = visualizationRegistry.getVisualization(this.get('selectedVisualization').get("name"));

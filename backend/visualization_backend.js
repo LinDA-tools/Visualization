@@ -115,7 +115,7 @@ app.get('/sparql-proxy/:endpoint/:query', function (req, res) {
 });
 
 
-var vis_configurationGraph = "http://linda-project.org/visualization-configuration";
+var vis_configurationGraph = "http://linda-project.eu/visualization-configuration";
 var vis_configurationEndpoint = "http://localhost:8890/sparql";
 
 var recommendationsByDataselectionID = {};

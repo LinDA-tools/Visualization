@@ -124,7 +124,7 @@ function datasourceQuery(config_id, config_graph) {
     query += 'PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> \n';
     query += 'PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> \n';
     query += 'PREFIX vis: <http://linda-project.eu/linda-visualization#> \n';
-    query += 'PREFIX visconf: <http://www.linda-project.org/visualization-configuration#> \n';
+    query += 'PREFIX visconf: <http://www.linda-project.eu/visualization-configuration#> \n';
 
     query += "SELECT  ";
     query += "?visualizationName ?configurationName ?visualizationThumbnail ?datasourceName ?datasourceFormat ?datasourceLocation ?datasourceGraph \n ";
@@ -158,7 +158,7 @@ function structureOptionsQuery(config_id, config_graph) {
     query += 'PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> \n';
     query += 'PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> \n';
     query += 'PREFIX vis: <http://linda-project.eu/linda-visualization#> \n';
-    query += 'PREFIX visconf: <http://www.linda-project.org/visualization-configuration#> \n';
+    query += 'PREFIX visconf: <http://www.linda-project.eu/visualization-configuration#> \n';
 
     query += "SELECT  ";
     query += "?structureOptionName ?structureOptionId ?propertyName ?propertyId ?minCardinality ?maxCardinality ?scaleOfMeasurement ?value1 ?value2 ?value3 ?value4 ?value5 ?value6 ?value7 ?value8 ?value9 ?value10 \n ";
@@ -241,7 +241,7 @@ function layoutOptionsQuery(config_id, config_graph) {
     query += 'PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> \n';
     query += 'PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> \n';
     query += 'PREFIX vis: <http://linda-project.eu/linda-visualization#> \n';
-    query += 'PREFIX visconf: <http://www.linda-project.org/visualization-configuration#> \n';
+    query += 'PREFIX visconf: <http://www.linda-project.eu/visualization-configuration#> \n';
 
     query += "SELECT  ";
     query += "?layoutOptionName ?layoutOptionType ?layoutOptionValue ?layoutOptionId \n ";
@@ -292,7 +292,7 @@ function queryIDs(config_graph, config_endpoint) {
     query += 'PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> \n';
     query += 'PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> \n';
     query += 'PREFIX vis: <http://linda-project.eu/linda-visualization#> \n';
-    query += 'PREFIX visconf: <http://www.linda-project.org/visualization-configuration#> \n';
+    query += 'PREFIX visconf: <http://www.linda-project.eu/visualization-configuration#> \n';
 
     query += "SELECT DISTINCT ?configurationID ?configurationName \n ";
     query += "WHERE \n";

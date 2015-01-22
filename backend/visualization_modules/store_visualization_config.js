@@ -13,7 +13,7 @@ function store(vis_config, dataselection, config_id, config_name, config_graph, 
     query += 'PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> \n';
     query += 'PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> \n';
     query += 'PREFIX vis: <http://linda-project.eu/linda-visualization#> \n';
-    query += 'PREFIX visconf: <http://www.linda-project.org/visualization-configuration#> \n';
+    query += 'PREFIX visconf: <http://www.linda-project.eu/visualization-configuration#> \n';
 
     query += "INSERT \n";
     query += "{ \n";
@@ -153,7 +153,7 @@ function remove(config_id, config_graph, config_endpoint) {
     query += 'PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> \n';
     query += 'PREFIX xsd: <removehttp://www.w3.org/2001/XMLSchema#> \n';
     query += 'PREFIX vis: <http://linda-project.eu/linda-visualization#> \n';
-    query += 'PREFIX visconf: <http://www.linda-project.org/visualization-configuration#> \n';
+    query += 'PREFIX visconf: <http://www.linda-project.eu/visualization-configuration#> \n';
 
     query += "DELETE \n";
     query += "{ \n";

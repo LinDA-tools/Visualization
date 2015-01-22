@@ -10,7 +10,6 @@
     "jquery-minicolors": "~2.1.6",
     "jqueryui": "~1.11.0",
     "underscore": "~1.6.0",
-    "c3": "~0.4.4",
     "foundation-icon-fonts": "zurb/foundation-icon-fonts",
     "datatables": "~1.10.2",
     "slick.js": "~1.3.15",

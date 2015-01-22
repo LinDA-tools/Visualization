@@ -336,18 +336,25 @@ a{  font-size: 11pt !important;
 
 .dim-area-item{  
     text-align: left;
-    margin-left: 20px;
+}
+
+.dim-area-box{  
+    background-color: #E0E0E0; 
+    border: 1px solid #E0E0E0;  
+    margin-bottom: 5px;
+    padding:5px;
+    
 }
 
 .dim-metadata{  
     color:#888888; 
+    background-color: white; 
     border: 1px dotted #909090;
     font-size:8pt; 
     font-weight: bold;
     text-align: center;
     margin-bottom: 5px;
     margin-top: 5px;
-    margin-left: 20px;
     padding:10px;
 }
 

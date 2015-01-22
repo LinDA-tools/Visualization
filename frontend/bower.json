@@ -10,14 +10,15 @@
     "jquery-minicolors": "~2.1.6",
     "jqueryui": "~1.11.0",
     "underscore": "~1.6.0",
-    "c3": "~0.4.4",
     "foundation-icon-fonts": "zurb/foundation-icon-fonts",
     "datatables": "~1.10.2",
     "slick.js": "~1.3.15",
     "canvg": "~1.3.0",
     "dimple": "~2.1.0",
     "fancytree": "~2.7.0",
-    "datatables-responsive": "~1.0.3"
+    "datatables-responsive": "~1.0.3",
+    "ember-animate": "~0.3.6",
+    "ember-animated-outlet": "~1.0.0-beta.3"
   },
   "devDependencies": {
     "ember-mocha-adapter": "0.2.0"

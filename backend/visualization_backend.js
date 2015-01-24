@@ -121,6 +121,8 @@ var vis_configurationEndpoint = "http://localhost:8890/sparql";
 var recommendationsByDataselectionID = {};
 var visualizationConfigurations = {};
 
+var ontology_endpoint = "http://localhost:8890/sparql";
+var ontology_graph = "http://linda-project.eu/linda-visualization";
 //visualization configuration
 app.get('/visualizations', function (req, res) {
     var source_type = req.param("source_type");
@@ -135,11 +137,9 @@ app.get('/visualizations', function (req, res) {
                 });
             } else {
                 var dataselection = dataselections[id];
-                var endpoint = "http://localhost:8890/sparql";
-                var ontology_graph = "http://linda-project.eu/linda-visualization";
                 // console.log("Calculating suggestions for dataselection: ")
                 //console.log(JSON.stringify(dataselection));
-                visualization_recommendation.recommendForDataselection(dataselection, endpoint, ontology_graph).then(function (visualizations) {
+                visualization_recommendation.recommendForDataselection(dataselection, ontology_endpoint, ontology_graph).then(function (visualizations) {
                     console.log(JSON.stringify(visualizations));
                     recommendationsByDataselectionID[id] = visualizations;
                     res.send({
@@ -160,19 +160,37 @@ app.get('/visualizations', function (req, res) {
                 }, printError);
             } else {
                 // Load specified visualization in a recommendation array
-                query_visualization.query(id, vis_configurationGraph, vis_configurationEndpoint).then(function (result) {
-                    console.log("Sending visualizations:");
-                    console.dir(JSON.stringify(result));
+                query_visualization.query(id, vis_configurationGraph, vis_configurationEndpoint).then(function (load_result) {
 
-                    datasources[result.datasource.id] = result.datasource;
-                    dataselections[result.dataselection.id] = result.dataselection;
-                    visualizationConfigurations[result.visualization.id] = result.visualization;
+                    var loaded_visualization = load_result.visualization;
 
-                    res.send({
-                        visualization: [result.visualization],
-                        dataselection: [result.dataselection],
-                        datasource: [result.datasource]
-                    });
+                    datasources[load_result.datasource.id] = load_result.datasource;
+                    dataselections[load_result.dataselection.id] = load_result.dataselection;
+                    visualizationConfigurations[loaded_visualization.id] = loaded_visualization;
+
+
+
+                    return visualization_recommendation.recommendForDataselection(load_result.dataselection, ontology_endpoint, ontology_graph).then(function (recommended_visualizations) {
+                        var visualizations = [loaded_visualization];
+
+                        for (var i = 0; i < recommended_visualizations.length; i++) {
+                            var recommended_visualization = recommended_visualizations[i];
+                            if (recommended_visualization.visualizationName !== loaded_visualization.visualizationName) {
+                                visualizations.push(recommended_visualization);
+                            }
+                        }
+                        recommendationsByDataselectionID[load_result.dataselection.id] = visualizations;
+
+                        console.log("Sending visualizations:");
+                        console.log(JSON.stringify(visualizations));
+
+                        res.send({
+                            visualization: visualizations,
+                            dataselection: [load_result.dataselection],
+                            datasource: [load_result.datasource]
+                        });
+                    }, printError);
+
                 }, printError);
             }
             break;

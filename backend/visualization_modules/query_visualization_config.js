@@ -10,7 +10,7 @@ function query(config_id, config_graph, config_endpoint) {
 
     var datasource = {id: Math.floor(Math.random() * 1000000000).toString()};
     var dataselection = {id: Math.floor(Math.random() * 1000000000).toString(), datasource: datasource, propertyInfos: []};
-    var configuration = {id: config_id, structureOptions: {}, layoutOptions: {}, dataselection: dataselection.id};
+    var configuration = {id: config_id, structureOptions: {}, layoutOptions: {}, dataselection: dataselection.id, valid: true};
 
     return client.query(datasourceQuery(config_id, config_graph)).then(function (results, err) {
 

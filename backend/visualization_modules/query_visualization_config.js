@@ -186,34 +186,34 @@ function structureOptionsQuery(config_id, config_graph) {
     query += " ?structureOptionValue vis:propertyName ?propertyName .\n ";
     query += " ?structureOptionValue vis:propertyId ?propertyId .\n ";
     // Should be good enough for now but is there no standard way to query a whole list with guaranteed order in a single query?
-    query += " ?structureOptionValue vis:contents/rdf:rest{0}/rdf:first ?value1 .\n ";
+    query += " ?structureOptionValue vis:contents/rdf:first ?value1 .\n ";
     query += " OPTIONAL ";
     query += " { \n";
-    query += " ?structureOptionValue vis:contents/rdf:rest{1}/rdf:first ?value2 .\n ";
+    query += " ?structureOptionValue vis:contents/rdf:rest/rdf:first ?value2 .\n ";
     query += " OPTIONAL ";
     query += " { \n";
-    query += " ?structureOptionValue vis:contents/rdf:rest{2}/rdf:first ?value3 .\n ";
+    query += " ?structureOptionValue vis:contents/rdf:rest/rdf:rest/rdf:first ?value3 .\n ";
     query += " OPTIONAL ";
     query += " { \n";
-    query += " ?structureOptionValue vis:contents/rdf:rest{3}/rdf:first ?value4 .\n ";
+    query += " ?structureOptionValue vis:contents/rdf:rest/rdf:rest/rdf:rest/rdf:first ?value4 .\n ";
     query += " OPTIONAL ";
     query += " { \n";
-    query += " ?structureOptionValue vis:contents/rdf:rest{4}/rdf:first ?value5 .\n ";
+    query += " ?structureOptionValue vis:contents/rdf:rest/rdf:rest/rdf:rest/rdf:rest/rdf:first ?value5 .\n ";
     query += " OPTIONAL ";
     query += " { \n";
-    query += " ?structureOptionValue vis:contents/rdf:rest{5}/rdf:first ?value6 .\n ";
+    query += " ?structureOptionValue vis:contents/rdf:rest/rdf:rest/rdf:rest/rdf:rest/rdf:rest/rdf:first ?value6 .\n ";
     query += " OPTIONAL ";
     query += " { \n";
-    query += " ?structureOptionValue vis:contents/rdf:rest{6}/rdf:first ?value7 .\n ";
+    query += " ?structureOptionValue vis:contents/rdf:rest/rdf:rest/rdf:rest/rdf:rest/rdf:rest/rdf:rest/rdf:first ?value7 .\n ";
     query += " OPTIONAL ";
     query += " { \n";
-    query += " ?structureOptionValue vis:contents/rdf:rest{7}/rdf:first ?value8 .\n ";
+    query += " ?structureOptionValue vis:contents/rdf:rest/rdf:rest/rdf:rest/rdf:rest/rdf:rest/rdf:rest/rdf:rest/rdf:first ?value8 .\n ";
     query += " OPTIONAL ";
     query += " { \n";
-    query += " ?structureOptionValue vis:contents/rdf:rest{8}/rdf:first ?value9 .\n ";
+    query += " ?structureOptionValue vis:contents/rdf:rest/rdf:rest/rdf:rest/rdf:rest/rdf:rest/rdf:rest/rdf:rest/rdf:rest/rdf:first ?value9 .\n ";
     query += " OPTIONAL ";
     query += " { \n";
-    query += " ?structureOptionValue vis:contents/rdf:rest{9}/rdf:first ?value10 .\n ";
+    query += " ?structureOptionValue vis:contents/rdf:rest/rdf:rest/rdf:rest/rdf:rest/rdf:rest/rdf:rest/rdf:rest/rdf:rest/rdf:rest/rdf:first ?value10 .\n ";
     query += "} \n";
     query += "} \n";
     query += "} \n";
@@ -228,8 +228,8 @@ function structureOptionsQuery(config_id, config_graph) {
     query += "} \n";
     query += "} \n";
 
-    //console.log("LOAD VISUALIZATION CONFIGURATION - QUERY STRUCTURE OPTIONS");
-    //console.log(query);
+    console.log("LOAD VISUALIZATION CONFIGURATION - QUERY STRUCTURE OPTIONS");
+    console.log(query);
 
     return query;
 }
@@ -259,8 +259,8 @@ function layoutOptionsQuery(config_id, config_graph) {
     query += "} \n";
     query += "} \n";
 
-    //console.log("QUERY VISUALIZATION CONFIGURATION - QUERY LAYOUT OPTIONS");
-    //console.log(query);
+    console.log("QUERY VISUALIZATION CONFIGURATION - QUERY LAYOUT OPTIONS");
+    console.log(query);
 
     return query;
 }

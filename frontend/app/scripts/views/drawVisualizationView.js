@@ -1,20 +1,19 @@
 App.DrawVisualizationView = Ember.View.extend({
-    
-    willAnimateIn: function() {
-        this.$().css("opacity",0);
+    willAnimateIn: function () {
+        this.$().css("opacity", 0);
     },
     animateIn: function (done) {
-        this.$().fadeTo(500,1,done);
+        this.$().fadeTo(500, 1, done);
     },
-    animateOut: function(done){
-        this.$().fadeTo(500,0,done);
+    animateOut: function (done) {
+        this.$().fadeTo(500, 0, done);
     },
-    parentViewDidChange: function(){
+    parentViewDidChange: function () {
         this.$().hide();
         this.$().fadeIn(500);
     },
     eventManager: Ember.Object.create({
-        input: function(event,view){
+        input: function (event, view) {
             this.triggerAction({
                 action: "willAnimateIn",
                 target: this
@@ -31,7 +30,7 @@ App.DrawVisualizationView = Ember.View.extend({
         }
 
         var config = this.get('configurationArray')[0];
-        
+
         console.log("VISUALIZATION CONFIGURATION");
         console.dir(JSON.stringify(config));
 
@@ -39,8 +38,8 @@ App.DrawVisualizationView = Ember.View.extend({
             return;
         }
 
-        var dataselection = visualization.get('dataselection');              
-        var datasource = dataselection.get('datasource');        
+        var dataselection = visualization.get('dataselection');
+        var datasource = dataselection.get('datasource');
         var format = datasource.format;
         config.datasourceLocation = datasource.location;
         config.datasourceGraph = datasource.graph;
@@ -56,9 +55,9 @@ App.DrawVisualizationView = Ember.View.extend({
                 console.error("Unknown DS format: " + format);
                 return;
         }
-        
+
         var name = visualization.get("visualizationName");
-        var visualization = visualizationRegistry.getVisualization(name);       
+        var visualization = visualizationRegistry.getVisualization(name);
         var self = this;
 
         var element = this.get('element');
@@ -72,7 +71,10 @@ App.DrawVisualizationView = Ember.View.extend({
             console.error("Error drawing visualization: ");
             console.error(ex);
         }
-    }.observes('configurationArray.@each').on('didInsertElement')
+    }.observes('configurationArray.@each').on('didInsertElement'),
+    redraw: function () {
+        this.rerender();
+    }.observes('visualization')
 });
 
 

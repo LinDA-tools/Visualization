@@ -50,27 +50,28 @@ function calculateCost(dimension, property) {
 
     // TODO: Allow more than 1 associated property per dimension? (For different vocabularies with equivalent properties)
     var propertyFactor;
-    if (!dimension.associatedProperty) {
-        // Don't know how well the property matches to the dimension => no change
-        propertyFactor = 1.0;
-    } else if (dimension.associatedProperty === property.key) {
+    if (dimension.associatedProperty === property.key) {
         // Reward matching properties
-        // console.log("Property " + property.label + " matches with dimension " + dimension.optionName);
+        console.log("Property " + property.label + " matches with dimension " + dimension.optionName);
         propertyFactor = 0.5;
     } else {
-        // Penalize non-matching properties
-        // console.log("Property " + property.label + " doesn't match with dimension " + dimension.optionName);
-
-        propertyFactor = 2.0;
+        // Don't know how well the property matches to the dimension => no change
+        propertyFactor = 1.0;
     }
 
-    // TODO: Make sure we get this from the ontology
-    var special = (property.special || property.key === "http://www.w3.org/2003/01/geo/wgs84_pos#lat" || property.key === "http://www.w3.org/2003/01/geo/wgs84_pos#long");
-
-    var specialPropertyPenalty = 0;
-    if (special && dimension.associatedProperty !== property.key) {
-        console.log("Special property " + property.label + " doesn't match with dimension " + dimension.optionName);
-        specialPropertyPenalty = 1000;
+    var rolePenalty = 0;
+    if (dimension.associatedProperty !== property.key) {
+        // TODO: Make sure we get this from the ontology
+        var special = (property.special || property.key === "http://www.w3.org/2003/01/geo/wgs84_pos#lat" || property.key === "http://www.w3.org/2003/01/geo/wgs84_pos#long");
+        if (special) {
+            // Special properties can only be assigned to dimensions associated with them
+            console.log("Special property " + property.label + " doesn't match with dimension " + dimension.optionName);
+            rolePenalty = 1000;
+        } else if (dimension.associatedProperty) {
+            console.log("Property " + property.label + " doesn't match with dimension " + dimension.optionName);
+            // Make assignment of non-matching property illegal
+            rolePenalty = 100;
+        }
     }
 
     var dimensionRole = getDimensionRole(dimension.dimensionRole);
@@ -81,18 +82,20 @@ function calculateCost(dimension, property) {
     if (dimensionRole && propertyRole) {
         if (dimensionRole === propertyRole) {
             // Known good role
-            // console.log("Property " + property.label + " matches with role of dimension " + dimension.optionName);
+            console.log("Property " + property.label + " matches with role of dimension " + dimension.optionName);
             roleFactor = 0.75;
         } else {
             // Known false role -- probably pretty bad
-            // console.log("Property " + property.label + " doesn't match with role of dimension " + dimension.optionName);
+            console.log("Property " + property.label + " doesn't match with role of dimension " + dimension.optionName);
             roleFactor = 3.0;
         }
     } else {
         roleFactor = 1.0;
     }
 
-    var weight = propertyFactor * roleFactor * (scaleWeight + optionalWeight) + specialPropertyPenalty;
+
+
+    var weight = propertyFactor * roleFactor * (scaleWeight + optionalWeight) + rolePenalty;
 
     return weight;
 }
@@ -156,13 +159,13 @@ function addRecommendation(visualizationPattern, properties, visualizationDescri
 
     // console.log(JSON.stringify(dimensions));
     // console.log(JSON.stringify(properties));
-    // console.log(JSON.stringify(costs));
-    // console.log(JSON.stringify(solution));
+    console.log(JSON.stringify(costs));
+    console.log(JSON.stringify(solution));
 
     var result = {
         pattern: visualizationPattern,
         description: visualizationDescription,
-        numAssignments: solution.length,
+        numAssignments: 0,
         cost: 0
     };
 
@@ -178,6 +181,7 @@ function addRecommendation(visualizationPattern, properties, visualizationDescri
         // Check if property is dummy
         if (property) {
             var cost = costs[dimension_index][property_index];
+            result.numAssignments++;
 
             result.cost += cost;
             if (cost >= 100) {
@@ -209,6 +213,10 @@ function addRecommendation(visualizationPattern, properties, visualizationDescri
             dimension.value.splice(0, dimension.value.length);
         }
     }
+
+    console.log("Valid: " + result.description.valid);
+    console.log("Num. assignments: " + result.numAssignments);
+    console.log("Cost: " + result.cost);
 
     return result;
 }

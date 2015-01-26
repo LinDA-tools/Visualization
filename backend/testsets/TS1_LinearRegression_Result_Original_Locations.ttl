@@ -8027,7 +8027,7 @@ ns10:eleni	rdf:type	ns1:User ;
 ns10:eleni	owl:equivalentClass	foaf:Person ;
 	foaf:accountName	"eleni" ;
 	foaf:holdsAccount	_:b10003 .
-ns1:analytic_input_node	rdfs:label	"Analytics Input Node" .
+ns1:analytic_input_node	rdfs:label	"Analytics Input" .
 <http://localhost:8080/openrdf-sesame/repositories/linda/rdf-graphs/analyticsontology#analytic_process/17/5>	rdf:type	ns1:analytic_process ;
 	rdfs:label	"linda analytic process" ;
 	rdfs:comment	"test" ;
@@ -8036,7 +8036,7 @@ ns1:analytic_input_node	rdfs:label	"Analytics Input Node" .
 @prefix xsd:	<http://www.w3.org/2001/XMLSchema#> .
 <http://localhost:8080/openrdf-sesame/repositories/linda/rdf-graphs/analyticsontology#analytic_process/17/5>	ns8:analyzedField	"_20pci_l"^^xsd:string ;
 	ns7:wasAssociatedWith	ns9:LinDa_analytics_software .
-ns1:analytics_result_node	rdfs:label	"Analytics Result Node" .
+ns1:analytics_result_node	rdfs:label	"Analytics Result" .
 <http://localhost:8080/openrdf-sesame/repositories/linda/statements?context=:_analytics17V6Date19112014#/1>	rdf:type	ns1:analytics_result_node ;
 	rdfs:subClassOf	ns7:Entity ;
 	ns8:predictedValue	"12.974613" ;
@@ -20533,3 +20533,27 @@ ns15:westchester_county_ny_geo	ns14:name	"Westchester County" .
 		"Queens" .
 _:b10003	rdf:type	foaf:OnlineAccount ;
 	foaf:homepage	"http://localhost:8000/" .
+
+<http://www.w3.org/ns/prov#wasDerivedFrom> rdfs:label "Source Data" .
+<http://www.w3.org/ns/prov#wasGeneratedBy> rdfs:label "Generating Activity" .
+<http://localhost:8080/openrdf-sesame/repositories/myRepository/statements?context=:_analytics5V0Date29102014/5/predictedValue> rdfs:label "Predicted Value".
+<http://www.w3.org/2003/01/geo/wgs84_pos#location> rdfs:label "Location" .
+<http://www.w3.org/2003/01/geo/wgs84_pos#lat> rdfs:label "Latitude" .
+<http://www.w3.org/2003/01/geo/wgs84_pos#long> rdfs:label "Longitude" .
+<http://www.geonames.org/ontology#name> rdfs:label "Name" .
+<http://www.geonames.org/ontology#featureCode> rdfs:label "Feature Code" .
+<http://www.geonames.org/ontology#parentADM1> rdfs:label "Level 1 administrative parent" .
+<http://www.geonames.org/ontology#parentADM2> rdfs:label "Level 2 administrative parent" .
+<http://www.w3.org/1999/02/22-rdf-syntax-ns#type> rdfs:label "Type" .
+<http://www.w3.org/2000/01/rdf-schema#subClassOf> rdfs:label "Superclass" .
+<http://health.data.ny.gov/resource/hbu9-xsrx/_4_0_pci_l> rdfs:label "Num. <4.0 pCi/L" .
+<http://health.data.ny.gov/resource/hbu9-xsrx/_4_and_20pci_l> rdfs:label "Num. >4 and <20pCi/L" .
+<http://health.data.ny.gov/resource/hbu9-xsrx/_20pci_l> rdfs:label "Num. >20pCi/L" .
+<http://health.data.ny.gov/resource/hbu9-xsrx/average_radon_pci_l> rdfs:label "Average Radon (pCi/L)" .
+<http://health.data.ny.gov/resource/hbu9-xsrx/county> rdfs:label "County" .
+<http://health.data.ny.gov/resource/hbu9-xsrx/geo_mean> rdfs:label "GEO Mean" .
+<http://health.data.ny.gov/resource/hbu9-xsrx/geo_s_d> rdfs:label "GEO S.D." .
+<http://health.data.ny.gov/resource/hbu9-xsrx/highest_pci_l> rdfs:label "Highest (pCi/L)" .
+<http://health.data.ny.gov/resource/hbu9-xsrx/of_homes_tested> rdfs:label "# Homes Tested" .
+<http://health.data.ny.gov/resource/hbu9-xsrx/test_location_in_home> rdfs:label "Test Location in Home" .
+<http://health.data.ny.gov/resource/hbu9-xsrx/town_village_city> rdfs:label "Town/Village/City" .

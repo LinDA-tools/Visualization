@@ -15,12 +15,12 @@
     :layoutOption [
         :optionName "Horizontal Label" ;
         :optionType xsd:string ;
-        :optionValue "Label"^^xsd:String ;
+        :optionValue "Label"^^xsd:string ;
         a :Option
     ], [
         :optionName "Vertical Label" ;
         :optionType xsd:string ;
-        :optionValue "Label"^^xsd:String ;
+        :optionValue "Label"^^xsd:string ;
         a :Option
     ], [
         :optionName "Gridlines" ;
@@ -78,7 +78,7 @@
     ], [
         :optionName "Vertical Label" ;
         :optionType xsd:string ;
-        :optionValue "Label"^^xsd:String ;
+        :optionValue "Label"^^xsd:string ;
         a :Option
     ], [
         :optionName "Gridlines" ;
@@ -135,7 +135,7 @@
     ], [
         :optionName "Vertical Label" ;
         :optionType xsd:string ;
-        :optionValue "Label"^^xsd:String ;
+        :optionValue "Label"^^xsd:string ;
         a :Option
     ], [
         :optionName "Gridlines" ;
@@ -240,7 +240,7 @@
     ], [
         :optionName "Vertical Label" ;
         :optionType xsd:string ;
-        :optionValue "Label"^^xsd:String ;
+        :optionValue "Label"^^xsd:string ;
         a :Option
     ], [
         :optionName "Gridlines" ;
@@ -360,7 +360,7 @@
     ], [
         :optionName "Vertical Label" ;
         :optionType xsd:string ;
-        :optionValue "Label"^^xsd:String ;
+        :optionValue "Label"^^xsd:string ;
         a :Option
     ], [
         :optionName "Tooltip" ;
@@ -435,7 +435,7 @@
     ], [
         :optionName "Vertical Label" ;
         :optionType xsd:string ;
-        :optionValue "Label"^^xsd:String ;
+        :optionValue "Label"^^xsd:string ;
         a :Option
     ], [
         :optionName "Gridlines" ;

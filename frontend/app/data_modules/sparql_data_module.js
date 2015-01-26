@@ -486,6 +486,7 @@ var sparql_data_module = function () {
             case "http://www.w3.org/2001/XMLSchema#gYear":
             case "http://www.w3.org/2001/XMLSchema#gYearMonth":
                 // TODO: Does Date.parse understand the xsd date etc. types?
+                // TODO: Parse gYear and gYearMonth correctly
                 return Date.parse(value);
             case "http://www.w3.org/2001/XMLSchema#string":
                 // Can plain literals be returned as xsd:string in newer 

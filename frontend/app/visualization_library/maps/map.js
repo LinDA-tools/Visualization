@@ -96,6 +96,21 @@ var map = function () { // map/openstreetmap module (js module pattern)
                 maxIndicatorValues.push(maxIndicatorValue);
             }
 
+            for (var i = 1; i < data.length; ++i) {
+                var row = data[i];
+                var lat = parseFloat(row[latColumn]);
+                var long = parseFloat(0.0 + row[longColumn]);
+                if (!lat || !long) {
+                    console.warn("No lat or long in row:");
+                    console.dir(row);
+                    continue;
+                }
+                minLat = Math.min(minLat, lat);
+                maxLat = Math.max(maxLat, lat);
+                minLong = Math.min(minLong, long);
+                maxLong = Math.max(maxLong, long);
+            }
+
             if (indicatorColumns.length === 1) {
                 var indicatorColumn = indicatorColumns[0];
 
@@ -163,10 +178,6 @@ var map = function () { // map/openstreetmap module (js module pattern)
                         console.dir(row);
                         continue;
                     }
-                    minLat = Math.min(minLat, lat);
-                    maxLat = Math.max(maxLat, lat);
-                    minLong = Math.min(minLong, long);
-                    maxLong = Math.max(maxLong, long);
                     var label = labelColumns.length >= 0 ? row[labelColumns[0]] : '';
                     console.log("LatLong: " + lat + ", " + long);
                     var marker;

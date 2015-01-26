@@ -312,7 +312,6 @@
     ], [
         :optionName "Label" ;
         :optionType [
-            :maxCardinality "1"^^xsd:nonNegativeInteger ;
             :minCardinality "1"^^xsd:nonNegativeInteger ;
             :scaleOfMeasurement :Nominal ;
             a :Dimension

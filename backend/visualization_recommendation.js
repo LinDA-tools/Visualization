@@ -59,25 +59,25 @@ function calculateCost(dimension, property) {
         propertyFactor = 1.0;
     }
 
-    var rolePenalty = 0;
+    var propertyPenalty = 0;
     if (dimension.associatedProperty !== property.key) {
         // TODO: Make sure we get this from the ontology
         var special = (property.special || property.key === "http://www.w3.org/2003/01/geo/wgs84_pos#lat" || property.key === "http://www.w3.org/2003/01/geo/wgs84_pos#long");
         if (special) {
             // Special properties can only be assigned to dimensions associated with them
             console.log("Special property " + property.label + " doesn't match with dimension " + dimension.optionName);
-            rolePenalty = 1000;
+            propertyPenalty = 1000;
         } else if (dimension.associatedProperty) {
             console.log("Property " + property.label + " doesn't match with dimension " + dimension.optionName);
             // Make assignment of non-matching property illegal
-            rolePenalty = 100;
+            propertyPenalty = 100;
         }
     }
 
     var dimensionRole = getDimensionRole(dimension.dimensionRole);
     var propertyRole = property.role;
 
-//    console.log("roles: dimension: " + dimensionRole + " (" + dimension.dimensionRole + ") property " + propertyRole);
+    // console.log("roles: dimension: " + dimensionRole + " (" + dimension.dimensionRole + ") property " + propertyRole);
     var roleFactor;
     if (dimensionRole && propertyRole) {
         if (dimensionRole === propertyRole) {
@@ -95,7 +95,7 @@ function calculateCost(dimension, property) {
 
 
 
-    var weight = propertyFactor * roleFactor * (scaleWeight + optionalWeight) + rolePenalty;
+    var weight = propertyFactor * roleFactor * (scaleWeight + optionalWeight) + propertyPenalty;
 
     return weight;
 }

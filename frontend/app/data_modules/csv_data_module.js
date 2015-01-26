@@ -1,5 +1,7 @@
 // TODO: UNDER CONSTRUCTION
-var csv_data_module = function() {
+var csv_data_module = function () {
+    var saved_location;
+    var saved_data;
 
 // order: order of columns specified by the user
 // subset: dummy; needed in case of RDF for the selected class(es)
@@ -14,7 +16,7 @@ var csv_data_module = function() {
         if (group.length > 0) {
             //CASE 1: dimension and grouped multidimension -> 1 dim; 1 mdim; just 1 group value; 
             var dimension_ = dimension.concat(multidimension).concat(group);
-            return queryInstances(location, null, dimension_).then(function(result) {
+            return queryInstances(location, null, dimension_).then(function (result) {
                 return group_by(result, dimension, multidimension, group);
             });
         } else {
@@ -27,10 +29,19 @@ var csv_data_module = function() {
     function queryInstances(location, dummy, selection) {
         console.log('QUERY INSTANCES');
         //console.dir(selection);
-        
-        return  $.get(location).then(function(data) {
+
+        var dataPromise;
+        if (saved_location === location) {
+            dataPromise = $.Deferred().resolve(saved_data).promise();
+        } else {
+            dataPromise = $.get(location);
+        }
+
+        return  dataPromise.then(function (data) {
+            saved_location = location;
+            saved_data = data;
             return $.csv.toArrays(data, {onParseValue: toScalar});
-        }).then(function(dataArray) {
+        }).then(function (dataArray) {
             var columns = [];
             for (var i = 0; i < selection.length; i++) {
                 var column = _.rest(selection[i].parent);
@@ -63,9 +74,9 @@ var csv_data_module = function() {
             dfd.resolve([]);
             return dfd.promise();
         } else {
-            return $.get(location).then(function(data) {
+            return $.get(location).then(function (data) {
                 return $.csv.toArrays(data, {onParseValue: toScalar, start: 0, end: 2});
-            }).then(function(dataArray) {
+            }).then(function (dataArray) {
                 var names = dataArray[0];
                 var values = dataArray[1];
                 var columns = [];
@@ -88,7 +99,7 @@ var csv_data_module = function() {
 
     function convert(arrayData, columnsOrder) {
         console.log('CONVERT');
-        
+
         var result = [];
         var row = [];
 

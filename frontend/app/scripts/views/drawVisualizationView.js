@@ -69,7 +69,7 @@ App.DrawVisualizationView = Ember.View.extend({
             });
         } catch (ex) {
             console.error("Error drawing visualization: ");
-            console.error(ex);
+            console.log(ex);
         }
     }.observes('configurationArray.@each').on('didInsertElement'),
     redraw: function () {

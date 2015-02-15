@@ -43,7 +43,7 @@ function calculateCost(dimension, property) {
     var optionalWeight;
     if (dimension.optional) {
         // Prefer mapping required dimensions over mapping optional dimensions
-        optionalWeight = 2;
+        optionalWeight = 3;
     } else {
         optionalWeight = 0;
     }
@@ -157,8 +157,12 @@ function addRecommendation(visualizationPattern, properties, visualizationDescri
     var mk = new m.Munkres();
     var solution = mk.compute(costs);
 
-    // console.log(JSON.stringify(dimensions));
-    // console.log(JSON.stringify(properties));
+    console.log(JSON.stringify(dimensions.map(function(d) {
+        return d.optionName;
+    })));
+    console.log(JSON.stringify(properties.map(function(p) {
+        return p.key;
+    })));
     console.log(JSON.stringify(costs));
     console.log(JSON.stringify(solution));
 
@@ -264,10 +268,10 @@ function recommend(dataselection, endpoint, ontology_graph) {
     console.log(JSON.stringify(dataselection));
 
     var visualizationPatternMap;
-    return query_patterns.query(ontology_graph, endpoint).then(function (patterns) {
+    return query_patterns.query(ontology_graph, endpoint).then(function(patterns) {
         visualizationPatternMap = patterns;
         return query_visualizations.query(ontology_graph, endpoint);
-    }).then(function (visualizationDescriptions) {
+    }).then(function(visualizationDescriptions) {
         var recommendations = ranking(visualizationPatternMap, dataselection.propertyInfos, visualizationDescriptions);
         for (var i = 0; i < recommendations.length; i++) {
             recommendations[i].dataselection = dataselection.id;

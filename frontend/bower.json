@@ -19,7 +19,8 @@
     "datatables-responsive": "~1.0.3",
     "ember-animate": "~0.3.6",
     "ember-animated-outlet": "~1.0.0-beta.3",
-    "d3": "~3.5.3"
+    "d3": "~3.5.3",
+    "bootstrap": "~3.3.2"
   },
   "devDependencies": {
     "ember-mocha-adapter": "0.2.0"

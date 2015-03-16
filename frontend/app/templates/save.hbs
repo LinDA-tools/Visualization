@@ -1,8 +1,8 @@
 <div>
     <div class="consumption-title">    
-        <h7> Save Settings </h7>
-    </div>
-    <div class="consumption-content">
-        {{input value=controller.configName placeholder="Enter name." size="15"}} <a {{action 'save'}} class="postfix"> <i class="fi-save save-visualization  consumption-icons"></i></a>     
-    </div>
+        {{input value=controller.configName placeholder="Save settings" size="15"}}    
+         <button type="button" class="btn btn-default btn-xs" {{action 'save'}}>
+            <span class="glyphicon glyphicon-save" aria-hidden="true"></span>  Save
+        </button>
+    </div>    
 </div>

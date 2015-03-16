@@ -1,9 +1,10 @@
 {{#each category in view.categories}}
     <li>
-       <div class="category"> {{category.name}} </div>
+       <div {{bind-attr class="category.name"}}> {{category.datatype}} </div>
         <ul class="categorized-property">
-            {{#each item in category.items}}
+            {{#each item in category.items}}  
                 {{#draggable-item data=item tagName='li'}}
+                   <div {{bind-attr class="item.datatype"}}>
                     <div class="categorized-property-parents">
                     {{#each p in item.parent}}
                         <span class="categorized-property-parent">{{p.label}} &raquo;</span>
@@ -12,6 +13,7 @@
                     <div class="categorized-property-name">
                         {{view.data.label}}
                     </div>
+                  </div> 
                 {{/draggable-item}}
             {{/each}}
         </ul>

@@ -1,24 +1,40 @@
-<div class="row box">
-    <div class="large-5 medium-3 columns">
-        <!-- Data Selection -->        
-        <div class="row inner_box dsdefault">
-            <div class="inner_title_box">
-                <h7>Explore and Select Data</h7>
+<div class="row" id="ds_container">
+    <div {{bind-attr class="isToggled:col-md-5:col-md-0"}}>
+        <!-- Data Selection -->
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h1 class="panel-title pull-left">Explore and Select Data</h1>
             </div>
-            <div>
-                {{tree-selection treedata=controller.treeContent selection=controller.dataSelection}} 
+            <div class="panel-body">
+                {{tree-selection treedata=controller.treeContent selection=controller.dataSelection}}  
             </div>
-        </div>                                                            
+            <div class="panel-footer clearfix">
+            </div>
+        </div>                                                      
     </div>           
-    <div class="large-7 medium-9 columns">       
-        <div class="inner_box dsdefault">
-            <!-- Data Selection Preview -->
-            <div class="inner_title_box">
-                <h7>Preview Data Selection</h7> <span class="visualize"><a {{action 'visualize'}}>Visualize</a></span>
+    <div {{bind-attr class="isToggled:col-md-7:col-md-12"}}>
+        <!-- Data Selection Preview -->
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h1 class="panel-title pull-left">Preview Data Selection</h1>
+
+                <button type="button" class="btn btn-default btn-xs pull-right" {{action 'toggle'}}>
+                    {{#if isToggled}}
+                    <span class="glyphicon glyphicon-resize-full" aria-hidden="true"></span> 
+                    {{else}}
+                    <span class="glyphicon glyphicon-resize-small" aria-hidden="true"></span> 
+                    {{/if}}
+                </button>
+
             </div>
-            <div>  
+            <div class="panel-body">
                 {{data-table preview=controller.dataSelection datasource=controller.selectedDatasource}} 
-            </div>          
-        </div>   
+            </div>
+            <div class="panel-footer clearfix">
+                <button type="button" class="btn btn-default pull-right" {{action 'visualize'}}>
+                    <span class="glyphicon glyphicon-stats" aria-hidden="true"></span>   Visualize
+                </button>
+            </div>
+        </div>     
     </div>
-</div>  
+</div>

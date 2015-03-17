@@ -1,6 +1,6 @@
 <div>
     <div class="consumption-title">
-        <h7> Export as </h7>  {{view 'Ember.Select' content=controller.exportFormats value=controller.selectedFormat}} 
+        <span> Export as </span>  {{view 'Ember.Select' content=controller.exportFormats value=controller.selectedFormat class="btn btn-default dropdown-toggle"}} 
         <button type="button" class="btn btn-default btn-xs" {{action 'export'}}>
             <span class="glyphicon glyphicon-export" aria-hidden="true"></span>  Export
         </button>

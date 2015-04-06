@@ -116,12 +116,12 @@ app.get('/sparql-proxy/:endpoint/:query', function (req, res) {
 
 
 var vis_configurationGraph = "http://linda-project.eu/visualization-configuration";
-var vis_configurationEndpoint = "http://localhost:8890/sparql";
+var vis_configurationEndpoint = process.env.VISBACKEND_CONFIG_EP || process.env.VISBACKEND_EP || "http://localhost:8890/sparql";
 
 var recommendationsByDataselectionID = {};
 var visualizationConfigurations = {};
 
-var ontology_endpoint = "http://localhost:8890/sparql";
+var ontology_endpoint = process.env.VISBACKEND_ONTOLOGY_EP || process.env.VISBACKEND_EP || "http://localhost:8890/sparql";
 var ontology_graph = "http://linda-project.eu/linda-visualization";
 //visualization configuration
 app.get('/visualizations', function (req, res) {

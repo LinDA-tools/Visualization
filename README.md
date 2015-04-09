@@ -18,9 +18,13 @@ Prerequisites
 Installation steps
 ------------------------------------------------------------------
 **Install Docker and Docker Compose:**
+
+
 Please follow the installation instructions on the [Docker website] (http://docs.docker.com/installation/)
 
 
 **Start the application:**
-> cd LinDAVis
-> docker-compose up
+
+
+- cd LinDAVis
+- docker-compose up

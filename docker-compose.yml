@@ -3,7 +3,7 @@ frontend:
   links:
    - backend
   ports:
-   - "9001:9001"
+   - "4200:4200"
 backend:
   build: backend
   links:

@@ -1,0 +1,896 @@
+<?xml version="1.0"?>
+
+<rdf:RDF xmlns="http://linda-project.eu/linda-visualization#"
+     xml:base="http://linda-project.eu/linda-visualization"
+     xmlns:linda-visualization="http://linda-project.eu/linda-visualization#"
+     xmlns:common="http://linda-project.eu/common#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+
+    <owl:Ontology rdf:about="http://linda-project.eu/linda-visualization#">
+        <owl:versionInfo>0.1</owl:versionInfo>
+        <rdfs:comment xml:lang="de">LinDA Visualization Vocabulary</rdfs:comment>
+    </owl:Ontology>
+
+<!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+    -->
+
+<!-- VISUALIZATION  -->
+
+<!-- http://linda-project.eu/linda-visualization#structureOption -->
+
+    <owl:ObjectProperty rdf:about="http://linda-project.eu/linda-visualization#structureOption">
+        <rdfs:label xml:lang="en">Structure_Option</rdfs:label>
+        <rdfs:comment xml:lang="en"></rdfs:comment>
+        <rdfs:domain rdf:resource="http://linda-project.eu/linda-visualization#Visualization"/>
+        <rdfs:range rdf:resource="http://linda-project.eu/linda-visualization#Option"/>
+    </owl:ObjectProperty>
+
+<!-- http://linda-project.eu/linda-visualization#layoutOption -->
+
+    <owl:ObjectProperty rdf:about="http://linda-project.eu/linda-visualization#layoutOptions">
+        <rdfs:label xml:lang="en">Layout_Options</rdfs:label>
+        <rdfs:comment xml:lang="en"></rdfs:comment>
+        <rdfs:domain rdf:resource="http://linda-project.eu/linda-visualization#Visualization"/>
+        <rdfs:range rdf:resource="http://linda-project.eu/linda-visualization#Option"/>
+    </owl:ObjectProperty>
+
+<!-- http://linda-project.eu/linda-visualizations#datasource-->
+
+    <owl:ObjectProperty rdf:about="http://linda-project.eu/linda-visualization#datasource">
+        <rdfs:label xml:lang="en">Visualization Configuration Datasource</rdfs:label>
+        <rdfs:comment xml:lang="en"></rdfs:comment>
+        <rdfs:domain rdf:resource="http://linda-project.eu/linda-visualization#VisualizationConfiguration"/>
+        <rdfs:range rdf:resource="http://linda-project.eu/linda-visualization#Datasource"/>
+    </owl:DatatypeProperty>
+
+<!-- VISUALIZATION OPTIONS (LAYOUT AND STRUCTURE OPTIONS) -->
+
+<!-- http://linda-project.eu/linda-visualization#optionType -->
+
+ <owl:ObjectProperty rdf:about="http://linda-project.eu/linda-visualization#optionType">
+        <rdfs:label xml:lang="en">Option_Type</rdfs:label>
+        <rdfs:comment xml:lang="en">Can be a Dimension (structure option), or xsd:string, xsd:number, xsd:boolean (layout options) </rdfs:comment>
+        <rdfs:domain rdf:resource="http://linda-project.eu/linda-visualization#Option"/>
+ </owl:ObjectProperty>
+
+<!-- VISUALIZATION CONFIGURATION  -->
+
+
+<!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatype properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+    -->
+
+<!-- VISUALIZATION  -->
+    
+<!-- http://linda-project.eu/linda-visualizations#visualizationName-->
+
+    <owl:DatatypeProperty rdf:about="http://linda-project.eu/linda-visualization#visualizationName">
+        <rdfs:label xml:lang="en">Visualization Name</rdfs:label>
+        <rdfs:comment xml:lang="en"></rdfs:comment>
+        <rdfs:domain rdf:resource="http://linda-project.eu/linda-visualization#Visualization"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+
+<!-- http://linda-project.eu/linda-visualizations#visualizationThumbnail-->
+
+    <owl:DatatypeProperty rdf:about="http://linda-project.eu/linda-visualization#visualizationThumbnail">
+        <rdfs:label xml:lang="en">Visualization Thumbnail</rdfs:label>
+        <rdfs:comment xml:lang="en"></rdfs:comment>
+        <rdfs:domain rdf:resource="http://linda-project.eu/linda-visualization#Visualization"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    </owl:DatatypeProperty>
+
+<!-- VISUALIZATION OPTIONS (LAYOUT AND STRUCTURE OPTIONS) -->
+
+<!-- http://linda-project.eu/linda-visualizations#optionName-->
+
+    <owl:DatatypeProperty rdf:about="http://linda-project.eu/linda-visualization#optionName">
+        <rdfs:label xml:lang="en">Option Name</rdfs:label>
+        <rdfs:comment xml:lang="en"></rdfs:comment>
+        <rdfs:domain rdf:resource="http://linda-project.eu/linda-visualization#Option"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+
+<!-- http://linda-project.eu/linda-visualizations#optionValue-->
+
+    <owl:DatatypeProperty rdf:about="http://linda-project.eu/linda-visualization#optionValue">
+        <rdfs:label xml:lang="en">Option Value</rdfs:label>
+        <rdfs:comment xml:lang="en">For structure options: a list of values. For layout options: just one value.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://linda-project.eu/linda-visualization#Option"/>
+    </owl:DatatypeProperty>
+
+<!-- VISUALIZATION DIMENSIONS -->
+
+<!-- http://linda-project.eu/linda-visualizations#scaleOfMeasurement-->
+
+    <owl:ObjectProperty rdf:about="http://linda-project.eu/linda-visualization#scaleOfMeasurement">
+        <rdfs:label xml:lang="en">Scale of measurement</rdfs:label>
+        <rdfs:comment xml:lang="en">The scale of measurement of a dimension. </rdfs:comment>
+        <rdfs:domain rdf:resource="http://linda-project.eu/linda-visualization#Dimension"/>
+        <rdfs:range rdf:resource="http://linda-project.eu/linda-visualization#ScaleOfMeasurement"/>
+    </owl:ObjectProperty>
+
+<!-- http://linda-project.eu/linda-visualizations#minCardinality-->
+
+    <owl:DatatypeProperty rdf:about="http://linda-project.eu/linda-visualization#minCardinality">
+        <rdfs:label xml:lang="en">Minimum cardinality</rdfs:label>
+        <rdfs:comment xml:lang="en">The minimum number of properties mapped to the dimension. </rdfs:comment>
+        <rdfs:domain rdf:resource="http://linda-project.eu/linda-visualization#Dimension"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+    </owl:DatatypeProperty>
+
+<!-- http://linda-project.eu/linda-visualizations#maxCardinality-->
+
+    <owl:DatatypeProperty rdf:about="http://linda-project.eu/linda-visualization#maxCardinality">
+        <rdfs:label xml:lang="en">Maximum cardinality</rdfs:label>
+        <rdfs:comment xml:lang="en">The maximum number of properties mapped to the dimension. </rdfs:comment>
+        <rdfs:domain rdf:resource="http://linda-project.eu/linda-visualization#Dimension"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+    </owl:DatatypeProperty>
+
+<!-- VISUALIZATION CONFIGURATION  -->
+
+<!-- http://linda-project.eu/linda-visualization#visualizationID-->
+
+    <owl:DatatypeProperty rdf:about="http://linda-project.eu/linda-visualization#visualizationID">
+        <rdfs:label xml:lang="en">Visualization_ID</rdfs:label>
+        <rdfs:comment xml:lang="en"></rdfs:comment>
+        <rdfs:domain rdf:resource="http://linda-project.eu/linda-visualization#VisualizationConfiguration"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+    </owl:DatatypeProperty>
+
+<!-- http://linda-project.eu/linda-visualizations#datasourceName-->
+
+    <owl:DatatypeProperty rdf:about="http://linda-project.eu/linda-visualization#datasourceName">
+        <rdfs:label xml:lang="en">Datasource Name</rdfs:label>
+        <rdfs:comment xml:lang="en">Visualization Configuration Datasource Name</rdfs:comment>
+        <rdfs:domain rdf:resource="http://linda-project.eu/linda-visualization#Datasource"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+
+<!-- http://linda-project.eu/linda-visualizations#datasourceFormat-->
+
+    <owl:DatatypeProperty rdf:about="http://linda-project.eu/linda-visualization#datasourceFormat">
+        <rdfs:label xml:lang="en">Datasource Format</rdfs:label>
+        <rdfs:comment xml:lang="en">Visualization Configuration Datasource Format</rdfs:comment>
+        <rdfs:domain rdf:resource="http://linda-project.eu/linda-visualization#Datasource"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+
+<!-- http://linda-project.eu/linda-visualizations#datasourceLocation-->
+
+    <owl:DatatypeProperty rdf:about="http://linda-project.eu/linda-visualization#datasourceLocation">
+        <rdfs:label xml:lang="en">Datasource Location</rdfs:label>
+        <rdfs:comment xml:lang="en">Visualization Configuration Datasource Location</rdfs:comment>
+        <rdfs:domain rdf:resource="http://linda-project.eu/linda-visualization#Datasource"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    </owl:DatatypeProperty>
+
+<!-- http://linda-project.eu/linda-visualizations#datasourceGraph-->
+
+    <owl:DatatypeProperty rdf:about="http://linda-project.eu/linda-visualization#datasourceGraph">
+        <rdfs:label xml:lang="en">Datasource Graph</rdfs:label>
+        <rdfs:comment xml:lang="en">Visualization Configuration Datasource Graph</rdfs:comment>
+        <rdfs:domain rdf:resource="http://linda-project.eu/linda-visualization#Datasource"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    </owl:DatatypeProperty>
+
+<!-- http://linda-project.eu/linda-visualizations#configurationName-->
+
+    <owl:DatatypeProperty rdf:about="http://linda-project.eu/linda-visualization#configurationName">
+        <rdfs:label xml:lang="en">Visualization Name</rdfs:label>
+        <rdfs:comment xml:lang="en">Visualization Configuration Name</rdfs:comment>
+        <rdfs:domain rdf:resource="http://linda-project.eu/linda-visualization#VisualizationConfiguration"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+
+
+<!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+    -->
+
+<!-- http://linda-project.eu/linda-visualization#Visualization -->
+
+    <owl:Class rdf:about="http://linda-project.eu/linda-visualization#Visualization">
+        <rdfs:label xml:lang="en">Visualization</rdfs:label>
+        <rdfs:comment xml:lang="en"></rdfs:comment>
+    </owl:Class>
+
+
+<!-- http://linda-project.eu/linda-visualization#VisualizationConfiguration -->
+
+    <owl:Class rdf:about="http://linda-project.eu/linda-visualization#VisualizationConfiguration">
+        <rdfs:label xml:lang="en">Visualization Configuration</rdfs:label>
+        <rdfs:comment xml:lang="en"></rdfs:comment>
+	<rdfs:subClassOf rdf:resource="http://linda-project.eu/linda-visualization#Visualization"/>
+    </owl:Class>
+
+
+<!-- http://linda-project.eu/linda-visualization#Option -->
+
+    <owl:Class rdf:about="http://linda-project.eu/linda-visualization#Option">
+        <rdfs:label xml:lang="en">Option</rdfs:label>
+        <rdfs:comment xml:lang="en"></rdfs:comment>       
+    </owl:Class>
+
+<!-- http://linda-project.eu/linda-visualization#Datasource -->
+
+    <owl:Class rdf:about="http://linda-project.eu/linda-visualization#Datasource">
+        <rdfs:label xml:lang="en">Datasource</rdfs:label>
+        <rdfs:comment xml:lang="en"></rdfs:comment>       
+    </owl:Class>
+
+
+<!-- http://linda-project.eu/linda-visualization#Dimension -->
+
+    <owl:Class rdf:about="http://linda-project.eu/linda-visualization#Dimension">
+        <rdfs:label xml:lang="en">Dimension</rdfs:label>
+        <rdfs:comment xml:lang="en">The type of structure options</rdfs:comment>
+    </owl:Class>
+
+<!-- http://linda-project.eu/linda-visualization#ScaleOfMeasurement -->
+
+    <owl:Class rdf:about="http://linda-project.eu/linda-visualization#ScaleOfMeasurement">
+        <rdfs:label xml:lang="en">Scale Of Measurement</rdfs:label>
+        <rdfs:comment xml:lang="en">Scale Of Measurement: Categorical (nominal, ordinal), Quantitative (Interval) data</rdfs:comment>
+    </owl:Class>
+
+<!-- http://linda-project.eu/linda-visualization#ScaleOfMeasurementForCategoricalData -->
+
+    <owl:Class rdf:about="http://linda-project.eu/linda-visualization#ScaleOfMeasurementForCategoricalData">
+        <rdfs:label xml:lang="en">SoM Categorical Data</rdfs:label>
+        <rdfs:comment xml:lang="en">Scale Of Measurement for categorical data: nominal, ordinal</rdfs:comment>
+	<rdfs:subClassOf rdf:resource="http://linda-project.eu/linda-visualization#ScaleOfMeasurement"/>
+    </owl:Class>
+
+<!-- http://linda-project.eu/linda-visualization#ScaleOfMeasurementForQuantitativeData -->
+
+    <owl:Class rdf:about="http://linda-project.eu/linda-visualization#ScaleOfMeasurementForQuantitativeData">
+        <rdfs:label xml:lang="en">SoM Quantitative Data</rdfs:label>
+        <rdfs:comment xml:lang="en">Scale Of Measurement for quantitative data: interval, ratio</rdfs:comment>
+	<rdfs:subClassOf rdf:resource="http://linda-project.eu/linda-visualization#ScaleOfMeasurement"/>
+    </owl:Class>
+
+<!-- http://linda-project.eu/linda-visualization#ScaleOfMeasurementForSpatialData -->
+
+    <owl:Class rdf:about="http://linda-project.eu/linda-visualization#ScaleOfMeasurementForSpatialData">
+        <rdfs:label xml:lang="en">SoM Spatial Data</rdfs:label>
+        <rdfs:comment xml:lang="en">Scale Of Measurement for spatial data: latitude, longitude</rdfs:comment>
+	<rdfs:subClassOf rdf:resource="http://linda-project.eu/linda-visualization#ScaleOfMeasurement"/>
+    </owl:Class>
+
+<!-- http://linda-project.eu/linda-visualization#TypeOfVisualization -->
+
+    <owl:Class rdf:about="http://linda-project.eu/linda-visualization#TypeOfVisualization">
+        <rdfs:label xml:lang="en">Type Of Visualization</rdfs:label>
+        <rdfs:comment xml:lang="en">Type of visualization: Comparision, Time Series, Part-To-Whole, Distribution, Correlation</rdfs:comment>
+    </owl:Class>
+
+<!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+<!-- SCALE OF MEASURE FOR CATEGORICAL DATA-->
+
+<!-- http://linda-project.eu/linda-visualization#Ordinal -->
+
+   <owl:NamedIndividual rdf:about="http://linda-project.eu/linda-visualization#Ordinal"> 
+	<rdf:type rdf:resource="http://linda-project.eu/linda-visualization#ScaleOfMeasurementForCategoricalData"/> 
+        <rdfs:label xml:lang="en">Ordinal</rdfs:label>
+        <rdfs:comment xml:lang="en">Scale of measurement for categorical data</rdfs:comment>
+   </owl:NamedIndividual>
+
+<!-- http://linda-project.eu/linda-visualization#Nominal -->
+
+   <owl:NamedIndividual rdf:about="http://linda-project.eu/linda-visualization#Nominal"> 
+	<rdf:type rdf:resource="http://linda-project.eu/linda-visualization#ScaleOfMeasurementForCategoricalData"/> 
+        <rdfs:label xml:lang="en">Nominal</rdfs:label>
+        <rdfs:comment xml:lang="en">Scale of measurement for categorical data</rdfs:comment>
+   </owl:NamedIndividual>
+
+<!-- SCALE OF MEASURE FOR QUANTITATIVE (NUMERICAL) DATA-->
+
+<!-- http://linda-project.eu/linda-visualization#Interval -->
+
+   <owl:NamedIndividual rdf:about="http://linda-project.eu/linda-visualization#Interval"> 
+	<rdf:type rdf:resource="http://linda-project.eu/linda-visualization#ScaleOfMeasurementForQuantitativeData"/> 
+        <rdfs:label xml:lang="en">Interval</rdfs:label>
+        <rdfs:comment xml:lang="en">Scale of measurement for quantitative data</rdfs:comment>
+   </owl:NamedIndividual>
+
+<!-- http://linda-project.eu/linda-visualization#Ratio -->
+
+   <owl:NamedIndividual rdf:about="http://linda-project.eu/linda-visualization#Ratio"> 
+	<rdf:type rdf:resource="http://linda-project.eu/linda-visualization#ScaleOfMeasurementForQuantitativeData"/> 
+        <rdfs:label xml:lang="en">Ratio</rdfs:label>
+        <rdfs:comment xml:lang="en">Scale of measurement for quantitative data</rdfs:comment>
+   </owl:NamedIndividual>
+
+<!-- SCALE OF MEASURE FOR SPATIAL DATA-->
+
+ <owl:NamedIndividual rdf:about="http://linda-project.eu/linda-visualization#Spatial"> 
+	<rdf:type rdf:resource="http://linda-project.eu/linda-visualization#ScaleOfMeasurementForSpatialData"/> 
+        <rdfs:label xml:lang="en">Spatial</rdfs:label>
+        <rdfs:comment xml:lang="en">Scale of measurement for spatial data</rdfs:comment>
+   </owl:NamedIndividual>
+
+<!-- TYPE OF VISUALIZATION -->
+
+<!-- http://linda-project.eu/linda-visualization#Comparison -->
+
+   <owl:NamedIndividual rdf:about="http://linda-project.eu/linda-visualization#Comparison"> 
+	<rdf:type rdf:resource="http://linda-project.eu/linda-visualization#TypeOfVisualization"/> 
+        <rdfs:label xml:lang="en">Comparison</rdfs:label>
+        <rdfs:comment xml:lang="en">Type of visualization</rdfs:comment>
+   </owl:NamedIndividual>
+
+<!-- http://linda-project.eu/linda-visualization#TimeSeries -->
+
+   <owl:NamedIndividual rdf:about="http://linda-project.eu/linda-visualization#TimeSeries"> 
+	<rdf:type rdf:resource="http://linda-project.eu/linda-visualization#TypeOfVisualization"/> 
+        <rdfs:label xml:lang="en">Time Series</rdfs:label>
+        <rdfs:comment xml:lang="en">Type of visualization</rdfs:comment>
+   </owl:NamedIndividual>
+
+<!-- http://linda-project.eu/linda-visualization#PartToWhole -->
+
+   <owl:NamedIndividual rdf:about="http://linda-project.eu/linda-visualization#PartToWhole"> 
+	<rdf:type rdf:resource="http://linda-project.eu/linda-visualization#TypeOfVisualization"/> 
+        <rdfs:label xml:lang="en">Part-To-Whole</rdfs:label>
+        <rdfs:comment xml:lang="en">Type of visualization</rdfs:comment>
+   </owl:NamedIndividual>
+
+<!-- http://linda-project.eu/linda-visualization#Distribution -->
+
+   <owl:NamedIndividual rdf:about="http://linda-project.eu/linda-visualization#Distribution"> 
+	<rdf:type rdf:resource="http://linda-project.eu/linda-visualization#TypeOfVisualization"/> 
+        <rdfs:label xml:lang="en">Distribution</rdfs:label>
+        <rdfs:comment xml:lang="en">Type of visualization</rdfs:comment>
+   </owl:NamedIndividual>
+
+<!-- http://linda-project.eu/linda-visualization#Correlation -->
+
+   <owl:NamedIndividual rdf:about="http://linda-project.eu/linda-visualization#Correlation"> 
+	<rdf:type rdf:resource="http://linda-project.eu/linda-visualization#TypeOfVisualization"/> 
+        <rdfs:label xml:lang="en">Correlation</rdfs:label>
+        <rdfs:comment xml:lang="en">Type of visualization</rdfs:comment>
+   </owl:NamedIndividual>
+
+<!-- http://linda-project.eu/linda-visualization#Geographical -->
+
+   <owl:NamedIndividual rdf:about="http://linda-project.eu/linda-visualization#Geographical"> 
+	<rdf:type rdf:resource="http://linda-project.eu/linda-visualization#TypeOfVisualization"/> 
+        <rdfs:label xml:lang="en">Geographical</rdfs:label>
+        <rdfs:comment xml:lang="en">Type of visualization</rdfs:comment>
+   </owl:NamedIndividual>
+
+<!-- VISUALIZATIONS-->
+
+<!-- http://linda-project.eu/linda-visualization#BarChart -->
+
+    <owl:NamedIndividual rdf:about="http://linda-project.eu/linda-visualization#BarChart">
+        <rdfs:comment xml:lang="en">A graph used to display and compare the number, frequency or other measure for different discrete categories of data.</rdfs:comment>
+        <rdf:type rdf:resource="http://linda-project.eu/linda-visualization#Visualization"/>
+        <linda-visualization:visualizationType rdf:resource="http://linda-project.eu/linda-visualization#Comparison"/>
+        <linda-visualization:visualizationType rdf:resource="http://linda-project.eu/linda-visualization#PartToWhole"/>
+        <linda-visualization:visualizationType rdf:resource="http://linda-project.eu/linda-visualization#TimeSeries"/>
+        <linda-visualization:structureOption>
+           <rdf:Description>
+	     <rdf:type rdf:resource="http://linda-project.eu/linda-visualization#Option"/>
+		<linda-visualization:optionType>
+		   <rdf:Description>
+	                <rdf:type rdf:resource="http://linda-project.eu/linda-visualization#Dimension"/>
+			<linda-visualization:scaleOfMeasurement rdf:resource="http://linda-project.eu/linda-visualization#Nominal"/>
+			<linda-visualization:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</linda-visualization:minCardinality>
+			<linda-visualization:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</linda-visualization:maxCardinality>
+	            </rdf:Description>
+	       </linda-visualization:optionType>
+	       <linda-visualization:optionName>Horizontal Axis</linda-visualization:optionName>	
+            </rdf:Description>
+	</linda-visualization:structureOption>
+        <linda-visualization:structureOption>
+ 	    <rdf:Description>
+	     <rdf:type rdf:resource="http://linda-project.eu/linda-visualization#Option"/>
+		<linda-visualization:optionType>
+		   <rdf:Description>
+	                <rdf:type rdf:resource="http://linda-project.eu/linda-visualization#Dimension"/>
+			<linda-visualization:scaleOfMeasurement rdf:resource="http://linda-project.eu/linda-visualization#Ratio"/>
+			<linda-visualization:scaleOfMeasurement rdf:resource="http://linda-project.eu/linda-visualization#Interval"/>
+			<linda-visualization:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</linda-visualization:minCardinality>
+			<linda-visualization:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</linda-visualization:maxCardinality>
+	            </rdf:Description>
+	       </linda-visualization:optionType>
+	       <linda-visualization:optionName>Vertical Axis</linda-visualization:optionName>	
+            </rdf:Description>
+	</linda-visualization:structureOption>
+        <linda-visualization:structureOption>
+ 	   <rdf:Description>
+	     <rdf:type rdf:resource="http://linda-project.eu/linda-visualization#Option"/>
+		<linda-visualization:optionType>
+		   <rdf:Description>
+	                <rdf:type rdf:resource="http://linda-project.eu/linda-visualization#Dimension"/>
+			<linda-visualization:scaleOfMeasurement rdf:resource="http://linda-project.eu/linda-visualization#Nominal"/>
+			<linda-visualization:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</linda-visualization:maxCardinality>
+	            </rdf:Description>
+	       </linda-visualization:optionType>
+	       <linda-visualization:optionName>Groups</linda-visualization:optionName>	
+            </rdf:Description>
+	</linda-visualization:structureOption>
+        <linda-visualization:layoutOption>
+           <rdf:Description>
+	     <rdf:type rdf:resource="http://linda-project.eu/linda-visualization#Option"/>
+	       <linda-visualization:optionType rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+	       <linda-visualization:optionName>Label</linda-visualization:optionName>		
+           </rdf:Description>
+	</linda-visualization:layoutOption>
+        <linda-visualization:layoutOption>
+           <rdf:Description>
+	     <rdf:type rdf:resource="http://linda-project.eu/linda-visualization#Option"/>
+	       <linda-visualization:optionType rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+	       <linda-visualization:optionName>Gridlines</linda-visualization:optionName>		
+           </rdf:Description>
+	</linda-visualization:layoutOption>
+       <linda-visualization:layoutOption>
+           <rdf:Description>
+	     <rdf:type rdf:resource="http://linda-project.eu/linda-visualization#Option"/>
+	       <linda-visualization:optionType rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+	       <linda-visualization:optionName>Tooltip</linda-visualization:optionName>		
+           </rdf:Description>
+	</linda-visualization:layoutOption>
+    </owl:NamedIndividual>
+    
+
+<!-- http://linda-project.eu/linda-visualization#LineChart -->
+
+    <owl:NamedIndividual rdf:about="http://linda-project.eu/linda-visualization#LineChart">
+        <rdfs:comment xml:lang="en">A graph used to visualize a trend in data over intervals of time. Line charts emphasize time flow and rate of change rather than the amount of change.</rdfs:comment>
+        <rdf:type rdf:resource="http://linda-project.eu/linda-visualization#Visualization"/>
+        <linda-visualization:visualizationType rdf:resource="http://linda-project.eu/linda-visualization#TimeSeries"/>
+        <linda-visualization:structureOption>
+           <rdf:Description>
+	     <rdf:type rdf:resource="http://linda-project.eu/linda-visualization#Option"/>
+		<linda-visualization:optionType>
+		   <rdf:Description>
+	                <rdf:type rdf:resource="http://linda-project.eu/linda-visualization#Dimension"/>
+			<linda-visualization:scaleOfMeasurement rdf:resource="http://linda-project.eu/linda-visualization#Interval"/>
+			<linda-visualization:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</linda-visualization:minCardinality>
+			<linda-visualization:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</linda-visualization:maxCardinality>
+	            </rdf:Description>
+	       </linda-visualization:optionType>
+	       <linda-visualization:optionName>Horizontal Axis</linda-visualization:optionName>	
+            </rdf:Description>
+	</linda-visualization:structureOption>
+        <linda-visualization:structureOption>
+ 	    <rdf:Description>
+	     <rdf:type rdf:resource="http://linda-project.eu/linda-visualization#Option"/>
+		<linda-visualization:optionType>
+		   <rdf:Description>
+	                <rdf:type rdf:resource="http://linda-project.eu/linda-visualization#Dimension"/>
+			<linda-visualization:scaleOfMeasurement rdf:resource="http://linda-project.eu/linda-visualization#Interval"/>
+			<linda-visualization:scaleOfMeasurement rdf:resource="http://linda-project.eu/linda-visualization#Ratio"/>
+			<linda-visualization:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</linda-visualization:minCardinality>
+			<linda-visualization:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</linda-visualization:maxCardinality>
+	            </rdf:Description>
+	       </linda-visualization:optionType>
+	       <linda-visualization:optionName>Vertical Axis</linda-visualization:optionName>	
+            </rdf:Description>
+	</linda-visualization:structureOption>
+        <linda-visualization:structureOption>
+ 	   <rdf:Description>
+	     <rdf:type rdf:resource="http://linda-project.eu/linda-visualization#Option"/>
+		<linda-visualization:optionType>
+		   <rdf:Description>
+	                <rdf:type rdf:resource="http://linda-project.eu/linda-visualization#Dimension"/>
+			<linda-visualization:scaleOfMeasurement rdf:resource="http://linda-project.eu/linda-visualization#Nominal"/>
+			<linda-visualization:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</linda-visualization:maxCardinality>
+	            </rdf:Description>
+	       </linda-visualization:optionType>
+	       <linda-visualization:optionName>Series</linda-visualization:optionName>	
+            </rdf:Description>
+	</linda-visualization:structureOption>
+        <linda-visualization:layoutOption>
+           <rdf:Description>
+	       <rdf:type rdf:resource="http://linda-project.eu/linda-visualization#Option"/>
+	       <linda-visualization:optionType rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+	       <linda-visualization:optionName>Label</linda-visualization:optionName>		
+           </rdf:Description>
+	</linda-visualization:layoutOption>
+        <linda-visualization:layoutOption>
+           <rdf:Description>
+	     <rdf:type rdf:resource="http://linda-project.eu/linda-visualization#Option"/>
+	       <linda-visualization:optionType rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+	       <linda-visualization:optionName>Gridlines</linda-visualization:optionName>		
+           </rdf:Description>
+	</linda-visualization:layoutOption>
+       <linda-visualization:layoutOption>
+           <rdf:Description>
+	       <rdf:type rdf:resource="http://linda-project.eu/linda-visualization#Option"/>
+	       <linda-visualization:optionType rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+	       <linda-visualization:optionName>Tooltip</linda-visualization:optionName>		
+           </rdf:Description>
+	</linda-visualization:layoutOption>
+    </owl:NamedIndividual>
+
+<!-- http://linda-project.eu/linda-visualization#AreaChart -->
+
+    <owl:NamedIndividual rdf:about="http://linda-project.eu/linda-visualization#AreaChart">
+        <rdfs:comment xml:lang="en">An area chart is a variation of line chart and shows a filled area below the quantity line. It is used to visualize part-to-whole relationships between several time series and their cumulative values.</rdfs:comment>
+        <rdf:type rdf:resource="http://linda-project.eu/linda-visualization#Visualization"/>
+        <linda-visualization:visualizationType rdf:resource="http://linda-project.eu/linda-visualization#PartToWhole"/>
+        <linda-visualization:visualizationType rdf:resource="http://linda-project.eu/linda-visualization#TimeSeries"/>
+        <linda-visualization:structureOption>
+           <rdf:Description>
+	     <rdf:type rdf:resource="http://linda-project.eu/linda-visualization#Option"/>
+		<linda-visualization:optionType>
+		   <rdf:Description>
+	                <rdf:type rdf:resource="http://linda-project.eu/linda-visualization#Dimension"/>
+			<linda-visualization:scaleOfMeasurement rdf:resource="http://linda-project.eu/linda-visualization#Interval"/>
+			<linda-visualization:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</linda-visualization:minCardinality>
+			<linda-visualization:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</linda-visualization:maxCardinality>
+	            </rdf:Description>
+	       </linda-visualization:optionType>
+	       <linda-visualization:optionName>Horizontal Axis</linda-visualization:optionName>	
+            </rdf:Description>
+	</linda-visualization:structureOption>
+        <linda-visualization:structureOption>
+ 	    <rdf:Description>
+	     <rdf:type rdf:resource="http://linda-project.eu/linda-visualization#Option"/>
+		<linda-visualization:optionType>
+		   <rdf:Description>
+	                <rdf:type rdf:resource="http://linda-project.eu/linda-visualization#Dimension"/>
+			<linda-visualization:scaleOfMeasurement rdf:resource="http://linda-project.eu/linda-visualization#Ratio"/>
+			<linda-visualization:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</linda-visualization:minCardinality>
+			<linda-visualization:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</linda-visualization:maxCardinality>
+	            </rdf:Description>
+	       </linda-visualization:optionType>
+	       <linda-visualization:optionName>Vertical Axis</linda-visualization:optionName>	
+            </rdf:Description>
+	</linda-visualization:structureOption>
+        <linda-visualization:structureOption>
+ 	   <rdf:Description>
+	     <rdf:type rdf:resource="http://linda-project.eu/linda-visualization#Option"/>
+		<linda-visualization:optionType>
+		   <rdf:Description>
+	                <rdf:type rdf:resource="http://linda-project.eu/linda-visualization#Dimension"/>
+			<linda-visualization:scaleOfMeasurement rdf:resource="http://linda-project.eu/linda-visualization#Nominal"/>
+			<linda-visualization:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</linda-visualization:maxCardinality>
+	            </rdf:Description>
+	       </linda-visualization:optionType>
+	       <linda-visualization:optionName>Series</linda-visualization:optionName>	
+            </rdf:Description>
+	</linda-visualization:structureOption>
+        <linda-visualization:layoutOption>
+           <rdf:Description>
+	     <rdf:type rdf:resource="http://linda-project.eu/linda-visualization#Option"/>
+	       <linda-visualization:optionType rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+	       <linda-visualization:optionName>Label</linda-visualization:optionName>		
+           </rdf:Description>
+	</linda-visualization:layoutOption>
+        <linda-visualization:layoutOption>
+           <rdf:Description>
+	     <rdf:type rdf:resource="http://linda-project.eu/linda-visualization#Option"/>
+	       <linda-visualization:optionType rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+	       <linda-visualization:optionName>Gridlines</linda-visualization:optionName>		
+           </rdf:Description>
+	</linda-visualization:layoutOption>
+       <linda-visualization:layoutOption>
+           <rdf:Description>
+	     <rdf:type rdf:resource="http://linda-project.eu/linda-visualization#Option"/>
+	       <linda-visualization:optionType rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+	       <linda-visualization:optionName>Tooltip</linda-visualization:optionName>		
+           </rdf:Description>
+	</linda-visualization:layoutOption>
+    </owl:NamedIndividual>
+    
+
+    
+ <!-- http://linda-project.eu/linda-visualization#ScatterChart -->
+
+    <owl:NamedIndividual rdf:about="http://linda-project.eu/linda-visualization#ScatterChart">
+        <rdfs:comment xml:lang="en">A graph used to show the relationship between pairs of quantitative measurements.</rdfs:comment>
+        <rdf:type rdf:resource="http://linda-project.eu/linda-visualization#Visualization"/>
+        <linda-visualization:visualizationType rdf:resource="http://linda-project.eu/linda-visualization#Correlation"/>
+        <linda-visualization:visualizationType rdf:resource="http://linda-project.eu/linda-visualization#Comparision"/>
+        <linda-visualization:structureOption>
+           <rdf:Description>
+	     <rdf:type rdf:resource="http://linda-project.eu/linda-visualization#Option"/>
+		<linda-visualization:optionType>
+		   <rdf:Description>
+	                <rdf:type rdf:resource="http://linda-project.eu/linda-visualization#Dimension"/>
+			<linda-visualization:scaleOfMeasurement rdf:resource="http://linda-project.eu/linda-visualization#Inerval"/>
+			<linda-visualization:scaleOfMeasurement rdf:resource="http://linda-project.eu/linda-visualization#Ratio"/>
+			<linda-visualization:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</linda-visualization:minCardinality>
+			<linda-visualization:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</linda-visualization:maxCardinality>
+	            </rdf:Description>
+	       </linda-visualization:optionType>
+	       <linda-visualization:optionName>Horizontal Axis</linda-visualization:optionName>	
+            </rdf:Description>
+	</linda-visualization:structureOption>
+        <linda-visualization:structureOption>
+ 	    <rdf:Description>
+	     <rdf:type rdf:resource="http://linda-project.eu/linda-visualization#Option"/>
+		<linda-visualization:optionType>
+		   <rdf:Description>
+	                <rdf:type rdf:resource="http://linda-project.eu/linda-visualization#Dimension"/>
+		        <linda-visualization:scaleOfMeasurement rdf:resource="http://linda-project.eu/linda-visualization#Inerval"/>
+			<linda-visualization:scaleOfMeasurement rdf:resource="http://linda-project.eu/linda-visualization#Ratio"/>
+			<linda-visualization:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</linda-visualization:minCardinality>
+			<linda-visualization:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</linda-visualization:maxCardinality>
+	            </rdf:Description>
+	       </linda-visualization:optionType>
+	       <linda-visualization:optionName>Vertical Axis</linda-visualization:optionName>	
+            </rdf:Description>
+	</linda-visualization:structureOption>
+        <linda-visualization:structureOption>
+ 	   <rdf:Description>
+	     <rdf:type rdf:resource="http://linda-project.eu/linda-visualization#Option"/>
+		<linda-visualization:optionType>
+		   <rdf:Description>
+	                <rdf:type rdf:resource="http://linda-project.eu/linda-visualization#Dimension"/>
+			<linda-visualization:scaleOfMeasurement rdf:resource="http://linda-project.eu/linda-visualization#Nominal"/>
+			<linda-visualization:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</linda-visualization:maxCardinality>
+	            </rdf:Description>
+	       </linda-visualization:optionType>
+	       <linda-visualization:optionName>Groups</linda-visualization:optionName>	
+            </rdf:Description>
+	</linda-visualization:structureOption>
+        <linda-visualization:layoutOption>
+           <rdf:Description>
+	     <rdf:type rdf:resource="http://linda-project.eu/linda-visualization#Option"/>
+	       <linda-visualization:optionType rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+	       <linda-visualization:optionName>Label</linda-visualization:optionName>		
+           </rdf:Description>
+	</linda-visualization:layoutOption>
+        <linda-visualization:layoutOption>
+           <rdf:Description>
+	     <rdf:type rdf:resource="http://linda-project.eu/linda-visualization#Option"/>
+	       <linda-visualization:optionType rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+	       <linda-visualization:optionName>Gridlines</linda-visualization:optionName>		
+           </rdf:Description>
+	</linda-visualization:layoutOption>
+       <linda-visualization:layoutOption>
+           <rdf:Description>
+	     <rdf:type rdf:resource="http://linda-project.eu/linda-visualization#Option"/>
+	       <linda-visualization:optionType rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+	       <linda-visualization:optionName>Tooltip</linda-visualization:optionName>		
+           </rdf:Description>
+	</linda-visualization:layoutOption>
+    </owl:NamedIndividual>
+   
+
+ <!--  http://linda-project.eu/linda-visualization#BubbleChart -->
+
+    <owl:NamedIndividual rdf:about="http://linda-project.eu/linda-visualization#BubbleChart">
+      <rdfs:comment xml:lang="en">A graph is used to display three dimensional data, where the third dimension is a size of a bubble. The fourth dimension could be embedded as a color of bubbles.</rdfs:comment>
+        <rdf:type rdf:resource="http://linda-project.eu/linda-visualization#Visualization"/>
+        <linda-visualization:visualizationType rdf:resource="http://linda-project.eu/linda-visualization#Comparison"/>
+        <linda-visualization:visualizationType rdf:resource="http://linda-project.eu/linda-visualization#Correlation"/>
+        <linda-visualization:structureOption>
+           <rdf:Description>
+	     <rdf:type rdf:resource="http://linda-project.eu/linda-visualization#Option"/>
+		<linda-visualization:optionType>
+		   <rdf:Description>
+	                <rdf:type rdf:resource="http://linda-project.eu/linda-visualization#Dimension"/>
+			<linda-visualization:scaleOfMeasurement rdf:resource="http://linda-project.eu/linda-visualization#Interval"/>
+			<linda-visualization:scaleOfMeasurement rdf:resource="http://linda-project.eu/linda-visualization#Ratio"/>
+			<linda-visualization:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</linda-visualization:minCardinality>
+			<linda-visualization:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</linda-visualization:maxCardinality>
+	            </rdf:Description>
+	       </linda-visualization:optionType>
+	       <linda-visualization:optionName>Horizontal Axis</linda-visualization:optionName>	
+            </rdf:Description>
+	</linda-visualization:structureOption>
+        <linda-visualization:structureOption>
+ 	    <rdf:Description>
+	     <rdf:type rdf:resource="http://linda-project.eu/linda-visualization#Option"/>
+		<linda-visualization:optionType>
+		   <rdf:Description>
+	                <rdf:type rdf:resource="http://linda-project.eu/linda-visualization#Dimension"/>
+			<linda-visualization:scaleOfMeasurement rdf:resource="http://linda-project.eu/linda-visualization#Interval"/>
+			<linda-visualization:scaleOfMeasurement rdf:resource="http://linda-project.eu/linda-visualization#Ratio"/>
+			<linda-visualization:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</linda-visualization:minCardinality>
+			<linda-visualization:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</linda-visualization:maxCardinality>
+	            </rdf:Description>
+	       </linda-visualization:optionType>
+	       <linda-visualization:optionName>Vertical Axis</linda-visualization:optionName>	
+            </rdf:Description>
+	</linda-visualization:structureOption>
+        <linda-visualization:structureOption>
+ 	   <rdf:Description>
+	     <rdf:type rdf:resource="http://linda-project.eu/linda-visualization#Option"/>
+		<linda-visualization:optionType>
+		   <rdf:Description>
+	                <rdf:type rdf:resource="http://linda-project.eu/linda-visualization#Dimension"/>
+			<linda-visualization:scaleOfMeasurement rdf:resource="http://linda-project.eu/linda-visualization#Ratio"/>
+			<linda-visualization:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</linda-visualization:minCardinality>
+			<linda-visualization:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</linda-visualization:maxCardinality>
+	            </rdf:Description>
+	       </linda-visualization:optionType>
+	       <linda-visualization:optionName>Size</linda-visualization:optionName>	
+            </rdf:Description>
+	</linda-visualization:structureOption>
+        <linda-visualization:structureOption>
+ 	   <rdf:Description>
+	     <rdf:type rdf:resource="http://linda-project.eu/linda-visualization#Option"/>
+		<linda-visualization:optionType>
+		   <rdf:Description>
+	                <rdf:type rdf:resource="http://linda-project.eu/linda-visualization#Dimension"/>
+			<linda-visualization:scaleOfMeasurement rdf:resource="http://linda-project.eu/linda-visualization#Nominal"/>
+			<linda-visualization:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</linda-visualization:maxCardinality>
+	            </rdf:Description>
+	       </linda-visualization:optionType>
+	       <linda-visualization:optionName>Groups</linda-visualization:optionName>	
+            </rdf:Description>
+	</linda-visualization:structureOption>
+       <linda-visualization:structureOption>
+ 	   <rdf:Description>
+	     <rdf:type rdf:resource="http://linda-project.eu/linda-visualization#Option"/>
+		<linda-visualization:optionType>
+		   <rdf:Description>
+	                <rdf:type rdf:resource="http://linda-project.eu/linda-visualization#Dimension"/>
+			<linda-visualization:scaleOfMeasurement rdf:resource="http://linda-project.eu/linda-visualization#Nominal"/>
+			<linda-visualization:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</linda-visualization:maxCardinality>
+	            </rdf:Description>
+	       </linda-visualization:optionType>
+	       <linda-visualization:optionName>Label</linda-visualization:optionName>	
+            </rdf:Description>
+	</linda-visualization:structureOption>
+        <linda-visualization:layoutOption>
+           <rdf:Description>
+	     <rdf:type rdf:resource="http://linda-project.eu/linda-visualization#Option"/>
+	       <linda-visualization:optionType rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+	       <linda-visualization:optionName>Label</linda-visualization:optionName>		
+           </rdf:Description>
+	</linda-visualization:layoutOption>
+        <linda-visualization:layoutOption>
+           <rdf:Description>
+	     <rdf:type rdf:resource="http://linda-project.eu/linda-visualization#Option"/>
+	       <linda-visualization:optionType rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+	       <linda-visualization:optionName>Gridlines</linda-visualization:optionName>		
+           </rdf:Description>
+	</linda-visualization:layoutOption>
+       <linda-visualization:layoutOption>
+           <rdf:Description>
+	     <rdf:type rdf:resource="http://linda-project.eu/linda-visualization#Option"/>
+	       <linda-visualization:optionType rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+	       <linda-visualization:optionName>Tooltip</linda-visualization:optionName>		
+           </rdf:Description>
+	</linda-visualization:layoutOption>
+    </owl:NamedIndividual>
+   
+<!--  http://linda-project.eu/linda-visualization#PieChart -->
+
+    <owl:NamedIndividual rdf:about="http://linda-project.eu/linda-visualization#PieChart">
+        <rdfs:comment xml:lang="en">A graph used for visualizing the relative contribution that different categories contribute to an overall total.</rdfs:comment>
+        <rdf:type rdf:resource="http://linda-project.eu/linda-visualization#Visualization"/>
+        <linda-visualization:visualizationType rdf:resource="http://linda-project.eu/linda-visualization#PartToWhole"/>
+        <linda-visualization:structureOption>
+           <rdf:Description>
+	     <rdf:type rdf:resource="http://linda-project.eu/linda-visualization#Option"/>
+		<linda-visualization:optionType>
+		   <rdf:Description>
+	                <rdf:type rdf:resource="http://linda-project.eu/linda-visualization#Dimension"/>
+			<linda-visualization:scaleOfMeasurement rdf:resource="http://linda-project.eu/linda-visualization#Ratio"/>
+			<linda-visualization:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</linda-visualization:minCardinality>
+			<linda-visualization:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</linda-visualization:maxCardinality>
+	            </rdf:Description>
+	       </linda-visualization:optionType>
+	       <linda-visualization:optionName>Measure Axis</linda-visualization:optionName>	
+            </rdf:Description>
+	</linda-visualization:structureOption>
+        <linda-visualization:structureOption>
+ 	    <rdf:Description>
+	     <rdf:type rdf:resource="http://linda-project.eu/linda-visualization#Option"/>
+		<linda-visualization:optionType>
+		   <rdf:Description>
+	                <rdf:type rdf:resource="http://linda-project.eu/linda-visualization#Dimension"/>
+			<linda-visualization:scaleOfMeasurement rdf:resource="http://linda-project.eu/linda-visualization#Nominal"/>
+			<linda-visualization:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</linda-visualization:minCardinality>
+			<linda-visualization:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">6</linda-visualization:maxCardinality>
+	            </rdf:Description>
+	       </linda-visualization:optionType>
+	       <linda-visualization:optionName>Series</linda-visualization:optionName>	
+            </rdf:Description>
+	</linda-visualization:structureOption>
+        <linda-visualization:layoutOption>
+           <rdf:Description>
+	     <rdf:type rdf:resource="http://linda-project.eu/linda-visualization#Option"/>
+	       <linda-visualization:optionType rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+	       <linda-visualization:optionName>Label</linda-visualization:optionName>		
+           </rdf:Description>
+	</linda-visualization:layoutOption>
+       <linda-visualization:layoutOption>
+           <rdf:Description>
+	     <rdf:type rdf:resource="http://linda-project.eu/linda-visualization#Option"/>
+	       <linda-visualization:optionType rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+	       <linda-visualization:optionName>Tooltip</linda-visualization:optionName>		
+           </rdf:Description>
+	</linda-visualization:layoutOption>
+    </owl:NamedIndividual>
+
+
+    <!-- http://www.semanticweb.org/ontologies/2014/9/visualization#Map -->
+
+    <owl:NamedIndividual rdf:about="http://linda-project.eu/linda-visualization#Map">
+       <rdfs:comment xml:lang="en">A visualization used for displaying geographical data on a map.</rdfs:comment>
+        <rdf:type rdf:resource="http://linda-project.eu/linda-visualization#Visualization"/>
+        <linda-visualization:visualizationType rdf:resource="http://linda-project.eu/linda-visualization#Geographical"/>
+        <linda-visualization:visualizationType rdf:resource="http://linda-project.eu/linda-visualization#Comparison"/>
+        <linda-visualization:structureOption>
+           <rdf:Description>
+	     <rdf:type rdf:resource="http://linda-project.eu/linda-visualization#Option"/>
+		<linda-visualization:optionType>
+		   <rdf:Description>
+	                <rdf:type rdf:resource="http://linda-project.eu/linda-visualization#Dimension"/>
+			<linda-visualization:scaleOfMeasurement rdf:resource="http://linda-project.eu/linda-visualization#Spatial"/>
+			<linda-visualization:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</linda-visualization:minCardinality>
+			<linda-visualization:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</linda-visualization:maxCardinality>
+	            </rdf:Description>
+	       </linda-visualization:optionType>
+	       <linda-visualization:optionName>Latitude</linda-visualization:optionName>	
+            </rdf:Description>
+	</linda-visualization:structureOption>
+        <linda-visualization:structureOption>
+ 	    <rdf:Description>
+	     <rdf:type rdf:resource="http://linda-project.eu/linda-visualization#Option"/>
+		<linda-visualization:optionType>
+		   <rdf:Description>
+	                <rdf:type rdf:resource="http://linda-project.eu/linda-visualization#Dimension"/>
+			<linda-visualization:scaleOfMeasurement rdf:resource="http://linda-project.eu/linda-visualization#Spatial"/>
+			<linda-visualization:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</linda-visualization:minCardinality>
+			<linda-visualization:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</linda-visualization:maxCardinality>
+	            </rdf:Description>
+	       </linda-visualization:optionType>
+	       <linda-visualization:optionName>Longitude</linda-visualization:optionName>	
+            </rdf:Description>
+	</linda-visualization:structureOption>
+        <linda-visualization:structureOption>
+ 	   <rdf:Description>
+	     <rdf:type rdf:resource="http://linda-project.eu/linda-visualization#Option"/>
+		<linda-visualization:optionType>
+		   <rdf:Description>
+	                <rdf:type rdf:resource="http://linda-project.eu/linda-visualization#Dimension"/>
+			<linda-visualization:scaleOfMeasurement rdf:resource="http://linda-project.eu/linda-visualization#Nominal"/>
+			<linda-visualization:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</linda-visualization:minCardinality>
+			<linda-visualization:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</linda-visualization:maxCardinality>
+	            </rdf:Description>
+	       </linda-visualization:optionType>
+	       <linda-visualization:optionName>Label</linda-visualization:optionName>	
+            </rdf:Description>
+	</linda-visualization:structureOption>
+        <linda-visualization:structureOption>
+ 	   <rdf:Description>
+	     <rdf:type rdf:resource="http://linda-project.eu/linda-visualization#Option"/>
+		<linda-visualization:optionType>
+		   <rdf:Description>
+	                <rdf:type rdf:resource="http://linda-project.eu/linda-visualization#Dimension"/>
+			<linda-visualization:scaleOfMeasurement rdf:resource="http://linda-project.eu/linda-visualization#Ratio"/>
+	            </rdf:Description>
+	       </linda-visualization:optionType>
+	       <linda-visualization:optionName>Indicator</linda-visualization:optionName>	
+            </rdf:Description>
+	</linda-visualization:structureOption>
+    </owl:NamedIndividual>
+
+</rdf:RDF>

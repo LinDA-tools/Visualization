@@ -1,6 +1,0 @@
-{ "_id" : { "$oid" : "53f0d1ac8e2a624dfcae3b08" }, "name" : "UC1 Drug Price Analysis", "location" : "http://localhost:3001/testsets/UC1_Drug_Price_Analysis.csv", "metadata" : "", "format" : "csv" }
-{ "_id" : { "$oid" : "53f0d1c68e2a624dfcae3b09" }, "name" : "UC2 Newspaper Articles Analysis", "location" : "http://localhost:3001/testsets/UC2_Newspaper-Articles-Analysis.csv", "metadata" : "UC2_Newspaper-Articles-Analysis.csv", "format" : "csv" }
-{ "_id" : { "$oid" : "53f0d1d08e2a624dfcae3b0a" }, "name" : "UC3 Water Quality Analysis", "location" : { "graph" : "http://water_quality_check.it/info", "endpoint" : "http://localhost:8890/sparql" }, "format" : "rdf", "metadata" : "http://void_water_quality_check.it/info" }
-{ "_id" : { "$oid" : "53f0d1db8e2a624dfcae3b0b" }, "name" : "UC4a Healthcare Analysis", "location" : { "graph" : "http://www.hospitals_reviewer.com/2014", "endpoint" : "http://localhost:8890/sparql" }, "format" : "rdf", "metadata" : "http://void_www.hospitals_reviewer.com/2014" }
-{ "_id" : { "$oid" : "54077e6b47fa4ced5ffe0873" }, "name" : "World Bank GDP per capita", "location" : { "graph" : "http://www.linda-project.org/examples/worldbank-slice-5000", "endpoint" : "http://localhost:8890/sparql" }, "format" : "rdf", "metadata" : "http://void_www.linda-project.org/examples/worldbank-slice-5000" }
-

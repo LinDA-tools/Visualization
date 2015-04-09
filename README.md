@@ -14,7 +14,7 @@ Prerequisites
 ------------------------------------------------------------------
 - Git
 - Nodejs
-- Virtuoso
+- Triplestore (for example Virtuoso)
 - Compass (Ruby)
 
 Installation steps (Ubuntu v. 12.04)
@@ -86,20 +86,7 @@ Then install Compass:
 ```
 
 **DEMO SETUP:**
-- Upload RDF datasets from `Visualization/backend/testsets` into Virtuoso:
-```sh
-- Login into Virtuoso Conductor web interface (e.g. http://localhost:8890).
-- Select the tab "Linked Data" and then "Quad Store Upload"
-- For each RDF dataset enter the following graph IRIs:
+- Upload RDF datasets from `Visualization/backend/testsets` into Virtuoso
+- Upload the visualization ontology from `Visualization/backend/visualization_ontology` into Virtuoso (URI: http://linda-project.eu/linda-visualization)
 
-  UC2_Newspaper-Articles-Analysis: http://newspaper.org/articles_2007
 
-  UC3_Water-Quality-Analysis: http://water_quality_check.it/info
-
-  UC4_a_Healthcare-Analysis: http://www.hospitals_reviewer.com/2014
-```
-- Upload into Virtuoso the dataset_metadata.ttl with the following URI: http://www.linda-project.org/dataset_metadata
-
-**TODO**
-- Finish implementation of visualization recommendation algorithm 
-- Integrate visualization libraries for graph visualizations

@@ -1,0 +1,95 @@
+<div class="row" id="v_container">
+    <div {{bind-attr class="isToggled:col-md-5:col-md-0"}}>
+        <!-- Visualization Selection -->
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h1 class="panel-title pull-left">Select Visualization</h1>
+            </div>
+            <div class="panel-body">
+                <div class="sliderWrapper">
+                    {{view "slide-show" slides=controller.model}}
+                </div>
+            </div>
+        </div>
+
+        <!-- Visualization Configuration - Left: Tree with data source; Right: dimension mapping -->
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h1 class="panel-title pull-left">Configure Visualization</h1>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h1 class="panel-title pull-left">Selected Data</h1>
+                            </div>
+                            <div class="panel-body">
+                                {{view "properties-list" categories=controller.categorizedProperties}}
+                            </div>                           
+                        </div> 
+                    </div>
+                    <div class="col-md-6">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h1 class="panel-title pull-left">Visualization Options</h1>
+                            </div>
+                            <div class="panel-body">
+                                {{view "visualization-options"
+                            options=controller.structureOptions
+                            config=controller.visualizationConfiguration}}
+                            </div> 
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer clearfix">
+                <button type="button" class="btn btn-default pull-right" {{action 'select'}}>
+                    <span class="glyphicon glyphicon-stats" aria-hidden="true"></span>   Select Data
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+    <div {{bind-attr class="isToggled:col-md-7:col-md-12"}}>
+        <!-- Visualization -->
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h1 class="panel-title pull-left">Configured Visualization</h1>
+                <button type="button" class="btn btn-default btn-xs pull-right" {{action 'toggle'}}>
+                    {{#if isToggled}}
+                    <span class="glyphicon glyphicon-resize-full" aria-hidden="true"></span> 
+                    {{else}}
+                    <span class="glyphicon glyphicon-resize-small" aria-hidden="true"></span> 
+                    {{/if}}
+                </button>
+            </div>
+            <div class="panel-body">
+                {{view "draw-visualization"
+                    id='visualization'
+                    visualization=controller.drawnVisualization
+                    configurationArray=controller.visualizationConfiguration}}            
+            </div>
+            <div class="panel-footer clearfix">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="row">
+                            {{partial 'export-visualization'}}
+                        </div>
+                        <div class="row">
+                            {{partial 'save-visualization'}}
+                        </div>
+                    </div>
+                <div class="col-md-4">
+                    {{view "visualization-options"
+                            options=controller.layoutOptions
+                            config=controller.visualizationConfiguration}}
+                </div>
+                    <div class="col-md-6"></div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

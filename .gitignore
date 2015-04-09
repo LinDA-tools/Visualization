@@ -1,5 +1,5 @@
-/backend/nbproject
-/backend/node_modules
-/frontend/node_modules
-/frontend/app/bower_components
-/frontend/.netbeans.xml
+/linda-vis-be/nbproject
+/linda-vis-be/node_modules
+/linda-vis-fe/node_modules
+/linda-vis-fe/bower_components
+/linda-vis-fe/.netbeans.xml

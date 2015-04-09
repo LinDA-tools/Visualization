@@ -1,0 +1,131 @@
+@base <http://water_quality_check.it/info#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix cube: <http://purl.org/linked-data/cube#> .
+@prefix ex: <http://water_quality_check.it/info#> .
+
+<> a owl:Ontology ;
+   rdfs:label "Water Qualitiy Analysis 2010" ;
+   dc:description "" .
+
+#
+# Data Structure Definition
+#
+ex:dsd a cube:DataStructureDefinition ;
+    rdfs:label "dsd"@en ;
+    cube:component ex:monthCS, ex:precipitationCS, ex:qualityCS .
+
+#
+# Components
+#
+ex:monthCS a cube:ComponentSpecification ;
+    rdfs:label "Month" ;
+    cube:dimension ex:month .
+
+ex:precipitationCS a cube:ComponentSpecification ;
+    rdfs:label "precipitation" ;
+    cube:measure ex:valuePre .
+
+ex:qualityCS a cube:ComponentSpecification ;
+    rdfs:label "quality" ;
+    cube:measure ex:valueQual .
+
+#
+# Dataset
+#
+ex:dataset a cube:DataSet ;
+    rdfs:label "Water Qualitiy Analysis 2010"^^<http://www.w3.org/2001/XMLSchema#string> ;
+    cube:structure ex:dsd .
+
+#
+# Dimensions, Units and Measures
+#
+ex:month a cube:DimensionProperty ;
+    rdfs:range xsd:int;
+    rdfs:label "Month"@en .
+
+ex:valuePre a cube:MeasureProperty ;
+    rdfs:label "Precipitation Deviation"@en .
+
+ex:valueQual a cube:MeasureProperty ;
+    rdfs:label "Quality Deviation"@en .
+    
+#
+# Observation
+#
+ex:obs0 a cube:Observation ;
+    cube:dataSet ex:dataset ;
+    ex:month "1"^^xsd:int ;
+    ex:valuePre "0.117" ;
+    ex:valueQual "-0.046" .
+
+ex:obs1 a cube:Observation ;
+    cube:dataSet ex:dataset ;
+    ex:month "2"^^xsd:int ;
+    ex:valuePre "0.191" ;
+    ex:valueQual "-0.062" .
+
+ex:obs2 a cube:Observation ;
+    cube:dataSet ex:dataset ;
+    ex:month "3"^^xsd:int ;
+    ex:valuePre "0.127" ;
+    ex:valueQual "-0.013" .
+
+ex:obs3 a cube:Observation ;
+    cube:dataSet ex:dataset ;
+    ex:month "4"^^xsd:int ;
+    ex:valuePre "-0.323" ;
+    ex:valueQual "0.02" .
+
+ex:obs4 a cube:Observation ;
+    cube:dataSet ex:dataset ;
+    ex:month "5"^^xsd:int ;
+    ex:valuePre "-0.085" ;
+    ex:valueQual "0.029" .
+
+ex:obs5 a cube:Observation ;
+    cube:dataSet ex:dataset ;
+    ex:month "6"^^xsd:int ;
+    ex:valuePre "-0.569" ;
+    ex:valueQual "0.011" .
+
+ex:obs6 a cube:Observation ;
+    cube:dataSet ex:dataset ;
+    ex:month "7"^^xsd:int ;
+    ex:valuePre "-0.999" ;
+    ex:valueQual "-0.028" .
+
+ex:obs7 a cube:Observation ;
+    cube:dataSet ex:dataset ;
+    ex:month "8"^^xsd:int ;
+    ex:valuePre "-1.118" ;
+    ex:valueQual "-0.06" .
+
+ex:obs8 a cube:Observation ;
+    cube:dataSet ex:dataset ;
+    ex:month "9"^^xsd:int ;
+    ex:valuePre "-0.092" ;
+    ex:valueQual "-0.629" .
+
+ex:obs9 a cube:Observation ;
+    cube:dataSet ex:dataset ;
+    ex:month "10"^^xsd:int ;
+    ex:valuePre "-0.195" ;
+    ex:valueQual "-0.046" .
+
+ex:obs10 a cube:Observation ;
+    cube:dataSet ex:dataset ;
+    ex:month "11"^^xsd:int ;
+    ex:valuePre "0.01" ;
+    ex:valueQual "0.0" .
+    
+ex:obs11 a cube:Observation ;
+    cube:dataSet ex:dataset ;
+    ex:month "12"^^xsd:int ;
+    ex:valuePre "0.005" ;
+    ex:valueQual "0.05" .
+

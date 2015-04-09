@@ -1,0 +1,145 @@
+@prefix cu: <http://countries.eu/currency#> .
+@prefix cap: <http://countries.eu/capital#> .
+@prefix cco: <http://countries.eu/country#> .
+@prefix csi: <http://countries.eu/sight#> .
+@prefix lsp: <http://countries.eu/language#> .
+@prefix mem: <http://countries.eu/memberof#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix cainf: <http://countries.eu/capital-inf#> .
+@prefix coinf: <http://countries.eu/country-inf#> .
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@base <http://www.w3.org/2002/07/owl#> .
+
+
+cainf:country rdfs:label "country" .
+cainf:sight rdfs:label "sight" .
+coinf:capital rdfs:label "capital" .
+coinf:currency rdfs:label "currency" .
+coinf:language rdfs:label "language" .
+mem:isMemberOf rdfs:label "member of" .
+cainf:country rdf:type owl:ObjectProperty ;
+              rdfs:label "country" ;
+              rdfs:subPropertyOf owl:topObjectProperty .
+
+cainf:sight rdf:type owl:ObjectProperty ;
+            rdfs:label "sight" .
+
+coinf:capital rdf:type owl:ObjectProperty ;
+              rdfs:label "capital" .
+
+coinf:currency rdf:type owl:ObjectProperty ;
+               rdfs:label "currency" ;
+               rdfs:subPropertyOf owl:topObjectProperty .
+
+coinf:language rdf:type owl:ObjectProperty ;
+               rdfs:label "language" .
+
+mem:isMemberOf rdf:type owl:ObjectProperty ;
+               rdfs:label "member of" .
+
+cainf:population rdf:type owl:DatatypeProperty .
+coinf:area rdf:type owl:DatatypeProperty .
+coinf:code rdf:type owl:DatatypeProperty .
+coinf:population rdf:type owl:DatatypeProperty .
+
+
+cap:Capital rdf:type owl:Class .
+cco:Country rdf:type owl:Class ;
+            rdfs:subClassOf cco:GeographicEntity .
+
+cco:GeographicEntity rdf:type owl:Class .
+
+
+cap:Berlin rdf:type cap:Capital ;
+           rdfs:label "Berlin" ;
+		      geo:lat "52.699786"; 
+		      geo:long "13.439188";
+           cainf:population "3375222" ;
+           cainf:country cco:Germany ;
+           cainf:sight csi:ReichstagBuilding .
+
+csi:ReichstagBuilding foaf:depiction <http://upload.wikimedia.org/wikipedia/commons/c/cc/Berlin_-_Reichstag_building_at_night_-_2013.jpg>.
+
+cap:Bucharest rdf:type cap:Capital ;
+              rdfs:label "Bucharest" ;
+		       geo:lat "44.487567"; 
+		       geo:long "26.099101";
+              cainf:population "1883425" ;
+              cainf:country cco:Romania ;
+              cainf:sight csi:PalastOfTheParliament .
+
+csi:PalastOfTheParliament foaf:depiction <http://www.romaniatourism.com/images/valentin-zamora/bucharest-parliament-palace.jpg>.
+
+cap: rdf:type cap:Capital ;
+             rdfs:label "Budapest" ;
+		        geo:lat "47.601961";
+		        geo:long "19.027650";
+             cainf:population "1733685" ;
+             cainf:country cco:Hungary ;
+             cainf:sight csi:ChainBridge .
+
+csi:ChainBridge foaf:depiction <http://cache.graphicslib.viator.com/graphicslib/media/62/budapest-chain-bridge-at-night-photo_989026-770tall.jpg>.
+
+cap:Vienna rdf:type cap:Capital ;
+           rdfs:label "Vienna" ;
+		geo:lat "48.315525";
+		geo:long "16.365297";
+           cainf:population "1741246" ;
+           cainf:country cco:Austria ;	
+           cainf:sight csi:SchönbrunnPalace .
+
+csi:SchönbrunnPalace foaf:depiction <http://farm1.static.flickr.com/22/32687095_0cf541c986_b.jpg>.
+
+
+cco:Austria rdf:type cco:Country ;
+            rdfs:label "Austria" ;
+            coinf:code "43" ;
+            coinf:area "83878.99" ;
+            coinf:population "8488511" ;
+            coinf:capital cap:Vienna ;
+            mem:isMemberOf cco:EuropeanUnion ;
+            coinf:currency cu:Euro ;
+			geo:lat "48.2";
+			geo:long "16.366667";
+            coinf:language lsp:Deutsch .
+
+cco:Germany rdf:type cco:Country ;
+            rdfs:label "Germany" ;
+            coinf:area "357121.41" ;
+            coinf:population "80523746" ;
+            coinf:code "49" ;
+            coinf:capital cap:Berlin ;
+            mem:isMemberOf cco:EuropeanUnion ;
+            coinf:currency cu:Euro ;
+			geo:lat "52.794829";
+			geo:long "10.552996";
+            coinf:language lsp:German .
+
+cco:Hungary rdf:type cco:Country ;
+            rdfs:label "Hungary" ;
+            coinf:area "93036" ;
+            coinf:code "36" ;
+            coinf:population "9908798" ;
+            coinf:capital cap:Budapest ;
+            mem:isMemberOf cco:EuropeanUnion ;
+            coinf:currency cu:Forint ;
+			geo:lat "48.024298";
+			geo:long "19.489275";
+            coinf:language lsp:Hungarian .
+
+cco:Romania rdf:type cco:Country ;
+            rdfs:label "Romania" ;
+            coinf:population "20121641" ;
+            coinf:area "238391" ;
+            coinf:code "40" ;
+            coinf:capital cap:Bucharest ;
+            mem:isMemberOf cco:EuropeanUnion ;
+            coinf:currency cu:RON ;
+			geo:lat "47.678669"; 
+			geo:long "24.778718";
+            coinf:language lsp:Romanian .

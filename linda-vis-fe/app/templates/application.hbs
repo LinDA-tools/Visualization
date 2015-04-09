@@ -1,0 +1,33 @@
+<div class="container">
+    <div id="header">
+        <nav class="navbar navbar-default" >
+            <div class="container-fluid"> 
+                <div class="navbar-header">
+
+                    {{#link-to "index" animations="main:fade"}}
+                    <a class="navbar-brand" href="#">
+                        <img src="logo.png"/> <span> LinDaViz</span>
+                    </a>
+                    {{/link-to}}
+
+                </div>
+                <div class="collapse navbar-collapse">
+                    <div class="btn-group pull-right" role="group">
+                        <button type="button" class="btn btn-default navbar-btn">
+                            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+                        </button>
+                        {{#link-to "saved-visualizations"}}
+                        <button type="button" class="btn btn-default navbar-btn">
+                            <span class="glyphicon glyphicon-open-file" aria-hidden="true"></span>
+                        </button>
+                        {{/link-to}}
+                    </div>
+
+                </div>               
+            </div>
+        </nav>
+    </div>
+    <div>
+        {{outlet animationSequence="async"}}
+    </div>
+</div>

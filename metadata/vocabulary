@@ -1,2 +1,0 @@
-{ "_id" : { "$oid" : "5351429507918c3f77f85d12" }, "name" : "data cube", "category" : "statistical", "graph" : "http://purl.org/linked-data/cube#", "endpoint" : "http://localhost:8890/sparql" }
-{ "_id" : { "$oid" : "535cf19760f08b645fffaddc" }, "name" : "basic geo", "category" : "geographical", "graph" : "http://www.w3.org/2003/01/geo/wgs84_pos#", "endpoint" : "http://localhost:8890/sparql" }

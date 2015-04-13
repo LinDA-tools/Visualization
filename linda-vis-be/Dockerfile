@@ -3,7 +3,7 @@ MAINTAINER Klaudia Thellmann
 
 COPY . /usr/src/app
 WORKDIR /usr/src/app
-RUN npm install
+RUN apt-get update && apt-get install -y git-core && npm install && apt-get clean
 ENV VISBACKEND_EP=http://store:8890/sparql
 
 EXPOSE 3002

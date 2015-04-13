@@ -128,7 +128,7 @@ export default Ember.ArrayController.extend({
                     console.log("SAVED SUCCESSFULLY (but Ember didn't understand)");
                 } else {
                     console.log("ERROR DURING SAVING");
-                    console.log(errorText);
+                    console.log(response);
                 }
             });
         },

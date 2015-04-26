@@ -1,1 +1,1 @@
-DB.DBA.TTLP(file_to_string_output('/data/visualization_ontology/linda_visualization_nt.owl'), '', 'http://linda-project.eu/linda-visualization', 0);
+DB.DBA.TTLP(file_to_string_output('/data/visualization_ontology/linda_visualization_ttl.owl'), '', 'http://linda-project.eu/linda-visualization', 0);

@@ -23,8 +23,21 @@ Installation steps
 Please follow the installation instructions on the [Docker website] (http://docs.docker.com/installation/)
 
 
-**Start the application:**
-
-
+**Build and start the application:**
 - cd LinDAVis
 - docker-compose up
+
+**If you want to start the application while re-using the old containers (preserving changed data etc.)**
+- cd LinDAVis
+- docker-compose start
+
+**If you want to start only one or two of the containers**
+- cd LinDAVis
+- "docker-compose start store" (for Virtuoso) or "docker-compose start backend" (for Virtuoso and Backend)
+This is useful for setting up the development environment without having to compile Virtuoso.
+
+**If you want to rebuild the images**
+- cd LinDAVis
+- docker-compose build
+or, if you want to rebuild only some:
+- docker-compose build store

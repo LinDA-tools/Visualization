@@ -5,97 +5,76 @@ var query_patterns = require('./visualization_modules/query_visualization_patter
 var query_visualizations = require('./visualization_modules/query_visualizations.js');
 
 
+var INVALID_MAPPING_WEIGHT = 1000;
+
 // Cost function: 
 // Defines how well dimensions and properties match according to their scales of measurement
 function calculateCost(dimension, property) {
     if (property.dummy) {
+        // Dummy properties are inserted to simulate leaving optional dimensions unassigned
+        // and can only be assigned to their corresponding dimensions. 
+        // Prefer a bad but valid match over leaving an optional dimension unassigned, 
+        // but don't assign if the mapping would become invalid.
         if (property.dimension === dimension.optionName) {
-            return 10;
+            return 100;
         } else {
-            return 1000;
+            return INVALID_MAPPING_WEIGHT;
         }
     }
 
-    var pType = property.type;
-    var scaleWeight = 100;
+    var propType = property.type;
+    var scalePenalty = INVALID_MAPPING_WEIGHT;
 
     // A dimension may be able to handle more than one scale of measurement
     // => Take the minimum weight
     for (var i = 0; i < dimension.scalesOfMeasurement.length; i++) {
-        var dType = dimension.scalesOfMeasurement[i];
-        if (pType === dType) {
-            scaleWeight = Math.min(0, scaleWeight);
-        } else if (pType === "Quantitative" && dType === "Ratio" || dType === "Quantitative" && pType === "Ratio") {
-            scaleWeight = Math.min(1, scaleWeight);
-        } else if (pType === "Quantitative" && dType === "Spatial" || dType === "Quantitative" && pType === "Spatial") {
-            scaleWeight = Math.min(1, scaleWeight);
-        } else if (pType === "Ratio" && dType === "Spatial") {
-            scaleWeight = Math.min(1, scaleWeight);
-        } else if (pType === "Quantitative" && dType === "Interval" || dType === "Quantitative" && pType === "Interval") {
-            scaleWeight = Math.min(2, scaleWeight);
-        } else if (pType === "Categorical" && dType === "Nominal" || dType === "Categorical" && pType === "Nominal") {
-            scaleWeight = Math.min(1, scaleWeight);
-        } else if (pType === "Categorical" && dType === "Ordinal" || dType === "Categorical" && pType === "Ordinal") {
-            scaleWeight = Math.min(2, scaleWeight);
-        }
-    }
-
-    var optionalWeight;
-    if (dimension.optional) {
-        // Prefer mapping required dimensions over mapping optional dimensions
-        optionalWeight = 3;
-    } else {
-        optionalWeight = 0;
-    }
-
-    // TODO: Allow more than 1 associated property per dimension? (For different vocabularies with equivalent properties)
-    var propertyFactor;
-    if (dimension.associatedProperty === property.key) {
-        // Reward matching properties
-        console.log("Property " + property.label + " matches with dimension " + dimension.optionName);
-        propertyFactor = 0.5;
-    } else {
-        // Don't know how well the property matches to the dimension => no change
-        propertyFactor = 1.0;
-    }
-
-    var propertyPenalty = 0;
-    if (dimension.associatedProperty !== property.key) {
-        // TODO: Make sure we get this from the ontology
-        var special = (property.special || property.key === "http://www.w3.org/2003/01/geo/wgs84_pos#lat" || property.key === "http://www.w3.org/2003/01/geo/wgs84_pos#long");
-        if (special) {
-            // Special properties can only be assigned to dimensions associated with them
-            console.log("Special property " + property.label + " doesn't match with dimension " + dimension.optionName);
-            propertyPenalty = 1000;
-        } else if (dimension.associatedProperty) {
-            console.log("Property " + property.label + " doesn't match with dimension " + dimension.optionName);
-            // Make assignment of non-matching property illegal
-            propertyPenalty = 100;
+        var dimType = dimension.scalesOfMeasurement[i];
+        if (propType === dimType) {
+            scalePenalty = Math.min(0, scalePenalty);
+        } else if (
+                dimType === "Nominal" && propType === "Ordinal"
+                || dimType === "Ordinal" && propType === "Interval"
+                || dimType === "Interval" && propType === "Ratio"
+                ) {
+            scalePenalty = Math.min(30, scalePenalty);
+        } else if (dimType === "Interval" && propType === "Ratio") {
+            scalePenalty = Math.min(40, scalePenalty);
         }
     }
 
     var dimensionRole = getDimensionRole(dimension.dimensionRole);
     var propertyRole = property.role;
 
-    // console.log("roles: dimension: " + dimensionRole + " (" + dimension.dimensionRole + ") property " + propertyRole);
-    var roleFactor;
+    var rolePenalty;
     if (dimensionRole && propertyRole) {
         if (dimensionRole === propertyRole) {
-            // Known good role
-            console.log("Property " + property.label + " matches with role of dimension " + dimension.optionName);
-            roleFactor = 0.75;
+            rolePenalty = 0;
         } else {
             // Known false role -- probably pretty bad
-            console.log("Property " + property.label + " doesn't match with role of dimension " + dimension.optionName);
-            roleFactor = 3.0;
+            rolePenalty = INVALID_MAPPING_WEIGHT;
         }
+    } else if (dimensionRole && !propertyRole) {
+        // Dimension role defined but property role unknown 
+        // Might or might not work -- some penalty, but less than for assigning property with worse SOM
+        rolePenalty = 20;
+    } else if (propertyRole && !dimensionRole) {
+        // Property role known but dimension role not defined
+        // May mean that either kind of data works, but prefer known-good assignments anyway
+        rolePenalty = 5;
     } else {
-        roleFactor = 1.0;
+        rolePenalty = 0;
     }
 
+    var optionalPenalty;
+    if (dimension.optional) {
+        // Prefer mapping required dimensions over mapping optional dimensions,
+        // (better to have a suboptimal mapping than to have an incomplete one)
+        optionalPenalty = 50;
+    } else {
+        optionalPenalty = 0;
+    }
 
-
-    var weight = propertyFactor * roleFactor * (scaleWeight + optionalWeight) + propertyPenalty;
+    var weight = scalePenalty + rolePenalty + optionalPenalty;
 
     return weight;
 }
@@ -157,10 +136,10 @@ function addRecommendation(visualizationPattern, properties, visualizationDescri
     var mk = new m.Munkres();
     var solution = mk.compute(costs);
 
-    console.log(JSON.stringify(dimensions.map(function(d) {
+    console.log(JSON.stringify(dimensions.map(function (d) {
         return d.optionName;
     })));
-    console.log(JSON.stringify(properties.map(function(p) {
+    console.log(JSON.stringify(properties.map(function (p) {
         return p.key;
     })));
     console.log(JSON.stringify(costs));
@@ -188,7 +167,7 @@ function addRecommendation(visualizationPattern, properties, visualizationDescri
             result.numAssignments++;
 
             result.cost += cost;
-            if (cost >= 100) {
+            if (cost >= INVALID_MAPPING_WEIGHT) {
                 //  console.log('Bad match: ' + dimension.optionName + " -> " + property.label);
                 visualizationDescription.valid = false;
             }
@@ -268,10 +247,10 @@ function recommend(dataselection, endpoint, ontology_graph) {
     console.log(JSON.stringify(dataselection));
 
     var visualizationPatternMap;
-    return query_patterns.query(ontology_graph, endpoint).then(function(patterns) {
+    return query_patterns.query(ontology_graph, endpoint).then(function (patterns) {
         visualizationPatternMap = patterns;
         return query_visualizations.query(ontology_graph, endpoint);
-    }).then(function(visualizationDescriptions) {
+    }).then(function (visualizationDescriptions) {
         var recommendations = ranking(visualizationPatternMap, dataselection.propertyInfos, visualizationDescriptions);
         for (var i = 0; i < recommendations.length; i++) {
             recommendations[i].dataselection = dataselection.id;

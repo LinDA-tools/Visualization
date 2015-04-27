@@ -1,3 +1,42 @@
-DB.DBA.TTLP(file_to_string_output('/data/datasets/UC2_Newspaper-Articles-Analysis.ttl'), '', 'http://newspaper.org/articles_2007', 0);
+DB.DBA.TTLP(file_to_string_output('/data/datasets/Department_of_Agriculture_Quick_Stats.nt'), '', 'http://www.linda-project.org/examples/DepartmentOfAgriculture-QuickStats.nt', 0);
+
+DB.DBA.TTLP(file_to_string_output('/data/datasets/Department_of_Defense_Active_Duty_Marital_Status.nt'), '', 'http://www.linda-project.org/examples/DepartmentOfDefense-MaritalStatus.nt', 0);
+
+DB.DBA.TTLP(file_to_string_output('/data/datasets/Department_of_Health_and_Human_Services_OMH_Claims_Listed_by_State.nt'), '', 'http://www.linda-project.org/examples/DepartmentofHealthandHumanServices-OMHClaimsListedbyState.nt', 0);
+
+DB.DBA.TTLP(file_to_string_output('/data/datasets/Department_of_the_Interior_Total_Wildland_Fires_and_Acres_burned_from_1960_through_2008.nt'), '', 'http://www.linda-project.org/examples/DepartmentOfTheInterior-WildlandFiresand1960-2008.nt', 0);
+
+DB.DBA.TTLP(file_to_string_output('/data/datasets/Department_of_State_Africa_Conflicts_Without_Borders_2009.nt'), '', 'http://www.linda-project.org/examples/DepartmentofState-AfricaConflictsWithoutBorders2009.nt', 0);
+
+DB.DBA.TTLP(file_to_string_output('/data/datasets/Department_of_the_Treasury_Quarterly_Report_on_Bank_Derivatives_Activities.nt'), '', 'http://www.linda-project.org/examples/DepartmentOfTheTreasury-QuarterlyReportonBankDerivativesActivities.nt', 0);     
+
+DB.DBA.TTLP(file_to_string_output('/data/datasets/Department_of_Veterans_Affairs_Veterans_Health_Administration_2008_Hospital_Report_Card_-_Waiting_Times.nt'), '', 'http://www.linda-project.org/examples/DepartmentOfVeteransAffairs-VeteransHealthAdministration2008.nt', 0);       
+
+DB.DBA.TTLP(file_to_string_output('/data/datasets/General_Services_Administration_Cash_and_Payments_Management_Data.nt'), '', 'http://www.linda-project.org/examples/GeneralServicesAdministration-CashandPaymentsManagementData.nt', 0);
+
+DB.DBA.TTLP(file_to_string_output('/data/datasets/National_Science_Foundation_NSF_Research_Grant_Funding_Rates.nt'), '', 'http://www.linda-project.org/examples/NationalScienceFoundation-NSFResearchGrantFundingRates.nt', 0);
+
+DB.DBA.TTLP(file_to_string_output('/data/datasets/National_Transportation_Safety_Board_Aviation_Accidents,_Fatalities,_and_Rates,_2008_Preliminary_Statistics,_U.S._Aviation.nt'), '', 'http://www.linda-project.org/examples/NationalTransportationSafetyBoardAviation-AccidentStatistics2008.nt', 0);
+
+DB.DBA.TTLP(file_to_string_output('/data/datasets/Office_of_Personnel_Management_Fiscal_Year_2007_Employee__and__Survivor_Annuitants_by_Geographic_Distribution.nt'), '', 'http://www.linda-project.org/examples/OfficeofPersonnelManagement-FiscalYear2007EmployeeSurvivorAnnuitants.nt', 0);  
+
+DB.DBA.TTLP(file_to_string_output('/data/datasets/Security_and_Exchange_Commission_Public_Company_Bankruptcy_Cases_Opened_and_Monitored_for_Fiscal_Year_2009.nt'), '', 'http://www.linda-project.org/examples/SecurityAndExchangeCommission-PublicCompanyBankruptcyCases2009.nt', 0);
+
 DB.DBA.TTLP(file_to_string_output('/data/datasets/worldbank-slice-5000.ttl'), '', 'http://www.linda-project.org/examples/worldbank-slice-5000', 0);
+DB.DBA.TTLP(file_to_string_output('/data/datasets/years.ttl'), '', 'http://www.linda-project.org/examples/worldbank-slice-5000', 0);
+
+DB.DBA.TTLP(file_to_string_output('/data/datasets/UC4_a_Healthcare-Analysis.ttl'), '', 'http://www.hospitals_reviewer.com/2014', 0);
+
+DB.DBA.TTLP(file_to_string_output('/data/datasets/UC3_Water-Quality-Analysis.ttl'), '', 'http://water_quality_check.it/info', 0);
+
+DB.DBA.TTLP(file_to_string_output('/data/datasets/UC2_Newspaper-Articles-Analysis.ttl'), '', 'http://newspaper.org/articles_2007', 0);
+
+
+DB.DBA.TTLP(file_to_string_output('/data/datasets/UC2_Newspaper-Articles-Analysis.ttl'), '', 'http://newspaper.org/articles_2007', 0);
+
+-- DB.DBA.TTLP(file_to_string_output('/data/datasets/http://Bundestagswahlstatistik'), '', 'http://Bundestagswahlstatistik', 0);
+
+DB.DBA.TTLP(file_to_string_output('/data/datasets/HealthData.govHospitalInpatientDischargesbyFacility.ttl'), '', 'http://HealthData.govHospitalInpatientDischargesbyFacility', 0);
+
+DB.DBA.TTLP(file_to_string_output('/data/datasets/TS1_LinearRegression_Result_Original_Locations.ttl'), '', 'http://www.linda-project.org/TS1_LinearRegression_Result_Original', 0);
 

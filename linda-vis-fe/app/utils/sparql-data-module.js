@@ -153,6 +153,9 @@ var sparql_data_module = function () {
                 switch (sampleValueType) {
                     case "literal":
                     case "typed-literal":
+                        scaleOfMeasurement = predictRDFPropertySOM(propertyURI);
+                        
+                        if(!scaleOfMeasurement) {
                         var datatype = result.sampleValue.datatype;
                         if (datatype) {
                             scaleOfMeasurement = predictRDFDatatypeSOM(datatype);
@@ -160,6 +163,7 @@ var sparql_data_module = function () {
                             var parsedSampleValue = util.toScalar(sampleValue);
                             scaleOfMeasurement = util.predictValueSOM(parsedSampleValue);
                         }
+                    }
                         break;
                     case "uri":
                     case "bnode":
@@ -186,6 +190,17 @@ var sparql_data_module = function () {
         });
     }
 
+    function predictRDFPropertySOM(propertyURI) {
+        switch(propertyURI) {
+            case  "http://www.w3.org/2003/01/geo/wgs84_pos#lat": 
+               return "Geographic Latitude";
+            case "http://www.w3.org/2003/01/geo/wgs84_pos#long":
+                return "Geographic Longitude";
+            default:
+                return null;
+        }
+    }
+
     function predictRDFDatatypeSOM(datatype) {
         switch (datatype) {
             case "http://www.w3.org/2001/XMLSchema#float":
@@ -204,16 +219,15 @@ var sparql_data_module = function () {
             case "http://www.w3.org/2001/XMLSchema#unsignedShort":
             case "http://www.w3.org/2001/XMLSchema#unsignedByte":
             case "http://www.w3.org/2001/XMLSchema#positiveInteger":
-                return "Quantitative";
+                return "Ratio";
             case "http://www.w3.org/2001/XMLSchema#dateTime":
             case "http://www.w3.org/2001/XMLSchema#date":
             case "http://www.w3.org/2001/XMLSchema#gYear":
             case "http://www.w3.org/2001/XMLSchema#gYearMonth":
                 return "Interval";
-            case "http://www.w3.org/2001/XMLSchema#string":
-                return "Nominal";
+            // case "http://www.w3.org/2001/XMLSchema#string":
             default:
-                return "Categorical";
+                return "Nominal";
         }
     }
 
@@ -319,11 +333,14 @@ var sparql_data_module = function () {
             case "typed-literal":
                 var datatype = binding.datatype;
                 if (datatype) {
-                    return typedLiteralToScalar(value, datatype);
-                } else {
-                    // if no datatype is given, try same parsing algorithm as for CSV
-                    return util.toScalar(value);
-                }
+                    var parsedValue = typedLiteralToScalar(value, datatype);
+                    if(typeof(parsedValue) !== 'undefined') {
+                        return parsedValue;
+                    }
+                } 
+                
+                // if no (known) datatype is given, try same parsing algorithm as for CSV
+                return util.toScalar(value);
                 break;
             case "uri":
             case "bnode":
@@ -353,20 +370,37 @@ var sparql_data_module = function () {
             case "http://www.w3.org/2001/XMLSchema#unsignedByte":
             case "http://www.w3.org/2001/XMLSchema#positiveInteger":
                 return parseInt(value);
+            case "http://www.w3.org/2001/XMLSchema#gYear":
+                var numberRegex = /\d+/;
+                var firstNumber = numberRegex.exec(value);
+                var dateString;
+                if(firstNumber && firstNumber.length >= 4) {
+                    dateString = firstNumber + "-01-01";
+                } else {
+                    // No idea what this is, maybe JavaScript knows...
+                    dateString = value;
+                }
+                return new Date(dateString);
+            case "http://www.w3.org/2001/XMLSchema#gYearMonth":
+                var twoNumbersWithHyphenRegex = /\d+-\d+/;
+                var firstTwoNumbers = twoNumbersWithHyphenRegex.exec(value);
+                var dateString;
+                if(firstTwoNumbers && firstTwoNumbers.length >= 4) {
+                    dateString = firstTwoNumbers + "-01";
+                } else {
+                    dateString = value;
+                }
+                return new Date(dateString);
             case "http://www.w3.org/2001/XMLSchema#dateTime":
             case "http://www.w3.org/2001/XMLSchema#date":
-            case "http://www.w3.org/2001/XMLSchema#gYear":
-            case "http://www.w3.org/2001/XMLSchema#gYearMonth":
-                // TODO: Does Date.parse understand the xsd date etc. types?
-                // TODO: Parse gYear and gYearMonth correctly
-                return Date.parse(value);
+                return new Date(value);
             case "http://www.w3.org/2001/XMLSchema#string":
                 // Can plain literals be returned as xsd:string in newer 
                 // versions of RDF/SPARQL? If so, uses toScalar here to handle
                 // datasets with missing types
                 return value;
             default:
-                return value;
+                return;
         }
     }
 

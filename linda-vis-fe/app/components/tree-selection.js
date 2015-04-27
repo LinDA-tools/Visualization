@@ -150,17 +150,20 @@ export default Ember.Component.extend({
         return node;
     },
     hideCheckbox: function(type) {
-        switch (type) {
-            case "Quantitative":
+        switch (record) {
+            case "Ratio":
             case "Interval":
-            case "Categorical":
             case "Nominal":
+            case "Angular":
+            case "Geographic Latitude":
+            case "Geographic Longitude":
             case "Class":
                 return false;
             case "Resource":
             case "Nothing":
                 return true;
         }
+        console.error("Unknown category: '" + type + "'");
         return null;
     }
 });

@@ -318,17 +318,20 @@ define('linda-vis-fe/components/tree-selection', ['exports', 'ember'], function 
             return node;
         },
         hideCheckbox: function hideCheckbox(type) {
-            switch (type) {
-                case "Quantitative":
+            switch (record) {
+                case "Ratio":
                 case "Interval":
-                case "Categorical":
                 case "Nominal":
+                case "Angular":
+                case "Geographic Latitude":
+                case "Geographic Longitude":
                 case "Class":
                     return false;
                 case "Resource":
                 case "Nothing":
                     return true;
             }
+            console.error("Unknown category: '" + type + "'");
             return null;
         }
     });
@@ -431,12 +434,12 @@ define('linda-vis-fe/controllers/visualization', ['exports', 'ember', 'linda-vis
             for (var i = 0; i < propertyInfos.length; i++) {
                 var propertyInfo = propertyInfos[i];
                 var category = propertyInfo.type;
-                var dtype = propertyInfo.datatype;
+                var datatype = propertyInfo.datatype;
 
                 if (!categorizedProperties[category]) {
                     categorizedProperties[category] = {
                         name: category,
-                        datatype: dtype,
+                        datatype: datatype,
                         items: []
                     };
                 }
@@ -536,7 +539,7 @@ define('linda-vis-fe/controllers/visualization', ['exports', 'ember', 'linda-vis
                         console.log("SAVED SUCCESSFULLY (but Ember didn't understand)");
                     } else {
                         console.log("ERROR DURING SAVING");
-                        console.log(errorText);
+                        console.log(response);
                     }
                 });
             },
@@ -784,7 +787,7 @@ define('linda-vis-fe/templates/application', ['exports'], function (exports) {
     var child0 = (function() {
       return {
         isHTMLBars: true,
-        revision: "Ember@1.11.1",
+        revision: "Ember@1.11.3",
         blockParams: 0,
         cachedFragment: null,
         hasRendered: false,
@@ -839,7 +842,7 @@ define('linda-vis-fe/templates/application', ['exports'], function (exports) {
     var child1 = (function() {
       return {
         isHTMLBars: true,
-        revision: "Ember@1.11.1",
+        revision: "Ember@1.11.3",
         blockParams: 0,
         cachedFragment: null,
         hasRendered: false,
@@ -888,7 +891,7 @@ define('linda-vis-fe/templates/application', ['exports'], function (exports) {
     }());
     return {
       isHTMLBars: true,
-      revision: "Ember@1.11.1",
+      revision: "Ember@1.11.3",
       blockParams: 0,
       cachedFragment: null,
       hasRendered: false,
@@ -1019,7 +1022,7 @@ define('linda-vis-fe/templates/components/draggable-item', ['exports'], function
   exports['default'] = Ember.HTMLBars.template((function() {
     return {
       isHTMLBars: true,
-      revision: "Ember@1.11.1",
+      revision: "Ember@1.11.3",
       blockParams: 0,
       cachedFragment: null,
       hasRendered: false,
@@ -1067,7 +1070,7 @@ define('linda-vis-fe/templates/components/droppable-area', ['exports'], function
   exports['default'] = Ember.HTMLBars.template((function() {
     return {
       isHTMLBars: true,
-      revision: "Ember@1.11.1",
+      revision: "Ember@1.11.3",
       blockParams: 0,
       cachedFragment: null,
       hasRendered: false,
@@ -1114,7 +1117,7 @@ define('linda-vis-fe/templates/components/property-item', ['exports'], function 
   exports['default'] = Ember.HTMLBars.template((function() {
     return {
       isHTMLBars: true,
-      revision: "Ember@1.11.1",
+      revision: "Ember@1.11.3",
       blockParams: 0,
       cachedFragment: null,
       hasRendered: false,
@@ -1185,7 +1188,7 @@ define('linda-vis-fe/templates/configure', ['exports'], function (exports) {
   exports['default'] = Ember.HTMLBars.template((function() {
     return {
       isHTMLBars: true,
-      revision: "Ember@1.11.1",
+      revision: "Ember@1.11.3",
       blockParams: 0,
       cachedFragment: null,
       hasRendered: false,
@@ -1266,7 +1269,7 @@ define('linda-vis-fe/templates/datasource', ['exports'], function (exports) {
     var child0 = (function() {
       return {
         isHTMLBars: true,
-        revision: "Ember@1.11.1",
+        revision: "Ember@1.11.3",
         blockParams: 0,
         cachedFragment: null,
         hasRendered: false,
@@ -1308,7 +1311,7 @@ define('linda-vis-fe/templates/datasource', ['exports'], function (exports) {
     var child1 = (function() {
       return {
         isHTMLBars: true,
-        revision: "Ember@1.11.1",
+        revision: "Ember@1.11.3",
         blockParams: 0,
         cachedFragment: null,
         hasRendered: false,
@@ -1349,7 +1352,7 @@ define('linda-vis-fe/templates/datasource', ['exports'], function (exports) {
     }());
     return {
       isHTMLBars: true,
-      revision: "Ember@1.11.1",
+      revision: "Ember@1.11.3",
       blockParams: 0,
       cachedFragment: null,
       hasRendered: false,
@@ -1540,7 +1543,7 @@ define('linda-vis-fe/templates/dimension-area', ['exports'], function (exports) 
       var child0 = (function() {
         return {
           isHTMLBars: true,
-          revision: "Ember@1.11.1",
+          revision: "Ember@1.11.3",
           blockParams: 0,
           cachedFragment: null,
           hasRendered: false,
@@ -1581,7 +1584,7 @@ define('linda-vis-fe/templates/dimension-area', ['exports'], function (exports) 
       var child1 = (function() {
         return {
           isHTMLBars: true,
-          revision: "Ember@1.11.1",
+          revision: "Ember@1.11.3",
           blockParams: 0,
           cachedFragment: null,
           hasRendered: false,
@@ -1617,7 +1620,7 @@ define('linda-vis-fe/templates/dimension-area', ['exports'], function (exports) 
       var child2 = (function() {
         return {
           isHTMLBars: true,
-          revision: "Ember@1.11.1",
+          revision: "Ember@1.11.3",
           blockParams: 0,
           cachedFragment: null,
           hasRendered: false,
@@ -1659,7 +1662,7 @@ define('linda-vis-fe/templates/dimension-area', ['exports'], function (exports) 
       }());
       return {
         isHTMLBars: true,
-        revision: "Ember@1.11.1",
+        revision: "Ember@1.11.3",
         blockParams: 0,
         cachedFragment: null,
         hasRendered: false,
@@ -1742,7 +1745,7 @@ define('linda-vis-fe/templates/dimension-area', ['exports'], function (exports) 
     }());
     return {
       isHTMLBars: true,
-      revision: "Ember@1.11.1",
+      revision: "Ember@1.11.3",
       blockParams: 0,
       cachedFragment: null,
       hasRendered: false,
@@ -1794,7 +1797,7 @@ define('linda-vis-fe/templates/export-visualization', ['exports'], function (exp
   exports['default'] = Ember.HTMLBars.template((function() {
     return {
       isHTMLBars: true,
-      revision: "Ember@1.11.1",
+      revision: "Ember@1.11.3",
       blockParams: 0,
       cachedFragment: null,
       hasRendered: false,
@@ -1878,79 +1881,7 @@ define('linda-vis-fe/templates/index', ['exports'], function (exports) {
     var child0 = (function() {
       return {
         isHTMLBars: true,
-        revision: "Ember@1.11.1",
-        blockParams: 0,
-        cachedFragment: null,
-        hasRendered: false,
-        build: function build(dom) {
-          var el0 = dom.createDocumentFragment();
-          var el1 = dom.createTextNode("            17. Newspaper Articles Example (statistical dataset; RDF format)\n");
-          dom.appendChild(el0, el1);
-          return el0;
-        },
-        render: function render(context, env, contextualElement) {
-          var dom = env.dom;
-          dom.detectNamespace(contextualElement);
-          var fragment;
-          if (env.useFragmentCache && dom.canClone) {
-            if (this.cachedFragment === null) {
-              fragment = this.build(dom);
-              if (this.hasRendered) {
-                this.cachedFragment = fragment;
-              } else {
-                this.hasRendered = true;
-              }
-            }
-            if (this.cachedFragment) {
-              fragment = dom.cloneNode(this.cachedFragment, true);
-            }
-          } else {
-            fragment = this.build(dom);
-          }
-          return fragment;
-        }
-      };
-    }());
-    var child1 = (function() {
-      return {
-        isHTMLBars: true,
-        revision: "Ember@1.11.1",
-        blockParams: 0,
-        cachedFragment: null,
-        hasRendered: false,
-        build: function build(dom) {
-          var el0 = dom.createDocumentFragment();
-          var el1 = dom.createTextNode("            14. GDP per Capita Example (temporal/statistical dataset; RDF (data cube) format)\n");
-          dom.appendChild(el0, el1);
-          return el0;
-        },
-        render: function render(context, env, contextualElement) {
-          var dom = env.dom;
-          dom.detectNamespace(contextualElement);
-          var fragment;
-          if (env.useFragmentCache && dom.canClone) {
-            if (this.cachedFragment === null) {
-              fragment = this.build(dom);
-              if (this.hasRendered) {
-                this.cachedFragment = fragment;
-              } else {
-                this.hasRendered = true;
-              }
-            }
-            if (this.cachedFragment) {
-              fragment = dom.cloneNode(this.cachedFragment, true);
-            }
-          } else {
-            fragment = this.build(dom);
-          }
-          return fragment;
-        }
-      };
-    }());
-    var child2 = (function() {
-      return {
-        isHTMLBars: true,
-        revision: "Ember@1.11.1",
+        revision: "Ember@1.11.3",
         blockParams: 0,
         cachedFragment: null,
         hasRendered: false,
@@ -1983,10 +1914,10 @@ define('linda-vis-fe/templates/index', ['exports'], function (exports) {
         }
       };
     }());
-    var child3 = (function() {
+    var child1 = (function() {
       return {
         isHTMLBars: true,
-        revision: "Ember@1.11.1",
+        revision: "Ember@1.11.3",
         blockParams: 0,
         cachedFragment: null,
         hasRendered: false,
@@ -2019,10 +1950,10 @@ define('linda-vis-fe/templates/index', ['exports'], function (exports) {
         }
       };
     }());
-    var child4 = (function() {
+    var child2 = (function() {
       return {
         isHTMLBars: true,
-        revision: "Ember@1.11.1",
+        revision: "Ember@1.11.3",
         blockParams: 0,
         cachedFragment: null,
         hasRendered: false,
@@ -2055,10 +1986,10 @@ define('linda-vis-fe/templates/index', ['exports'], function (exports) {
         }
       };
     }());
-    var child5 = (function() {
+    var child3 = (function() {
       return {
         isHTMLBars: true,
-        revision: "Ember@1.11.1",
+        revision: "Ember@1.11.3",
         blockParams: 0,
         cachedFragment: null,
         hasRendered: false,
@@ -2091,10 +2022,10 @@ define('linda-vis-fe/templates/index', ['exports'], function (exports) {
         }
       };
     }());
-    var child6 = (function() {
+    var child4 = (function() {
       return {
         isHTMLBars: true,
-        revision: "Ember@1.11.1",
+        revision: "Ember@1.11.3",
         blockParams: 0,
         cachedFragment: null,
         hasRendered: false,
@@ -2127,10 +2058,10 @@ define('linda-vis-fe/templates/index', ['exports'], function (exports) {
         }
       };
     }());
-    var child7 = (function() {
+    var child5 = (function() {
       return {
         isHTMLBars: true,
-        revision: "Ember@1.11.1",
+        revision: "Ember@1.11.3",
         blockParams: 0,
         cachedFragment: null,
         hasRendered: false,
@@ -2163,10 +2094,10 @@ define('linda-vis-fe/templates/index', ['exports'], function (exports) {
         }
       };
     }());
-    var child8 = (function() {
+    var child6 = (function() {
       return {
         isHTMLBars: true,
-        revision: "Ember@1.11.1",
+        revision: "Ember@1.11.3",
         blockParams: 0,
         cachedFragment: null,
         hasRendered: false,
@@ -2199,10 +2130,10 @@ define('linda-vis-fe/templates/index', ['exports'], function (exports) {
         }
       };
     }());
-    var child9 = (function() {
+    var child7 = (function() {
       return {
         isHTMLBars: true,
-        revision: "Ember@1.11.1",
+        revision: "Ember@1.11.3",
         blockParams: 0,
         cachedFragment: null,
         hasRendered: false,
@@ -2235,10 +2166,10 @@ define('linda-vis-fe/templates/index', ['exports'], function (exports) {
         }
       };
     }());
-    var child10 = (function() {
+    var child8 = (function() {
       return {
         isHTMLBars: true,
-        revision: "Ember@1.11.1",
+        revision: "Ember@1.11.3",
         blockParams: 0,
         cachedFragment: null,
         hasRendered: false,
@@ -2271,10 +2202,10 @@ define('linda-vis-fe/templates/index', ['exports'], function (exports) {
         }
       };
     }());
-    var child11 = (function() {
+    var child9 = (function() {
       return {
         isHTMLBars: true,
-        revision: "Ember@1.11.1",
+        revision: "Ember@1.11.3",
         blockParams: 0,
         cachedFragment: null,
         hasRendered: false,
@@ -2307,10 +2238,10 @@ define('linda-vis-fe/templates/index', ['exports'], function (exports) {
         }
       };
     }());
-    var child12 = (function() {
+    var child10 = (function() {
       return {
         isHTMLBars: true,
-        revision: "Ember@1.11.1",
+        revision: "Ember@1.11.3",
         blockParams: 0,
         cachedFragment: null,
         hasRendered: false,
@@ -2343,10 +2274,10 @@ define('linda-vis-fe/templates/index', ['exports'], function (exports) {
         }
       };
     }());
-    var child13 = (function() {
+    var child11 = (function() {
       return {
         isHTMLBars: true,
-        revision: "Ember@1.11.1",
+        revision: "Ember@1.11.3",
         blockParams: 0,
         cachedFragment: null,
         hasRendered: false,
@@ -2379,10 +2310,10 @@ define('linda-vis-fe/templates/index', ['exports'], function (exports) {
         }
       };
     }());
-    var child14 = (function() {
+    var child12 = (function() {
       return {
         isHTMLBars: true,
-        revision: "Ember@1.11.1",
+        revision: "Ember@1.11.3",
         blockParams: 0,
         cachedFragment: null,
         hasRendered: false,
@@ -2415,10 +2346,46 @@ define('linda-vis-fe/templates/index', ['exports'], function (exports) {
         }
       };
     }());
-    var child15 = (function() {
+    var child13 = (function() {
       return {
         isHTMLBars: true,
-        revision: "Ember@1.11.1",
+        revision: "Ember@1.11.3",
+        blockParams: 0,
+        cachedFragment: null,
+        hasRendered: false,
+        build: function build(dom) {
+          var el0 = dom.createDocumentFragment();
+          var el1 = dom.createTextNode("            14. GDP per Capita Example (temporal/statistical dataset; RDF (data cube) format)\n");
+          dom.appendChild(el0, el1);
+          return el0;
+        },
+        render: function render(context, env, contextualElement) {
+          var dom = env.dom;
+          dom.detectNamespace(contextualElement);
+          var fragment;
+          if (env.useFragmentCache && dom.canClone) {
+            if (this.cachedFragment === null) {
+              fragment = this.build(dom);
+              if (this.hasRendered) {
+                this.cachedFragment = fragment;
+              } else {
+                this.hasRendered = true;
+              }
+            }
+            if (this.cachedFragment) {
+              fragment = dom.cloneNode(this.cachedFragment, true);
+            }
+          } else {
+            fragment = this.build(dom);
+          }
+          return fragment;
+        }
+      };
+    }());
+    var child14 = (function() {
+      return {
+        isHTMLBars: true,
+        revision: "Ember@1.11.3",
         blockParams: 0,
         cachedFragment: null,
         hasRendered: false,
@@ -2451,10 +2418,10 @@ define('linda-vis-fe/templates/index', ['exports'], function (exports) {
         }
       };
     }());
-    var child16 = (function() {
+    var child15 = (function() {
       return {
         isHTMLBars: true,
-        revision: "Ember@1.11.1",
+        revision: "Ember@1.11.3",
         blockParams: 0,
         cachedFragment: null,
         hasRendered: false,
@@ -2487,16 +2454,52 @@ define('linda-vis-fe/templates/index', ['exports'], function (exports) {
         }
       };
     }());
-    var child17 = (function() {
+    var child16 = (function() {
       return {
         isHTMLBars: true,
-        revision: "Ember@1.11.1",
+        revision: "Ember@1.11.3",
         blockParams: 0,
         cachedFragment: null,
         hasRendered: false,
         build: function build(dom) {
           var el0 = dom.createDocumentFragment();
-          var el1 = dom.createTextNode("            19. Bundestagswahlstatistik (statistical dataset; RDF format)\n");
+          var el1 = dom.createTextNode("            17. Newspaper Articles Example (statistical dataset; RDF format)\n");
+          dom.appendChild(el0, el1);
+          return el0;
+        },
+        render: function render(context, env, contextualElement) {
+          var dom = env.dom;
+          dom.detectNamespace(contextualElement);
+          var fragment;
+          if (env.useFragmentCache && dom.canClone) {
+            if (this.cachedFragment === null) {
+              fragment = this.build(dom);
+              if (this.hasRendered) {
+                this.cachedFragment = fragment;
+              } else {
+                this.hasRendered = true;
+              }
+            }
+            if (this.cachedFragment) {
+              fragment = dom.cloneNode(this.cachedFragment, true);
+            }
+          } else {
+            fragment = this.build(dom);
+          }
+          return fragment;
+        }
+      };
+    }());
+    var child17 = (function() {
+      return {
+        isHTMLBars: true,
+        revision: "Ember@1.11.3",
+        blockParams: 0,
+        cachedFragment: null,
+        hasRendered: false,
+        build: function build(dom) {
+          var el0 = dom.createDocumentFragment();
+          var el1 = dom.createTextNode("            18. Health Data.gov - Hospital Inpatient Discharges by Facility (statistical dataset; RDF format)\n");
           dom.appendChild(el0, el1);
           return el0;
         },
@@ -2526,49 +2529,13 @@ define('linda-vis-fe/templates/index', ['exports'], function (exports) {
     var child18 = (function() {
       return {
         isHTMLBars: true,
-        revision: "Ember@1.11.1",
+        revision: "Ember@1.11.3",
         blockParams: 0,
         cachedFragment: null,
         hasRendered: false,
         build: function build(dom) {
           var el0 = dom.createDocumentFragment();
-          var el1 = dom.createTextNode("            19. Health Data.gov - Hospital Inpatient Discharges by Facility (statistical dataset; RDF format)\n");
-          dom.appendChild(el0, el1);
-          return el0;
-        },
-        render: function render(context, env, contextualElement) {
-          var dom = env.dom;
-          dom.detectNamespace(contextualElement);
-          var fragment;
-          if (env.useFragmentCache && dom.canClone) {
-            if (this.cachedFragment === null) {
-              fragment = this.build(dom);
-              if (this.hasRendered) {
-                this.cachedFragment = fragment;
-              } else {
-                this.hasRendered = true;
-              }
-            }
-            if (this.cachedFragment) {
-              fragment = dom.cloneNode(this.cachedFragment, true);
-            }
-          } else {
-            fragment = this.build(dom);
-          }
-          return fragment;
-        }
-      };
-    }());
-    var child19 = (function() {
-      return {
-        isHTMLBars: true,
-        revision: "Ember@1.11.1",
-        blockParams: 0,
-        cachedFragment: null,
-        hasRendered: false,
-        build: function build(dom) {
-          var el0 = dom.createDocumentFragment();
-          var el1 = dom.createTextNode("            20. TS1 (statistical dataset; RDF format)\n");
+          var el1 = dom.createTextNode("            19. TS1 (statistical dataset; RDF format)\n");
           dom.appendChild(el0, el1);
           return el0;
         },
@@ -2597,7 +2564,7 @@ define('linda-vis-fe/templates/index', ['exports'], function (exports) {
     }());
     return {
       isHTMLBars: true,
-      revision: "Ember@1.11.1",
+      revision: "Ember@1.11.3",
       blockParams: 0,
       cachedFragment: null,
       hasRendered: false,
@@ -2615,26 +2582,6 @@ define('linda-vis-fe/templates/index', ['exports'], function (exports) {
         dom.appendChild(el1, el2);
         var el2 = dom.createElement("ul");
         var el3 = dom.createTextNode("\n        ");
-        dom.appendChild(el2, el3);
-        var el3 = dom.createElement("li");
-        var el4 = dom.createTextNode("\n");
-        dom.appendChild(el3, el4);
-        var el4 = dom.createComment("");
-        dom.appendChild(el3, el4);
-        var el4 = dom.createTextNode("        ");
-        dom.appendChild(el3, el4);
-        dom.appendChild(el2, el3);
-        var el3 = dom.createTextNode("\n        ");
-        dom.appendChild(el2, el3);
-        var el3 = dom.createElement("li");
-        var el4 = dom.createTextNode("\n");
-        dom.appendChild(el3, el4);
-        var el4 = dom.createComment("");
-        dom.appendChild(el3, el4);
-        var el4 = dom.createTextNode("        ");
-        dom.appendChild(el3, el4);
-        dom.appendChild(el2, el3);
-        var el3 = dom.createTextNode("\n\n\n        ");
         dom.appendChild(el2, el3);
         var el3 = dom.createElement("li");
         var el4 = dom.createTextNode("\n");
@@ -2794,7 +2741,17 @@ define('linda-vis-fe/templates/index', ['exports'], function (exports) {
         var el4 = dom.createTextNode("        ");
         dom.appendChild(el3, el4);
         dom.appendChild(el2, el3);
-        var el3 = dom.createTextNode("\n         ");
+        var el3 = dom.createTextNode("\n        ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("li");
+        var el4 = dom.createTextNode("\n");
+        dom.appendChild(el3, el4);
+        var el4 = dom.createComment("");
+        dom.appendChild(el3, el4);
+        var el4 = dom.createTextNode("        ");
+        dom.appendChild(el3, el4);
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n        ");
         dom.appendChild(el2, el3);
         var el3 = dom.createElement("li");
         var el4 = dom.createTextNode("\n");
@@ -2864,27 +2821,25 @@ define('linda-vis-fe/templates/index', ['exports'], function (exports) {
         var morph16 = dom.createMorphAt(dom.childAt(element0, [33]),1,1);
         var morph17 = dom.createMorphAt(dom.childAt(element0, [35]),1,1);
         var morph18 = dom.createMorphAt(dom.childAt(element0, [37]),1,1);
-        var morph19 = dom.createMorphAt(dom.childAt(element0, [39]),1,1);
-        block(env, morph0, context, "link-to", ["datasource", "Newspaper%20Articles%20Analysis", get(env, context, "datasetsEndpointURI"), "http%3A%2F%2Fnewspaper.org%2Farticles_2007", "rdf"], {}, child0, null);
-        block(env, morph1, context, "link-to", ["datasource", "World%20Bank%20GDP%20per%20capita", get(env, context, "datasetsEndpointURI"), "http%3A%2F%2Fwww.linda-project.org%2Fexamples%2Fworldbank-slice-5000", "rdf"], {}, child1, null);
-        block(env, morph2, context, "link-to", ["datasource", "DepartmentOfAgriculture-Quick%20Stats", get(env, context, "datasetsEndpointURI"), "http%3A%2F%2Fwww.linda-project.org%2Fexamples%2FDepartmentOfAgriculture-QuickStats.nt", "rdf"], {}, child2, null);
-        block(env, morph3, context, "link-to", ["datasource", "DepartmentOfDefense-Marital%20Status", get(env, context, "datasetsEndpointURI"), "http%3A%2F%2Fwww.linda-project.org%2Fexamples%2FDepartmentOfDefense-MaritalStatus.nt", "rdf"], {}, child3, null);
-        block(env, morph4, context, "link-to", ["datasource", "DepartmentofHealthandHumanServices-OMHClaims%20Listed%20by%20State", get(env, context, "datasetsEndpointURI"), "http%3A%2F%2Fwww.linda-project.org%2Fexamples%2FDepartmentofHealthandHumanServices-OMHClaimsListedbyState.nt", "rdf"], {}, child4, null);
-        block(env, morph5, context, "link-to", ["datasource", "DepartmentOfTheInterior-Wildl%20and%20Fires%20and%201960-2008", get(env, context, "datasetsEndpointURI"), "http%3A%2F%2Fwww.linda-project.org%2Fexamples%2FDepartmentOfTheInterior-WildlandFiresand1960-2008.nt", "rdf"], {}, child5, null);
-        block(env, morph6, context, "link-to", ["datasource", "DepartmentofState-Africa%20Conflicts%20Without%20Borders%202009", get(env, context, "datasetsEndpointURI"), "http%3A%2F%2Fwww.linda-project.org%2Fexamples%2FDepartmentofState-AfricaConflictsWithoutBorders2009.nt", "rdf"], {}, child6, null);
-        block(env, morph7, context, "link-to", ["datasource", "DepartmentOfTheTreasury-Quarterly%20Report%20on%20Bank%20Derivatives%20Activities", get(env, context, "datasetsEndpointURI"), "http%3A%2F%2Fwww.linda-project.org%2Fexamples%2FDepartmentOfTheTreasury-QuarterlyReportonBankDerivativesActivities.nt", "rdf"], {}, child7, null);
-        block(env, morph8, context, "link-to", ["datasource", "DepartmentOfVeteransAffairs-Veterans%20Health%20Administration%202008", get(env, context, "datasetsEndpointURI"), "http%3A%2F%2Fwww.linda-project.org%2Fexamples%2FDepartmentOfVeteransAffairs-VeteransHealthAdministration2008.nt", "rdf"], {}, child8, null);
-        block(env, morph9, context, "link-to", ["datasource", "GeneralServicesAdministration-Cash%20and%20Payments%20Management%20Data", get(env, context, "datasetsEndpointURI"), "http%3A%2F%2Fwww.linda-project.org%2Fexamples%2FGeneralServicesAdministration-CashandPaymentsManagementData.nt", "rdf"], {}, child9, null);
-        block(env, morph10, context, "link-to", ["datasource", "NationalScienceFoundation-NSF%20Research%20Grant%20Funding%20Rates", get(env, context, "datasetsEndpointURI"), "http%3A%2F%2Fwww.linda-project.org%2Fexamples%2FNationalScienceFoundation-NSFResearchGrantFundingRates.nt", "rdf"], {}, child10, null);
-        block(env, morph11, context, "link-to", ["datasource", "NationalTransportationSafetyBoardAviation-Accident%20Statistics%202008", get(env, context, "datasetsEndpointURI"), "http%3A%2F%2Fwww.linda-project.org%2Fexamples%2FNationalTransportationSafetyBoardAviation-AccidentStatistics2008.nt", "rdf"], {}, child11, null);
-        block(env, morph12, context, "link-to", ["datasource", "OfficeofPersonnelManagement-Fiscal%20Year%202007%20Employee%20Survivor%20Annuitants", get(env, context, "datasetsEndpointURI"), "http%3A%2F%2Fwww.linda-project.org%2Fexamples%2FOfficeofPersonnelManagement-FiscalYear2007EmployeeSurvivorAnnuitants.nt", "rdf"], {}, child12, null);
-        block(env, morph13, context, "link-to", ["datasource", "SecurityAndExchangeCommission-Public%20Company%20Bankruptcy%20Cases%202009", get(env, context, "datasetsEndpointURI"), "http%3A%2F%2Fwww.linda-project.org%2Fexamples%2FSecurityAndExchangeCommission-PublicCompanyBankruptcyCases2009.nt", "rdf"], {}, child13, null);
-        block(env, morph14, context, "link-to", ["datasource", "Sales%20Statistics", "http%3A%2F%2Flocalhost%3A3002%2Ftestsets%2FTS2_Sales_Statistics.csv", "-", "csv"], {}, child14, null);
-        block(env, morph15, context, "link-to", ["datasource", "Healthcare%20Analysis", get(env, context, "datasetsEndpointURI"), "http%3A%2F%2Fwww.hospitals_reviewer.com%2F2014", "rdf"], {}, child15, null);
-        block(env, morph16, context, "link-to", ["datasource", "Water%20Quality%20Analysis", get(env, context, "datasetsEndpointURI"), "http%3A%2F%2Fwater_quality_check.it%2Finfo", "rdf"], {}, child16, null);
-        block(env, morph17, context, "link-to", ["datasource", "Bundestagswahlstatistik", get(env, context, "datasetsEndpointURI"), "http%3A%2F%2FBundestagswahlstatistik", "rdf"], {}, child17, null);
-        block(env, morph18, context, "link-to", ["datasource", "Health Data.gov - Hospital Inpatient Discharges by Facility", get(env, context, "datasetsEndpointURI"), "http%3A%2F%2FHealthData.govHospitalInpatientDischargesbyFacility", "rdf"], {}, child18, null);
-        block(env, morph19, context, "link-to", ["datasource", "TS1", get(env, context, "datasetsEndpointURI"), "http%3A//www.linda-project.org/TS1_LinearRegression_Result_Original", "rdf"], {}, child19, null);
+        block(env, morph0, context, "link-to", ["datasource", "DepartmentOfAgriculture-Quick%20Stats", get(env, context, "datasetsEndpointURI"), "http%3A%2F%2Fwww.linda-project.org%2Fexamples%2FDepartmentOfAgriculture-QuickStats.nt", "rdf"], {}, child0, null);
+        block(env, morph1, context, "link-to", ["datasource", "DepartmentOfDefense-Marital%20Status", get(env, context, "datasetsEndpointURI"), "http%3A%2F%2Fwww.linda-project.org%2Fexamples%2FDepartmentOfDefense-MaritalStatus.nt", "rdf"], {}, child1, null);
+        block(env, morph2, context, "link-to", ["datasource", "DepartmentofHealthandHumanServices-OMHClaims%20Listed%20by%20State", get(env, context, "datasetsEndpointURI"), "http%3A%2F%2Fwww.linda-project.org%2Fexamples%2FDepartmentofHealthandHumanServices-OMHClaimsListedbyState.nt", "rdf"], {}, child2, null);
+        block(env, morph3, context, "link-to", ["datasource", "DepartmentOfTheInterior-Wildl%20and%20Fires%20and%201960-2008", get(env, context, "datasetsEndpointURI"), "http%3A%2F%2Fwww.linda-project.org%2Fexamples%2FDepartmentOfTheInterior-WildlandFiresand1960-2008.nt", "rdf"], {}, child3, null);
+        block(env, morph4, context, "link-to", ["datasource", "DepartmentofState-Africa%20Conflicts%20Without%20Borders%202009", get(env, context, "datasetsEndpointURI"), "http%3A%2F%2Fwww.linda-project.org%2Fexamples%2FDepartmentofState-AfricaConflictsWithoutBorders2009.nt", "rdf"], {}, child4, null);
+        block(env, morph5, context, "link-to", ["datasource", "DepartmentOfTheTreasury-Quarterly%20Report%20on%20Bank%20Derivatives%20Activities", get(env, context, "datasetsEndpointURI"), "http%3A%2F%2Fwww.linda-project.org%2Fexamples%2FDepartmentOfTheTreasury-QuarterlyReportonBankDerivativesActivities.nt", "rdf"], {}, child5, null);
+        block(env, morph6, context, "link-to", ["datasource", "DepartmentOfVeteransAffairs-Veterans%20Health%20Administration%202008", get(env, context, "datasetsEndpointURI"), "http%3A%2F%2Fwww.linda-project.org%2Fexamples%2FDepartmentOfVeteransAffairs-VeteransHealthAdministration2008.nt", "rdf"], {}, child6, null);
+        block(env, morph7, context, "link-to", ["datasource", "GeneralServicesAdministration-Cash%20and%20Payments%20Management%20Data", get(env, context, "datasetsEndpointURI"), "http%3A%2F%2Fwww.linda-project.org%2Fexamples%2FGeneralServicesAdministration-CashandPaymentsManagementData.nt", "rdf"], {}, child7, null);
+        block(env, morph8, context, "link-to", ["datasource", "NationalScienceFoundation-NSF%20Research%20Grant%20Funding%20Rates", get(env, context, "datasetsEndpointURI"), "http%3A%2F%2Fwww.linda-project.org%2Fexamples%2FNationalScienceFoundation-NSFResearchGrantFundingRates.nt", "rdf"], {}, child8, null);
+        block(env, morph9, context, "link-to", ["datasource", "NationalTransportationSafetyBoardAviation-Accident%20Statistics%202008", get(env, context, "datasetsEndpointURI"), "http%3A%2F%2Fwww.linda-project.org%2Fexamples%2FNationalTransportationSafetyBoardAviation-AccidentStatistics2008.nt", "rdf"], {}, child9, null);
+        block(env, morph10, context, "link-to", ["datasource", "OfficeofPersonnelManagement-Fiscal%20Year%202007%20Employee%20Survivor%20Annuitants", get(env, context, "datasetsEndpointURI"), "http%3A%2F%2Fwww.linda-project.org%2Fexamples%2FOfficeofPersonnelManagement-FiscalYear2007EmployeeSurvivorAnnuitants.nt", "rdf"], {}, child10, null);
+        block(env, morph11, context, "link-to", ["datasource", "SecurityAndExchangeCommission-Public%20Company%20Bankruptcy%20Cases%202009", get(env, context, "datasetsEndpointURI"), "http%3A%2F%2Fwww.linda-project.org%2Fexamples%2FSecurityAndExchangeCommission-PublicCompanyBankruptcyCases2009.nt", "rdf"], {}, child11, null);
+        block(env, morph12, context, "link-to", ["datasource", "Sales%20Statistics", "http%3A%2F%2Flocalhost%3A3002%2Ftestsets%2FTS2_Sales_Statistics.csv", "-", "csv"], {}, child12, null);
+        block(env, morph13, context, "link-to", ["datasource", "World%20Bank%20GDP%20per%20capita", get(env, context, "datasetsEndpointURI"), "http%3A%2F%2Fwww.linda-project.org%2Fexamples%2Fworldbank-slice-5000", "rdf"], {}, child13, null);
+        block(env, morph14, context, "link-to", ["datasource", "Healthcare%20Analysis", get(env, context, "datasetsEndpointURI"), "http%3A%2F%2Fwww.hospitals_reviewer.com%2F2014", "rdf"], {}, child14, null);
+        block(env, morph15, context, "link-to", ["datasource", "Water%20Quality%20Analysis", get(env, context, "datasetsEndpointURI"), "http%3A%2F%2Fwater_quality_check.it%2Finfo", "rdf"], {}, child15, null);
+        block(env, morph16, context, "link-to", ["datasource", "Newspaper%20Articles%20Analysis", get(env, context, "datasetsEndpointURI"), "http%3A%2F%2Fnewspaper.org%2Farticles_2007", "rdf"], {}, child16, null);
+        block(env, morph17, context, "link-to", ["datasource", "Health Data.gov - Hospital Inpatient Discharges by Facility", get(env, context, "datasetsEndpointURI"), "http%3A%2F%2FHealthData.govHospitalInpatientDischargesbyFacility", "rdf"], {}, child17, null);
+        block(env, morph18, context, "link-to", ["datasource", "TS1", get(env, context, "datasetsEndpointURI"), "http%3A//www.linda-project.org/TS1_LinearRegression_Result_Original", "rdf"], {}, child18, null);
         return fragment;
       }
     };
@@ -2902,7 +2857,7 @@ define('linda-vis-fe/templates/properties-list', ['exports'], function (exports)
           var child0 = (function() {
             return {
               isHTMLBars: true,
-              revision: "Ember@1.11.1",
+              revision: "Ember@1.11.3",
               blockParams: 0,
               cachedFragment: null,
               hasRendered: false,
@@ -2949,7 +2904,7 @@ define('linda-vis-fe/templates/properties-list', ['exports'], function (exports)
           }());
           return {
             isHTMLBars: true,
-            revision: "Ember@1.11.1",
+            revision: "Ember@1.11.3",
             blockParams: 0,
             cachedFragment: null,
             hasRendered: false,
@@ -3019,7 +2974,7 @@ define('linda-vis-fe/templates/properties-list', ['exports'], function (exports)
         }());
         return {
           isHTMLBars: true,
-          revision: "Ember@1.11.1",
+          revision: "Ember@1.11.3",
           blockParams: 0,
           cachedFragment: null,
           hasRendered: false,
@@ -3059,7 +3014,7 @@ define('linda-vis-fe/templates/properties-list', ['exports'], function (exports)
       }());
       return {
         isHTMLBars: true,
-        revision: "Ember@1.11.1",
+        revision: "Ember@1.11.3",
         blockParams: 0,
         cachedFragment: null,
         hasRendered: false,
@@ -3129,7 +3084,7 @@ define('linda-vis-fe/templates/properties-list', ['exports'], function (exports)
     }());
     return {
       isHTMLBars: true,
-      revision: "Ember@1.11.1",
+      revision: "Ember@1.11.3",
       blockParams: 0,
       cachedFragment: null,
       hasRendered: false,
@@ -3176,7 +3131,7 @@ define('linda-vis-fe/templates/publish-visualization', ['exports'], function (ex
   exports['default'] = Ember.HTMLBars.template((function() {
     return {
       isHTMLBars: true,
-      revision: "Ember@1.11.1",
+      revision: "Ember@1.11.3",
       blockParams: 0,
       cachedFragment: null,
       hasRendered: false,
@@ -3250,7 +3205,7 @@ define('linda-vis-fe/templates/save-visualization', ['exports'], function (expor
   exports['default'] = Ember.HTMLBars.template((function() {
     return {
       isHTMLBars: true,
-      revision: "Ember@1.11.1",
+      revision: "Ember@1.11.3",
       blockParams: 0,
       cachedFragment: null,
       hasRendered: false,
@@ -3329,7 +3284,7 @@ define('linda-vis-fe/templates/saved-visualizations', ['exports'], function (exp
       var child0 = (function() {
         return {
           isHTMLBars: true,
-          revision: "Ember@1.11.1",
+          revision: "Ember@1.11.3",
           blockParams: 0,
           cachedFragment: null,
           hasRendered: false,
@@ -3370,7 +3325,7 @@ define('linda-vis-fe/templates/saved-visualizations', ['exports'], function (exp
       }());
       return {
         isHTMLBars: true,
-        revision: "Ember@1.11.1",
+        revision: "Ember@1.11.3",
         blockParams: 0,
         cachedFragment: null,
         hasRendered: false,
@@ -3412,7 +3367,7 @@ define('linda-vis-fe/templates/saved-visualizations', ['exports'], function (exp
     }());
     return {
       isHTMLBars: true,
-      revision: "Ember@1.11.1",
+      revision: "Ember@1.11.3",
       blockParams: 0,
       cachedFragment: null,
       hasRendered: false,
@@ -3499,7 +3454,7 @@ define('linda-vis-fe/templates/select-field', ['exports'], function (exports) {
   exports['default'] = Ember.HTMLBars.template((function() {
     return {
       isHTMLBars: true,
-      revision: "Ember@1.11.1",
+      revision: "Ember@1.11.3",
       blockParams: 0,
       cachedFragment: null,
       hasRendered: false,
@@ -3556,7 +3511,7 @@ define('linda-vis-fe/templates/slide-show', ['exports'], function (exports) {
     var child0 = (function() {
       return {
         isHTMLBars: true,
-        revision: "Ember@1.11.1",
+        revision: "Ember@1.11.3",
         blockParams: 0,
         cachedFragment: null,
         hasRendered: false,
@@ -3609,7 +3564,7 @@ define('linda-vis-fe/templates/slide-show', ['exports'], function (exports) {
     }());
     return {
       isHTMLBars: true,
-      revision: "Ember@1.11.1",
+      revision: "Ember@1.11.3",
       blockParams: 0,
       cachedFragment: null,
       hasRendered: false,
@@ -3656,7 +3611,7 @@ define('linda-vis-fe/templates/text-field', ['exports'], function (exports) {
   exports['default'] = Ember.HTMLBars.template((function() {
     return {
       isHTMLBars: true,
-      revision: "Ember@1.11.1",
+      revision: "Ember@1.11.3",
       blockParams: 0,
       cachedFragment: null,
       hasRendered: false,
@@ -3712,7 +3667,7 @@ define('linda-vis-fe/templates/tuning-check', ['exports'], function (exports) {
   exports['default'] = Ember.HTMLBars.template((function() {
     return {
       isHTMLBars: true,
-      revision: "Ember@1.11.1",
+      revision: "Ember@1.11.3",
       blockParams: 0,
       cachedFragment: null,
       hasRendered: false,
@@ -3768,7 +3723,7 @@ define('linda-vis-fe/templates/tuning-input', ['exports'], function (exports) {
   exports['default'] = Ember.HTMLBars.template((function() {
     return {
       isHTMLBars: true,
-      revision: "Ember@1.11.1",
+      revision: "Ember@1.11.3",
       blockParams: 0,
       cachedFragment: null,
       hasRendered: false,
@@ -3824,7 +3779,7 @@ define('linda-vis-fe/templates/tuning-numinput', ['exports'], function (exports)
   exports['default'] = Ember.HTMLBars.template((function() {
     return {
       isHTMLBars: true,
-      revision: "Ember@1.11.1",
+      revision: "Ember@1.11.3",
       blockParams: 0,
       cachedFragment: null,
       hasRendered: false,
@@ -3881,7 +3836,7 @@ define('linda-vis-fe/templates/visualization', ['exports'], function (exports) {
     var child0 = (function() {
       return {
         isHTMLBars: true,
-        revision: "Ember@1.11.1",
+        revision: "Ember@1.11.3",
         blockParams: 0,
         cachedFragment: null,
         hasRendered: false,
@@ -3923,7 +3878,7 @@ define('linda-vis-fe/templates/visualization', ['exports'], function (exports) {
     var child1 = (function() {
       return {
         isHTMLBars: true,
-        revision: "Ember@1.11.1",
+        revision: "Ember@1.11.3",
         blockParams: 0,
         cachedFragment: null,
         hasRendered: false,
@@ -3964,7 +3919,7 @@ define('linda-vis-fe/templates/visualization', ['exports'], function (exports) {
     }());
     return {
       isHTMLBars: true,
-      revision: "Ember@1.11.1",
+      revision: "Ember@1.11.3",
       blockParams: 0,
       cachedFragment: null,
       hasRendered: false,
@@ -4402,7 +4357,7 @@ define('linda-vis-fe/tests/components/tree-selection.jshint', function () {
 
   module('JSHint - components');
   test('components/tree-selection.js should pass jshint', function() { 
-    ok(true, 'components/tree-selection.js should pass jshint.'); 
+    ok(false, 'components/tree-selection.js should pass jshint.\ncomponents/tree-selection.js: line 153, col 17, \'record\' is not defined.\n\n1 error'); 
   });
 
 });
@@ -4442,7 +4397,7 @@ define('linda-vis-fe/tests/controllers/visualization.jshint', function () {
 
   module('JSHint - controllers');
   test('controllers/visualization.js should pass jshint', function() { 
-    ok(false, 'controllers/visualization.js should pass jshint.\ncontrollers/visualization.js: line 131, col 33, \'errorText\' is not defined.\n\n1 error'); 
+    ok(true, 'controllers/visualization.js should pass jshint.'); 
   });
 
 });
@@ -4706,7 +4661,7 @@ define('linda-vis-fe/tests/utils/sparql-data-module.jshint', function () {
 
   module('JSHint - utils');
   test('utils/sparql-data-module.js should pass jshint', function() { 
-    ok(true, 'utils/sparql-data-module.js should pass jshint.'); 
+    ok(false, 'utils/sparql-data-module.js should pass jshint.\nutils/sparql-data-module.js: line 344, col 17, Unreachable \'break\' after \'return\'.\nutils/sparql-data-module.js: line 387, col 31, \'dateString\' is already defined.\n\n2 errors'); 
   });
 
 });
@@ -6134,12 +6089,16 @@ define('linda-vis-fe/utils/sparql-data-module', ['exports', 'ember', 'linda-vis-
                     switch (sampleValueType) {
                         case "literal":
                         case "typed-literal":
-                            var datatype = result.sampleValue.datatype;
-                            if (datatype) {
-                                scaleOfMeasurement = predictRDFDatatypeSOM(datatype);
-                            } else {
-                                var parsedSampleValue = util['default'].toScalar(sampleValue);
-                                scaleOfMeasurement = util['default'].predictValueSOM(parsedSampleValue);
+                            scaleOfMeasurement = predictRDFPropertySOM(propertyURI);
+
+                            if (!scaleOfMeasurement) {
+                                var datatype = result.sampleValue.datatype;
+                                if (datatype) {
+                                    scaleOfMeasurement = predictRDFDatatypeSOM(datatype);
+                                } else {
+                                    var parsedSampleValue = util['default'].toScalar(sampleValue);
+                                    scaleOfMeasurement = util['default'].predictValueSOM(parsedSampleValue);
+                                }
                             }
                             break;
                         case "uri":
@@ -6167,6 +6126,17 @@ define('linda-vis-fe/utils/sparql-data-module', ['exports', 'ember', 'linda-vis-
             });
         }
 
+        function predictRDFPropertySOM(propertyURI) {
+            switch (propertyURI) {
+                case "http://www.w3.org/2003/01/geo/wgs84_pos#lat":
+                    return "Geographic Latitude";
+                case "http://www.w3.org/2003/01/geo/wgs84_pos#long":
+                    return "Geographic Longitude";
+                default:
+                    return null;
+            }
+        }
+
         function predictRDFDatatypeSOM(datatype) {
             switch (datatype) {
                 case "http://www.w3.org/2001/XMLSchema#float":
@@ -6185,16 +6155,15 @@ define('linda-vis-fe/utils/sparql-data-module', ['exports', 'ember', 'linda-vis-
                 case "http://www.w3.org/2001/XMLSchema#unsignedShort":
                 case "http://www.w3.org/2001/XMLSchema#unsignedByte":
                 case "http://www.w3.org/2001/XMLSchema#positiveInteger":
-                    return "Quantitative";
+                    return "Ratio";
                 case "http://www.w3.org/2001/XMLSchema#dateTime":
                 case "http://www.w3.org/2001/XMLSchema#date":
                 case "http://www.w3.org/2001/XMLSchema#gYear":
                 case "http://www.w3.org/2001/XMLSchema#gYearMonth":
                     return "Interval";
-                case "http://www.w3.org/2001/XMLSchema#string":
-                    return "Nominal";
+                // case "http://www.w3.org/2001/XMLSchema#string":
                 default:
-                    return "Categorical";
+                    return "Nominal";
             }
         }
 
@@ -6294,11 +6263,14 @@ define('linda-vis-fe/utils/sparql-data-module', ['exports', 'ember', 'linda-vis-
                 case "typed-literal":
                     var datatype = binding.datatype;
                     if (datatype) {
-                        return typedLiteralToScalar(value, datatype);
-                    } else {
-                        // if no datatype is given, try same parsing algorithm as for CSV
-                        return util['default'].toScalar(value);
+                        var parsedValue = typedLiteralToScalar(value, datatype);
+                        if (typeof parsedValue !== "undefined") {
+                            return parsedValue;
+                        }
                     }
+
+                    // if no (known) datatype is given, try same parsing algorithm as for CSV
+                    return util['default'].toScalar(value);
                     break;
                 case "uri":
                 case "bnode":
@@ -6328,20 +6300,37 @@ define('linda-vis-fe/utils/sparql-data-module', ['exports', 'ember', 'linda-vis-
                 case "http://www.w3.org/2001/XMLSchema#unsignedByte":
                 case "http://www.w3.org/2001/XMLSchema#positiveInteger":
                     return parseInt(value);
+                case "http://www.w3.org/2001/XMLSchema#gYear":
+                    var numberRegex = /\d+/;
+                    var firstNumber = numberRegex.exec(value);
+                    var dateString;
+                    if (firstNumber && firstNumber.length >= 4) {
+                        dateString = firstNumber + "-01-01";
+                    } else {
+                        // No idea what this is, maybe JavaScript knows...
+                        dateString = value;
+                    }
+                    return new Date(dateString);
+                case "http://www.w3.org/2001/XMLSchema#gYearMonth":
+                    var twoNumbersWithHyphenRegex = /\d+-\d+/;
+                    var firstTwoNumbers = twoNumbersWithHyphenRegex.exec(value);
+                    var dateString;
+                    if (firstTwoNumbers && firstTwoNumbers.length >= 4) {
+                        dateString = firstTwoNumbers + "-01";
+                    } else {
+                        dateString = value;
+                    }
+                    return new Date(dateString);
                 case "http://www.w3.org/2001/XMLSchema#dateTime":
                 case "http://www.w3.org/2001/XMLSchema#date":
-                case "http://www.w3.org/2001/XMLSchema#gYear":
-                case "http://www.w3.org/2001/XMLSchema#gYearMonth":
-                    // TODO: Does Date.parse understand the xsd date etc. types?
-                    // TODO: Parse gYear and gYearMonth correctly
-                    return Date.parse(value);
+                    return new Date(value);
                 case "http://www.w3.org/2001/XMLSchema#string":
                     // Can plain literals be returned as xsd:string in newer
                     // versions of RDF/SPARQL? If so, uses toScalar here to handle
                     // datasets with missing types
                     return value;
                 default:
-                    return value;
+                    return;
             }
         }
 
@@ -6638,13 +6627,15 @@ define('linda-vis-fe/utils/tree-selection-data-module', ['exports', 'linda-vis-f
 
         function getCSSClass(record) {
             switch (record) {
-                case "Quantitative":
+                case "Ratio":
                     return "treenode-number-label";
                 case "Interval":
                     return "treenode-date-label";
-                case "Categorical":
                 case "Nominal":
                     return "treenode-text-label";
+                case "Geographic Latitude":
+                case "Geographic Longitude":
+                    return "treenode-spatial-label";
                 case "Class":
                     return "treenode-class-label";
                 case "Resource":
@@ -6657,13 +6648,19 @@ define('linda-vis-fe/utils/tree-selection-data-module', ['exports', 'linda-vis-f
 
         function getDataType(record) {
             switch (record) {
-                case "Quantitative":
+                case "Ratio":
                     return "Number";
                 case "Interval":
                     return "Date";
-                case "Categorical":
+                case "Ordinal":
+                    return "Ordinal";
                 case "Nominal":
                     return "String";
+                case "Angular":
+                    return "Angle";
+                case "Geographic Latitude":
+                case "Geographic Longitude":
+                    return "Spatial";
                 case "Class":
                 case "Resource":
                 case "Nothing":
@@ -6675,17 +6672,19 @@ define('linda-vis-fe/utils/tree-selection-data-module', ['exports', 'linda-vis-f
 
         function hideCheckbox(record) {
             switch (record) {
-                case "Quantitative":
+                case "Ratio":
                 case "Interval":
-                case "Categorical":
                 case "Nominal":
+                case "Angular":
+                case "Geographic Latitude":
+                case "Geographic Longitude":
                 case "Class":
                     return false;
                 case "Resource":
                 case "Nothing":
                     return true;
             }
-            console.error("Unknown category of record  '" + record + "'");
+            console.error("Unknown category '" + record + "'");
             return null;
         }
 
@@ -6777,7 +6776,7 @@ define('linda-vis-fe/utils/util', ['exports'], function (exports) {
             var jsType = typeof value;
             switch (jsType) {
                 case "number":
-                    return "Quantitative";
+                    return "Ratio";
                 case "object":
                     var asString = Object.prototype.toString.call(value);
                     switch (asString) {
@@ -6788,7 +6787,7 @@ define('linda-vis-fe/utils/util', ['exports'], function (exports) {
                     break;
             }
 
-            return "Categorical";
+            return "Nominal";
         }
 
         return {
@@ -7044,7 +7043,7 @@ catch(err) {
 if (runningTests) {
   require("linda-vis-fe/tests/test-helper");
 } else {
-  require("linda-vis-fe/app")["default"].create({"name":"linda-vis-fe","version":"0.0.0.2ff1265a"});
+  require("linda-vis-fe/app")["default"].create({"name":"linda-vis-fe","version":"0.0.0.e4a5119f"});
 }
 
 /* jshint ignore:end */

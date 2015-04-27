@@ -337,6 +337,16 @@ span.fancytree-title {
   content: 'number';
   background-color: #92B5F2;
 }
+.treenode-spatial-label .fancytree-title::after {
+  margin-left: 3px;
+  padding: 1px 6px;
+  border-radius: 6px;
+  font-size: 7pt;
+  font-weight: bold;
+  vertical-align: middle;
+  content: 'spatial';
+  background-color: tan;
+}
 .treenode-text-label .fancytree-title::after {
   margin-left: 3px;
   padding: 1px 6px;

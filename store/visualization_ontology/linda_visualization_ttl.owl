@@ -226,11 +226,6 @@
     rdfs:comment "Type of visualization"@en ;
     rdfs:label "Geographical"@en .
 
-:Interval
-    a :ScaleOfMeasurementForQuantitativeData, owl:NamedIndividual ;
-    rdfs:comment "Scale of measurement for quantitative data"@en ;
-    rdfs:label "Interval"@en .
-
 :LineChart
     :layoutOption [
         :optionName "Horizontal Label" ;
@@ -294,7 +289,7 @@
         :optionType [
             :maxCardinality "1"^^xsd:nonNegativeInteger ;
             :minCardinality "1"^^xsd:nonNegativeInteger ;
-            :scaleOfMeasurement :Spatial ;
+            :scaleOfMeasurement :GeographicLatitude ;
             :associatedProperty <http://www.w3.org/2003/01/geo/wgs84_pos#lat> ;
             a :Dimension
         ] ;
@@ -304,7 +299,7 @@
         :optionType [
             :maxCardinality "1"^^xsd:nonNegativeInteger ;
             :minCardinality "1"^^xsd:nonNegativeInteger ;
-            :scaleOfMeasurement :Spatial ;
+            :scaleOfMeasurement :GeographicLongitude ;
             :associatedProperty <http://www.w3.org/2003/01/geo/wgs84_pos#long> ;
             a :Dimension
         ] ;
@@ -331,20 +326,12 @@
     a :Visualization, owl:NamedIndividual ;
     rdfs:comment "A visualization used for displaying geographical data on a map."@en .
 
-:Nominal
-    a :ScaleOfMeasurementForCategoricalData, owl:NamedIndividual ;
-    rdfs:comment "Scale of measurement for categorical data"@en ;
-    rdfs:label "Nominal"@en .
 
 :Option
     a owl:Class ;
     rdfs:comment ""@en ;
     rdfs:label "Option"@en .
 
-:Ordinal
-    a :ScaleOfMeasurementForCategoricalData, owl:NamedIndividual ;
-    rdfs:comment "Scale of measurement for categorical data"@en ;
-    rdfs:label "Ordinal"@en .
 
 :PartToWhole
     a :TypeOfVisualization, owl:NamedIndividual ;
@@ -394,10 +381,6 @@
     a :Visualization, owl:NamedIndividual ;
     rdfs:comment "A graph used for visualizing the relative contribution that different categories contribute to an overall total."@en .
 
-:Ratio
-    a :ScaleOfMeasurementForQuantitativeData, owl:NamedIndividual ;
-    rdfs:comment "Scale of measurement for quantitative data"@en ;
-    rdfs:label "Ratio"@en .
 
 :ScaleOfMeasurement
     a owl:Class ;
@@ -414,12 +397,6 @@
     a owl:Class ;
     rdfs:comment "Scale Of Measurement for quantitative data: interval, ratio"@en ;
     rdfs:label "SoM Quantitative Data"@en ;
-    rdfs:subClassOf :ScaleOfMeasurement .
-
-:ScaleOfMeasurementForSpatialData
-    a owl:Class ;
-    rdfs:comment "Scale Of Measurement for spatial data: latitude, longitude"@en ;
-    rdfs:label "SoM Spatial Data"@en ;
     rdfs:subClassOf :ScaleOfMeasurement .
 
 :DimensionRole
@@ -453,7 +430,7 @@
         :optionType [
             :maxCardinality "1"^^xsd:nonNegativeInteger ;
             :minCardinality "1"^^xsd:nonNegativeInteger ;
-            :scaleOfMeasurement :Interval, :Ratio ;
+            :scaleOfMeasurement :Ratio ;
             :dimensionRole :Range ;
             a :Dimension
         ] ;
@@ -463,7 +440,7 @@
         :optionType [
             :maxCardinality "1"^^xsd:nonNegativeInteger ;
             :minCardinality "1"^^xsd:nonNegativeInteger ;
-            :scaleOfMeasurement :Inerval, :Ratio ;
+            :scaleOfMeasurement :Ratio ;
             :dimensionRole :Range ;
             a :Dimension
         ] ;
@@ -481,11 +458,6 @@
     :visualizationName "ScatterChart" ;
     a :Visualization, owl:NamedIndividual ;
     rdfs:comment "A graph used to show the relationship between pairs of quantitative measurements."@en .
-
-:Spatial
-    a :ScaleOfMeasurementForSpatialData, owl:NamedIndividual ;
-    rdfs:comment "Scale of measurement for spatial data"@en ;
-    rdfs:label "Spatial"@en .
 
 :Domain
     a :DimensionRole, owl:NamedIndividual ;
@@ -608,6 +580,49 @@
     rdfs:label "Visualization Name"@en ;
     rdfs:range xsd:string .
 
+:moreSpecificThan
+    a owl:ObjectProperty ;
+    rdfs:comment "Indicates that the subject scale of measurement is more specific than (i.e. a special case of) the object scale of measurement."@en ;
+    rdfs:domain :ScaleOfMeasurement ;
+    rdfs:label "More specific than..."@en ;
+    rdfs:range :ScaleOfMeasurement .
 
-<http://www.w3.org/2003/01/geo/wgs84_pos#lat> rdf:type :SpecialProperty .
-<http://www.w3.org/2003/01/geo/wgs84_pos#long> rdf:type :SpecialProperty .
+:Nominal
+    a :ScaleOfMeasurementForCategoricalData, owl:NamedIndividual ;
+    rdfs:comment "Scale of measurement for categorical data"@en ;
+    rdfs:label "Nominal"@en .
+
+:Ordinal
+    a :ScaleOfMeasurementForCategoricalData, owl:NamedIndividual ;
+    rdfs:comment "Scale of measurement for categorical data"@en ;
+    rdfs:label "Ordinal"@en ;
+    :moreSpecificThan :Nominal.
+
+:Interval
+    a :ScaleOfMeasurementForQuantitativeData, owl:NamedIndividual ;
+    rdfs:comment "Scale of measurement for quantitative data"@en ;
+    rdfs:label "Interval"@en .
+
+:Ratio
+    a :ScaleOfMeasurementForQuantitativeData, owl:NamedIndividual ;
+    rdfs:comment "Scale of measurement for quantitative data"@en ;
+    rdfs:label "Ratio"@en ;
+    :moreSpecificThan :Interval.
+
+
+:Angular
+    a :ScaleOfMeasurementForQuantitativeData, owl:NamedIndividual ;
+    rdfs:comment "Scale of measurement for angular data"@en ;
+    rdfs:label "Angular"@en .
+
+:GeographicLatitude
+    a :ScaleOfMeasurementForQuantitativeData, owl:NamedIndividual ;
+    rdfs:comment "Scale of measurement for geographic latitude"@en ;
+    rdfs:label "Geographic Latitude Measure"@en ;
+    :moreSpecificThan :Angular.
+
+:GeographicLongitude
+    a :ScaleOfMeasurementForQuantitativeData, owl:NamedIndividual ;
+    rdfs:comment "Scale of measurement for geographic longitude"@en ;
+    rdfs:label "Geographic Longitude Measure"@en ;
+    :moreSpecificThan :Angular.

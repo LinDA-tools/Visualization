@@ -1,0 +1,592 @@
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry17> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#DataEntry> .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry17> <http://data-gov.tw.rpi.edu/vocab/p/1598/rate6> "0.23" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry17> <http://data-gov.tw.rpi.edu/vocab/p/1598/code> "1" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry17> <http://data-gov.tw.rpi.edu/vocab/p/1598/rate> "0.24" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry17> <http://data-gov.tw.rpi.edu/vocab/p/1598/awards> "759" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry17> <http://data-gov.tw.rpi.edu/vocab/p/1598/name3> "BCS" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry17> <http://data-gov.tw.rpi.edu/vocab/p/1598/filter> "RESEARCH GRANTS" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry17> <http://data-gov.tw.rpi.edu/vocab/p/1598/text2> "DEFAULT CHART" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry17> <http://data-gov.tw.rpi.edu/vocab/p/1598/actions4> "1600" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry17> <http://data-gov.tw.rpi.edu/vocab/p/1598/actions> "3149" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry17> <http://data-gov.tw.rpi.edu/vocab/p/1598/org_code> "4000000" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry17> <http://data-gov.tw.rpi.edu/vocab/p/1598/year> "2009" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry17> <http://data-gov.tw.rpi.edu/vocab/p/1598/awards5> "363" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry17> <http://data-gov.tw.rpi.edu/vocab/p/1598/name> "SBE" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry17> <http://data-gov.tw.rpi.edu/vocab/p/1598/text> "FY 2009 SBE Funding Rate for Research Grants" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry17> <http://data-gov.tw.rpi.edu/vocab/p/1598/abbr> "SBE" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry11> <http://data-gov.tw.rpi.edu/vocab/p/1598/name3> "AGS" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry11> <http://data-gov.tw.rpi.edu/vocab/p/1598/text> "FY 2009 GEO Funding Rate for Research Grants" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry11> <http://data-gov.tw.rpi.edu/vocab/p/1598/abbr> "GEO" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry11> <http://data-gov.tw.rpi.edu/vocab/p/1598/name> "GEO" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry11> <http://data-gov.tw.rpi.edu/vocab/p/1598/year> "2009" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry11> <http://data-gov.tw.rpi.edu/vocab/p/1598/text2> "DEFAULT CHART" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry11> <http://data-gov.tw.rpi.edu/vocab/p/1598/filter> "RESEARCH GRANTS" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry11> <http://data-gov.tw.rpi.edu/vocab/p/1598/rate> "0.39" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry11> <http://data-gov.tw.rpi.edu/vocab/p/1598/actions> "3550" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry11> <http://data-gov.tw.rpi.edu/vocab/p/1598/awards> "1401" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry11> <http://data-gov.tw.rpi.edu/vocab/p/1598/org_code> "6000000" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry11> <http://data-gov.tw.rpi.edu/vocab/p/1598/rate6> "0.40" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry11> <http://data-gov.tw.rpi.edu/vocab/p/1598/actions4> "923" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry11> <http://data-gov.tw.rpi.edu/vocab/p/1598/code> "1" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry11> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#DataEntry> .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry11> <http://data-gov.tw.rpi.edu/vocab/p/1598/awards5> "365" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry2> <http://data-gov.tw.rpi.edu/vocab/p/1598/year> "2009" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry2> <http://data-gov.tw.rpi.edu/vocab/p/1598/rate6> "0.22" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry2> <http://data-gov.tw.rpi.edu/vocab/p/1598/text> "FY 2009 ENG Funding Rate for Research Grants" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry2> <http://data-gov.tw.rpi.edu/vocab/p/1598/actions4> "2935" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry2> <http://data-gov.tw.rpi.edu/vocab/p/1598/code> "1" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry2> <http://data-gov.tw.rpi.edu/vocab/p/1598/name3> "CMMI" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry2> <http://data-gov.tw.rpi.edu/vocab/p/1598/awards> "1804" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry2> <http://data-gov.tw.rpi.edu/vocab/p/1598/actions> "8752" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry2> <http://data-gov.tw.rpi.edu/vocab/p/1598/org_code> "7000000" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry2> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#DataEntry> .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry2> <http://data-gov.tw.rpi.edu/vocab/p/1598/filter> "RESEARCH GRANTS" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry2> <http://data-gov.tw.rpi.edu/vocab/p/1598/abbr> "ENG" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry2> <http://data-gov.tw.rpi.edu/vocab/p/1598/text2> "DEFAULT CHART" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry2> <http://data-gov.tw.rpi.edu/vocab/p/1598/rate> "0.21" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry2> <http://data-gov.tw.rpi.edu/vocab/p/1598/name> "ENG" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry2> <http://data-gov.tw.rpi.edu/vocab/p/1598/awards5> "645" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry8> <http://data-gov.tw.rpi.edu/vocab/p/1598/org_code> "11000000" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry8> <http://data-gov.tw.rpi.edu/vocab/p/1598/code> "1" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry8> <http://data-gov.tw.rpi.edu/vocab/p/1598/name3> "DRL" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry8> <http://data-gov.tw.rpi.edu/vocab/p/1598/rate> "0.27" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry8> <http://data-gov.tw.rpi.edu/vocab/p/1598/actions> "3702" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry8> <http://data-gov.tw.rpi.edu/vocab/p/1598/text2> "DEFAULT CHART" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry8> <http://data-gov.tw.rpi.edu/vocab/p/1598/year> "2009" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry8> <http://data-gov.tw.rpi.edu/vocab/p/1598/name> "EHR" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry8> <http://data-gov.tw.rpi.edu/vocab/p/1598/abbr> "EHR" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry8> <http://data-gov.tw.rpi.edu/vocab/p/1598/awards> "1010" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry8> <http://data-gov.tw.rpi.edu/vocab/p/1598/awards5> "198" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry8> <http://data-gov.tw.rpi.edu/vocab/p/1598/rate6> "0.20" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry8> <http://data-gov.tw.rpi.edu/vocab/p/1598/filter> "ALL GRANTS" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry8> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#DataEntry> .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry8> <http://data-gov.tw.rpi.edu/vocab/p/1598/text> "FY 2009 EHR Funding Rate for All Grants" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry8> <http://data-gov.tw.rpi.edu/vocab/p/1598/actions4> "985" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry20> <http://data-gov.tw.rpi.edu/vocab/p/1598/rate6> "1.00" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry20> <http://data-gov.tw.rpi.edu/vocab/p/1598/abbr> "SBE" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry20> <http://data-gov.tw.rpi.edu/vocab/p/1598/org_code> "4000000" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry20> <http://data-gov.tw.rpi.edu/vocab/p/1598/name> "SBE" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry20> <http://data-gov.tw.rpi.edu/vocab/p/1598/awards5> "2" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry20> <http://data-gov.tw.rpi.edu/vocab/p/1598/rate> "0.24" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry20> <http://data-gov.tw.rpi.edu/vocab/p/1598/code> "1" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry20> <http://data-gov.tw.rpi.edu/vocab/p/1598/name3> "SRS" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry20> <http://data-gov.tw.rpi.edu/vocab/p/1598/text2> "DEFAULT CHART" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry20> <http://data-gov.tw.rpi.edu/vocab/p/1598/text> "FY 2009 SBE Funding Rate for Research Grants" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry20> <http://data-gov.tw.rpi.edu/vocab/p/1598/year> "2009" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry20> <http://data-gov.tw.rpi.edu/vocab/p/1598/awards> "759" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry20> <http://data-gov.tw.rpi.edu/vocab/p/1598/actions4> "2" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry20> <http://data-gov.tw.rpi.edu/vocab/p/1598/actions> "3149" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry20> <http://data-gov.tw.rpi.edu/vocab/p/1598/filter> "RESEARCH GRANTS" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry20> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#DataEntry> .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry26> <http://data-gov.tw.rpi.edu/vocab/p/1598/name3> "ANT" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry26> <http://data-gov.tw.rpi.edu/vocab/p/1598/name> "OPP" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry26> <http://data-gov.tw.rpi.edu/vocab/p/1598/rate6> "0.38" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry26> <http://data-gov.tw.rpi.edu/vocab/p/1598/text2> "DEFAULT CHART" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry26> <http://data-gov.tw.rpi.edu/vocab/p/1598/abbr> "OPP" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry26> <http://data-gov.tw.rpi.edu/vocab/p/1598/code> "1" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry26> <http://data-gov.tw.rpi.edu/vocab/p/1598/awards5> "154" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry26> <http://data-gov.tw.rpi.edu/vocab/p/1598/text> "FY 2009 OPP Funding Rate for Research Grants" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry26> <http://data-gov.tw.rpi.edu/vocab/p/1598/org_code> "14000000" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry26> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#DataEntry> .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry26> <http://data-gov.tw.rpi.edu/vocab/p/1598/rate> "0.47" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry26> <http://data-gov.tw.rpi.edu/vocab/p/1598/actions> "822" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry26> <http://data-gov.tw.rpi.edu/vocab/p/1598/filter> "RESEARCH GRANTS" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry26> <http://data-gov.tw.rpi.edu/vocab/p/1598/year> "2009" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry26> <http://data-gov.tw.rpi.edu/vocab/p/1598/actions4> "405" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry26> <http://data-gov.tw.rpi.edu/vocab/p/1598/awards> "388" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry7> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#DataEntry> .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry7> <http://data-gov.tw.rpi.edu/vocab/p/1598/abbr> "EHR" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry7> <http://data-gov.tw.rpi.edu/vocab/p/1598/rate6> "0.26" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry7> <http://data-gov.tw.rpi.edu/vocab/p/1598/awards> "1010" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry7> <http://data-gov.tw.rpi.edu/vocab/p/1598/awards5> "54" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry7> <http://data-gov.tw.rpi.edu/vocab/p/1598/text> "FY 2009 EHR Funding Rate for All Grants" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry7> <http://data-gov.tw.rpi.edu/vocab/p/1598/org_code> "11000000" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry7> <http://data-gov.tw.rpi.edu/vocab/p/1598/actions> "3702" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry7> <http://data-gov.tw.rpi.edu/vocab/p/1598/text2> "DEFAULT CHART" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry7> <http://data-gov.tw.rpi.edu/vocab/p/1598/year> "2009" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry7> <http://data-gov.tw.rpi.edu/vocab/p/1598/name> "EHR" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry7> <http://data-gov.tw.rpi.edu/vocab/p/1598/code> "1" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry7> <http://data-gov.tw.rpi.edu/vocab/p/1598/rate> "0.27" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry7> <http://data-gov.tw.rpi.edu/vocab/p/1598/actions4> "208" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry7> <http://data-gov.tw.rpi.edu/vocab/p/1598/filter> "ALL GRANTS" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry7> <http://data-gov.tw.rpi.edu/vocab/p/1598/name3> "DGE" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry1> <http://data-gov.tw.rpi.edu/vocab/p/1598/text2> "DEFAULT CHART" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry1> <http://data-gov.tw.rpi.edu/vocab/p/1598/rate> "0.21" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry1> <http://data-gov.tw.rpi.edu/vocab/p/1598/rate6> "0.17" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry1> <http://data-gov.tw.rpi.edu/vocab/p/1598/awards5> "609" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry1> <http://data-gov.tw.rpi.edu/vocab/p/1598/org_code> "7000000" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry1> <http://data-gov.tw.rpi.edu/vocab/p/1598/name> "ENG" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry1> <http://data-gov.tw.rpi.edu/vocab/p/1598/filter> "RESEARCH GRANTS" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry1> <http://data-gov.tw.rpi.edu/vocab/p/1598/abbr> "ENG" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry1> <http://data-gov.tw.rpi.edu/vocab/p/1598/year> "2009" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry1> <http://data-gov.tw.rpi.edu/vocab/p/1598/name3> "CBET" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#DataEntry> .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry1> <http://data-gov.tw.rpi.edu/vocab/p/1598/text> "FY 2009 ENG Funding Rate for Research Grants" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry1> <http://data-gov.tw.rpi.edu/vocab/p/1598/code> "1" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry1> <http://data-gov.tw.rpi.edu/vocab/p/1598/awards> "1804" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry1> <http://data-gov.tw.rpi.edu/vocab/p/1598/actions4> "3581" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry1> <http://data-gov.tw.rpi.edu/vocab/p/1598/actions> "8752" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry10> <http://data-gov.tw.rpi.edu/vocab/p/1598/name3> "HRD" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry10> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#DataEntry> .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry10> <http://data-gov.tw.rpi.edu/vocab/p/1598/rate6> "0.32" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry10> <http://data-gov.tw.rpi.edu/vocab/p/1598/awards> "1010" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry10> <http://data-gov.tw.rpi.edu/vocab/p/1598/awards5> "129" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry10> <http://data-gov.tw.rpi.edu/vocab/p/1598/org_code> "11000000" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry10> <http://data-gov.tw.rpi.edu/vocab/p/1598/name> "EHR" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry10> <http://data-gov.tw.rpi.edu/vocab/p/1598/code> "1" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry10> <http://data-gov.tw.rpi.edu/vocab/p/1598/text2> "DEFAULT CHART" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry10> <http://data-gov.tw.rpi.edu/vocab/p/1598/year> "2009" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry10> <http://data-gov.tw.rpi.edu/vocab/p/1598/rate> "0.27" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry10> <http://data-gov.tw.rpi.edu/vocab/p/1598/filter> "ALL GRANTS" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry10> <http://data-gov.tw.rpi.edu/vocab/p/1598/actions4> "397" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry10> <http://data-gov.tw.rpi.edu/vocab/p/1598/actions> "3702" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry10> <http://data-gov.tw.rpi.edu/vocab/p/1598/text> "FY 2009 EHR Funding Rate for All Grants" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry10> <http://data-gov.tw.rpi.edu/vocab/p/1598/abbr> "EHR" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry16> <http://data-gov.tw.rpi.edu/vocab/p/1598/year> "2009" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry16> <http://data-gov.tw.rpi.edu/vocab/p/1598/awards> "1484" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry16> <http://data-gov.tw.rpi.edu/vocab/p/1598/org_code> "5000000" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry16> <http://data-gov.tw.rpi.edu/vocab/p/1598/text> "FY 2009 CISE Funding Rate for Research Grants" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry16> <http://data-gov.tw.rpi.edu/vocab/p/1598/filter> "RESEARCH GRANTS" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry16> <http://data-gov.tw.rpi.edu/vocab/p/1598/rate6> "0.25" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry16> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#DataEntry> .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry16> <http://data-gov.tw.rpi.edu/vocab/p/1598/rate> "0.28" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry16> <http://data-gov.tw.rpi.edu/vocab/p/1598/awards5> "481" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry16> <http://data-gov.tw.rpi.edu/vocab/p/1598/abbr> "CISE" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry16> <http://data-gov.tw.rpi.edu/vocab/p/1598/name> "CISE" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry16> <http://data-gov.tw.rpi.edu/vocab/p/1598/code> "1" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry16> <http://data-gov.tw.rpi.edu/vocab/p/1598/actions4> "1927" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry16> <http://data-gov.tw.rpi.edu/vocab/p/1598/actions> "5374" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry16> <http://data-gov.tw.rpi.edu/vocab/p/1598/text2> "DEFAULT CHART" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry16> <http://data-gov.tw.rpi.edu/vocab/p/1598/name3> "IIS" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry25> <http://data-gov.tw.rpi.edu/vocab/p/1598/year> "2009" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry25> <http://data-gov.tw.rpi.edu/vocab/p/1598/name3> "PHY" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry25> <http://data-gov.tw.rpi.edu/vocab/p/1598/code> "1" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry25> <http://data-gov.tw.rpi.edu/vocab/p/1598/awards> "2445" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry25> <http://data-gov.tw.rpi.edu/vocab/p/1598/awards5> "413" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry25> <http://data-gov.tw.rpi.edu/vocab/p/1598/rate6> "0.48" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry25> <http://data-gov.tw.rpi.edu/vocab/p/1598/rate> "0.36" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry25> <http://data-gov.tw.rpi.edu/vocab/p/1598/name> "MPS" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry25> <http://data-gov.tw.rpi.edu/vocab/p/1598/text2> "DEFAULT CHART" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry25> <http://data-gov.tw.rpi.edu/vocab/p/1598/text> "FY 2009 MPS Funding Rate for Research Grants" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry25> <http://data-gov.tw.rpi.edu/vocab/p/1598/filter> "RESEARCH GRANTS" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry25> <http://data-gov.tw.rpi.edu/vocab/p/1598/abbr> "MPS" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry25> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#DataEntry> .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry25> <http://data-gov.tw.rpi.edu/vocab/p/1598/actions4> "858" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry25> <http://data-gov.tw.rpi.edu/vocab/p/1598/actions> "6754" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry25> <http://data-gov.tw.rpi.edu/vocab/p/1598/org_code> "3000000" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry15> <http://data-gov.tw.rpi.edu/vocab/p/1598/filter> "RESEARCH GRANTS" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry15> <http://data-gov.tw.rpi.edu/vocab/p/1598/rate> "0.28" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry15> <http://data-gov.tw.rpi.edu/vocab/p/1598/actions> "5374" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry15> <http://data-gov.tw.rpi.edu/vocab/p/1598/year> "2009" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry15> <http://data-gov.tw.rpi.edu/vocab/p/1598/org_code> "5000000" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry15> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#DataEntry> .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry15> <http://data-gov.tw.rpi.edu/vocab/p/1598/name3> "CNS" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry15> <http://data-gov.tw.rpi.edu/vocab/p/1598/rate6> "0.26" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry15> <http://data-gov.tw.rpi.edu/vocab/p/1598/awards5> "557" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry15> <http://data-gov.tw.rpi.edu/vocab/p/1598/code> "1" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry15> <http://data-gov.tw.rpi.edu/vocab/p/1598/actions4> "2155" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry15> <http://data-gov.tw.rpi.edu/vocab/p/1598/awards> "1484" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry15> <http://data-gov.tw.rpi.edu/vocab/p/1598/name> "CISE" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry15> <http://data-gov.tw.rpi.edu/vocab/p/1598/abbr> "CISE" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry15> <http://data-gov.tw.rpi.edu/vocab/p/1598/text> "FY 2009 CISE Funding Rate for Research Grants" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry15> <http://data-gov.tw.rpi.edu/vocab/p/1598/text2> "DEFAULT CHART" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry6> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#DataEntry> .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry6> <http://data-gov.tw.rpi.edu/vocab/p/1598/name> "ENG" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry6> <http://data-gov.tw.rpi.edu/vocab/p/1598/filter> "RESEARCH GRANTS" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry6> <http://data-gov.tw.rpi.edu/vocab/p/1598/name3> "IIP" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry6> <http://data-gov.tw.rpi.edu/vocab/p/1598/actions4> "329" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry6> <http://data-gov.tw.rpi.edu/vocab/p/1598/abbr> "ENG" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry6> <http://data-gov.tw.rpi.edu/vocab/p/1598/rate6> "0.20" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry6> <http://data-gov.tw.rpi.edu/vocab/p/1598/text2> "DEFAULT CHART" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry6> <http://data-gov.tw.rpi.edu/vocab/p/1598/year> "2009" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry6> <http://data-gov.tw.rpi.edu/vocab/p/1598/code> "1" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry6> <http://data-gov.tw.rpi.edu/vocab/p/1598/org_code> "7000000" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry6> <http://data-gov.tw.rpi.edu/vocab/p/1598/actions> "8752" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry6> <http://data-gov.tw.rpi.edu/vocab/p/1598/awards5> "65" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry6> <http://data-gov.tw.rpi.edu/vocab/p/1598/text> "FY 2009 ENG Funding Rate for Research Grants" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry6> <http://data-gov.tw.rpi.edu/vocab/p/1598/awards> "1804" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry6> <http://data-gov.tw.rpi.edu/vocab/p/1598/rate> "0.21" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry24> <http://data-gov.tw.rpi.edu/vocab/p/1598/name> "MPS" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry24> <http://data-gov.tw.rpi.edu/vocab/p/1598/awards5> "844" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry24> <http://data-gov.tw.rpi.edu/vocab/p/1598/actions> "6754" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry24> <http://data-gov.tw.rpi.edu/vocab/p/1598/text2> "DEFAULT CHART" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry24> <http://data-gov.tw.rpi.edu/vocab/p/1598/rate> "0.36" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry24> <http://data-gov.tw.rpi.edu/vocab/p/1598/code> "1" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry24> <http://data-gov.tw.rpi.edu/vocab/p/1598/actions4> "2306" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry24> <http://data-gov.tw.rpi.edu/vocab/p/1598/rate6> "0.37" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry24> <http://data-gov.tw.rpi.edu/vocab/p/1598/filter> "RESEARCH GRANTS" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry24> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#DataEntry> .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry24> <http://data-gov.tw.rpi.edu/vocab/p/1598/text> "FY 2009 MPS Funding Rate for Research Grants" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry24> <http://data-gov.tw.rpi.edu/vocab/p/1598/awards> "2445" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry24> <http://data-gov.tw.rpi.edu/vocab/p/1598/name3> "DMS" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry24> <http://data-gov.tw.rpi.edu/vocab/p/1598/abbr> "MPS" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry24> <http://data-gov.tw.rpi.edu/vocab/p/1598/year> "2009" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry24> <http://data-gov.tw.rpi.edu/vocab/p/1598/org_code> "3000000" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry33> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#DataEntry> .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry33> <http://data-gov.tw.rpi.edu/vocab/p/1598/text2> "DEFAULT CHART" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry33> <http://data-gov.tw.rpi.edu/vocab/p/1598/awards> "1316" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry33> <http://data-gov.tw.rpi.edu/vocab/p/1598/code> "1" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry33> <http://data-gov.tw.rpi.edu/vocab/p/1598/text> "FY 2009 BIO Funding Rate for Research Grants" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry33> <http://data-gov.tw.rpi.edu/vocab/p/1598/actions4> "1451" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry33> <http://data-gov.tw.rpi.edu/vocab/p/1598/name3> "MCB" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry33> <http://data-gov.tw.rpi.edu/vocab/p/1598/actions> "5590" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry33> <http://data-gov.tw.rpi.edu/vocab/p/1598/abbr> "BIO" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry33> <http://data-gov.tw.rpi.edu/vocab/p/1598/awards5> "311" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry33> <http://data-gov.tw.rpi.edu/vocab/p/1598/org_code> "8000000" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry33> <http://data-gov.tw.rpi.edu/vocab/p/1598/name> "BIO" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry33> <http://data-gov.tw.rpi.edu/vocab/p/1598/rate6> "0.21" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry33> <http://data-gov.tw.rpi.edu/vocab/p/1598/year> "2009" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry33> <http://data-gov.tw.rpi.edu/vocab/p/1598/filter> "RESEARCH GRANTS" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry33> <http://data-gov.tw.rpi.edu/vocab/p/1598/rate> "0.24" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry5> <http://data-gov.tw.rpi.edu/vocab/p/1598/code> "1" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry5> <http://data-gov.tw.rpi.edu/vocab/p/1598/org_code> "7000000" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry5> <http://data-gov.tw.rpi.edu/vocab/p/1598/rate> "0.21" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry5> <http://data-gov.tw.rpi.edu/vocab/p/1598/awards5> "20" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry5> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#DataEntry> .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry5> <http://data-gov.tw.rpi.edu/vocab/p/1598/actions> "8752" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry5> <http://data-gov.tw.rpi.edu/vocab/p/1598/name> "ENG" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry5> <http://data-gov.tw.rpi.edu/vocab/p/1598/actions4> "79" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry5> <http://data-gov.tw.rpi.edu/vocab/p/1598/text> "FY 2009 ENG Funding Rate for Research Grants" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry5> <http://data-gov.tw.rpi.edu/vocab/p/1598/text2> "DEFAULT CHART" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry5> <http://data-gov.tw.rpi.edu/vocab/p/1598/year> "2009" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry5> <http://data-gov.tw.rpi.edu/vocab/p/1598/rate6> "0.25" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry5> <http://data-gov.tw.rpi.edu/vocab/p/1598/awards> "1804" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry5> <http://data-gov.tw.rpi.edu/vocab/p/1598/name3> "EFRI" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry5> <http://data-gov.tw.rpi.edu/vocab/p/1598/filter> "RESEARCH GRANTS" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry5> <http://data-gov.tw.rpi.edu/vocab/p/1598/abbr> "ENG" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry14> <http://data-gov.tw.rpi.edu/vocab/p/1598/rate6> "0.35" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry14> <http://data-gov.tw.rpi.edu/vocab/p/1598/actions> "5374" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry14> <http://data-gov.tw.rpi.edu/vocab/p/1598/abbr> "CISE" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry14> <http://data-gov.tw.rpi.edu/vocab/p/1598/org_code> "5000000" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry14> <http://data-gov.tw.rpi.edu/vocab/p/1598/text2> "DEFAULT CHART" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry14> <http://data-gov.tw.rpi.edu/vocab/p/1598/code> "1" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry14> <http://data-gov.tw.rpi.edu/vocab/p/1598/awards5> "446" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry14> <http://data-gov.tw.rpi.edu/vocab/p/1598/awards> "1484" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry14> <http://data-gov.tw.rpi.edu/vocab/p/1598/name> "CISE" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry14> <http://data-gov.tw.rpi.edu/vocab/p/1598/text> "FY 2009 CISE Funding Rate for Research Grants" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry14> <http://data-gov.tw.rpi.edu/vocab/p/1598/year> "2009" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry14> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#DataEntry> .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry14> <http://data-gov.tw.rpi.edu/vocab/p/1598/filter> "RESEARCH GRANTS" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry14> <http://data-gov.tw.rpi.edu/vocab/p/1598/rate> "0.28" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry14> <http://data-gov.tw.rpi.edu/vocab/p/1598/name3> "CCF" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry14> <http://data-gov.tw.rpi.edu/vocab/p/1598/actions4> "1292" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Document> .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf> <http://purl.org/dc/terms/date> "2010-05-11T01:07:53Z" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf> <http://purl.org/dc/terms/creator> <http://tw.rpi.edu> .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf> <http://purl.org/dc/terms/description> "generated by csv2rdf CSV2RDF (v1.1, 2009-01-28). http://data-gov.tw.rpi.edu/wiki/Source_Code_of_Data.gov_Wiki#Source_Code_of_Demos_and_Applications. " .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://data-gov.tw.rpi.edu/raw/1598/index.rdf#me> .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf> <http://purl.org/dc/terms/identifier> "/work/data-gov/data/input/data.gov/1598/nsfcurrentyearfundingrates.csv" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry23> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#DataEntry> .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry23> <http://data-gov.tw.rpi.edu/vocab/p/1598/year> "2009" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry23> <http://data-gov.tw.rpi.edu/vocab/p/1598/actions> "6754" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry23> <http://data-gov.tw.rpi.edu/vocab/p/1598/filter> "RESEARCH GRANTS" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry23> <http://data-gov.tw.rpi.edu/vocab/p/1598/code> "1" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry23> <http://data-gov.tw.rpi.edu/vocab/p/1598/text> "FY 2009 MPS Funding Rate for Research Grants" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry23> <http://data-gov.tw.rpi.edu/vocab/p/1598/text2> "DEFAULT CHART" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry23> <http://data-gov.tw.rpi.edu/vocab/p/1598/rate6> "0.29" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry23> <http://data-gov.tw.rpi.edu/vocab/p/1598/name> "MPS" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry23> <http://data-gov.tw.rpi.edu/vocab/p/1598/rate> "0.36" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry23> <http://data-gov.tw.rpi.edu/vocab/p/1598/awards> "2445" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry23> <http://data-gov.tw.rpi.edu/vocab/p/1598/awards5> "479" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry23> <http://data-gov.tw.rpi.edu/vocab/p/1598/name3> "DMR" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry23> <http://data-gov.tw.rpi.edu/vocab/p/1598/org_code> "3000000" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry23> <http://data-gov.tw.rpi.edu/vocab/p/1598/abbr> "MPS" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry23> <http://data-gov.tw.rpi.edu/vocab/p/1598/actions4> "1634" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry29> <http://data-gov.tw.rpi.edu/vocab/p/1598/filter> "RESEARCH GRANTS" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry29> <http://data-gov.tw.rpi.edu/vocab/p/1598/abbr> "BIO" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry29> <http://data-gov.tw.rpi.edu/vocab/p/1598/year> "2009" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry29> <http://data-gov.tw.rpi.edu/vocab/p/1598/name3> "DBI" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry29> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#DataEntry> .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry29> <http://data-gov.tw.rpi.edu/vocab/p/1598/text> "FY 2009 BIO Funding Rate for Research Grants" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry29> <http://data-gov.tw.rpi.edu/vocab/p/1598/code> "1" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry29> <http://data-gov.tw.rpi.edu/vocab/p/1598/name> "BIO" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry29> <http://data-gov.tw.rpi.edu/vocab/p/1598/actions4> "455" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry29> <http://data-gov.tw.rpi.edu/vocab/p/1598/rate6> "0.25" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry29> <http://data-gov.tw.rpi.edu/vocab/p/1598/awards5> "114" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry29> <http://data-gov.tw.rpi.edu/vocab/p/1598/rate> "0.24" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry29> <http://data-gov.tw.rpi.edu/vocab/p/1598/org_code> "8000000" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry29> <http://data-gov.tw.rpi.edu/vocab/p/1598/text2> "DEFAULT CHART" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry29> <http://data-gov.tw.rpi.edu/vocab/p/1598/awards> "1316" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry29> <http://data-gov.tw.rpi.edu/vocab/p/1598/actions> "5590" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry32> <http://data-gov.tw.rpi.edu/vocab/p/1598/rate> "0.24" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry32> <http://data-gov.tw.rpi.edu/vocab/p/1598/rate6> "0.24" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry32> <http://data-gov.tw.rpi.edu/vocab/p/1598/org_code> "8000000" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry32> <http://data-gov.tw.rpi.edu/vocab/p/1598/name> "BIO" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry32> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#DataEntry> .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry32> <http://data-gov.tw.rpi.edu/vocab/p/1598/text2> "DEFAULT CHART" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry32> <http://data-gov.tw.rpi.edu/vocab/p/1598/awards> "1316" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry32> <http://data-gov.tw.rpi.edu/vocab/p/1598/filter> "RESEARCH GRANTS" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry32> <http://data-gov.tw.rpi.edu/vocab/p/1598/text> "FY 2009 BIO Funding Rate for Research Grants" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry32> <http://data-gov.tw.rpi.edu/vocab/p/1598/abbr> "BIO" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry32> <http://data-gov.tw.rpi.edu/vocab/p/1598/actions> "5590" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry32> <http://data-gov.tw.rpi.edu/vocab/p/1598/actions4> "1786" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry32> <http://data-gov.tw.rpi.edu/vocab/p/1598/name3> "IOS" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry32> <http://data-gov.tw.rpi.edu/vocab/p/1598/code> "1" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry32> <http://data-gov.tw.rpi.edu/vocab/p/1598/awards5> "432" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry32> <http://data-gov.tw.rpi.edu/vocab/p/1598/year> "2009" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry13> <http://data-gov.tw.rpi.edu/vocab/p/1598/text2> "DEFAULT CHART" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry13> <http://data-gov.tw.rpi.edu/vocab/p/1598/abbr> "GEO" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry13> <http://data-gov.tw.rpi.edu/vocab/p/1598/rate6> "0.37" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry13> <http://data-gov.tw.rpi.edu/vocab/p/1598/rate> "0.39" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry13> <http://data-gov.tw.rpi.edu/vocab/p/1598/text> "FY 2009 GEO Funding Rate for Research Grants" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry13> <http://data-gov.tw.rpi.edu/vocab/p/1598/org_code> "6000000" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry13> <http://data-gov.tw.rpi.edu/vocab/p/1598/actions> "3550" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry13> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#DataEntry> .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry13> <http://data-gov.tw.rpi.edu/vocab/p/1598/year> "2009" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry13> <http://data-gov.tw.rpi.edu/vocab/p/1598/actions4> "1270" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry13> <http://data-gov.tw.rpi.edu/vocab/p/1598/name> "GEO" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry13> <http://data-gov.tw.rpi.edu/vocab/p/1598/code> "1" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry13> <http://data-gov.tw.rpi.edu/vocab/p/1598/awards5> "472" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry13> <http://data-gov.tw.rpi.edu/vocab/p/1598/awards> "1401" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry13> <http://data-gov.tw.rpi.edu/vocab/p/1598/name3> "OCE" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry13> <http://data-gov.tw.rpi.edu/vocab/p/1598/filter> "RESEARCH GRANTS" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry4> <http://data-gov.tw.rpi.edu/vocab/p/1598/text> "FY 2009 ENG Funding Rate for Research Grants" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry4> <http://data-gov.tw.rpi.edu/vocab/p/1598/code> "1" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry4> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#DataEntry> .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry4> <http://data-gov.tw.rpi.edu/vocab/p/1598/actions> "8752" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry4> <http://data-gov.tw.rpi.edu/vocab/p/1598/abbr> "ENG" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry4> <http://data-gov.tw.rpi.edu/vocab/p/1598/rate6> "0.24" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry4> <http://data-gov.tw.rpi.edu/vocab/p/1598/awards> "1804" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry4> <http://data-gov.tw.rpi.edu/vocab/p/1598/org_code> "7000000" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry4> <http://data-gov.tw.rpi.edu/vocab/p/1598/text2> "DEFAULT CHART" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry4> <http://data-gov.tw.rpi.edu/vocab/p/1598/filter> "RESEARCH GRANTS" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry4> <http://data-gov.tw.rpi.edu/vocab/p/1598/name> "ENG" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry4> <http://data-gov.tw.rpi.edu/vocab/p/1598/rate> "0.21" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry4> <http://data-gov.tw.rpi.edu/vocab/p/1598/awards5> "117" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry4> <http://data-gov.tw.rpi.edu/vocab/p/1598/year> "2009" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry4> <http://data-gov.tw.rpi.edu/vocab/p/1598/actions4> "494" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry4> <http://data-gov.tw.rpi.edu/vocab/p/1598/name3> "EEC" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry19> <http://data-gov.tw.rpi.edu/vocab/p/1598/name3> "SMA" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry19> <http://data-gov.tw.rpi.edu/vocab/p/1598/actions4> "8" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry19> <http://data-gov.tw.rpi.edu/vocab/p/1598/rate6> "1.00" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry19> <http://data-gov.tw.rpi.edu/vocab/p/1598/awards5> "8" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry19> <http://data-gov.tw.rpi.edu/vocab/p/1598/rate> "0.24" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry19> <http://data-gov.tw.rpi.edu/vocab/p/1598/awards> "759" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry19> <http://data-gov.tw.rpi.edu/vocab/p/1598/text2> "DEFAULT CHART" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry19> <http://data-gov.tw.rpi.edu/vocab/p/1598/filter> "RESEARCH GRANTS" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry19> <http://data-gov.tw.rpi.edu/vocab/p/1598/actions> "3149" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry19> <http://data-gov.tw.rpi.edu/vocab/p/1598/year> "2009" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry19> <http://data-gov.tw.rpi.edu/vocab/p/1598/text> "FY 2009 SBE Funding Rate for Research Grants" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry19> <http://data-gov.tw.rpi.edu/vocab/p/1598/name> "SBE" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry19> <http://data-gov.tw.rpi.edu/vocab/p/1598/org_code> "4000000" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry19> <http://data-gov.tw.rpi.edu/vocab/p/1598/abbr> "SBE" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry19> <http://data-gov.tw.rpi.edu/vocab/p/1598/code> "1" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry19> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#DataEntry> .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry22> <http://data-gov.tw.rpi.edu/vocab/p/1598/filter> "RESEARCH GRANTS" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry22> <http://data-gov.tw.rpi.edu/vocab/p/1598/org_code> "3000000" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry22> <http://data-gov.tw.rpi.edu/vocab/p/1598/name> "MPS" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry22> <http://data-gov.tw.rpi.edu/vocab/p/1598/rate6> "0.32" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry22> <http://data-gov.tw.rpi.edu/vocab/p/1598/actions4> "1440" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry22> <http://data-gov.tw.rpi.edu/vocab/p/1598/actions> "6754" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry22> <http://data-gov.tw.rpi.edu/vocab/p/1598/name3> "CHE" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry22> <http://data-gov.tw.rpi.edu/vocab/p/1598/abbr> "MPS" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry22> <http://data-gov.tw.rpi.edu/vocab/p/1598/code> "1" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry22> <http://data-gov.tw.rpi.edu/vocab/p/1598/text2> "DEFAULT CHART" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry22> <http://data-gov.tw.rpi.edu/vocab/p/1598/year> "2009" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry22> <http://data-gov.tw.rpi.edu/vocab/p/1598/text> "FY 2009 MPS Funding Rate for Research Grants" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry22> <http://data-gov.tw.rpi.edu/vocab/p/1598/awards> "2445" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry22> <http://data-gov.tw.rpi.edu/vocab/p/1598/rate> "0.36" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry22> <http://data-gov.tw.rpi.edu/vocab/p/1598/awards5> "458" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry22> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#DataEntry> .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry28> <http://data-gov.tw.rpi.edu/vocab/p/1598/rate> "0.47" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry28> <http://data-gov.tw.rpi.edu/vocab/p/1598/awards5> "1" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry28> <http://data-gov.tw.rpi.edu/vocab/p/1598/actions> "822" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry28> <http://data-gov.tw.rpi.edu/vocab/p/1598/year> "2009" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry28> <http://data-gov.tw.rpi.edu/vocab/p/1598/text> "FY 2009 OPP Funding Rate for Research Grants" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry28> <http://data-gov.tw.rpi.edu/vocab/p/1598/filter> "RESEARCH GRANTS" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry28> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#DataEntry> .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry28> <http://data-gov.tw.rpi.edu/vocab/p/1598/abbr> "OPP" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry28> <http://data-gov.tw.rpi.edu/vocab/p/1598/rate6> "1.00" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry28> <http://data-gov.tw.rpi.edu/vocab/p/1598/org_code> "14000000" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry28> <http://data-gov.tw.rpi.edu/vocab/p/1598/awards> "388" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry28> <http://data-gov.tw.rpi.edu/vocab/p/1598/actions4> "1" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry28> <http://data-gov.tw.rpi.edu/vocab/p/1598/code> "1" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry28> <http://data-gov.tw.rpi.edu/vocab/p/1598/text2> "DEFAULT CHART" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry28> <http://data-gov.tw.rpi.edu/vocab/p/1598/name3> "PEHS" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry28> <http://data-gov.tw.rpi.edu/vocab/p/1598/name> "OPP" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry31> <http://data-gov.tw.rpi.edu/vocab/p/1598/code> "1" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry31> <http://data-gov.tw.rpi.edu/vocab/p/1598/text2> "DEFAULT CHART" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry31> <http://data-gov.tw.rpi.edu/vocab/p/1598/awards> "1316" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry31> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#DataEntry> .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry31> <http://data-gov.tw.rpi.edu/vocab/p/1598/awards5> "33" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry31> <http://data-gov.tw.rpi.edu/vocab/p/1598/rate6> "0.14" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry31> <http://data-gov.tw.rpi.edu/vocab/p/1598/org_code> "8000000" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry31> <http://data-gov.tw.rpi.edu/vocab/p/1598/actions> "5590" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry31> <http://data-gov.tw.rpi.edu/vocab/p/1598/abbr> "BIO" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry31> <http://data-gov.tw.rpi.edu/vocab/p/1598/text> "FY 2009 BIO Funding Rate for Research Grants" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry31> <http://data-gov.tw.rpi.edu/vocab/p/1598/actions4> "229" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry31> <http://data-gov.tw.rpi.edu/vocab/p/1598/name> "BIO" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry31> <http://data-gov.tw.rpi.edu/vocab/p/1598/filter> "RESEARCH GRANTS" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry31> <http://data-gov.tw.rpi.edu/vocab/p/1598/rate> "0.24" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry31> <http://data-gov.tw.rpi.edu/vocab/p/1598/year> "2009" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry31> <http://data-gov.tw.rpi.edu/vocab/p/1598/name3> "EF" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry9> <http://data-gov.tw.rpi.edu/vocab/p/1598/name3> "DUE" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry9> <http://data-gov.tw.rpi.edu/vocab/p/1598/org_code> "11000000" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry9> <http://data-gov.tw.rpi.edu/vocab/p/1598/code> "1" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry9> <http://data-gov.tw.rpi.edu/vocab/p/1598/text2> "DEFAULT CHART" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry9> <http://data-gov.tw.rpi.edu/vocab/p/1598/awards> "1010" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry9> <http://data-gov.tw.rpi.edu/vocab/p/1598/name> "EHR" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry9> <http://data-gov.tw.rpi.edu/vocab/p/1598/abbr> "EHR" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry9> <http://data-gov.tw.rpi.edu/vocab/p/1598/filter> "ALL GRANTS" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry9> <http://data-gov.tw.rpi.edu/vocab/p/1598/year> "2009" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry9> <http://data-gov.tw.rpi.edu/vocab/p/1598/actions> "3702" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry9> <http://data-gov.tw.rpi.edu/vocab/p/1598/actions4> "2112" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry9> <http://data-gov.tw.rpi.edu/vocab/p/1598/text> "FY 2009 EHR Funding Rate for All Grants" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry9> <http://data-gov.tw.rpi.edu/vocab/p/1598/rate6> "0.30" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry9> <http://data-gov.tw.rpi.edu/vocab/p/1598/awards5> "629" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry9> <http://data-gov.tw.rpi.edu/vocab/p/1598/rate> "0.27" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry9> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#DataEntry> .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry12> <http://data-gov.tw.rpi.edu/vocab/p/1598/org_code> "6000000" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry12> <http://data-gov.tw.rpi.edu/vocab/p/1598/text> "FY 2009 GEO Funding Rate for Research Grants" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry12> <http://data-gov.tw.rpi.edu/vocab/p/1598/rate6> "0.42" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry12> <http://data-gov.tw.rpi.edu/vocab/p/1598/actions> "3550" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry12> <http://data-gov.tw.rpi.edu/vocab/p/1598/awards> "1401" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry12> <http://data-gov.tw.rpi.edu/vocab/p/1598/awards5> "564" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry12> <http://data-gov.tw.rpi.edu/vocab/p/1598/text2> "DEFAULT CHART" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry12> <http://data-gov.tw.rpi.edu/vocab/p/1598/abbr> "GEO" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry12> <http://data-gov.tw.rpi.edu/vocab/p/1598/name> "GEO" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry12> <http://data-gov.tw.rpi.edu/vocab/p/1598/code> "1" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry12> <http://data-gov.tw.rpi.edu/vocab/p/1598/name3> "EAR" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry12> <http://data-gov.tw.rpi.edu/vocab/p/1598/filter> "RESEARCH GRANTS" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry12> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#DataEntry> .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry12> <http://data-gov.tw.rpi.edu/vocab/p/1598/year> "2009" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry12> <http://data-gov.tw.rpi.edu/vocab/p/1598/actions4> "1357" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry12> <http://data-gov.tw.rpi.edu/vocab/p/1598/rate> "0.39" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry3> <http://data-gov.tw.rpi.edu/vocab/p/1598/awards> "1804" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry3> <http://data-gov.tw.rpi.edu/vocab/p/1598/org_code> "7000000" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry3> <http://data-gov.tw.rpi.edu/vocab/p/1598/year> "2009" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry3> <http://data-gov.tw.rpi.edu/vocab/p/1598/awards5> "348" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry3> <http://data-gov.tw.rpi.edu/vocab/p/1598/rate6> "0.26" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry3> <http://data-gov.tw.rpi.edu/vocab/p/1598/filter> "RESEARCH GRANTS" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry3> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#DataEntry> .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry3> <http://data-gov.tw.rpi.edu/vocab/p/1598/name3> "ECCS" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry3> <http://data-gov.tw.rpi.edu/vocab/p/1598/actions4> "1334" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry3> <http://data-gov.tw.rpi.edu/vocab/p/1598/text2> "DEFAULT CHART" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry3> <http://data-gov.tw.rpi.edu/vocab/p/1598/text> "FY 2009 ENG Funding Rate for Research Grants" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry3> <http://data-gov.tw.rpi.edu/vocab/p/1598/code> "1" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry3> <http://data-gov.tw.rpi.edu/vocab/p/1598/name> "ENG" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry3> <http://data-gov.tw.rpi.edu/vocab/p/1598/actions> "8752" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry3> <http://data-gov.tw.rpi.edu/vocab/p/1598/rate> "0.21" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry3> <http://data-gov.tw.rpi.edu/vocab/p/1598/abbr> "ENG" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry18> <http://data-gov.tw.rpi.edu/vocab/p/1598/text> "FY 2009 SBE Funding Rate for Research Grants" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry18> <http://data-gov.tw.rpi.edu/vocab/p/1598/name3> "SES" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry18> <http://data-gov.tw.rpi.edu/vocab/p/1598/awards> "759" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry18> <http://data-gov.tw.rpi.edu/vocab/p/1598/abbr> "SBE" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry18> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#DataEntry> .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry18> <http://data-gov.tw.rpi.edu/vocab/p/1598/filter> "RESEARCH GRANTS" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry18> <http://data-gov.tw.rpi.edu/vocab/p/1598/rate6> "0.25" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry18> <http://data-gov.tw.rpi.edu/vocab/p/1598/actions4> "1539" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry18> <http://data-gov.tw.rpi.edu/vocab/p/1598/name> "SBE" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry18> <http://data-gov.tw.rpi.edu/vocab/p/1598/org_code> "4000000" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry18> <http://data-gov.tw.rpi.edu/vocab/p/1598/code> "1" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry18> <http://data-gov.tw.rpi.edu/vocab/p/1598/awards5> "386" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry18> <http://data-gov.tw.rpi.edu/vocab/p/1598/rate> "0.24" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry18> <http://data-gov.tw.rpi.edu/vocab/p/1598/text2> "DEFAULT CHART" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry18> <http://data-gov.tw.rpi.edu/vocab/p/1598/actions> "3149" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry18> <http://data-gov.tw.rpi.edu/vocab/p/1598/year> "2009" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry21> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#DataEntry> .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry21> <http://data-gov.tw.rpi.edu/vocab/p/1598/abbr> "MPS" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry21> <http://data-gov.tw.rpi.edu/vocab/p/1598/code> "1" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry21> <http://data-gov.tw.rpi.edu/vocab/p/1598/name> "MPS" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry21> <http://data-gov.tw.rpi.edu/vocab/p/1598/actions4> "516" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry21> <http://data-gov.tw.rpi.edu/vocab/p/1598/text> "FY 2009 MPS Funding Rate for Research Grants" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry21> <http://data-gov.tw.rpi.edu/vocab/p/1598/rate6> "0.49" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry21> <http://data-gov.tw.rpi.edu/vocab/p/1598/rate> "0.36" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry21> <http://data-gov.tw.rpi.edu/vocab/p/1598/text2> "DEFAULT CHART" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry21> <http://data-gov.tw.rpi.edu/vocab/p/1598/org_code> "3000000" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry21> <http://data-gov.tw.rpi.edu/vocab/p/1598/filter> "RESEARCH GRANTS" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry21> <http://data-gov.tw.rpi.edu/vocab/p/1598/name3> "AST" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry21> <http://data-gov.tw.rpi.edu/vocab/p/1598/year> "2009" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry21> <http://data-gov.tw.rpi.edu/vocab/p/1598/awards5> "251" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry21> <http://data-gov.tw.rpi.edu/vocab/p/1598/actions> "6754" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry21> <http://data-gov.tw.rpi.edu/vocab/p/1598/awards> "2445" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry27> <http://data-gov.tw.rpi.edu/vocab/p/1598/text2> "DEFAULT CHART" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry27> <http://data-gov.tw.rpi.edu/vocab/p/1598/awards5> "233" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry27> <http://data-gov.tw.rpi.edu/vocab/p/1598/name> "OPP" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry27> <http://data-gov.tw.rpi.edu/vocab/p/1598/abbr> "OPP" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry27> <http://data-gov.tw.rpi.edu/vocab/p/1598/rate6> "0.56" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry27> <http://data-gov.tw.rpi.edu/vocab/p/1598/code> "1" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry27> <http://data-gov.tw.rpi.edu/vocab/p/1598/year> "2009" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry27> <http://data-gov.tw.rpi.edu/vocab/p/1598/org_code> "14000000" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry27> <http://data-gov.tw.rpi.edu/vocab/p/1598/actions> "822" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry27> <http://data-gov.tw.rpi.edu/vocab/p/1598/actions4> "416" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry27> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#DataEntry> .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry27> <http://data-gov.tw.rpi.edu/vocab/p/1598/rate> "0.47" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry27> <http://data-gov.tw.rpi.edu/vocab/p/1598/awards> "388" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry27> <http://data-gov.tw.rpi.edu/vocab/p/1598/name3> "ARC" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry27> <http://data-gov.tw.rpi.edu/vocab/p/1598/text> "FY 2009 OPP Funding Rate for Research Grants" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry27> <http://data-gov.tw.rpi.edu/vocab/p/1598/filter> "RESEARCH GRANTS" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry30> <http://data-gov.tw.rpi.edu/vocab/p/1598/org_code> "8000000" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry30> <http://data-gov.tw.rpi.edu/vocab/p/1598/year> "2009" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry30> <http://data-gov.tw.rpi.edu/vocab/p/1598/rate6> "0.26" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry30> <http://data-gov.tw.rpi.edu/vocab/p/1598/name> "BIO" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry30> <http://data-gov.tw.rpi.edu/vocab/p/1598/filter> "RESEARCH GRANTS" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry30> <http://data-gov.tw.rpi.edu/vocab/p/1598/text2> "DEFAULT CHART" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry30> <http://data-gov.tw.rpi.edu/vocab/p/1598/awards5> "426" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry30> <http://data-gov.tw.rpi.edu/vocab/p/1598/awards> "1316" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry30> <http://data-gov.tw.rpi.edu/vocab/p/1598/actions4> "1669" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry30> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#DataEntry> .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry30> <http://data-gov.tw.rpi.edu/vocab/p/1598/actions> "5590" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry30> <http://data-gov.tw.rpi.edu/vocab/p/1598/name3> "DEB" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry30> <http://data-gov.tw.rpi.edu/vocab/p/1598/abbr> "BIO" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry30> <http://data-gov.tw.rpi.edu/vocab/p/1598/text> "FY 2009 BIO Funding Rate for Research Grants" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry30> <http://data-gov.tw.rpi.edu/vocab/p/1598/code> "1" .
+<http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf#entry30> <http://data-gov.tw.rpi.edu/vocab/p/1598/rate> "0.24" .
+<http://data-gov.tw.rpi.edu/raw/1598/index.rdf#me> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#uses_property> <http://data-gov.tw.rpi.edu/vocab/p/1598/actions4> .
+<http://data-gov.tw.rpi.edu/raw/1598/index.rdf#me> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#uses_property> <http://data-gov.tw.rpi.edu/vocab/p/1598/text2> .
+<http://data-gov.tw.rpi.edu/raw/1598/index.rdf#me> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#uses_property> <http://data-gov.tw.rpi.edu/vocab/p/1598/filter> .
+<http://data-gov.tw.rpi.edu/raw/1598/index.rdf#me> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#uses_property> <http://data-gov.tw.rpi.edu/vocab/p/1598/org_code> .
+<http://data-gov.tw.rpi.edu/raw/1598/index.rdf#me> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#number_of_triples> "534" .
+<http://data-gov.tw.rpi.edu/raw/1598/index.rdf#me> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#uses_property> <http://data-gov.tw.rpi.edu/vocab/p/1598/rate6> .
+<http://data-gov.tw.rpi.edu/raw/1598/index.rdf#me> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#uses_property> <http://data-gov.tw.rpi.edu/vocab/p/1598/awards> .
+<http://data-gov.tw.rpi.edu/raw/1598/index.rdf#me> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#uses_property> <http://data-gov.tw.rpi.edu/vocab/p/1598/actions> .
+<http://data-gov.tw.rpi.edu/raw/1598/index.rdf#me> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#uses_property> <http://data-gov.tw.rpi.edu/vocab/p/1598/text> .
+<http://data-gov.tw.rpi.edu/raw/1598/index.rdf#me> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#uses_property> <http://data-gov.tw.rpi.edu/vocab/p/1598/awards5> .
+<http://data-gov.tw.rpi.edu/raw/1598/index.rdf#me> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#Dataset> .
+<http://data-gov.tw.rpi.edu/raw/1598/index.rdf#me> <http://purl.org/dc/terms/type> "OGD" .
+<http://data-gov.tw.rpi.edu/raw/1598/index.rdf#me> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#uses_property> <http://data-gov.tw.rpi.edu/vocab/p/1598/name3> .
+<http://data-gov.tw.rpi.edu/raw/1598/index.rdf#me> <http://xmlns.com/foaf/0.1/homepage> <http://data-gov.tw.rpi.edu/wiki/Dataset_1598> .
+<http://data-gov.tw.rpi.edu/raw/1598/index.rdf#me> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#uses_property> <http://data-gov.tw.rpi.edu/vocab/p/1598/name> .
+<http://data-gov.tw.rpi.edu/raw/1598/index.rdf#me> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#number_of_properties> "15" .
+<http://data-gov.tw.rpi.edu/raw/1598/index.rdf#me> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#number_of_entries> "33" .
+<http://data-gov.tw.rpi.edu/raw/1598/index.rdf#me> <http://www.w3.org/2002/07/owl#sameAs> <http://data-gov.tw.rpi.edu/vocab/Dataset_1598> .
+<http://data-gov.tw.rpi.edu/raw/1598/index.rdf#me> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#complete_data> <http://data-gov.tw.rpi.edu/raw/1598/data-1598.nt.gz> .
+<http://data-gov.tw.rpi.edu/raw/1598/index.rdf#me> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#uses_property> <http://data-gov.tw.rpi.edu/vocab/p/1598/rate> .
+<http://data-gov.tw.rpi.edu/raw/1598/index.rdf#me> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#uses_property> <http://data-gov.tw.rpi.edu/vocab/p/1598/code> .
+<http://data-gov.tw.rpi.edu/raw/1598/index.rdf#me> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#uses_property> <http://data-gov.tw.rpi.edu/vocab/p/1598/abbr> .
+<http://data-gov.tw.rpi.edu/raw/1598/index.rdf#me> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#uses_property> <http://data-gov.tw.rpi.edu/vocab/p/1598/year> .
+<http://data-gov.tw.rpi.edu/raw/1598/index.rdf#me> <http://data-gov.tw.rpi.edu/2009/data-gov-twc.rdf#complete_data> <http://data-gov.tw.rpi.edu/raw/1598/data-1598.rdf> .
+<http://data-gov.tw.rpi.edu/vocab/p/1598/actions> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://data-gov.tw.rpi.edu/vocab/p/1598/actions> <http://www.w3.org/2000/01/rdf-schema#label> "ACTIONS" .
+<http://data-gov.tw.rpi.edu/vocab/p/1598/rate6> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://data-gov.tw.rpi.edu/vocab/p/1598/rate6> <http://www.w3.org/2000/01/rdf-schema#label> "RATE6" .
+<http://data-gov.tw.rpi.edu/vocab/p/1598/text2> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://data-gov.tw.rpi.edu/vocab/p/1598/text2> <http://www.w3.org/2000/01/rdf-schema#label> "TEXT2" .
+<http://data-gov.tw.rpi.edu/vocab/p/1598/abbr> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://data-gov.tw.rpi.edu/vocab/p/1598/abbr> <http://www.w3.org/2000/01/rdf-schema#label> "ABBR" .
+<http://data-gov.tw.rpi.edu/vocab/p/1598/name3> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://data-gov.tw.rpi.edu/vocab/p/1598/name3> <http://www.w3.org/2000/01/rdf-schema#label> "NAME3" .
+<http://data-gov.tw.rpi.edu/vocab/p/1598/name> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://data-gov.tw.rpi.edu/vocab/p/1598/name> <http://www.w3.org/2000/01/rdf-schema#label> "NAME" .
+<http://data-gov.tw.rpi.edu/vocab/p/1598/year> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://data-gov.tw.rpi.edu/vocab/p/1598/year> <http://www.w3.org/2000/01/rdf-schema#label> "YEAR" .
+<http://data-gov.tw.rpi.edu/vocab/p/1598/rate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://data-gov.tw.rpi.edu/vocab/p/1598/rate> <http://www.w3.org/2000/01/rdf-schema#label> "RATE" .
+<http://data-gov.tw.rpi.edu/raw/1598/index.rdf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Document> .
+<http://data-gov.tw.rpi.edu/raw/1598/index.rdf> <http://purl.org/dc/terms/date> "2010-05-11T01:07:53Z" .
+<http://data-gov.tw.rpi.edu/raw/1598/index.rdf> <http://purl.org/dc/terms/creator> <http://tw.rpi.edu> .
+<http://data-gov.tw.rpi.edu/raw/1598/index.rdf> <http://purl.org/dc/terms/description> "generated by csv2rdf CSV2RDF (v1.1, 2009-01-28). http://data-gov.tw.rpi.edu/wiki/Source_Code_of_Data.gov_Wiki#Source_Code_of_Demos_and_Applications. " .
+<http://data-gov.tw.rpi.edu/vocab/p/1598/awards5> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://data-gov.tw.rpi.edu/vocab/p/1598/awards5> <http://www.w3.org/2000/01/rdf-schema#label> "AWARDS5" .
+<http://data-gov.tw.rpi.edu/vocab/p/1598/actions4> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://data-gov.tw.rpi.edu/vocab/p/1598/actions4> <http://www.w3.org/2000/01/rdf-schema#label> "ACTIONS4" .
+<http://data-gov.tw.rpi.edu/vocab/p/1598/org_code> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://data-gov.tw.rpi.edu/vocab/p/1598/org_code> <http://www.w3.org/2000/01/rdf-schema#label> "ORG_CODE" .
+<http://data-gov.tw.rpi.edu/vocab/p/1598/code> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://data-gov.tw.rpi.edu/vocab/p/1598/code> <http://www.w3.org/2000/01/rdf-schema#label> "CODE" .
+<http://data-gov.tw.rpi.edu/vocab/p/1598/awards> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://data-gov.tw.rpi.edu/vocab/p/1598/awards> <http://www.w3.org/2000/01/rdf-schema#label> "AWARDS" .
+<http://data-gov.tw.rpi.edu/vocab/p/1598/text> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://data-gov.tw.rpi.edu/vocab/p/1598/text> <http://www.w3.org/2000/01/rdf-schema#label> "TEXT" .
+<http://data-gov.tw.rpi.edu/vocab/p/1598/filter> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://data-gov.tw.rpi.edu/vocab/p/1598/filter> <http://www.w3.org/2000/01/rdf-schema#label> "FILTER" .

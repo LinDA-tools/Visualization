@@ -23,12 +23,12 @@ export default Ember.ArrayController.extend({
         for (var i = 0; i < propertyInfos.length; i++) {
             var propertyInfo = propertyInfos[i];
             var category = propertyInfo.type;
-            var dtype = propertyInfo.datatype;
+            var datatype = propertyInfo.datatype;
 
             if (!categorizedProperties[category]) {
                 categorizedProperties[category] = {
                     name: category,
-                    datatype:dtype,
+                    datatype:datatype,
                     items: []
                 };
             }

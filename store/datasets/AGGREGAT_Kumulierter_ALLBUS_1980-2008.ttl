@@ -1,0 +1,1331 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix gesis: <http://lod.gesis.org/vocab#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix foaf: <http://xmls.com/foaf/0.1/> .
+@prefix qb: <http://purl.org/linked-data/cube#> .
+@prefix sdmx-measure: <http://purl.org/linked-data/sdmx/2009/measure#> .
+@prefix sdmx-attribute: <http://purl.org/linked-data/sdmx/2009/attribute#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+<file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf>
+    dcterms:date "2011-01-06T08:57:06+0000" ;
+    foaf:maker <http://www.gesis.org> .
+
+<file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds>
+    a qb:DataSet ;
+    rdfs:comment "Kumulierte Allgemeine Bevölkerungsumfrage der Sozialwissenschaften (aggregiert) / Cumulated German General Social Survey (aggregated)", "Source: GESIS (http://www.gesis.org)" ;
+    rdfs:label "ZA4570 ALLBUS/GGSS 1980-2008" ;
+    rdfs:seeAlso <http://info1.gesis.org/dbksearch13/SDESC2.asp?no=4570&search=4570&search2=&DB=D>, <http://www.gesis.org/dienstleistungen/daten/umfragedaten/allbus/> .
+
+<file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale0>
+    rdfs:comment "Scale Variable 9 and 11 of ZA4570" ;
+    rdfs:label "TNZ;NICHT ERHOBEN" .
+
+<file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale1>
+    rdfs:comment "Scale Variable 9 and 11 of ZA4570" ;
+    rdfs:label "SEHR GUT" .
+
+<file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale2>
+    rdfs:comment "Scale Variable 9 and 11 of ZA4570" ;
+    rdfs:label "GUT" .
+
+<file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale3>
+    rdfs:comment "Scale Variable 9 and 11 of ZA4570" ;
+    rdfs:label "TEILS TEILS" .
+
+<file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale4>
+    rdfs:comment "Scale Variable 9 and 11 of ZA4570" ;
+    rdfs:label "SCHLECHT" .
+
+<file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale5>
+    rdfs:comment "Scale Variable 9 and 11 of ZA4570" ;
+    rdfs:label "SEHR SCHLECHT" .
+
+<file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale8>
+    rdfs:comment "Scale Variable 9 and 11 of ZA4570" ;
+    rdfs:label "WEISS NICHT" .
+
+<file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale9>
+    rdfs:comment "Scale Variable 9 and 11 of ZA4570" ;
+    rdfs:label "KEINE ANGABE" .
+
+<file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var11>
+    a qb:MeasureProperty ;
+    rdfs:comment "Variables of ZA4570" ;
+    rdfs:label "WIRTSCHAFTSLAGE, BEFR. HEUTE" ;
+    rdfs:seeAlso <http://info1.gesis.org/dbksearch13/SDESC2.asp?no=4570&search=4570&search2=&DB=D> .
+
+<file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var9>
+    a qb:MeasureProperty ;
+    rdfs:comment "Variables of ZA4570" ;
+    rdfs:label "WIRTSCHAFTSLAGE IN DER BRD HEUTE" ;
+    rdfs:seeAlso <http://info1.gesis.org/dbksearch13/SDESC2.asp?no=4570&search=4570&search2=&DB=D> .
+
+<file:///home/klaudia/Documents/LinDAVis/store/datasets/geo>
+    a qb:DimensionProperty ;
+    rdfs:label "Deutschland / Nordrhein-Westfalen" .
+
+<file:///home/klaudia/Documents/LinDAVis/store/datasets/time>
+    a qb:DimensionProperty ;
+    rdfs:label "Jahr" .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale1> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var9> ;
+    dcterms:date "1982-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "30000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale5> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var11> ;
+    dcterms:date "1982-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "140000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale5> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var11> ;
+    dcterms:date "2000-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "80000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale1> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var9> ;
+    dcterms:date "2002-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "80000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale1> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var11> ;
+    dcterms:date "2002-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "200000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale2> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var9> ;
+    dcterms:date "2002-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "760000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale2> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var11> ;
+    dcterms:date "2002-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "2320000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale3> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var9> ;
+    dcterms:date "2002-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "2470000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale3> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var11> ;
+    dcterms:date "2002-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "1770000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale4> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var9> ;
+    dcterms:date "2002-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "1280000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale4> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var11> ;
+    dcterms:date "2002-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "470000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale5> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var9> ;
+    dcterms:date "2002-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "300000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale1> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var9> ;
+    dcterms:date "1984-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "20000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale5> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var11> ;
+    dcterms:date "2002-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "140000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale1> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var9> ;
+    dcterms:date "2004-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "20000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale1> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var11> ;
+    dcterms:date "2004-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "110000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale2> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var9> ;
+    dcterms:date "2004-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "260000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale2> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var11> ;
+    dcterms:date "2004-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "1890000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale3> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var9> ;
+    dcterms:date "2004-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "1850000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale3> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var11> ;
+    dcterms:date "2004-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "2100000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale4> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var9> ;
+    dcterms:date "2004-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "2400000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale4> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var11> ;
+    dcterms:date "2004-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "810000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale5> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var9> ;
+    dcterms:date "2004-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "550000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale1> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var11> ;
+    dcterms:date "1984-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "260000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale5> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var11> ;
+    dcterms:date "2004-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "220000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale1> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var9> ;
+    dcterms:date "2006-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "60000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale1> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var11> ;
+    dcterms:date "2006-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "200000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale2> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var9> ;
+    dcterms:date "2006-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "700000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale2> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var11> ;
+    dcterms:date "2006-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "2320000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale3> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var9> ;
+    dcterms:date "2006-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "2820000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale3> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var11> ;
+    dcterms:date "2006-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "2450000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale4> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var9> ;
+    dcterms:date "2006-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "2090000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale4> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var11> ;
+    dcterms:date "2006-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "940000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale5> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var9> ;
+    dcterms:date "2006-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "470000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale2> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var9> ;
+    dcterms:date "1984-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "1340000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale5> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var11> ;
+    dcterms:date "2006-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "200000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale1> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var9> ;
+    dcterms:date "2008-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "110000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale1> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var11> ;
+    dcterms:date "2008-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "240000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale2> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var9> ;
+    dcterms:date "2008-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "1430000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale2> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var11> ;
+    dcterms:date "2008-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "2390000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale3> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var9> ;
+    dcterms:date "2008-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "3100000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale3> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var11> ;
+    dcterms:date "2008-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "2260000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale4> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var9> ;
+    dcterms:date "2008-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "1140000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale4> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var11> ;
+    dcterms:date "2008-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "960000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale5> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var9> ;
+    dcterms:date "2008-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "200000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale2> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var11> ;
+    dcterms:date "1984-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "3930000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale5> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var11> ;
+    dcterms:date "2008-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "170000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale3> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var9> ;
+    dcterms:date "1984-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "4450000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale3> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var11> ;
+    dcterms:date "1984-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "2930000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale4> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var9> ;
+    dcterms:date "1984-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "2170000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale4> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var11> ;
+    dcterms:date "1984-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "930000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale5> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var9> ;
+    dcterms:date "1984-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "340000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale1> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var11> ;
+    dcterms:date "1982-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "150000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale5> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var11> ;
+    dcterms:date "1984-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "260000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale1> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var9> ;
+    dcterms:date "1986-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "110000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale1> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var11> ;
+    dcterms:date "1986-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "140000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale2> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var9> ;
+    dcterms:date "1986-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "2390000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale2> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var11> ;
+    dcterms:date "1986-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "4380000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale3> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var9> ;
+    dcterms:date "1986-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "4270000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale3> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var11> ;
+    dcterms:date "1986-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "2490000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale4> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var9> ;
+    dcterms:date "1986-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "900000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale4> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var11> ;
+    dcterms:date "1986-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "700000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale5> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var9> ;
+    dcterms:date "1986-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "160000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale2> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var9> ;
+    dcterms:date "1982-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "920000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale5> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var11> ;
+    dcterms:date "1986-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "150000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale1> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var9> ;
+    dcterms:date "1990-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "680000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale1> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var11> ;
+    dcterms:date "1990-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "180000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale2> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var9> ;
+    dcterms:date "1990-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "2400000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale2> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var11> ;
+    dcterms:date "1990-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "2720000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale3> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var9> ;
+    dcterms:date "1990-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "1030000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale3> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var11> ;
+    dcterms:date "1990-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "1060000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale4> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var9> ;
+    dcterms:date "1990-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "130000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale4> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var11> ;
+    dcterms:date "1990-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "240000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale5> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var9> ;
+    dcterms:date "1990-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "20000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale2> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var11> ;
+    dcterms:date "1982-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "3740000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale5> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var11> ;
+    dcterms:date "1990-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "70000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale1> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var9> ;
+    dcterms:date "1991-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "750000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale1> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var11> ;
+    dcterms:date "1991-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "220000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale2> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var9> ;
+    dcterms:date "1991-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "1850000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale2> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var11> ;
+    dcterms:date "1991-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "2520000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale3> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var9> ;
+    dcterms:date "1991-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "1370000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale3> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var11> ;
+    dcterms:date "1991-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "1040000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale4> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var9> ;
+    dcterms:date "1991-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "70000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale4> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var11> ;
+    dcterms:date "1991-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "250000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale5> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var9> ;
+    dcterms:date "1991-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "20000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale3> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var9> ;
+    dcterms:date "1982-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "4210000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale5> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var11> ;
+    dcterms:date "1991-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "50000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale1> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var9> ;
+    dcterms:date "1992-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "310000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale1> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var11> ;
+    dcterms:date "1992-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "240000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale2> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var9> ;
+    dcterms:date "1992-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "2340000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale2> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var11> ;
+    dcterms:date "1992-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "3660000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale3> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var9> ;
+    dcterms:date "1992-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "3040000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale3> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var11> ;
+    dcterms:date "1992-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "1900000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale4> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var9> ;
+    dcterms:date "1992-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "550000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale4> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var11> ;
+    dcterms:date "1992-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "430000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale5> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var9> ;
+    dcterms:date "1992-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "150000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale3> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var11> ;
+    dcterms:date "1982-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "3340000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale5> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var11> ;
+    dcterms:date "1992-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "170000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale1> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var9> ;
+    dcterms:date "1994-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "50000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale1> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var11> ;
+    dcterms:date "1994-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "160000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale2> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var9> ;
+    dcterms:date "1994-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "690000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale2> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var11> ;
+    dcterms:date "1994-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "3780000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale3> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var9> ;
+    dcterms:date "1994-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "3170000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale3> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var11> ;
+    dcterms:date "1994-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "1710000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale4> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var9> ;
+    dcterms:date "1994-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "2150000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale4> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var11> ;
+    dcterms:date "1994-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "580000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale5> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var9> ;
+    dcterms:date "1994-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "370000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale4> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var9> ;
+    dcterms:date "1982-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "2450000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale5> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var11> ;
+    dcterms:date "1994-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "200000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale1> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var9> ;
+    dcterms:date "1996-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "70000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale1> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var11> ;
+    dcterms:date "1996-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "200000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale2> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var9> ;
+    dcterms:date "1996-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "800000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale2> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var11> ;
+    dcterms:date "1996-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "3050000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale3> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var9> ;
+    dcterms:date "1996-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "2840000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale3> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var11> ;
+    dcterms:date "1996-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "2450000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale4> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var9> ;
+    dcterms:date "1996-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "2250000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale4> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var11> ;
+    dcterms:date "1996-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "540000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale5> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var9> ;
+    dcterms:date "1996-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "460000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale4> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var11> ;
+    dcterms:date "1982-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "830000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale5> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var11> ;
+    dcterms:date "1996-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "180000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale1> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var9> ;
+    dcterms:date "1998-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "50000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale1> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var11> ;
+    dcterms:date "1998-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "90000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale2> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var9> ;
+    dcterms:date "1998-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "710000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale2> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var11> ;
+    dcterms:date "1998-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "2290000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale3> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var9> ;
+    dcterms:date "1998-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "2510000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale3> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var11> ;
+    dcterms:date "1998-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "2160000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale4> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var9> ;
+    dcterms:date "1998-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "1740000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale4> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var11> ;
+    dcterms:date "1998-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "690000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale5> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var9> ;
+    dcterms:date "1998-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "410000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale5> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var9> ;
+    dcterms:date "1982-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "580000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale5> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var11> ;
+    dcterms:date "1998-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "220000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale1> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var9> ;
+    dcterms:date "2000-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "130000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale1> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var11> ;
+    dcterms:date "2000-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "280000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale2> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var9> ;
+    dcterms:date "2000-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "1860000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale2> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var11> ;
+    dcterms:date "2000-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "3100000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale3> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var9> ;
+    dcterms:date "2000-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "3380000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale3> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var11> ;
+    dcterms:date "2000-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "2050000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale4> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var9> ;
+    dcterms:date "2000-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "480000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale4> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var11> ;
+    dcterms:date "2000-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "470000" ;
+    a qb:Observation .
+
+[]
+    gesis:geo <file:///home/klaudia/Documents/LinDAVis/store/datasets/geo#D-NRW> ;
+    gesis:valuelabel <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#scale5> ;
+    gesis:variable <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#var9> ;
+    dcterms:date "2000-01-01" ;
+    qb:dataset <file:///home/klaudia/Documents/LinDAVis/store/datasets/AGGREGAT%20Kumulierter%20ALLBUS%201980-2008.rdf#ds> ;
+    sdmx-measure:obsValue "110000" ;
+    a qb:Observation .
+

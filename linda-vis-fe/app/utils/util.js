@@ -62,7 +62,7 @@ function predictValueSOM(value) {
     var jsType = typeof (value);
     switch (jsType) {
         case "number":
-            return "Quantitative";
+            return "Ratio";
         case "object":
             var asString = Object.prototype.toString.call(value);
             switch (asString) {
@@ -73,7 +73,7 @@ function predictValueSOM(value) {
             break;
     }
 
-    return "Categorical";
+    return "Nominal";
 }
 
  return {

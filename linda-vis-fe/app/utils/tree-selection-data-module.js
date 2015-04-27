@@ -161,13 +161,15 @@ var treeselection_data_module = function() {
 
     function getCSSClass(record) {
         switch (record) {
-            case "Quantitative":
+            case "Ratio":
                 return 'treenode-number-label';
             case "Interval":
                 return 'treenode-date-label';
-            case "Categorical":
             case "Nominal":
                 return 'treenode-text-label';
+            case "Geographic Latitude":
+            case "Geographic Longitude":
+                return 'treenode-spatial-label';
             case "Class":
                 return 'treenode-class-label';
             case "Resource":
@@ -180,13 +182,19 @@ var treeselection_data_module = function() {
     
     function getDataType(record) {
         switch (record) {
-            case "Quantitative":
+            case "Ratio":
                 return 'Number';
             case "Interval":
                 return 'Date';
-            case "Categorical":
+            case "Ordinal":
+                return 'Ordinal';
             case "Nominal":
                 return 'String';  
+            case "Angular":
+                return 'Angle';  
+            case "Geographic Latitude":
+            case "Geographic Longitude":
+                return 'Spatial';
             case "Class":
             case "Resource":
             case "Nothing": 
@@ -198,17 +206,19 @@ var treeselection_data_module = function() {
 
     function hideCheckbox(record) {
         switch (record) {
-            case "Quantitative":
+            case "Ratio":
             case "Interval":
-            case "Categorical":
             case "Nominal":
+            case "Angular":
+            case "Geographic Latitude":
+            case "Geographic Longitude":
             case "Class":
                 return false;
             case "Resource":
             case "Nothing":
                 return true;
         }
-        console.error("Unknown category of record  '" + record + "'");
+        console.error("Unknown category '" + record + "'");
         return null;
     }
 

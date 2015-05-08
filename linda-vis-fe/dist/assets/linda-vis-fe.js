@@ -3168,15 +3168,16 @@ define('linda-vis-fe/templates/save-visualization', ['exports'], function (expor
         dom.appendChild(el1, el2);
         var el2 = dom.createElement("div");
         dom.setAttribute(el2,"class","consumption-title");
-        var el3 = dom.createTextNode("    \n        ");
+        var el3 = dom.createTextNode("\n        ");
         dom.appendChild(el2, el3);
         var el3 = dom.createComment("");
         dom.appendChild(el2, el3);
-        var el3 = dom.createTextNode("    \n         ");
+        var el3 = dom.createTextNode("\n         ");
         dom.appendChild(el2, el3);
         var el3 = dom.createElement("button");
         dom.setAttribute(el3,"type","button");
         dom.setAttribute(el3,"class","btn btn-default btn-xs");
+        dom.setAttribute(el3,"style","display: inline;");
         var el4 = dom.createTextNode("\n            ");
         dom.appendChild(el3, el4);
         var el4 = dom.createElement("span");
@@ -3189,7 +3190,7 @@ define('linda-vis-fe/templates/save-visualization', ['exports'], function (expor
         var el3 = dom.createTextNode("\n    ");
         dom.appendChild(el2, el3);
         dom.appendChild(el1, el2);
-        var el2 = dom.createTextNode("    \n");
+        var el2 = dom.createTextNode("\n");
         dom.appendChild(el1, el2);
         dom.appendChild(el0, el1);
         var el1 = dom.createTextNode("\n");
@@ -3219,7 +3220,7 @@ define('linda-vis-fe/templates/save-visualization', ['exports'], function (expor
         var element0 = dom.childAt(fragment, [0, 1]);
         var element1 = dom.childAt(element0, [3]);
         var morph0 = dom.createMorphAt(element0,1,1);
-        inline(env, morph0, context, "input", [], {"value": get(env, context, "controller.configName"), "placeholder": "Save settings", "size": "15", "class": "form-control"});
+        inline(env, morph0, context, "input", [], {"value": get(env, context, "controller.configName"), "placeholder": "Save settings", "size": "15", "class": "form-control layout-width-save layout-inline"});
         element(env, element1, context, "action", ["save"], {});
         return fragment;
       }
@@ -3605,7 +3606,7 @@ define('linda-vis-fe/templates/text-field', ['exports'], function (exports) {
         var morph0 = dom.createMorphAt(dom.childAt(fragment, [0]),0,0);
         var morph1 = dom.createMorphAt(fragment,2,2,contextualElement);
         content(env, morph0, context, "view.label");
-        inline(env, morph1, context, "input", [], {"type": "text", "value": get(env, context, "view.content"), "on": "enter", "class": "form-control"});
+        inline(env, morph1, context, "input", [], {"type": "text", "value": get(env, context, "view.content"), "on": "enter", "class": "form-control layout-width"});
         return fragment;
       }
     };
@@ -3773,7 +3774,7 @@ define('linda-vis-fe/templates/tuning-numinput', ['exports'], function (exports)
         var morph0 = dom.createMorphAt(dom.childAt(fragment, [0]),0,0);
         var morph1 = dom.createMorphAt(fragment,2,2,contextualElement);
         content(env, morph0, context, "view.label");
-        inline(env, morph1, context, "input", [], {"type": "text", "value": get(env, context, "view.content"), "on": "key-press"});
+        inline(env, morph1, context, "input", [], {"type": "text", "value": get(env, context, "view.content"), "on": "key-press", "class": "form-control layout-width"});
         return fragment;
       }
     };
@@ -3800,7 +3801,7 @@ define('linda-vis-fe/templates/visualization', ['exports'], function (exports) {
           dom.setAttribute(el1,"class","glyphicon glyphicon-resize-full");
           dom.setAttribute(el1,"aria-hidden","true");
           dom.appendChild(el0, el1);
-          var el1 = dom.createTextNode(" \n");
+          var el1 = dom.createTextNode("\n");
           dom.appendChild(el0, el1);
           return el0;
         },
@@ -3842,7 +3843,7 @@ define('linda-vis-fe/templates/visualization', ['exports'], function (exports) {
           dom.setAttribute(el1,"class","glyphicon glyphicon-resize-small");
           dom.setAttribute(el1,"aria-hidden","true");
           dom.appendChild(el0, el1);
-          var el1 = dom.createTextNode(" \n");
+          var el1 = dom.createTextNode("\n");
           dom.appendChild(el0, el1);
           return el0;
         },
@@ -3989,10 +3990,10 @@ define('linda-vis-fe/templates/visualization', ['exports'], function (exports) {
         var el9 = dom.createTextNode("\n                            ");
         dom.appendChild(el8, el9);
         dom.appendChild(el7, el8);
-        var el8 = dom.createTextNode("                           \n                        ");
+        var el8 = dom.createTextNode("\n                        ");
         dom.appendChild(el7, el8);
         dom.appendChild(el6, el7);
-        var el7 = dom.createTextNode(" \n                    ");
+        var el7 = dom.createTextNode("\n                    ");
         dom.appendChild(el6, el7);
         dom.appendChild(el5, el6);
         var el6 = dom.createTextNode("\n                    ");
@@ -4028,7 +4029,7 @@ define('linda-vis-fe/templates/visualization', ['exports'], function (exports) {
         var el9 = dom.createTextNode("\n                            ");
         dom.appendChild(el8, el9);
         dom.appendChild(el7, el8);
-        var el8 = dom.createTextNode(" \n\n                        ");
+        var el8 = dom.createTextNode("\n\n                        ");
         dom.appendChild(el7, el8);
         dom.appendChild(el6, el7);
         var el7 = dom.createTextNode("\n                    ");
@@ -4112,7 +4113,7 @@ define('linda-vis-fe/templates/visualization', ['exports'], function (exports) {
         dom.appendChild(el4, el5);
         var el5 = dom.createComment("");
         dom.appendChild(el4, el5);
-        var el5 = dom.createTextNode("            \n            ");
+        var el5 = dom.createTextNode("\n            ");
         dom.appendChild(el4, el5);
         dom.appendChild(el3, el4);
         var el4 = dom.createTextNode("\n            ");
@@ -4155,7 +4156,7 @@ define('linda-vis-fe/templates/visualization', ['exports'], function (exports) {
         var el6 = dom.createTextNode("\n                ");
         dom.appendChild(el5, el6);
         var el6 = dom.createElement("div");
-        dom.setAttribute(el6,"class","col-md-4");
+        dom.setAttribute(el6,"class","col-md-6");
         var el7 = dom.createTextNode("\n                    ");
         dom.appendChild(el6, el7);
         var el7 = dom.createComment("");
@@ -4165,8 +4166,7 @@ define('linda-vis-fe/templates/visualization', ['exports'], function (exports) {
         dom.appendChild(el5, el6);
         var el6 = dom.createTextNode("\n                    ");
         dom.appendChild(el5, el6);
-        var el6 = dom.createElement("div");
-        dom.setAttribute(el6,"class","col-md-6");
+        var el6 = dom.createComment("<div class=\"col-md-6\"></div>");
         dom.appendChild(el5, el6);
         var el6 = dom.createTextNode("\n            ");
         dom.appendChild(el5, el6);
@@ -7031,7 +7031,7 @@ catch(err) {
 if (runningTests) {
   require("linda-vis-fe/tests/test-helper");
 } else {
-  require("linda-vis-fe/app")["default"].create({"name":"linda-vis-fe","version":"0.0.0.d96a9d41"});
+  require("linda-vis-fe/app")["default"].create({"name":"linda-vis-fe","version":"0.0.0.9ec17d35"});
 }
 
 /* jshint ignore:end */

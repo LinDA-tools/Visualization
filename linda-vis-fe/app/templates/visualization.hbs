@@ -26,8 +26,8 @@
                             </div>
                             <div class="panel-body">
                                 {{view "properties-list" categories=controller.categorizedProperties}}
-                            </div>                           
-                        </div> 
+                            </div>
+                        </div>
                     </div>
                     <div class="col-md-6">
                         <div class="panel panel-default">
@@ -38,7 +38,7 @@
                                 {{view "visualization-options"
                             options=controller.structureOptions
                             config=controller.visualizationConfiguration}}
-                            </div> 
+                            </div>
 
                         </div>
                     </div>
@@ -60,9 +60,9 @@
                 <h1 class="panel-title pull-left">Configured Visualization</h1>
                 <button type="button" class="btn btn-default btn-xs pull-right" {{action 'toggle'}}>
                     {{#if isToggled}}
-                    <span class="glyphicon glyphicon-resize-full" aria-hidden="true"></span> 
+                    <span class="glyphicon glyphicon-resize-full" aria-hidden="true"></span>
                     {{else}}
-                    <span class="glyphicon glyphicon-resize-small" aria-hidden="true"></span> 
+                    <span class="glyphicon glyphicon-resize-small" aria-hidden="true"></span>
                     {{/if}}
                 </button>
             </div>
@@ -70,7 +70,7 @@
                 {{view "draw-visualization"
                     id='visualization'
                     visualization=controller.drawnVisualization
-                    configurationArray=controller.visualizationConfiguration}}            
+                    configurationArray=controller.visualizationConfiguration}}
             </div>
             <div class="panel-footer clearfix">
                 <div class="row">
@@ -82,12 +82,12 @@
                             {{partial 'save-visualization'}}
                         </div>
                     </div>
-                <div class="col-md-4">
+                <div class="col-md-6">
                     {{view "visualization-options"
                             options=controller.layoutOptions
                             config=controller.visualizationConfiguration}}
                 </div>
-                    <div class="col-md-6"></div>
+                    <!--<div class="col-md-6"></div>-->
             </div>
         </div>
     </div>

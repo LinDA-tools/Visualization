@@ -2319,7 +2319,7 @@ define('linda-vis-fe/templates/index', ['exports'], function (exports) {
         hasRendered: false,
         build: function build(dom) {
           var el0 = dom.createDocumentFragment();
-          var el1 = dom.createTextNode("            13. Sales Statistics (dimple dataset; CSV format)\n");
+          var el1 = dom.createTextNode("            13. GDP per Capita Example (temporal/statistical dataset; RDF (data cube) format)\n");
           dom.appendChild(el0, el1);
           return el0;
         },
@@ -2355,7 +2355,7 @@ define('linda-vis-fe/templates/index', ['exports'], function (exports) {
         hasRendered: false,
         build: function build(dom) {
           var el0 = dom.createDocumentFragment();
-          var el1 = dom.createTextNode("            14. GDP per Capita Example (temporal/statistical dataset; RDF (data cube) format)\n");
+          var el1 = dom.createTextNode("            14. Healthcare Example (geographical/statistical dataset; RDF (basic geo) format)\n");
           dom.appendChild(el0, el1);
           return el0;
         },
@@ -2391,7 +2391,7 @@ define('linda-vis-fe/templates/index', ['exports'], function (exports) {
         hasRendered: false,
         build: function build(dom) {
           var el0 = dom.createDocumentFragment();
-          var el1 = dom.createTextNode("            15. Healthcare Example (geographical/statistical dataset; RDF (basic geo) format)\n");
+          var el1 = dom.createTextNode("            15. Water Quality Example (statistical dataset; RDF format)\n");
           dom.appendChild(el0, el1);
           return el0;
         },
@@ -2427,7 +2427,7 @@ define('linda-vis-fe/templates/index', ['exports'], function (exports) {
         hasRendered: false,
         build: function build(dom) {
           var el0 = dom.createDocumentFragment();
-          var el1 = dom.createTextNode("            16. Water Quality Example (statistical dataset; RDF format)\n");
+          var el1 = dom.createTextNode("            16. Newspaper Articles Example (statistical dataset; RDF format)\n");
           dom.appendChild(el0, el1);
           return el0;
         },
@@ -2463,7 +2463,7 @@ define('linda-vis-fe/templates/index', ['exports'], function (exports) {
         hasRendered: false,
         build: function build(dom) {
           var el0 = dom.createDocumentFragment();
-          var el1 = dom.createTextNode("            17. Newspaper Articles Example (statistical dataset; RDF format)\n");
+          var el1 = dom.createTextNode("            17. Health Data.gov - Hospital Inpatient Discharges by Facility (statistical dataset; RDF format)\n");
           dom.appendChild(el0, el1);
           return el0;
         },
@@ -2499,43 +2499,7 @@ define('linda-vis-fe/templates/index', ['exports'], function (exports) {
         hasRendered: false,
         build: function build(dom) {
           var el0 = dom.createDocumentFragment();
-          var el1 = dom.createTextNode("            18. Health Data.gov - Hospital Inpatient Discharges by Facility (statistical dataset; RDF format)\n");
-          dom.appendChild(el0, el1);
-          return el0;
-        },
-        render: function render(context, env, contextualElement) {
-          var dom = env.dom;
-          dom.detectNamespace(contextualElement);
-          var fragment;
-          if (env.useFragmentCache && dom.canClone) {
-            if (this.cachedFragment === null) {
-              fragment = this.build(dom);
-              if (this.hasRendered) {
-                this.cachedFragment = fragment;
-              } else {
-                this.hasRendered = true;
-              }
-            }
-            if (this.cachedFragment) {
-              fragment = dom.cloneNode(this.cachedFragment, true);
-            }
-          } else {
-            fragment = this.build(dom);
-          }
-          return fragment;
-        }
-      };
-    }());
-    var child18 = (function() {
-      return {
-        isHTMLBars: true,
-        revision: "Ember@1.11.3",
-        blockParams: 0,
-        cachedFragment: null,
-        hasRendered: false,
-        build: function build(dom) {
-          var el0 = dom.createDocumentFragment();
-          var el1 = dom.createTextNode("            19. TS1 (statistical dataset; RDF format)\n");
+          var el1 = dom.createTextNode("            18. TS1 (statistical dataset; RDF format)\n");
           dom.appendChild(el0, el1);
           return el0;
         },
@@ -2614,7 +2578,7 @@ define('linda-vis-fe/templates/index', ['exports'], function (exports) {
         var el3 = dom.createTextNode("\n        ");
         dom.appendChild(el2, el3);
         var el3 = dom.createElement("li");
-        var el4 = dom.createTextNode(" \n");
+        var el4 = dom.createTextNode("\n");
         dom.appendChild(el3, el4);
         var el4 = dom.createComment("");
         dom.appendChild(el3, el4);
@@ -2632,26 +2596,6 @@ define('linda-vis-fe/templates/index', ['exports'], function (exports) {
         dom.appendChild(el3, el4);
         dom.appendChild(el2, el3);
         var el3 = dom.createTextNode("\n        ");
-        dom.appendChild(el2, el3);
-        var el3 = dom.createElement("li");
-        var el4 = dom.createTextNode("  \n");
-        dom.appendChild(el3, el4);
-        var el4 = dom.createComment("");
-        dom.appendChild(el3, el4);
-        var el4 = dom.createTextNode("        ");
-        dom.appendChild(el3, el4);
-        dom.appendChild(el2, el3);
-        var el3 = dom.createTextNode("     \n        ");
-        dom.appendChild(el2, el3);
-        var el3 = dom.createElement("li");
-        var el4 = dom.createTextNode("\n");
-        dom.appendChild(el3, el4);
-        var el4 = dom.createComment("");
-        dom.appendChild(el3, el4);
-        var el4 = dom.createTextNode("        ");
-        dom.appendChild(el3, el4);
-        dom.appendChild(el2, el3);
-        var el3 = dom.createTextNode("       \n        ");
         dom.appendChild(el2, el3);
         var el3 = dom.createElement("li");
         var el4 = dom.createTextNode("\n");
@@ -2684,14 +2628,14 @@ define('linda-vis-fe/templates/index', ['exports'], function (exports) {
         var el3 = dom.createTextNode("\n        ");
         dom.appendChild(el2, el3);
         var el3 = dom.createElement("li");
-        var el4 = dom.createTextNode(" \n");
+        var el4 = dom.createTextNode("\n");
         dom.appendChild(el3, el4);
         var el4 = dom.createComment("");
         dom.appendChild(el3, el4);
         var el4 = dom.createTextNode("        ");
         dom.appendChild(el3, el4);
         dom.appendChild(el2, el3);
-        var el3 = dom.createTextNode("  \n        ");
+        var el3 = dom.createTextNode("\n        ");
         dom.appendChild(el2, el3);
         var el3 = dom.createElement("li");
         var el4 = dom.createTextNode("\n");
@@ -2704,7 +2648,17 @@ define('linda-vis-fe/templates/index', ['exports'], function (exports) {
         var el3 = dom.createTextNode("\n        ");
         dom.appendChild(el2, el3);
         var el3 = dom.createElement("li");
-        var el4 = dom.createTextNode("        \n");
+        var el4 = dom.createTextNode("\n");
+        dom.appendChild(el3, el4);
+        var el4 = dom.createComment("");
+        dom.appendChild(el3, el4);
+        var el4 = dom.createTextNode("        ");
+        dom.appendChild(el3, el4);
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n        ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("li");
+        var el4 = dom.createTextNode("\n");
         dom.appendChild(el3, el4);
         var el4 = dom.createComment("");
         dom.appendChild(el3, el4);
@@ -2820,7 +2774,6 @@ define('linda-vis-fe/templates/index', ['exports'], function (exports) {
         var morph15 = dom.createMorphAt(dom.childAt(element0, [31]),1,1);
         var morph16 = dom.createMorphAt(dom.childAt(element0, [33]),1,1);
         var morph17 = dom.createMorphAt(dom.childAt(element0, [35]),1,1);
-        var morph18 = dom.createMorphAt(dom.childAt(element0, [37]),1,1);
         block(env, morph0, context, "link-to", ["datasource", "DepartmentOfAgriculture-Quick%20Stats", get(env, context, "datasetsEndpointURI"), "http%3A%2F%2Fwww.linda-project.org%2Fexamples%2FDepartmentOfAgriculture-QuickStats.nt", "rdf"], {}, child0, null);
         block(env, morph1, context, "link-to", ["datasource", "DepartmentOfDefense-Marital%20Status", get(env, context, "datasetsEndpointURI"), "http%3A%2F%2Fwww.linda-project.org%2Fexamples%2FDepartmentOfDefense-MaritalStatus.nt", "rdf"], {}, child1, null);
         block(env, morph2, context, "link-to", ["datasource", "DepartmentofHealthandHumanServices-OMHClaims%20Listed%20by%20State", get(env, context, "datasetsEndpointURI"), "http%3A%2F%2Fwww.linda-project.org%2Fexamples%2FDepartmentofHealthandHumanServices-OMHClaimsListedbyState.nt", "rdf"], {}, child2, null);
@@ -2833,13 +2786,12 @@ define('linda-vis-fe/templates/index', ['exports'], function (exports) {
         block(env, morph9, context, "link-to", ["datasource", "NationalTransportationSafetyBoardAviation-Accident%20Statistics%202008", get(env, context, "datasetsEndpointURI"), "http%3A%2F%2Fwww.linda-project.org%2Fexamples%2FNationalTransportationSafetyBoardAviation-AccidentStatistics2008.nt", "rdf"], {}, child9, null);
         block(env, morph10, context, "link-to", ["datasource", "OfficeofPersonnelManagement-Fiscal%20Year%202007%20Employee%20Survivor%20Annuitants", get(env, context, "datasetsEndpointURI"), "http%3A%2F%2Fwww.linda-project.org%2Fexamples%2FOfficeofPersonnelManagement-FiscalYear2007EmployeeSurvivorAnnuitants.nt", "rdf"], {}, child10, null);
         block(env, morph11, context, "link-to", ["datasource", "SecurityAndExchangeCommission-Public%20Company%20Bankruptcy%20Cases%202009", get(env, context, "datasetsEndpointURI"), "http%3A%2F%2Fwww.linda-project.org%2Fexamples%2FSecurityAndExchangeCommission-PublicCompanyBankruptcyCases2009.nt", "rdf"], {}, child11, null);
-        block(env, morph12, context, "link-to", ["datasource", "Sales%20Statistics", "http%3A%2F%2Flocalhost%3A3002%2Ftestsets%2FTS2_Sales_Statistics.csv", "-", "csv"], {}, child12, null);
-        block(env, morph13, context, "link-to", ["datasource", "World%20Bank%20GDP%20per%20capita", get(env, context, "datasetsEndpointURI"), "http%3A%2F%2Fwww.linda-project.org%2Fexamples%2Fworldbank-slice-5000", "rdf"], {}, child13, null);
-        block(env, morph14, context, "link-to", ["datasource", "Healthcare%20Analysis", get(env, context, "datasetsEndpointURI"), "http%3A%2F%2Fwww.hospitals_reviewer.com%2F2014", "rdf"], {}, child14, null);
-        block(env, morph15, context, "link-to", ["datasource", "Water%20Quality%20Analysis", get(env, context, "datasetsEndpointURI"), "http%3A%2F%2Fwater_quality_check.it%2Finfo", "rdf"], {}, child15, null);
-        block(env, morph16, context, "link-to", ["datasource", "Newspaper%20Articles%20Analysis", get(env, context, "datasetsEndpointURI"), "http%3A%2F%2Fnewspaper.org%2Farticles_2007", "rdf"], {}, child16, null);
-        block(env, morph17, context, "link-to", ["datasource", "Health Data.gov - Hospital Inpatient Discharges by Facility", get(env, context, "datasetsEndpointURI"), "http%3A%2F%2FHealthData.govHospitalInpatientDischargesbyFacility", "rdf"], {}, child17, null);
-        block(env, morph18, context, "link-to", ["datasource", "TS1", get(env, context, "datasetsEndpointURI"), "http%3A//www.linda-project.org/TS1_LinearRegression_Result_Original", "rdf"], {}, child18, null);
+        block(env, morph12, context, "link-to", ["datasource", "World%20Bank%20GDP%20per%20capita", get(env, context, "datasetsEndpointURI"), "http%3A%2F%2Fwww.linda-project.org%2Fexamples%2Fworldbank-slice-5000", "rdf"], {}, child12, null);
+        block(env, morph13, context, "link-to", ["datasource", "Healthcare%20Analysis", get(env, context, "datasetsEndpointURI"), "http%3A%2F%2Fwww.hospitals_reviewer.com%2F2014", "rdf"], {}, child13, null);
+        block(env, morph14, context, "link-to", ["datasource", "Water%20Quality%20Analysis", get(env, context, "datasetsEndpointURI"), "http%3A%2F%2Fwater_quality_check.it%2Finfo", "rdf"], {}, child14, null);
+        block(env, morph15, context, "link-to", ["datasource", "Newspaper%20Articles%20Analysis", get(env, context, "datasetsEndpointURI"), "http%3A%2F%2Fnewspaper.org%2Farticles_2007", "rdf"], {}, child15, null);
+        block(env, morph16, context, "link-to", ["datasource", "Health Data.gov - Hospital Inpatient Discharges by Facility", get(env, context, "datasetsEndpointURI"), "http%3A%2F%2FHealthData.govHospitalInpatientDischargesbyFacility", "rdf"], {}, child16, null);
+        block(env, morph17, context, "link-to", ["datasource", "TS1", get(env, context, "datasetsEndpointURI"), "http%3A//www.linda-project.org/TS1_LinearRegression_Result_Original", "rdf"], {}, child17, null);
         return fragment;
       }
     };
@@ -4291,6 +4243,41 @@ define('linda-vis-fe/templates/visualization', ['exports'], function (exports) {
   }()));
 
 });
+define('linda-vis-fe/tests/acceptance/initial-route-test', ['ember', 'qunit', 'linda-vis-fe/tests/helpers/start-app'], function (Ember, qunit, startApp) {
+
+  'use strict';
+
+  var application;
+
+  qunit.module("Acceptance: InitialRoute", {
+    beforeEach: function beforeEach() {
+      application = startApp['default']();
+    },
+
+    afterEach: function afterEach() {
+      Ember['default'].run(application, "destroy");
+    }
+  });
+
+  qunit.test("visiting hospitals", function (assert) {
+    visit("/datasource/Healthcare%20Analysis/http%3A%2F%2Flocalhost%3A8890%2Fsparql/http%3A%2F%2Fwww.hospitals_reviewer.com%2F2014/rdf");
+
+    andThen(function () {
+      assert.equal(currentPath(), "datasource");
+    });
+  });
+
+});
+define('linda-vis-fe/tests/acceptance/initial-route-test.jshint', function () {
+
+  'use strict';
+
+  module('JSHint - acceptance');
+  test('acceptance/initial-route-test.js should pass jshint', function() { 
+    ok(true, 'acceptance/initial-route-test.js should pass jshint.'); 
+  });
+
+});
 define('linda-vis-fe/tests/adapters/application.jshint', function () {
 
   'use strict';
@@ -5495,6 +5482,7 @@ define('linda-vis-fe/utils/map', ['exports', 'linda-vis-fe/utils/util'], functio
             }
 
             map = new L.Map(visualisationContainer);
+            L.Icon.Default.imagePath = "/images";
             L.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
                 attribution: "&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap</a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>",
                 zoom: 8
@@ -7043,7 +7031,7 @@ catch(err) {
 if (runningTests) {
   require("linda-vis-fe/tests/test-helper");
 } else {
-  require("linda-vis-fe/app")["default"].create({"name":"linda-vis-fe","version":"0.0.0.e4a5119f"});
+  require("linda-vis-fe/app")["default"].create({"name":"linda-vis-fe","version":"0.0.0.d96a9d41"});
 }
 
 /* jshint ignore:end */

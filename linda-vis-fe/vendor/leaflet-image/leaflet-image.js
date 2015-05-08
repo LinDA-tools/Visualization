@@ -129,12 +129,12 @@ module.exports = function leafletImage(map, callback) {
     function handlePathRoot(root, callback) {
         console.log('LEAFLET SVG');
         console.dir(root);
-        
+
         var serializer = new XMLSerializer();
         var xml = serializer.serializeToString(root);
         console.log("LEAFLET XML");
         console.dir(xml);
-        
+
         var bounds = map.getPixelBounds(),
             origin = map.getPixelOrigin(),
             canvas = document.createElement('canvas');

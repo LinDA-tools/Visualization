@@ -3,3 +3,9 @@
 /linda-vis-fe/node_modules
 /linda-vis-fe/bower_components
 /linda-vis-fe/.netbeans.xml
+.idea/
+/linda-vis-fe/dist/
+/linda-vis-fe/tmp/
+linda-vis-fe/dist/tests/index.html
+
+linda-vis-fe/dist/index.html

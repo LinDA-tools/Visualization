@@ -54,7 +54,7 @@ app.import("bower_components/dimple/dist/dimple.v2.1.2.js", {
 app.import("bower_components/leaflet/dist/leaflet-src.js");
 app.import("bower_components/leaflet/dist/leaflet.css");
 app.import("bower_components/leaflet/dist/images/marker-icon.png",{
-  destDir: 'assets'
+  destDir: 'images'
 });
 app.import("bower_components/leaflet/dist/images/marker-icon-2x.png",
   {

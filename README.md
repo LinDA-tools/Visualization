@@ -6,7 +6,7 @@ The objective of the [LinDA project](http://linda-project.eu/) which involves a 
 
 One of the major challenges of this project is to provide means for exploring and visualizing Linked Data by hiding complexity through automation and an intuitive user interface.
 
-This is put into practice by an easy to use wizard-like tool, [LinkDaViz](http://eis.iai.uni-bonn.de/Projects/LinkDaViz/), that guides the user step by step through the process of browsing, selecting and exploring data and configuring visualizations by computing suggestions for suitable visualizations and possible configurations for this visualizations. ([**Online Demo**](http://ec2-54-200-237-129.us-west-2.compute.amazonaws.com:4200) and [**Screencast**]() available.)
+This is put into practice by an easy to use wizard-like tool, [LinkDaViz](http://eis.iai.uni-bonn.de/Projects/LinkDaViz/), that guides the user step by step through the process of browsing, selecting and exploring data and configuring visualizations by computing suggestions for suitable visualizations and possible configurations for this visualizations. ([**Online Demo**](http://ec2-54-200-237-129.us-west-2.compute.amazonaws.com:4200) and [**Screencast**](https://drive.google.com/file/d/0B3uXlknE4eJrRjZFTVdtbXRCejQ/view) available.)
 
 ![Data selection and visualization](https://www.dropbox.com/s/lofec1mnfbpent7/Visualization-Workflow-UI-res2.jpg?dl=1 "Data selection and visualization")
 

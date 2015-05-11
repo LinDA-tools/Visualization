@@ -17,7 +17,7 @@ This is put into practice by an easy to use wizard-like tool, [LinkDaViz](http:/
 
 **Installation steps:**
 - Install Docker and Docker Compose
-- Install Git and clone LinDAViz project 
+- Install Git and clone LinkDaViz project 
 - Go to the directory _LinDAVis_ and execute _docker-compose_ _up_
 
 **Remarks:**

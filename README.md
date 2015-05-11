@@ -1,5 +1,4 @@
-Description
-=============
+### Description
 
 The increasing number of publicly available datasets poses a challenge regarding the integration and consumption of information.
 
@@ -9,44 +8,20 @@ One of the major challenges of this project is to provide means for exploring an
 
 This is put into practice by an easy to use wizard-like tool, [LinkDaViz](http://eis.iai.uni-bonn.de/Projects/LinkDaViz/), that guides the user step by step through the process of browsing, selecting and exploring data and configuring visualizations by computing suggestions for suitable visualizations and possible configurations for this visualizations.
 
+![Data selection and visualization](https://www.dropbox.com/s/lofec1mnfbpent7/Visualization-Workflow-UI-res2.jpg?dl=1 "Data selection and visualization")
 
- 
- 
+### Installation
 
+#### Prerequisites:
+- Docker and Docker Compose
+- Git
+- (A triplestore (e.g. [Virtuoso](virtuoso.openlinksw.com))
 
+#### Installation steps
+- Install [Docker and Docker Compose](http://docs.docker.com/installation/)
+- Install [Git](http://git-scm.com/)
+- Clone git project 
+- Change directory: _LinDAVis_ and execute _docker-compose_ _up_
 
-Installation
-=============
-
-Prerequisites
-------------------------------------------------------------------
-- Docker
-- Docker Compose
-- (Git)
-
-Installation steps
-------------------------------------------------------------------
-**Install Docker and Docker Compose:**
-Please follow the installation instructions on the [Docker website] (http://docs.docker.com/installation/)
-
-**(Optional) Install Docker and Docker Compose:**
-
-**Build and start the application:**
-- 
-- cd LinDAVis
-- docker-compose up
-
-**If you want to start the application while re-using the old containers (preserving changed data etc.)**
-- cd LinDAVis
-- docker-compose start
-
-**If you want to start only one or two of the containers**
-- cd LinDAVis
-- "docker-compose start store" (for Virtuoso) or "docker-compose start backend" (for Virtuoso and Backend)
-This is useful for setting up the development environment without having to compile Virtuoso.
-
-**If you want to rebuild the images**
-- cd LinDAVis
-- docker-compose build
-or, if you want to rebuild only some:
-- docker-compose build store
+In order to start the application while re-using old containers execute from the _LinDAVis_ directory _docker-compose_ _start_. To start only one or two containers execute _docker-compose_ _start_ _store_ (for Virtuoso) or _docker-compose_ _start_ _backend_ (for Virtuoso and Backend). This might be useful for setting up the development environment without having to compile Virtuoso. To rebuild images execute _docker-compose_ _build_
+To rebuild only one container execute _docker-compose_ _build_ _store_.

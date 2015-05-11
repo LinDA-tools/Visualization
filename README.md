@@ -12,14 +12,14 @@ This is put into practice by an easy to use wizard-like tool, [LinkDaViz](http:/
 
 ### Installation
 
-#### Prerequisites:
-- [Docker](http://docs.docker.com/installation/) and [Docker Compose](http://docs.docker.com/installation/)
-- [Git](http://git-scm.com/) 
+**Prerequisites:**
+- [Docker](http://docs.docker.com/installation/), [Docker Compose](http://docs.docker.com/installation/) and [Git](http://git-scm.com/) 
 
-#### Installation steps
+**Installation steps:**
 - Install Docker and Docker Compose
 - Install Git and clone LinDAViz project 
 - Go to the directory _LinDAVis_ and execute _docker-compose_ _up_
 
+**Remarks:**
 In order to start the application while re-using old containers execute from the _LinDAVis_ directory _docker-compose_ _start_. To start only one or two containers execute _docker-compose_ _start_ _store_ (for Virtuoso) or _docker-compose_ _start_ _backend_ (for Virtuoso and Backend). This might be useful for setting up the development environment without having to compile Virtuoso. To rebuild images execute _docker-compose_ _build_
 To rebuild only one container execute _docker-compose_ _build_ _store_.

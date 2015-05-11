@@ -1,11 +1,19 @@
 Description
 =============
 
-The increasing number of publicly available datasets poses a challenge regarding the integration and consumption of information. The aim of the [LinDA project](http://linda-project.eu/) is to make the benefits of Linked Open Data accessible to SMEs and data providers by providing libraries for Open Data consumption.
+The increasing number of publicly available datasets poses a challenge regarding the integration and consumption of information.
 
-One of the main tasks in this context is to build an ecosystem of tools for visualising Linked Data to assist SMEs in their daily tasks by hiding complexity through automation and an intuitive user interface.
+The objective of the [LinDA project](http://linda-project.eu/) which involves a number of research and industry partners from different sectors is to make the benefits of LOD accessible to SMEs.
 
-To complete this task, a generic visualisation workflow is being implemented based on state-of-the-art Linked Data visualisation approaches.
+One of the major challenges of this project is to provide means for exploring and visualizing Linked Data by hiding complexity through automation and an intuitive user interface.
+
+This is put into practice by an easy to use wizard-like tool, [LinkDaViz](http://eis.iai.uni-bonn.de/Projects/LinkDaViz/), that guides the user step by step through the process of browsing, selecting and exploring data and configuring visualizations by computing suggestions for suitable visualizations and possible configurations for this visualizations.
+
+
+ 
+ 
+
+
 
 Installation
 =============
@@ -14,16 +22,17 @@ Prerequisites
 ------------------------------------------------------------------
 - Docker
 - Docker Compose
+- (Git)
 
 Installation steps
 ------------------------------------------------------------------
 **Install Docker and Docker Compose:**
-
-
 Please follow the installation instructions on the [Docker website] (http://docs.docker.com/installation/)
 
+**(Optional) Install Docker and Docker Compose:**
 
 **Build and start the application:**
+- 
 - cd LinDAVis
 - docker-compose up
 

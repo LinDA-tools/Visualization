@@ -618,11 +618,11 @@
 :GeographicLatitude
     a :ScaleOfMeasurementForQuantitativeData, owl:NamedIndividual ;
     rdfs:comment "Scale of measurement for geographic latitude"@en ;
-    rdfs:label "Geographic Latitude Measure"@en ;
+    rdfs:label "Geographic Latitude"@en ;
     :moreSpecificThan :Angular.
 
 :GeographicLongitude
     a :ScaleOfMeasurementForQuantitativeData, owl:NamedIndividual ;
     rdfs:comment "Scale of measurement for geographic longitude"@en ;
-    rdfs:label "Geographic Longitude Measure"@en ;
+    rdfs:label "Geographic Longitude"@en ;
     :moreSpecificThan :Angular.

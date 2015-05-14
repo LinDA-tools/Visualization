@@ -341,7 +341,6 @@ var sparql_data_module = function () {
                 
                 // if no (known) datatype is given, try same parsing algorithm as for CSV
                 return util.toScalar(value);
-                break;
             case "uri":
             case "bnode":
                 return simplifyURI(value);
@@ -373,24 +372,24 @@ var sparql_data_module = function () {
             case "http://www.w3.org/2001/XMLSchema#gYear":
                 var numberRegex = /\d+/;
                 var firstNumber = numberRegex.exec(value);
-                var dateString;
+                var yearDateString;
                 if(firstNumber && firstNumber.length >= 4) {
-                    dateString = firstNumber + "-01-01";
+                    yearDateString = firstNumber + "-01-01";
                 } else {
                     // No idea what this is, maybe JavaScript knows...
-                    dateString = value;
+                    yearDateString = value;
                 }
-                return new Date(dateString);
+                return new Date(yearDateString);
             case "http://www.w3.org/2001/XMLSchema#gYearMonth":
                 var twoNumbersWithHyphenRegex = /\d+-\d+/;
                 var firstTwoNumbers = twoNumbersWithHyphenRegex.exec(value);
-                var dateString;
+                var yearMonthDateString;
                 if(firstTwoNumbers && firstTwoNumbers.length >= 4) {
-                    dateString = firstTwoNumbers + "-01";
+                    yearMonthDateString = firstTwoNumbers + "-01";
                 } else {
-                    dateString = value;
+                    yearMonthDateString = value;
                 }
-                return new Date(dateString);
+                return new Date(yearMonthDateString);
             case "http://www.w3.org/2001/XMLSchema#dateTime":
             case "http://www.w3.org/2001/XMLSchema#date":
                 return new Date(value);

@@ -5,9 +5,11 @@ import util from "./util";
 /* global $ */
 /* global leafletImage */
 var map = function () { // map/openstreetmap module (js module pattern)
-
     var map = null;
     function draw(configuration, visualisationContainer) {
+        if(L && !L.Icon.Default.imagePath) {
+            L.Icon.Default.imagePath = 'leaflet/images';
+        }
         console.log("### INITIALIZE VISUALISATION - MAP");
         if (map) {
             map = map.remove();
@@ -28,7 +30,6 @@ var map = function () { // map/openstreetmap module (js module pattern)
         }
 
         map = new L.Map(visualisationContainer);
-        L.Icon.Default.imagePath = '../images';
         L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
             zoom: 8

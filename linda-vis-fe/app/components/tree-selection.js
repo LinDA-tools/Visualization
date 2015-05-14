@@ -150,7 +150,7 @@ export default Ember.Component.extend({
         return node;
     },
     hideCheckbox: function(type) {
-        switch (record) {
+        switch (type) {
             case "Ratio":
             case "Interval":
             case "Nominal":

@@ -318,7 +318,7 @@ define('linda-vis-fe/components/tree-selection', ['exports', 'ember'], function 
             return node;
         },
         hideCheckbox: function hideCheckbox(type) {
-            switch (record) {
+            switch (type) {
                 case "Ratio":
                 case "Interval":
                 case "Nominal":
@@ -4243,41 +4243,6 @@ define('linda-vis-fe/templates/visualization', ['exports'], function (exports) {
   }()));
 
 });
-define('linda-vis-fe/tests/acceptance/initial-route-test', ['ember', 'qunit', 'linda-vis-fe/tests/helpers/start-app'], function (Ember, qunit, startApp) {
-
-  'use strict';
-
-  var application;
-
-  qunit.module("Acceptance: InitialRoute", {
-    beforeEach: function beforeEach() {
-      application = startApp['default']();
-    },
-
-    afterEach: function afterEach() {
-      Ember['default'].run(application, "destroy");
-    }
-  });
-
-  qunit.test("visiting hospitals", function (assert) {
-    visit("/datasource/Healthcare%20Analysis/http%3A%2F%2Flocalhost%3A8890%2Fsparql/http%3A%2F%2Fwww.hospitals_reviewer.com%2F2014/rdf");
-
-    andThen(function () {
-      assert.equal(currentPath(), "datasource");
-    });
-  });
-
-});
-define('linda-vis-fe/tests/acceptance/initial-route-test.jshint', function () {
-
-  'use strict';
-
-  module('JSHint - acceptance');
-  test('acceptance/initial-route-test.js should pass jshint', function() { 
-    ok(true, 'acceptance/initial-route-test.js should pass jshint.'); 
-  });
-
-});
 define('linda-vis-fe/tests/adapters/application.jshint', function () {
 
   'use strict';
@@ -4344,7 +4309,7 @@ define('linda-vis-fe/tests/components/tree-selection.jshint', function () {
 
   module('JSHint - components');
   test('components/tree-selection.js should pass jshint', function() { 
-    ok(false, 'components/tree-selection.js should pass jshint.\ncomponents/tree-selection.js: line 153, col 17, \'record\' is not defined.\n\n1 error'); 
+    ok(true, 'components/tree-selection.js should pass jshint.'); 
   });
 
 });
@@ -4648,7 +4613,7 @@ define('linda-vis-fe/tests/utils/sparql-data-module.jshint', function () {
 
   module('JSHint - utils');
   test('utils/sparql-data-module.js should pass jshint', function() { 
-    ok(false, 'utils/sparql-data-module.js should pass jshint.\nutils/sparql-data-module.js: line 344, col 17, Unreachable \'break\' after \'return\'.\nutils/sparql-data-module.js: line 387, col 31, \'dateString\' is already defined.\n\n2 errors'); 
+    ok(true, 'utils/sparql-data-module.js should pass jshint.'); 
   });
 
 });
@@ -5459,9 +5424,11 @@ define('linda-vis-fe/utils/map', ['exports', 'linda-vis-fe/utils/util'], functio
 
     var map = (function () {
         // map/openstreetmap module (js module pattern)
-
         var map = null;
         function draw(configuration, visualisationContainer) {
+            if (L && !L.Icon.Default.imagePath) {
+                L.Icon.Default.imagePath = "leaflet/images";
+            }
             console.log("### INITIALIZE VISUALISATION - MAP");
             if (map) {
                 map = map.remove();
@@ -5482,7 +5449,6 @@ define('linda-vis-fe/utils/map', ['exports', 'linda-vis-fe/utils/util'], functio
             }
 
             map = new L.Map(visualisationContainer);
-            L.Icon.Default.imagePath = "../images";
             L.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
                 attribution: "&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap</a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>",
                 zoom: 8
@@ -6259,7 +6225,6 @@ define('linda-vis-fe/utils/sparql-data-module', ['exports', 'ember', 'linda-vis-
 
                     // if no (known) datatype is given, try same parsing algorithm as for CSV
                     return util['default'].toScalar(value);
-                    break;
                 case "uri":
                 case "bnode":
                     return simplifyURI(value);
@@ -6291,24 +6256,24 @@ define('linda-vis-fe/utils/sparql-data-module', ['exports', 'ember', 'linda-vis-
                 case "http://www.w3.org/2001/XMLSchema#gYear":
                     var numberRegex = /\d+/;
                     var firstNumber = numberRegex.exec(value);
-                    var dateString;
+                    var yearDateString;
                     if (firstNumber && firstNumber.length >= 4) {
-                        dateString = firstNumber + "-01-01";
+                        yearDateString = firstNumber + "-01-01";
                     } else {
                         // No idea what this is, maybe JavaScript knows...
-                        dateString = value;
+                        yearDateString = value;
                     }
-                    return new Date(dateString);
+                    return new Date(yearDateString);
                 case "http://www.w3.org/2001/XMLSchema#gYearMonth":
                     var twoNumbersWithHyphenRegex = /\d+-\d+/;
                     var firstTwoNumbers = twoNumbersWithHyphenRegex.exec(value);
-                    var dateString;
+                    var yearMonthDateString;
                     if (firstTwoNumbers && firstTwoNumbers.length >= 4) {
-                        dateString = firstTwoNumbers + "-01";
+                        yearMonthDateString = firstTwoNumbers + "-01";
                     } else {
-                        dateString = value;
+                        yearMonthDateString = value;
                     }
-                    return new Date(dateString);
+                    return new Date(yearMonthDateString);
                 case "http://www.w3.org/2001/XMLSchema#dateTime":
                 case "http://www.w3.org/2001/XMLSchema#date":
                     return new Date(value);
@@ -7031,7 +6996,7 @@ catch(err) {
 if (runningTests) {
   require("linda-vis-fe/tests/test-helper");
 } else {
-  require("linda-vis-fe/app")["default"].create({"name":"linda-vis-fe","version":"0.0.0.2029f330"});
+  require("linda-vis-fe/app")["default"].create({"name":"linda-vis-fe","version":"0.0.0.cbde23d7"});
 }
 
 /* jshint ignore:end */

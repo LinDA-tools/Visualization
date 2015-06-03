@@ -7,7 +7,7 @@ define('linda-vis-fe/adapters/application', ['exports', 'ember-data'], function 
         'use strict';
 
         var Adapter = DS['default'].RESTAdapter.extend({
-                host: "http://" + window.location.hostname + ":3002"
+                host: 'http://' + window.location.hostname + ':3002'
         });
 
         exports['default'] = Adapter;
@@ -63,8 +63,8 @@ define('linda-vis-fe/components/data-table', ['exports', 'ember', 'linda-vis-fe/
                                 type: "inline"
                             }
                         },
-                        data: content.slice(1),
-                        columns: columns
+                        "data": content.slice(1),
+                        "columns": columns
                     });
                     self.set("table", table);
                 });
@@ -83,16 +83,16 @@ define('linda-vis-fe/components/draggable-item', ['exports', 'ember'], function 
     'use strict';
 
     exports['default'] = Ember['default'].Component.extend({
-        tagName: "span",
-        classNames: ["draggable-item"],
-        attributeBindings: ["draggable"],
-        draggable: "true",
+        tagName: 'span',
+        classNames: ['draggable-item'],
+        attributeBindings: ['draggable'],
+        draggable: 'true',
         dragStart: function dragStart(event) {
             event.stopPropagation();
-            var data = this.get("data");
+            var data = this.get('data');
             var jsonData = JSON.stringify(data);
-            event.dataTransfer.setData("text/plain", jsonData);
-            event.dataTransfer.effectAllowed = "copy";
+            event.dataTransfer.setData('text/plain', jsonData);
+            event.dataTransfer.effectAllowed = 'copy';
         } });
 
 });
@@ -108,8 +108,8 @@ define('linda-vis-fe/components/droppable-area', ['exports', 'ember'], function 
         drop: function drop(event) {
             event.stopPropagation();
             event.preventDefault();
-            var droppableJSON = event.dataTransfer.getData("text/plain");
-            console.log("DROPPED: " + droppableJSON);
+            var droppableJSON = event.dataTransfer.getData('text/plain');
+            console.log('DROPPED: ' + droppableJSON);
 
             var droppable;
             try {
@@ -119,7 +119,7 @@ define('linda-vis-fe/components/droppable-area', ['exports', 'ember'], function 
                 return;
             }
 
-            var inArea = this.get("inArea");
+            var inArea = this.get('inArea');
 
             if (this.isFull()) {
                 return;
@@ -133,23 +133,23 @@ define('linda-vis-fe/components/droppable-area', ['exports', 'ember'], function 
             }
             inArea.pushObject(droppable);
         },
-        classNames: ["droppable-area"],
-        classNameBindings: ["full", "active"],
+        classNames: ['droppable-area'],
+        classNameBindings: ['full', 'active'],
         active: false,
         isFull: function isFull() {
             return false;
         },
         full: (function () {
             return this.isFull();
-        }).property("maxNumItems", "inArea.@each"),
+        }).property('maxNumItems', 'inArea.@each'),
         dragEnter: function dragEnter(event) {
             console.log(event.type);
-            this.set("active", true);
+            this.set('active', true);
         },
         deactivate: (function (event) {
             console.log(event.type);
-            this.set("active", false);
-        }).on("dragLeave", "dragStop", "drop")
+            this.set('active', false);
+        }).on('dragLeave', 'dragStop', 'drop')
     });
 
 });
@@ -160,8 +160,8 @@ define('linda-vis-fe/components/property-item', ['exports', 'ember'], function (
   exports['default'] = Ember['default'].Component.extend({
     actions: {
       remove: function remove() {
-        var collection = this.get("collection");
-        var item = this.get("item");
+        var collection = this.get('collection');
+        var item = this.get('item');
         collection.removeObject(item);
       }
     }
@@ -396,9 +396,9 @@ define('linda-vis-fe/controllers/index', ['exports', 'ember'], function (exports
     'use strict';
 
     exports['default'] = Ember['default'].ObjectController.extend({
-        needs: ["application"],
+        needs: ['application'],
         datasetsEndpointURI: (function () {
-            return encodeURIComponent(this.get("controllers.application.datasetsEndpoint"));
+            return encodeURIComponent(this.get('controllers.application.datasetsEndpoint'));
         }).property()
     });
 
@@ -574,7 +574,7 @@ define('linda-vis-fe/initializers/app-version', ['exports', 'linda-vis-fe/config
   var registered = false;
 
   exports['default'] = {
-    name: "App Version",
+    name: 'App Version',
     initialize: function initialize(container, application) {
       if (!registered) {
         var appName = classify(application.toString());
@@ -602,7 +602,7 @@ define('linda-vis-fe/initializers/export-application-global', ['exports', 'ember
   ;
 
   exports['default'] = {
-    name: "export-application-global",
+    name: 'export-application-global',
 
     initialize: initialize
   };
@@ -637,13 +637,13 @@ define('linda-vis-fe/models/visualization', ['exports', 'ember-data'], function 
     /*The visualization model represents the  initial visualization configuration retrieved from the backend. 
      *And describes the format used for storing the current visualization configuration in the backend.*/
     exports['default'] = DS['default'].Model.extend({
-        visualizationName: DS['default'].attr("string"),
-        configurationName: DS['default'].attr("string"),
+        visualizationName: DS['default'].attr('string'),
+        configurationName: DS['default'].attr('string'),
         structureOptions: DS['default'].attr(),
         layoutOptions: DS['default'].attr(),
-        visualizationThumbnail: DS['default'].attr("string"),
-        valid: DS['default'].attr("boolean"),
-        dataselection: DS['default'].belongsTo("dataselection")
+        visualizationThumbnail: DS['default'].attr('string'),
+        valid: DS['default'].attr('boolean'),
+        dataselection: DS['default'].belongsTo('dataselection')
     });
 
 });
@@ -656,17 +656,17 @@ define('linda-vis-fe/router', ['exports', 'ember', 'linda-vis-fe/config/environm
     });
 
     Router.map(function () {
-        this.route("visualization", {
-            path: "/visualization/:source_type/:id"
+        this.route('visualization', {
+            path: '/visualization/:source_type/:id'
         });
-        this.route("datasource", {
-            path: "/datasource/:name/:location/:graph/:format"
+        this.route('datasource', {
+            path: '/datasource/:name/:location/:graph/:format'
         });
-        this.route("dataselection", {
-            path: "/dataselection/:selection/:datasource"
+        this.route('dataselection', {
+            path: '/dataselection/:selection/:datasource'
         });
-        this.route("saved-visualizations");
-        this.route("configure");
+        this.route('saved-visualizations');
+        this.route('configure');
     });
 
     exports['default'] = Router;
@@ -689,25 +689,25 @@ define('linda-vis-fe/routes/dataselection', ['exports', 'ember'], function (expo
 
     var DataselectionRoute = Ember['default'].Route.extend({
         model: function model(params) {
-            console.log("DATASELECTION ROUTE", params.selection);
-            return Ember['default'].$.getJSON("http://" + window.location.hostname + ":3002/dataselections/" + params.selection);
+            console.log('DATASELECTION ROUTE', params.selection);
+            return Ember['default'].$.getJSON('http://' + window.location.hostname + ':3002/dataselections/' + params.selection);
         },
-        controllerName: "datasource",
+        controllerName: 'datasource',
         setupController: function setupController(controller, model) {
-            console.log("DATASELECTION ROUTE - SETTING UP THE DATASOURCE CONTROLLER");
-            console.log("MODEL");
+            console.log('DATASELECTION ROUTE - SETTING UP THE DATASOURCE CONTROLLER');
+            console.log('MODEL');
             console.dir(model);
 
-            controller.set("model", model.dataselection.datasource);
+            controller.set('model', model.dataselection.datasource);
 
-            var dataSelection = controller.get("dataSelection");
+            var dataSelection = controller.get('dataSelection');
             var selection = _.flatten(dataSelection.pushObject(model.dataselection.propertyInfos));
 
-            controller.set("dataSelection", selection);
-            controller.set("previousSelection", selection);
+            controller.set('dataSelection', selection);
+            controller.set('previousSelection', selection);
         },
         renderTemplate: function renderTemplate() {
-            this.render("datasource");
+            this.render('datasource');
         }
     });
 
@@ -787,7 +787,7 @@ define('linda-vis-fe/templates/application', ['exports'], function (exports) {
     var child0 = (function() {
       return {
         isHTMLBars: true,
-        revision: "Ember@1.11.3",
+        revision: "Ember@1.11.1",
         blockParams: 0,
         cachedFragment: null,
         hasRendered: false,
@@ -842,7 +842,7 @@ define('linda-vis-fe/templates/application', ['exports'], function (exports) {
     var child1 = (function() {
       return {
         isHTMLBars: true,
-        revision: "Ember@1.11.3",
+        revision: "Ember@1.11.1",
         blockParams: 0,
         cachedFragment: null,
         hasRendered: false,
@@ -891,7 +891,7 @@ define('linda-vis-fe/templates/application', ['exports'], function (exports) {
     }());
     return {
       isHTMLBars: true,
-      revision: "Ember@1.11.3",
+      revision: "Ember@1.11.1",
       blockParams: 0,
       cachedFragment: null,
       hasRendered: false,
@@ -1022,7 +1022,7 @@ define('linda-vis-fe/templates/components/draggable-item', ['exports'], function
   exports['default'] = Ember.HTMLBars.template((function() {
     return {
       isHTMLBars: true,
-      revision: "Ember@1.11.3",
+      revision: "Ember@1.11.1",
       blockParams: 0,
       cachedFragment: null,
       hasRendered: false,
@@ -1070,7 +1070,7 @@ define('linda-vis-fe/templates/components/droppable-area', ['exports'], function
   exports['default'] = Ember.HTMLBars.template((function() {
     return {
       isHTMLBars: true,
-      revision: "Ember@1.11.3",
+      revision: "Ember@1.11.1",
       blockParams: 0,
       cachedFragment: null,
       hasRendered: false,
@@ -1117,7 +1117,7 @@ define('linda-vis-fe/templates/components/property-item', ['exports'], function 
   exports['default'] = Ember.HTMLBars.template((function() {
     return {
       isHTMLBars: true,
-      revision: "Ember@1.11.3",
+      revision: "Ember@1.11.1",
       blockParams: 0,
       cachedFragment: null,
       hasRendered: false,
@@ -1188,7 +1188,7 @@ define('linda-vis-fe/templates/configure', ['exports'], function (exports) {
   exports['default'] = Ember.HTMLBars.template((function() {
     return {
       isHTMLBars: true,
-      revision: "Ember@1.11.3",
+      revision: "Ember@1.11.1",
       blockParams: 0,
       cachedFragment: null,
       hasRendered: false,
@@ -1269,7 +1269,7 @@ define('linda-vis-fe/templates/datasource', ['exports'], function (exports) {
     var child0 = (function() {
       return {
         isHTMLBars: true,
-        revision: "Ember@1.11.3",
+        revision: "Ember@1.11.1",
         blockParams: 0,
         cachedFragment: null,
         hasRendered: false,
@@ -1311,7 +1311,7 @@ define('linda-vis-fe/templates/datasource', ['exports'], function (exports) {
     var child1 = (function() {
       return {
         isHTMLBars: true,
-        revision: "Ember@1.11.3",
+        revision: "Ember@1.11.1",
         blockParams: 0,
         cachedFragment: null,
         hasRendered: false,
@@ -1352,7 +1352,7 @@ define('linda-vis-fe/templates/datasource', ['exports'], function (exports) {
     }());
     return {
       isHTMLBars: true,
-      revision: "Ember@1.11.3",
+      revision: "Ember@1.11.1",
       blockParams: 0,
       cachedFragment: null,
       hasRendered: false,
@@ -1543,7 +1543,7 @@ define('linda-vis-fe/templates/dimension-area', ['exports'], function (exports) 
       var child0 = (function() {
         return {
           isHTMLBars: true,
-          revision: "Ember@1.11.3",
+          revision: "Ember@1.11.1",
           blockParams: 0,
           cachedFragment: null,
           hasRendered: false,
@@ -1584,7 +1584,7 @@ define('linda-vis-fe/templates/dimension-area', ['exports'], function (exports) 
       var child1 = (function() {
         return {
           isHTMLBars: true,
-          revision: "Ember@1.11.3",
+          revision: "Ember@1.11.1",
           blockParams: 0,
           cachedFragment: null,
           hasRendered: false,
@@ -1620,7 +1620,7 @@ define('linda-vis-fe/templates/dimension-area', ['exports'], function (exports) 
       var child2 = (function() {
         return {
           isHTMLBars: true,
-          revision: "Ember@1.11.3",
+          revision: "Ember@1.11.1",
           blockParams: 0,
           cachedFragment: null,
           hasRendered: false,
@@ -1662,7 +1662,7 @@ define('linda-vis-fe/templates/dimension-area', ['exports'], function (exports) 
       }());
       return {
         isHTMLBars: true,
-        revision: "Ember@1.11.3",
+        revision: "Ember@1.11.1",
         blockParams: 0,
         cachedFragment: null,
         hasRendered: false,
@@ -1745,7 +1745,7 @@ define('linda-vis-fe/templates/dimension-area', ['exports'], function (exports) 
     }());
     return {
       isHTMLBars: true,
-      revision: "Ember@1.11.3",
+      revision: "Ember@1.11.1",
       blockParams: 0,
       cachedFragment: null,
       hasRendered: false,
@@ -1797,7 +1797,7 @@ define('linda-vis-fe/templates/export-visualization', ['exports'], function (exp
   exports['default'] = Ember.HTMLBars.template((function() {
     return {
       isHTMLBars: true,
-      revision: "Ember@1.11.3",
+      revision: "Ember@1.11.1",
       blockParams: 0,
       cachedFragment: null,
       hasRendered: false,
@@ -1881,7 +1881,7 @@ define('linda-vis-fe/templates/index', ['exports'], function (exports) {
     var child0 = (function() {
       return {
         isHTMLBars: true,
-        revision: "Ember@1.11.3",
+        revision: "Ember@1.11.1",
         blockParams: 0,
         cachedFragment: null,
         hasRendered: false,
@@ -1917,7 +1917,7 @@ define('linda-vis-fe/templates/index', ['exports'], function (exports) {
     var child1 = (function() {
       return {
         isHTMLBars: true,
-        revision: "Ember@1.11.3",
+        revision: "Ember@1.11.1",
         blockParams: 0,
         cachedFragment: null,
         hasRendered: false,
@@ -1953,7 +1953,7 @@ define('linda-vis-fe/templates/index', ['exports'], function (exports) {
     var child2 = (function() {
       return {
         isHTMLBars: true,
-        revision: "Ember@1.11.3",
+        revision: "Ember@1.11.1",
         blockParams: 0,
         cachedFragment: null,
         hasRendered: false,
@@ -1989,7 +1989,7 @@ define('linda-vis-fe/templates/index', ['exports'], function (exports) {
     var child3 = (function() {
       return {
         isHTMLBars: true,
-        revision: "Ember@1.11.3",
+        revision: "Ember@1.11.1",
         blockParams: 0,
         cachedFragment: null,
         hasRendered: false,
@@ -2025,7 +2025,7 @@ define('linda-vis-fe/templates/index', ['exports'], function (exports) {
     var child4 = (function() {
       return {
         isHTMLBars: true,
-        revision: "Ember@1.11.3",
+        revision: "Ember@1.11.1",
         blockParams: 0,
         cachedFragment: null,
         hasRendered: false,
@@ -2061,7 +2061,7 @@ define('linda-vis-fe/templates/index', ['exports'], function (exports) {
     var child5 = (function() {
       return {
         isHTMLBars: true,
-        revision: "Ember@1.11.3",
+        revision: "Ember@1.11.1",
         blockParams: 0,
         cachedFragment: null,
         hasRendered: false,
@@ -2097,7 +2097,7 @@ define('linda-vis-fe/templates/index', ['exports'], function (exports) {
     var child6 = (function() {
       return {
         isHTMLBars: true,
-        revision: "Ember@1.11.3",
+        revision: "Ember@1.11.1",
         blockParams: 0,
         cachedFragment: null,
         hasRendered: false,
@@ -2133,7 +2133,7 @@ define('linda-vis-fe/templates/index', ['exports'], function (exports) {
     var child7 = (function() {
       return {
         isHTMLBars: true,
-        revision: "Ember@1.11.3",
+        revision: "Ember@1.11.1",
         blockParams: 0,
         cachedFragment: null,
         hasRendered: false,
@@ -2169,7 +2169,7 @@ define('linda-vis-fe/templates/index', ['exports'], function (exports) {
     var child8 = (function() {
       return {
         isHTMLBars: true,
-        revision: "Ember@1.11.3",
+        revision: "Ember@1.11.1",
         blockParams: 0,
         cachedFragment: null,
         hasRendered: false,
@@ -2205,7 +2205,7 @@ define('linda-vis-fe/templates/index', ['exports'], function (exports) {
     var child9 = (function() {
       return {
         isHTMLBars: true,
-        revision: "Ember@1.11.3",
+        revision: "Ember@1.11.1",
         blockParams: 0,
         cachedFragment: null,
         hasRendered: false,
@@ -2241,7 +2241,7 @@ define('linda-vis-fe/templates/index', ['exports'], function (exports) {
     var child10 = (function() {
       return {
         isHTMLBars: true,
-        revision: "Ember@1.11.3",
+        revision: "Ember@1.11.1",
         blockParams: 0,
         cachedFragment: null,
         hasRendered: false,
@@ -2277,7 +2277,7 @@ define('linda-vis-fe/templates/index', ['exports'], function (exports) {
     var child11 = (function() {
       return {
         isHTMLBars: true,
-        revision: "Ember@1.11.3",
+        revision: "Ember@1.11.1",
         blockParams: 0,
         cachedFragment: null,
         hasRendered: false,
@@ -2313,7 +2313,7 @@ define('linda-vis-fe/templates/index', ['exports'], function (exports) {
     var child12 = (function() {
       return {
         isHTMLBars: true,
-        revision: "Ember@1.11.3",
+        revision: "Ember@1.11.1",
         blockParams: 0,
         cachedFragment: null,
         hasRendered: false,
@@ -2349,7 +2349,7 @@ define('linda-vis-fe/templates/index', ['exports'], function (exports) {
     var child13 = (function() {
       return {
         isHTMLBars: true,
-        revision: "Ember@1.11.3",
+        revision: "Ember@1.11.1",
         blockParams: 0,
         cachedFragment: null,
         hasRendered: false,
@@ -2385,7 +2385,7 @@ define('linda-vis-fe/templates/index', ['exports'], function (exports) {
     var child14 = (function() {
       return {
         isHTMLBars: true,
-        revision: "Ember@1.11.3",
+        revision: "Ember@1.11.1",
         blockParams: 0,
         cachedFragment: null,
         hasRendered: false,
@@ -2421,7 +2421,7 @@ define('linda-vis-fe/templates/index', ['exports'], function (exports) {
     var child15 = (function() {
       return {
         isHTMLBars: true,
-        revision: "Ember@1.11.3",
+        revision: "Ember@1.11.1",
         blockParams: 0,
         cachedFragment: null,
         hasRendered: false,
@@ -2457,7 +2457,7 @@ define('linda-vis-fe/templates/index', ['exports'], function (exports) {
     var child16 = (function() {
       return {
         isHTMLBars: true,
-        revision: "Ember@1.11.3",
+        revision: "Ember@1.11.1",
         blockParams: 0,
         cachedFragment: null,
         hasRendered: false,
@@ -2493,7 +2493,7 @@ define('linda-vis-fe/templates/index', ['exports'], function (exports) {
     var child17 = (function() {
       return {
         isHTMLBars: true,
-        revision: "Ember@1.11.3",
+        revision: "Ember@1.11.1",
         blockParams: 0,
         cachedFragment: null,
         hasRendered: false,
@@ -2528,7 +2528,7 @@ define('linda-vis-fe/templates/index', ['exports'], function (exports) {
     }());
     return {
       isHTMLBars: true,
-      revision: "Ember@1.11.3",
+      revision: "Ember@1.11.1",
       blockParams: 0,
       cachedFragment: null,
       hasRendered: false,
@@ -2809,7 +2809,7 @@ define('linda-vis-fe/templates/properties-list', ['exports'], function (exports)
           var child0 = (function() {
             return {
               isHTMLBars: true,
-              revision: "Ember@1.11.3",
+              revision: "Ember@1.11.1",
               blockParams: 0,
               cachedFragment: null,
               hasRendered: false,
@@ -2856,7 +2856,7 @@ define('linda-vis-fe/templates/properties-list', ['exports'], function (exports)
           }());
           return {
             isHTMLBars: true,
-            revision: "Ember@1.11.3",
+            revision: "Ember@1.11.1",
             blockParams: 0,
             cachedFragment: null,
             hasRendered: false,
@@ -2926,7 +2926,7 @@ define('linda-vis-fe/templates/properties-list', ['exports'], function (exports)
         }());
         return {
           isHTMLBars: true,
-          revision: "Ember@1.11.3",
+          revision: "Ember@1.11.1",
           blockParams: 0,
           cachedFragment: null,
           hasRendered: false,
@@ -2966,7 +2966,7 @@ define('linda-vis-fe/templates/properties-list', ['exports'], function (exports)
       }());
       return {
         isHTMLBars: true,
-        revision: "Ember@1.11.3",
+        revision: "Ember@1.11.1",
         blockParams: 0,
         cachedFragment: null,
         hasRendered: false,
@@ -3036,7 +3036,7 @@ define('linda-vis-fe/templates/properties-list', ['exports'], function (exports)
     }());
     return {
       isHTMLBars: true,
-      revision: "Ember@1.11.3",
+      revision: "Ember@1.11.1",
       blockParams: 0,
       cachedFragment: null,
       hasRendered: false,
@@ -3083,7 +3083,7 @@ define('linda-vis-fe/templates/publish-visualization', ['exports'], function (ex
   exports['default'] = Ember.HTMLBars.template((function() {
     return {
       isHTMLBars: true,
-      revision: "Ember@1.11.3",
+      revision: "Ember@1.11.1",
       blockParams: 0,
       cachedFragment: null,
       hasRendered: false,
@@ -3157,7 +3157,7 @@ define('linda-vis-fe/templates/save-visualization', ['exports'], function (expor
   exports['default'] = Ember.HTMLBars.template((function() {
     return {
       isHTMLBars: true,
-      revision: "Ember@1.11.3",
+      revision: "Ember@1.11.1",
       blockParams: 0,
       cachedFragment: null,
       hasRendered: false,
@@ -3237,7 +3237,7 @@ define('linda-vis-fe/templates/saved-visualizations', ['exports'], function (exp
       var child0 = (function() {
         return {
           isHTMLBars: true,
-          revision: "Ember@1.11.3",
+          revision: "Ember@1.11.1",
           blockParams: 0,
           cachedFragment: null,
           hasRendered: false,
@@ -3278,7 +3278,7 @@ define('linda-vis-fe/templates/saved-visualizations', ['exports'], function (exp
       }());
       return {
         isHTMLBars: true,
-        revision: "Ember@1.11.3",
+        revision: "Ember@1.11.1",
         blockParams: 0,
         cachedFragment: null,
         hasRendered: false,
@@ -3320,7 +3320,7 @@ define('linda-vis-fe/templates/saved-visualizations', ['exports'], function (exp
     }());
     return {
       isHTMLBars: true,
-      revision: "Ember@1.11.3",
+      revision: "Ember@1.11.1",
       blockParams: 0,
       cachedFragment: null,
       hasRendered: false,
@@ -3407,7 +3407,7 @@ define('linda-vis-fe/templates/select-field', ['exports'], function (exports) {
   exports['default'] = Ember.HTMLBars.template((function() {
     return {
       isHTMLBars: true,
-      revision: "Ember@1.11.3",
+      revision: "Ember@1.11.1",
       blockParams: 0,
       cachedFragment: null,
       hasRendered: false,
@@ -3464,7 +3464,7 @@ define('linda-vis-fe/templates/slide-show', ['exports'], function (exports) {
     var child0 = (function() {
       return {
         isHTMLBars: true,
-        revision: "Ember@1.11.3",
+        revision: "Ember@1.11.1",
         blockParams: 0,
         cachedFragment: null,
         hasRendered: false,
@@ -3517,7 +3517,7 @@ define('linda-vis-fe/templates/slide-show', ['exports'], function (exports) {
     }());
     return {
       isHTMLBars: true,
-      revision: "Ember@1.11.3",
+      revision: "Ember@1.11.1",
       blockParams: 0,
       cachedFragment: null,
       hasRendered: false,
@@ -3564,7 +3564,7 @@ define('linda-vis-fe/templates/text-field', ['exports'], function (exports) {
   exports['default'] = Ember.HTMLBars.template((function() {
     return {
       isHTMLBars: true,
-      revision: "Ember@1.11.3",
+      revision: "Ember@1.11.1",
       blockParams: 0,
       cachedFragment: null,
       hasRendered: false,
@@ -3620,7 +3620,7 @@ define('linda-vis-fe/templates/tuning-check', ['exports'], function (exports) {
   exports['default'] = Ember.HTMLBars.template((function() {
     return {
       isHTMLBars: true,
-      revision: "Ember@1.11.3",
+      revision: "Ember@1.11.1",
       blockParams: 0,
       cachedFragment: null,
       hasRendered: false,
@@ -3676,7 +3676,7 @@ define('linda-vis-fe/templates/tuning-input', ['exports'], function (exports) {
   exports['default'] = Ember.HTMLBars.template((function() {
     return {
       isHTMLBars: true,
-      revision: "Ember@1.11.3",
+      revision: "Ember@1.11.1",
       blockParams: 0,
       cachedFragment: null,
       hasRendered: false,
@@ -3732,7 +3732,7 @@ define('linda-vis-fe/templates/tuning-numinput', ['exports'], function (exports)
   exports['default'] = Ember.HTMLBars.template((function() {
     return {
       isHTMLBars: true,
-      revision: "Ember@1.11.3",
+      revision: "Ember@1.11.1",
       blockParams: 0,
       cachedFragment: null,
       hasRendered: false,
@@ -3789,7 +3789,7 @@ define('linda-vis-fe/templates/visualization', ['exports'], function (exports) {
     var child0 = (function() {
       return {
         isHTMLBars: true,
-        revision: "Ember@1.11.3",
+        revision: "Ember@1.11.1",
         blockParams: 0,
         cachedFragment: null,
         hasRendered: false,
@@ -3831,7 +3831,7 @@ define('linda-vis-fe/templates/visualization', ['exports'], function (exports) {
     var child1 = (function() {
       return {
         isHTMLBars: true,
-        revision: "Ember@1.11.3",
+        revision: "Ember@1.11.1",
         blockParams: 0,
         cachedFragment: null,
         hasRendered: false,
@@ -3872,7 +3872,7 @@ define('linda-vis-fe/templates/visualization', ['exports'], function (exports) {
     }());
     return {
       isHTMLBars: true,
-      revision: "Ember@1.11.3",
+      revision: "Ember@1.11.1",
       blockParams: 0,
       cachedFragment: null,
       hasRendered: false,
@@ -4721,7 +4721,7 @@ define('linda-vis-fe/utils/area-chart', ['exports', 'linda-vis-fe/utils/util', '
 
             var xAxis = configuration["Horizontal Axis"];
             var yAxis = configuration["Vertical Axis"];
-            var group = configuration.Series;
+            var group = configuration["Series"];
 
             if (!(configuration.dataModule && configuration.datasourceLocation && xAxis && yAxis && group)) {
                 return $.Deferred().resolve().promise();
@@ -4836,9 +4836,9 @@ define('linda-vis-fe/utils/bubble-chart', ['exports', 'linda-vis-fe/utils/util',
 
             var xAxis = configuration["Horizontal Axis"];
             var yAxis = configuration["Vertical Axis"];
-            var size = configuration.Size;
-            var label = configuration.Label;
-            var group = configuration.Groups;
+            var size = configuration["Size"];
+            var label = configuration["Label"];
+            var group = configuration["Groups"];
 
             if (!(configuration.dataModule && configuration.datasourceLocation && xAxis && yAxis && size && label && group)) {
                 return $.Deferred().resolve().promise();
@@ -4880,7 +4880,7 @@ define('linda-vis-fe/utils/bubble-chart', ['exports', 'linda-vis-fe/utils/util',
                     seriesHeaders.splice(0, 0, "Number");
                     for (var i = 0; i < data.length; i++) {
                         var row = data[i];
-                        row.Number = i;
+                        row["Number"] = i;
                     }
                 }
 
@@ -4985,7 +4985,7 @@ define('linda-vis-fe/utils/column-chart', ['exports', 'linda-vis-fe/utils/util',
 
             var xAxis = configuration["Horizontal Axis"];
             var yAxis = configuration["Vertical Axis"];
-            var group = configuration.Groups;
+            var group = configuration["Groups"];
 
             if (!(configuration.dataModule && configuration.datasourceLocation && xAxis && yAxis && group)) {
                 return $.Deferred().resolve().promise();
@@ -5099,7 +5099,7 @@ define('linda-vis-fe/utils/csv-data-module', ['exports', 'linda-vis-fe/utils/uti
         var saved_data;
 
         function parse(location, graph, selection) {
-            console.log("CSV DATA MODULE");
+            console.log('CSV DATA MODULE');
             var dimension = selection.dimension;
             var multidimension = selection.multidimension;
 
@@ -5107,7 +5107,7 @@ define('linda-vis-fe/utils/csv-data-module', ['exports', 'linda-vis-fe/utils/uti
         }
 
         function queryInstances(location, dummy, selection) {
-            console.log("QUERY INSTANCES");
+            console.log('QUERY INSTANCES');
 
             var dataPromise;
             if (saved_location === location) {
@@ -5131,13 +5131,13 @@ define('linda-vis-fe/utils/csv-data-module', ['exports', 'linda-vis-fe/utils/uti
         }
 
         function queryClasses() {
-            console.log("QUERY CLASSES");
+            console.log('QUERY CLASSES');
 
             var dfd = new $.Deferred();
             var dataInfo = {
-                id: "Columns",
-                label: "Columns",
-                type: "Class",
+                id: 'Columns',
+                label: 'Columns',
+                type: 'Class',
                 grandchildren: true
             };
             dfd.resolve([dataInfo]);
@@ -5145,7 +5145,7 @@ define('linda-vis-fe/utils/csv-data-module', ['exports', 'linda-vis-fe/utils/uti
         }
 
         function queryProperties(location, dummy1, dummy2, _properties) {
-            console.log("QUERY PTOPERTIES");
+            console.log('QUERY PTOPERTIES');
 
             var dfd = new $.Deferred();
 
@@ -5177,7 +5177,7 @@ define('linda-vis-fe/utils/csv-data-module', ['exports', 'linda-vis-fe/utils/uti
         }
 
         function convert(arrayData, columnsOrder) {
-            console.log("CONVERT");
+            console.log('CONVERT');
 
             var result = [];
             var row = [];
@@ -5214,22 +5214,22 @@ define('linda-vis-fe/utils/export-visualization', ['exports'], function (exports
 
         function export_PNG() {
             var svg = get_SVG();
-            var image = $("<img />", { id: "chart", style: "display:none", src: "data:image/svg+xml," + encodeURIComponent(svg) });
-            image.appendTo($("#visualization"));
+            var image = $('<img />', { 'id': 'chart', 'style': 'display:none', 'src': 'data:image/svg+xml,' + encodeURIComponent(svg) });
+            image.appendTo($('#visualization'));
             var dfd = new $().Deferred();
 
-            $("#chart").one("load", function () {
-                var canvas = $("<canvas/>", { id: "canvas" });
+            $('#chart').one('load', function () {
+                var canvas = $('<canvas/>', { 'id': 'canvas' });
                 canvas[0].width = 1050;
                 canvas[0].height = 510;
-                canvas.appendTo($("#visualization"));
-                var context = canvas[0].getContext("2d");
+                canvas.appendTo($('#visualization'));
+                var context = canvas[0].getContext('2d');
 
                 // Generate a PNG with canvg.
                 context.drawSvg(svg, 0, 0, 1050, 510);
 
-                var pngURL = canvas[0].toDataURL("image/png");
-                var downloadURL = pngURL.replace(/^data:image\/png/, "data:application/octet-stream");
+                var pngURL = canvas[0].toDataURL('image/png');
+                var downloadURL = pngURL.replace(/^data:image\/png/, 'data:application/octet-stream');
 
                 dfd.resolve(downloadURL);
 
@@ -5248,13 +5248,13 @@ define('linda-vis-fe/utils/export-visualization', ['exports'], function (exports
 
         function export_SVG() {
             var svg = get_SVG();
-            var svgURL = "data:application/octet-stream," + encodeURIComponent(svg);
+            var svgURL = 'data:application/octet-stream,' + encodeURIComponent(svg);
 
             return svgURL;
         }
 
         function get_SVG(cssFilename) {
-            var svg = $("#visualization").find("svg");
+            var svg = $('#visualization').find('svg');
 
             if (svg.length === 0) {
                 return;
@@ -5263,14 +5263,14 @@ define('linda-vis-fe/utils/export-visualization', ['exports'], function (exports
             var serializer = new XMLSerializer();
             var svg_ = serializer.serializeToString(svg[0]);
 
-            svg.find("defs").remove();
+            svg.find('defs').remove();
 
-            svg.attr("version", "1.1");
-            svg.attr("xmlns", "http://www.w3.org/2000/svg");
-            svg.attr("xmlns:xlink", "http://www.w3.org/1999/xlink");
+            svg.attr('version', '1.1');
+            svg.attr('xmlns', 'http://www.w3.org/2000/svg');
+            svg.attr('xmlns:xlink', 'http://www.w3.org/1999/xlink');
 
             if (cssFilename) {
-                var css = "";
+                var css = '';
 
                 // Take all the styles from your visualization library and make them inline.
                 $().each(document.styleSheets, function (sheetIndex, sheet) {
@@ -5278,14 +5278,14 @@ define('linda-vis-fe/utils/export-visualization', ['exports'], function (exports
                     if (sheet.href !== null && endsWith(sheet.href, cssFilename)) {
                         $().each(sheet.cssRules || sheet.rules, function (ruleIndex, rule) {
 
-                            css += rule.cssText + "\n";
+                            css += rule.cssText + '\n';
                         });
                     }
                 });
 
-                var style = $("<style />", { type: "text/css" });
+                var style = $('<style />', { 'type': 'text/css' });
                 style.prependTo(svg);
-                svg_ = svg_.replace("</style>", "<![CDATA[" + css + "]]></style>");
+                svg_ = svg_.replace('</style>', '<![CDATA[' + css + ']]></style>');
             }
 
             return svg_;
@@ -5319,7 +5319,7 @@ define('linda-vis-fe/utils/line-chart', ['exports', 'linda-vis-fe/utils/util', '
 
             var xAxis = configuration["Horizontal Axis"];
             var yAxis = configuration["Vertical Axis"];
-            var group = configuration.Series;
+            var group = configuration["Series"];
 
             if (!(configuration.dataModule && configuration.datasourceLocation && xAxis && yAxis && group)) {
                 return $.Deferred().resolve().promise();
@@ -5436,10 +5436,10 @@ define('linda-vis-fe/utils/map', ['exports', 'linda-vis-fe/utils/util'], functio
             }
 
             $("#" + visualisationContainer).empty();
-            var label = configuration.Label;
-            var lat = configuration.Latitude;
-            var long = configuration.Longitude;
-            var indicator = configuration.Indicator;
+            var label = configuration["Label"];
+            var lat = configuration["Latitude"];
+            var long = configuration["Longitude"];
+            var indicator = configuration["Indicator"];
             if (!(configuration.dataModule && configuration.datasourceLocation && label && lat && long && indicator)) {
                 return $.Deferred().resolve().promise();
             }
@@ -5693,8 +5693,8 @@ define('linda-vis-fe/utils/pie-chart', ['exports', 'linda-vis-fe/utils/util', 'l
             var container = $("#" + visualisationContainerID);
             container.empty();
 
-            var measure = configuration.Measure;
-            var slice = configuration.Slices;
+            var measure = configuration["Measure"];
+            var slice = configuration["Slices"];
 
             if (!(configuration.dataModule && configuration.datasourceLocation && measure && slice)) {
                 return $.Deferred().resolve().promise();
@@ -5731,7 +5731,7 @@ define('linda-vis-fe/utils/pie-chart', ['exports', 'linda-vis-fe/utils/util', 'l
                 chart.addLegend("10%", "5%", "80%", 20, "right");
 
                 //tooltip
-                if (configuration.Tooltip === false) {
+                if (configuration["Tooltip"] === false) {
                     chart.addSeries(series, dimple.plot.pie).addEventHandler("mouseover", function () {});
                 }
 
@@ -5778,7 +5778,7 @@ define('linda-vis-fe/utils/scatter-chart', ['exports', 'linda-vis-fe/utils/util'
 
             var xAxis = configuration["Horizontal Axis"];
             var yAxis = configuration["Vertical Axis"];
-            var group = configuration.Groups;
+            var group = configuration["Groups"];
 
             if (!(configuration.dataModule && configuration.datasourceLocation && xAxis && yAxis)) {
                 return $.Deferred().resolve().promise();
@@ -5816,7 +5816,7 @@ define('linda-vis-fe/utils/scatter-chart', ['exports', 'linda-vis-fe/utils/util'
                 seriesHeaders = inputData[0];
                 data = util['default'].createRows(inputData);
                 for (var i = 0; i < data.length; i++) {
-                    data[i].id = "id" + i;
+                    data[i]["id"] = "id" + i;
                 }
 
                 console.log("GENERATE INPUT DATA FORMAT FOR COLUMN CHART - OUTPUT DATA");
@@ -6370,10 +6370,10 @@ define('linda-vis-fe/utils/template-mapping', ['exports'], function (exports) {
                 var structureOptions = editObject.get("structureOptions");
 
                 //invoking an appropriate template for a dimension parameter
-                resultMapping.layoutOptions = mapping(layoutOptions);
+                resultMapping["layoutOptions"] = mapping(layoutOptions);
 
                 //invoking an appropriate template for a tuning parameter
-                resultMapping.structureOptions = mapping(structureOptions);
+                resultMapping["structureOptions"] = mapping(structureOptions);
             }
 
             return resultMapping;
@@ -6384,13 +6384,13 @@ define('linda-vis-fe/utils/template-mapping', ['exports'], function (exports) {
 
             //Assuming there is a baseofmappings {option: template}
             var mapDB = {
-                dimension: "dimension-area",
-                color: "tuning-bgc",
-                string: "textField",
-                boolean: "tuning-check",
-                number: "tuning-numinput",
-                nonNegativeInteger: "tuning-numinput",
-                integer: "tuning-numinput"
+                "dimension": "dimension-area",
+                "color": "tuning-bgc",
+                "string": "textField",
+                "boolean": "tuning-check",
+                "number": "tuning-numinput",
+                "nonNegativeInteger": "tuning-numinput",
+                "integer": "tuning-numinput"
             };
 
             if (options !== null) {
@@ -6462,11 +6462,11 @@ define('linda-vis-fe/utils/tree-selection-data-module', ['exports', 'linda-vis-f
                     }
                 });
 
-                branch[0].expanded = true;
-                branch[0].selected = true;
-                branch[0].lazy = false;
-                branch[0].children = [];
-                branch[0].parent = [{ id: _selectedClassKey, label: _selectedClassTitle }];
+                branch[0]["expanded"] = true;
+                branch[0]["selected"] = true;
+                branch[0]["lazy"] = false;
+                branch[0]["children"] = [];
+                branch[0]["parent"] = [{ id: _selectedClassKey, label: _selectedClassTitle }];
 
                 return restoreTreeContent(previousSelection, branch[0]).then(function () {
                     return treecontent;
@@ -6482,24 +6482,24 @@ define('linda-vis-fe/utils/tree-selection-data-module', ['exports', 'linda-vis-f
 
                 for (var j = 0; j < children.length; j++) {
                     var child = children[j];
-                    child.parent = branch.parent.concat([{ id: child.key, label: child.title }]);
+                    child["parent"] = branch.parent.concat([{ id: child.key, label: child.title }]);
 
                     for (var i = 0; i < previousSelection.length; i++) {
                         var selection = previousSelection[i];
                         var prefix = selection.parent.slice(0, child.parent.length);
 
                         if (_.isEqual(child.parent, prefix) && selection.parent.length > child.parent.length) {
-                            child.expanded = true;
-                            child.selected = true;
-                            child.lazy = false;
-                            child.children = [];
+                            child["expanded"] = true;
+                            child["selected"] = true;
+                            child["lazy"] = false;
+                            child["children"] = [];
                             promises.push(restoreTreeContent(previousSelection, child));
                             break;
                         } else if (_.isEqual(child.parent, prefix)) {
-                            child.selected = true;
-                            child.lazy = true;
+                            child["selected"] = true;
+                            child["lazy"] = true;
                             if (!child.grandchildren) {
-                                child.lazy = false;
+                                child["lazy"] = false;
                             }
                         }
                     }
@@ -6564,7 +6564,7 @@ define('linda-vis-fe/utils/tree-selection-data-module', ['exports', 'linda-vis-f
 
             for (var i = 0; i < selection.length; i++) {
                 var record = selection[i];
-                dataSelection.propertyInfos.push({
+                dataSelection["propertyInfos"].push({
                     key: record.key,
                     label: record.label,
                     parent: record.parent,
@@ -6887,13 +6887,13 @@ define('linda-vis-fe/views/slide-show', ['exports', 'ember'], function (exports,
 
     exports['default'] = Ember['default'].View.extend({
         slides: null,
-        templateName: "slideShow",
-        classNames: ["slider"],
+        templateName: 'slideShow',
+        classNames: ['slider'],
         didInsertElement: function didInsertElement() {
             this._super();
 
-            console.log("Inserted slideshow: ");
-            console.dir(this.get("slides"));
+            console.log('Inserted slideshow: ');
+            console.dir(this.get('slides'));
 
             this.$().slick({
                 infinite: true,
@@ -6903,7 +6903,7 @@ define('linda-vis-fe/views/slide-show', ['exports', 'ember'], function (exports,
         },
         refreshView: (function () {
             this.rerender();
-        }).observes("slides.[]")
+        }).observes('slides.[]')
     });
 
 });
@@ -6996,7 +6996,7 @@ catch(err) {
 if (runningTests) {
   require("linda-vis-fe/tests/test-helper");
 } else {
-  require("linda-vis-fe/app")["default"].create({"name":"linda-vis-fe","version":"0.0.0.cbde23d7"});
+  require("linda-vis-fe/app")["default"].create({"name":"linda-vis-fe","version":"0.0.0.b0537671"});
 }
 
 /* jshint ignore:end */

@@ -34,15 +34,16 @@ export default Ember.ArrayController.extend({
             }
             categorizedProperties[category].items.push(propertyInfo);
         }
-        
+
         console.log('CATEGORIZED PROPERTIES');
 	console.dir(_.values(categorizedProperties));
-           
+
         return _.values(categorizedProperties);
     }.property('selectedVisualization'),
     initializeVisualization: function() {
         console.log("VISUALIZATION CONTROLLER - INITIALIZE VISUALIZATION ... ");
         this.set('drawnVisualization', null);
+        this.set('isToggled',true);
 
         var selectedVisualization = this.get('selectedVisualization');
         console.log('SELECTED VISUALIZATION');
@@ -145,11 +146,16 @@ export default Ember.ArrayController.extend({
         },
         toggle: function() {
             var toggled = this.get('isToggled');
-            if (toggled) {
-                this.set('isToggled', false);
-            } else {
-                this.set('isToggled', true);
-            }
+            var controller = this;
+            Ember.run(function(){
+                if (toggled) {
+                    controller.set('isToggled', false);
+                } else {
+                    controller.set('isToggled', true);
+
+                }
+            });
+
         }
     }
 });

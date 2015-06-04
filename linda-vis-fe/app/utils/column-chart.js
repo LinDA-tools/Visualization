@@ -65,10 +65,10 @@ var columnchart = function () {
                 measureAxis = "y";
             }
 
-            var dim1 = chart.addCategoryAxis(categoryAxis, seriesHeaders.slice(1, 1 + xAxis.length + group.length));  // x axis: more categories        
-            var dim2 = chart.addMeasureAxis(measureAxis, seriesHeaders[0]);  // y axis: one measure (scale)                       
+            var dim1 = chart.addCategoryAxis(categoryAxis, seriesHeaders.slice(1, 1 + xAxis.length + group.length));  // x axis: more categories
+            var dim2 = chart.addMeasureAxis(measureAxis, seriesHeaders[0]);  // y axis: one measure (scale)
 
-            if (group.length > 0) { // simple column groups 
+            if (group.length > 0) { // simple column groups
                 chart.addSeries(seriesHeaders[seriesHeaders.length - 1], dimple.plot.bar);
             } else {
                 chart.addSeries(null, dimple.plot.bar);
@@ -83,7 +83,7 @@ var columnchart = function () {
             }
             dim1.title = selection.hLabel;
             dim2.title = selection.vLabel;
-            
+
             dim1.ticks = selection.gridlines;
             dim2.ticks = selection.gridlines;
 
@@ -108,6 +108,7 @@ var columnchart = function () {
     function get_SVG() {
         return exportVis.get_SVG();
     }
+
 
     return {
         export_as_PNG: export_as_PNG,

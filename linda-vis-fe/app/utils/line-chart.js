@@ -10,7 +10,7 @@ var linechart = function() {
 
         var container = $('#' + visualisationContainerID);
         container.empty();
-        
+
         var xAxis = configuration['Horizontal Axis'];
         var yAxis = configuration['Vertical Axis'];
         var group = configuration['Series'];
@@ -54,7 +54,7 @@ var linechart = function() {
             var chart = new dimple.chart(svg, data);
 
             var x = chart.addCategoryAxis("x", columnsHeaders[1]); // x axis: ordinal values
-            var y = chart.addMeasureAxis("y", columnsHeaders[0]); // y axis: one measure (scale)  
+            var y = chart.addMeasureAxis("y", columnsHeaders[0]); // y axis: one measure (scale)
 
             var series = null;
 
@@ -64,13 +64,13 @@ var linechart = function() {
 
             chart.addSeries(series, dimple.plot.line);
             chart.addLegend("10%", "5%", "80%", 20, "right");
-            
+
             //gridlines tuning
             //x.showGridlines = selection.gridlines;
             //y.showGridlines = selection.gridlines;
             //titles
             if (selection.hLabel ==="" || selection.hLabel === "Label"){
-                selection.hLabel = columnsHeaders[1]; 
+                selection.hLabel = columnsHeaders[1];
             }
             if (selection.vLabel ==="" || selection.vLabel === "Label"){
                 selection.vLabel = columnsHeaders[0];
@@ -84,10 +84,14 @@ var linechart = function() {
             if (selection.tooltip === false){
                 chart.addSeries(series, dimple.plot.line).addEventHandler("mouseover",function(){});
             }
-            
+
             chart.draw();
+
+
         });
     }
+
+
 
     function export_as_PNG() {
         return exportVis.export_PNG();

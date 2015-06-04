@@ -83,6 +83,16 @@ export default Ember.View.extend({
     }.observes('configurationArray.@each').on('didInsertElement'),
     redraw: function () {
         //this.rerender();
-    }.observes('visualization')
+    }.observes('visualization'),
+    resize: function(){
+        //get the controller
+        var self = this;
+
+        //run asynchronous code to ensure that DOM has been changed before rerendering
+        //time window = 500 ms
+        Ember.run.later(function(){
+            self.rerender();
+        },500);
+    }.observes('isToggled')
 });
 

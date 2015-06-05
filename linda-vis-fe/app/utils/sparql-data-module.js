@@ -379,7 +379,7 @@ var sparql_data_module = function () {
                     // No idea what this is, maybe JavaScript knows...
                     yearDateString = value;
                 }
-                return new Date(yearDateString);
+                return new Date(yearDateString).getFullYear();
             case "http://www.w3.org/2001/XMLSchema#gYearMonth":
                 var twoNumbersWithHyphenRegex = /\d+-\d+/;
                 var firstTwoNumbers = twoNumbersWithHyphenRegex.exec(value);
@@ -389,7 +389,9 @@ var sparql_data_module = function () {
                 } else {
                     yearMonthDateString = value;
                 }
-                return new Date(yearMonthDateString);
+                //prevent long strings
+                yearMonthDateString = Date(yearMonthDateString);
+                return yearMonthDateString.getFullYear()+"-"+(yearMonthDateString.getMonth()+1);
             case "http://www.w3.org/2001/XMLSchema#dateTime":
             case "http://www.w3.org/2001/XMLSchema#date":
                 return new Date(value);

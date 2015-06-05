@@ -80,6 +80,8 @@ var linechart = function() {
             //ticks
             x.ticks = selection.gridlines;
             y.ticks = selection.gridlines;
+
+
             //tooltip
             if (selection.tooltip === false){
                 chart.addSeries(series, dimple.plot.line).addEventHandler("mouseover",function(){});
@@ -87,9 +89,13 @@ var linechart = function() {
 
             chart.draw();
 
-
+            //prevent overlapping if there are more than 25 ticks
+            if (x.shapes.selectAll("text")[0].length > 25) {
+                util.cleanAxis(x, 5);
+            }
         });
     }
+
 
 
 

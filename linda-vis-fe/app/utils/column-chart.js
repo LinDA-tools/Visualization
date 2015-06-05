@@ -94,6 +94,11 @@ var columnchart = function () {
             }
 
             chart.draw();
+
+            //prevent overlapping if there are more than 25 ticks
+            if (dim1.shapes.selectAll("text")[0].length > 25) {
+                util.cleanAxis(dim1, 5);
+            }
         });
     }
 

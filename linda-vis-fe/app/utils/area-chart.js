@@ -87,6 +87,11 @@ var areachart = function () {
             }
 
             chart.draw();
+
+            //prevent overlapping if there are more than 25 ticks
+            if (x.shapes.selectAll("text")[0].length > 25) {
+                util.cleanAxis(x, 5);
+            }
         });
     }
 

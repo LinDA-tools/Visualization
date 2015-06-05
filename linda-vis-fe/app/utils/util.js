@@ -76,11 +76,34 @@ function predictValueSOM(value) {
     return "Nominal";
 }
 
+    var cleanAxis = function(axis, interval){
+        if (axis.shapes.length>0){
+            //first tick
+            var del = 0;
+            if (interval> 1 ){
+                axis.shapes.selectAll("text").each(function (d){
+                    //remove all but nth label
+                    if (del % interval !==0){
+                        this.remove();
+                        //delete a corresponding tick
+                        axis.shapes.selectAll("line").each(function (d2){
+                            if (d === d2){
+                                this.remove();
+                            }
+                        });
+                    }
+                    del +=1;
+                });
+            }
+        }
+    };
+
  return {
         predictValueSOM: predictValueSOM,
         toScalar: toScalar,
         transpose: transpose,
-        createRows: createRows
+        createRows: createRows,
+        cleanAxis: cleanAxis
     };
 
 }();
